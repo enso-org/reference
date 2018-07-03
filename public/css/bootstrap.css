@@ -5469,7 +5469,7 @@ a.list-group-item.active>.badge,
 }
 
 .pageMid {
-    padding: 30px;
+    padding: 0;
     margin-bottom: 30px;
     color: inherit;
     background-color: #1C1A17
@@ -5504,8 +5504,8 @@ a.list-group-item.active>.badge,
         padding-bottom: 48px
     }
     .container .pageMid {
-        padding-left: 0px;
-        padding-right: 0px
+        padding-left: 60px;
+        padding-right: 60px
     }
     .pageMid h1,
     .pageMid .h1 {

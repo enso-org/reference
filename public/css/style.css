@@ -2,7 +2,7 @@ body {
     padding-top: 50px;
 }
 
-.container .pageHead .searchBox {
+.container .pageHead {
     border-radius: 40px;
 }
 
@@ -11,8 +11,9 @@ body {
     padding: 6px 10px;
     margin-top: 8px;
     margin-right: 16px;
-    background: #211F1A;
+    background: rgb(44, 41, 35);
     font-size: 17px;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
 }

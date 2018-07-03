@@ -12,6 +12,7 @@ body {
 }
 
 .topnav a {
+    margin: 2px;
     float: center;
     display: block;
     color: black;
@@ -22,7 +23,7 @@ body {
 }
 
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: #211F1A;
     color: black;
 }
 
@@ -46,14 +47,14 @@ body {
     padding: 6px 10px;
     margin-top: 8px;
     margin-right: 16px;
-    background: #ddd;
+    background: #211F1A;
     font-size: 17px;
     border: none;
     cursor: pointer;
 }
 
 .topnav .search-container button:hover {
-    background: #ccc;
+    background: rgb(24, 28, 22);
 }
 
 @media screen and (max-width: 600px) {

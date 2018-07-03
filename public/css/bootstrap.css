@@ -1143,7 +1143,7 @@ body {
     font-size: 15px;
     line-height: 1.42857143;
     color: #ebebeb;
-    background-color: #2b3e50
+    background-color: #211F1A
 }
 
 input,
@@ -1198,7 +1198,7 @@ img {
 .img-thumbnail {
     padding: 4px;
     line-height: 1.42857143;
-    background-color: #2b3e50;
+    background-color: #211F1A;
     border: 1px solid #dddddd;
     border-radius: 0;
     -webkit-transition: all .2s ease-in-out;
@@ -2587,7 +2587,7 @@ th {
 }
 
 .table .table {
-    background-color: #2b3e50
+    background-color: #211F1A
 }
 
 .table-condensed>thead>tr>th,
@@ -2869,7 +2869,7 @@ output {
     padding-top: 9px;
     font-size: 15px;
     line-height: 1.42857143;
-    color: #2b3e50
+    color: #211F1A
 }
 
 .form-control {
@@ -2879,7 +2879,7 @@ output {
     padding: 8px 16px;
     font-size: 15px;
     line-height: 1.42857143;
-    color: #2b3e50;
+    color: #211F1A;
     background-color: #ffffff;
     background-image: none;
     border: 1px solid transparent;
@@ -3792,7 +3792,7 @@ tbody.collapse.in {
     height: 1px;
     margin: 9.5px 0;
     overflow: hidden;
-    background-color: #2b3e50
+    background-color: #211F1A
 }
 
 .dropdown-menu>li>a {
@@ -3824,7 +3824,7 @@ tbody.collapse.in {
 .dropdown-menu>.disabled>a,
 .dropdown-menu>.disabled>a:hover,
 .dropdown-menu>.disabled>a:focus {
-    color: #2b3e50
+    color: #211F1A
 }
 
 .dropdown-menu>.disabled>a:hover,
@@ -3859,7 +3859,7 @@ tbody.collapse.in {
     padding: 3px 20px;
     font-size: 13px;
     line-height: 1.42857143;
-    color: #2b3e50;
+    color: #211F1A;
     white-space: nowrap
 }
 
@@ -4207,7 +4207,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
     font-size: 15px;
     font-weight: normal;
     line-height: 1;
-    color: #2b3e50;
+    color: #211F1A;
     text-align: center;
     background-color: #4e5d6c;
     border: 1px solid transparent;
@@ -4368,7 +4368,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .nav-tabs>li.active>a:hover,
 .nav-tabs>li.active>a:focus {
     color: #ebebeb;
-    background-color: #2b3e50;
+    background-color: #211F1A;
     border: 1px solid #4e5d6c;
     border-bottom-color: transparent;
     cursor: default
@@ -5473,7 +5473,7 @@ a.list-group-item.active>.badge,
     padding: 4px;
     margin-bottom: 21px;
     line-height: 1.42857143;
-    background-color: #2b3e50;
+    background-color: #211F1A;
     border: 1px solid #dddddd;
     border-radius: 0;
     -webkit-transition: all .2s ease-in-out;
@@ -6483,7 +6483,7 @@ button.close {
 
 .modal-header {
     padding: 15px;
-    border-bottom: 1px solid #2b3e50;
+    border-bottom: 1px solid #211F1A;
     min-height: 16.42857143px
 }
 
@@ -6504,7 +6504,7 @@ button.close {
 .modal-footer {
     padding: 20px;
     text-align: right;
-    border-top: 1px solid #2b3e50
+    border-top: 1px solid #211F1A
 }
 
 .modal-footer .btn+.btn {
@@ -7467,7 +7467,7 @@ table>tfoot>tr>td,
 
 input,
 textarea {
-    color: #2b3e50
+    color: #211F1A
 }
 
 label,

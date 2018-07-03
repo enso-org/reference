@@ -1731,19 +1731,19 @@ pre code {
 
 @media (min-width:768px) {
     .container {
-        width: 750px
+        width: 90%
     }
 }
 
 @media (min-width:992px) {
     .container {
-        width: 970px
+        width: 90%
     }
 }
 
 @media (min-width:1200px) {
     .container {
-        width: 1170px
+        width: 90%
     }
 }
 
@@ -5423,47 +5423,47 @@ a.list-group-item.active>.badge,
     margin-left: 3px
 }
 
-.jumbotron {
+.pageHead {
     padding: 30px;
     margin-bottom: 30px;
     color: inherit;
     background-color: #4e5d6c
 }
 
-.jumbotron h1,
-.jumbotron .h1 {
+.pageHead h1,
+.pageHead .h1 {
     color: inherit
 }
 
-.jumbotron p {
+.pageHead p {
     margin-bottom: 15px;
     font-size: 23px;
     font-weight: 200
 }
 
-.jumbotron>hr {
+.pageHead>hr {
     border-top-color: #39444e
 }
 
-.container .jumbotron {
+.container .pageHead {
     border-radius: 0
 }
 
-.jumbotron .container {
+.pageHead .container {
     max-width: 100%
 }
 
 @media screen and (min-width:768px) {
-    .jumbotron {
+    .pageHead {
         padding-top: 48px;
         padding-bottom: 48px
     }
-    .container .jumbotron {
+    .container .pageHead {
         padding-left: 60px;
         padding-right: 60px
     }
-    .jumbotron h1,
-    .jumbotron .h1 {
+    .pageHead h1,
+    .pageHead .h1 {
         font-size: 67.5px
     }
 }

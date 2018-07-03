@@ -2,7 +2,6 @@ body {
     padding-top: 50px;
 }
 
-.container,
-.pageHead {
-    border-radius: 30px;
+.container .pageHead {
+    border-radius: 40px;
 }

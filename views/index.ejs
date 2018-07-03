@@ -26,9 +26,14 @@
         <table style="width:100%">
             <tr>
                 <td style="width:29%">
-                    <div class="pageHead">
-                        <input type="search" id="site-search" name="q" placeholder="Search the site..." aria-label="Search through site content">
-                        <button id="searchButton">Search</button>
+                    <div class="topnav">
+                        <div class="search-container">
+                            <form action="/action_page.php">
+                                <input type="text" placeholder="Search.." name="search">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <a class="active" href="#index">StdLib</a>
                     </div>
                 </td>
                 <td style="width:2%">

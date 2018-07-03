@@ -1218,7 +1218,7 @@ hr {
     margin-top: 21px;
     margin-bottom: 21px;
     border: 0;
-    border-top: 1px solid #4e5d6c
+    border-top: 1px solid #1C1A17
 }
 
 .sr-only {
@@ -1434,7 +1434,7 @@ mark,
 }
 
 .text-muted {
-    color: #4e5d6c
+    color: #1C1A17
 }
 
 .text-primary {
@@ -1590,7 +1590,7 @@ dd {
 abbr[title],
 abbr[data-original-title] {
     cursor: help;
-    border-bottom: 1px dotted #4e5d6c
+    border-bottom: 1px dotted #1C1A17
 }
 
 .initialism {
@@ -1602,7 +1602,7 @@ blockquote {
     padding: 10.5px 21px;
     margin: 0 0 21px;
     font-size: 18.75px;
-    border-left: 5px solid #4e5d6c
+    border-left: 5px solid #1C1A17
 }
 
 blockquote p:last-child,
@@ -1630,7 +1630,7 @@ blockquote .small:before {
 blockquote.pull-right {
     padding-right: 15px;
     padding-left: 0;
-    border-right: 5px solid #4e5d6c;
+    border-right: 5px solid #1C1A17;
     border-left: 0;
     text-align: right
 }
@@ -2565,12 +2565,12 @@ th {
     padding: 6px;
     line-height: 1.42857143;
     vertical-align: top;
-    border-top: 1px solid #4e5d6c
+    border-top: 1px solid #1C1A17
 }
 
 .table>thead>tr>th {
     vertical-align: bottom;
-    border-bottom: 2px solid #4e5d6c
+    border-bottom: 2px solid #1C1A17
 }
 
 .table>caption+thead>tr:first-child>th,
@@ -2583,7 +2583,7 @@ th {
 }
 
 .table>tbody+tbody {
-    border-top: 2px solid #4e5d6c
+    border-top: 2px solid #1C1A17
 }
 
 .table .table {
@@ -2600,7 +2600,7 @@ th {
 }
 
 .table-bordered {
-    border: 1px solid #4e5d6c
+    border: 1px solid #1C1A17
 }
 
 .table-bordered>thead>tr>th,
@@ -2609,7 +2609,7 @@ th {
 .table-bordered>thead>tr>td,
 .table-bordered>tbody>tr>td,
 .table-bordered>tfoot>tr>td {
-    border: 1px solid #4e5d6c
+    border: 1px solid #1C1A17
 }
 
 .table-bordered>thead>tr>th,
@@ -2619,7 +2619,7 @@ th {
 
 .table-striped>tbody>tr:nth-child(odd)>td,
 .table-striped>tbody>tr:nth-child(odd)>th {
-    background-color: #4e5d6c
+    background-color: #1C1A17
 }
 
 .table-hover>tbody>tr:hover>td,
@@ -2762,7 +2762,7 @@ table th[class*="col-"] {
         overflow-y: hidden;
         overflow-x: auto;
         -ms-overflow-style: -ms-autohiding-scrollbar;
-        border: 1px solid #4e5d6c;
+        border: 1px solid #1C1A17;
         -webkit-overflow-scrolling: touch
     }
     .table-responsive>.table {
@@ -2819,7 +2819,7 @@ legend {
     line-height: inherit;
     color: #ebebeb;
     border: 0;
-    border-bottom: 1px solid #4e5d6c
+    border-bottom: 1px solid #1C1A17
 }
 
 label {
@@ -3356,7 +3356,7 @@ fieldset[disabled] .btn {
 
 .btn-default {
     color: #ffffff;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border-color: transparent
 }
 
@@ -3391,12 +3391,12 @@ fieldset[disabled] .btn-default:active,
 .btn-default.disabled.active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border-color: transparent
 }
 
 .btn-default .badge {
-    color: #4e5d6c;
+    color: #1C1A17;
     background-color: #ffffff
 }
 
@@ -3664,7 +3664,7 @@ fieldset[disabled] .btn-link {
 fieldset[disabled] .btn-link:hover,
 .btn-link[disabled]:focus,
 fieldset[disabled] .btn-link:focus {
-    color: #4e5d6c;
+    color: #1C1A17;
     text-decoration: none
 }
 
@@ -3775,7 +3775,7 @@ tbody.collapse.in {
     list-style: none;
     font-size: 15px;
     text-align: left;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border: 1px solid transparent;
     border-radius: 0;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -4209,7 +4209,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
     line-height: 1;
     color: #211F1A;
     text-align: center;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border: 1px solid transparent;
     border-radius: 0
 }
@@ -4311,16 +4311,16 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .nav>li>a:hover,
 .nav>li>a:focus {
     text-decoration: none;
-    background-color: #4e5d6c
+    background-color: #1C1A17
 }
 
 .nav>li.disabled>a {
-    color: #4e5d6c
+    color: #1C1A17
 }
 
 .nav>li.disabled>a:hover,
 .nav>li.disabled>a:focus {
-    color: #4e5d6c;
+    color: #1C1A17;
     text-decoration: none;
     background-color: transparent;
     cursor: not-allowed
@@ -4329,7 +4329,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .nav .open>a,
 .nav .open>a:hover,
 .nav .open>a:focus {
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border-color: #E8A455
 }
 
@@ -4361,7 +4361,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 }
 
 .nav-tabs>li>a:hover {
-    border-color: #4e5d6c #4e5d6c transparent
+    border-color: #1C1A17 #1C1A17 transparent
 }
 
 .nav-tabs>li.active>a,
@@ -4369,7 +4369,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .nav-tabs>li.active>a:focus {
     color: #ebebeb;
     background-color: #211F1A;
-    border: 1px solid #4e5d6c;
+    border: 1px solid #1C1A17;
     border-bottom-color: transparent;
     cursor: default
 }
@@ -4411,18 +4411,18 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .nav-tabs.nav-justified>.active>a,
 .nav-tabs.nav-justified>.active>a:hover,
 .nav-tabs.nav-justified>.active>a:focus {
-    border: 1px solid #4e5d6c
+    border: 1px solid #1C1A17
 }
 
 @media (min-width:768px) {
     .nav-tabs.nav-justified>li>a {
-        border-bottom: 1px solid #4e5d6c;
+        border-bottom: 1px solid #1C1A17;
         border-radius: 0 0 0 0
     }
     .nav-tabs.nav-justified>.active>a,
     .nav-tabs.nav-justified>.active>a:hover,
     .nav-tabs.nav-justified>.active>a:focus {
-        border-bottom-color: #4e5d6c
+        border-bottom-color: #1C1A17
     }
 }
 
@@ -4494,18 +4494,18 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .nav-tabs-justified>.active>a,
 .nav-tabs-justified>.active>a:hover,
 .nav-tabs-justified>.active>a:focus {
-    border: 1px solid #4e5d6c
+    border: 1px solid #1C1A17
 }
 
 @media (min-width:768px) {
     .nav-tabs-justified>li>a {
-        border-bottom: 1px solid #4e5d6c;
+        border-bottom: 1px solid #1C1A17;
         border-radius: 0 0 0 0
     }
     .nav-tabs-justified>.active>a,
     .nav-tabs-justified>.active>a:hover,
     .nav-tabs-justified>.active>a:focus {
-        border-bottom-color: #4e5d6c
+        border-bottom-color: #1C1A17
     }
 }
 
@@ -4885,7 +4885,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 }
 
 .navbar-default {
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border-color: transparent
 }
 
@@ -5124,7 +5124,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
     padding: 8px 15px;
     margin-bottom: 21px;
     list-style: none;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border-radius: 0
 }
 
@@ -5161,7 +5161,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
     line-height: 1.42857143;
     text-decoration: none;
     color: #ebebeb;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border: 1px solid transparent;
     margin-left: -1px
 }
@@ -5208,7 +5208,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination>.disabled>a:hover,
 .pagination>.disabled>a:focus {
     color: #323c46;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border-color: transparent;
     cursor: not-allowed
 }
@@ -5264,7 +5264,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager li>span {
     display: inline-block;
     padding: 5px 14px;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border: 1px solid transparent;
     border-radius: 15px
 }
@@ -5290,7 +5290,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager .disabled>a:focus,
 .pager .disabled>span {
     color: #323c46;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     cursor: not-allowed
 }
 
@@ -5324,7 +5324,7 @@ a.label:focus {
 }
 
 .label-default {
-    background-color: #4e5d6c
+    background-color: #1C1A17
 }
 
 .label-default[href]:hover,
@@ -5388,7 +5388,7 @@ a.label:focus {
     vertical-align: baseline;
     white-space: nowrap;
     text-align: center;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border-radius: 10px
 }
 
@@ -5427,7 +5427,7 @@ a.list-group-item.active>.badge,
     padding: 30px;
     margin-bottom: 30px;
     color: inherit;
-    background-color: #4e5d6c
+    background-color: #1C1A17
 }
 
 .pageHead h1,
@@ -5614,7 +5614,7 @@ a.thumbnail.active {
     overflow: hidden;
     height: 21px;
     margin-bottom: 21px;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border-radius: 0;
     -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
@@ -5657,7 +5657,7 @@ a.thumbnail.active {
 }
 
 .progress-bar[aria-valuenow="0"] {
-    color: #4e5d6c;
+    color: #1C1A17;
     min-width: 30px;
     background-color: transparent;
     background-image: none;
@@ -5750,7 +5750,7 @@ a.thumbnail.active {
     display: block;
     padding: 10px 15px;
     margin-bottom: -1px;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border: 1px solid transparent
 }
 
@@ -5792,7 +5792,7 @@ a.list-group-item:focus {
 .list-group-item.disabled:hover,
 .list-group-item.disabled:focus {
     background-color: #ebebeb;
-    color: #4e5d6c
+    color: #1C1A17
 }
 
 .list-group-item.disabled .list-group-item-heading,
@@ -5804,7 +5804,7 @@ a.list-group-item:focus {
 .list-group-item.disabled .list-group-item-text,
 .list-group-item.disabled:hover .list-group-item-text,
 .list-group-item.disabled:focus .list-group-item-text {
-    color: #4e5d6c
+    color: #1C1A17
 }
 
 .list-group-item.active,
@@ -5954,7 +5954,7 @@ a.list-group-item-danger.active:focus {
 
 .panel {
     margin-bottom: 21px;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border: 1px solid transparent;
     border-radius: 0;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -6088,7 +6088,7 @@ a.list-group-item-danger.active:focus {
 
 .panel>.panel-body+.table,
 .panel>.panel-body+.table-responsive {
-    border-top: 1px solid #4e5d6c
+    border-top: 1px solid #1C1A17
 }
 
 .panel>.table>tbody:first-child>tr:first-child th,
@@ -6358,7 +6358,7 @@ a.list-group-item-danger.active:focus {
     min-height: 20px;
     padding: 19px;
     margin-bottom: 20px;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border: 1px solid transparent;
     border-radius: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -6452,7 +6452,7 @@ button.close {
 
 .modal-content {
     position: relative;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border: 1px solid transparent;
     border-radius: 0;
     -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
@@ -6671,7 +6671,7 @@ button.close {
     max-width: 276px;
     padding: 1px;
     text-align: left;
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     background-clip: padding-box;
     border: 1px solid transparent;
     border-radius: 0;
@@ -6743,7 +6743,7 @@ button.close {
     bottom: 1px;
     margin-left: -10px;
     border-bottom-width: 0;
-    border-top-color: #4e5d6c
+    border-top-color: #1C1A17
 }
 
 .popover.right>.arrow {
@@ -6759,7 +6759,7 @@ button.close {
     left: 1px;
     bottom: -10px;
     border-left-width: 0;
-    border-right-color: #4e5d6c
+    border-right-color: #1C1A17
 }
 
 .popover.bottom>.arrow {
@@ -6775,7 +6775,7 @@ button.close {
     top: 1px;
     margin-left: -10px;
     border-top-width: 0;
-    border-bottom-color: #4e5d6c
+    border-bottom-color: #1C1A17
 }
 
 .popover.left>.arrow {
@@ -6790,7 +6790,7 @@ button.close {
     content: " ";
     right: 1px;
     border-right-width: 0;
-    border-left-color: #4e5d6c;
+    border-left-color: #1C1A17;
     bottom: -10px
 }
 
@@ -7359,7 +7359,7 @@ button.close {
 
 .navbar-default .badge {
     background-color: #fff;
-    color: #4e5d6c
+    color: #1C1A17
 }
 
 .navbar-inverse .badge {
@@ -7410,7 +7410,7 @@ body {
 }
 
 .page-header {
-    border-bottom-color: #4e5d6c
+    border-bottom-color: #1C1A17
 }
 
 .dropdown-menu {
@@ -7447,7 +7447,7 @@ table a:not(.btn),
 
 table .text-muted,
 .table .text-muted {
-    color: #4e5d6c
+    color: #1C1A17
 }
 
 table>thead>tr>th,
@@ -7580,7 +7580,7 @@ label,
 }
 
 .thumbnail {
-    background-color: #4e5d6c;
+    background-color: #1C1A17;
     border: none
 }
 

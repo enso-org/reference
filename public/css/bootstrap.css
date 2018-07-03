@@ -5466,6 +5466,19 @@ a.list-group-item.active>.badge,
     .pageHead .h1 {
         font-size: 67.5px
     }
+    
+    .pageMid {
+        padding-top: 48px;
+        padding-bottom: 48px
+    }
+    .container .pageMid {
+        padding-left: 60px;
+        padding-right: 60px
+    }
+    .pageMid h1,
+    .pageMid .h1 {
+        font-size: 67.5px
+    }
 }
 
 .pageMid {
@@ -5497,22 +5510,6 @@ a.list-group-item.active>.badge,
 .pageMid .container {
     max-width: 100%
 }
-
-@media screen and (min-width:768px) {
-    .pageMid {
-        padding-top: 48px;
-        padding-bottom: 48px
-    }
-    .container .pageMid {
-        padding-left: 60px;
-        padding-right: 60px
-    }
-    .pageMid h1,
-    .pageMid .h1 {
-        font-size: 67.5px
-    }
-}
-
 
 .thumbnail {
     display: block;

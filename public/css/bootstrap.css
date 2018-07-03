@@ -5466,49 +5466,6 @@ a.list-group-item.active>.badge,
     .pageHead .h1 {
         font-size: 67.5px
     }
-    
-    .pageMid {
-        padding-top: 48px;
-        padding-bottom: 48px
-    }
-    .container .pageMid {
-        padding-left: 60px;
-        padding-right: 60px
-    }
-    .pageMid h1,
-    .pageMid .h1 {
-        font-size: 67.5px
-    }
-}
-
-.pageMid {
-    padding: 0;
-    margin-bottom: 30px;
-    color: inherit;
-    background-color: #1C1A17
-}
-
-.pageMid h1,
-.pageMid .h1 {
-    color: inherit
-}
-
-.pageMid p {
-    margin-bottom: 15px;
-    font-size: 23px;
-    font-weight: 200
-}
-
-.pageMid>hr {
-    border-top-color: #39444e
-}
-
-.container .pageMid {
-    border-radius: 0
-}
-
-.pageMid .container {
-    max-width: 100%
 }
 
 .thumbnail {

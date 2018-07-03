@@ -5,3 +5,7 @@ body {
 .container .pageHead {
     border-radius: 40px;
 }
+
+.searchButton {
+    border-radius: =10px;
+}

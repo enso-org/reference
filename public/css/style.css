@@ -12,7 +12,7 @@ body {
 }
 
 .topnav a {
-    float: left;
+    float: down;
     display: block;
     color: black;
     text-align: center;

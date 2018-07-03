@@ -12,7 +12,7 @@ body {
 }
 
 .topnav a {
-    float: down;
+    float: center;
     display: block;
     color: black;
     text-align: center;
@@ -27,12 +27,11 @@ body {
 }
 
 .topnav a.active {
-    background-color: #2196F3;
     color: white;
 }
 
 .topnav .search-container {
-    float: right;
+    float: center;
 }
 
 .topnav input[type=text] {
@@ -61,7 +60,6 @@ body {
     .topnav .search-container {
         float: none;
     }
-    .topnav a,
     .topnav input[type=text],
     .topnav .search-container button {
         float: none;

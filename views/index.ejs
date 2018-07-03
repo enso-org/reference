@@ -7,83 +7,80 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript">
-    </script>
-    <script src="https://raw.githubusercontent.com/jashkenas/coffeescript/master/lib/coffee-script/coffee-script.js" type="text/javascript">
-    </script>
-    <link rel="text/coffeescript" href="coffee/search.coffee" </head>
+    <script src="coffee/search.coffee" type="text/coffeescript"></script>
+</head>
 
-    <body>
-        <div class="container">
-            <div class="pageHead">
-                <table style="width:100%">
-                    <tr>
-                        <td style="width:100%">
-                            <h3>Luna::Docs</h3>
-                        </td>
-                        <td>
-                            <a href="http://luna-lang.org" class="btn btn-primary btn-lg">Check out Luna Language</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+<body>
+    <div class="container">
+        <div class="pageHead">
             <table style="width:100%">
                 <tr>
-                    <td style="width:29%; vertical-align: top">
-                        <div class="pageHead">
-                            <div>
-                                <div class="search-container">
-                                    <table style="width:100%">
-                                        <tr>
-                                            <td style="width:100%">
-                                                <input type="search" placeholder="Search.." id="search_text" style="width:90%">
-                                            </td>
-                                            <td>
-                                                <button id="search"><i class="fa fa-search"></i></button>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <h5><a class="btn btn-default" href="#1">StdLib</a></h5>
-                                <h5><a class="btn btn-default" href="#2">StdLib</a></h5>
-                                <h5><a class="btn btn-default" href="#3">StdLib</a></h5>
-                            </div>
-                        </div>
+                    <td style="width:100%">
+                        <h3>Luna::Docs</h3>
                     </td>
-                    <td style="width:2%">
-                    </td>
-                    <td style="width:69%">
-                        <div id="1" class="pageHead">
-                            <h3>Luna::Docs</h3>
-                            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices vitae auctor eu augue. Cursus mattis molestie a iaculis at. Vestibulum mattis ullamcorper
-                                velit sed ullamcorper morbi tincidunt ornare massa. Et malesuada fames ac turpis egestas sed. Arcu risus quis varius quam quisque id diam vel quam. At ultrices mi tempus imperdiet nulla malesuada. Elementum integer enim
-                                neque volutpat. Id neque aliquam vestibulum morbi. Felis imperdiet proin fermentum leo vel orci porta non. Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Nec dui nunc mattis enim. Imperdiet
-                                sed euismod nisi porta lorem mollis aliquam. Natoque penatibus et magnis dis parturient. Ultrices sagittis orci a scelerisque purus semper eget. Elit scelerisque mauris pellentesque pulvinar. Amet massa vitae tortor condimentum
-                                lacinia quis vel eros donec. Mattis aliquam faucibus purus in massa tempor nec feugiat nisl.
-                            </h5>
-                        </div>
-                        <div id="2" class="pageHead">
-                            <h3>Luna::Docs</h3>
-                            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices vitae auctor eu augue. Cursus mattis molestie a iaculis at. Vestibulum mattis ullamcorper
-                                velit sed ullamcorper morbi tincidunt ornare massa. Et malesuada fames ac turpis egestas sed. Arcu risus quis varius quam quisque id diam vel quam. At ultrices mi tempus imperdiet nulla malesuada. Elementum integer enim
-                                neque volutpat. Id neque aliquam vestibulum morbi. Felis imperdiet proin fermentum leo vel orci porta non. Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Nec dui nunc mattis enim. Imperdiet
-                                sed euismod nisi porta lorem mollis aliquam. Natoque penatibus et magnis dis parturient. Ultrices sagittis orci a scelerisque purus semper eget. Elit scelerisque mauris pellentesque pulvinar. Amet massa vitae tortor condimentum
-                                lacinia quis vel eros donec. Mattis aliquam faucibus purus in massa tempor nec feugiat nisl.
-                            </h5>
-                        </div>
-                        <div id="3" class="pageHead">
-                            <h3>Luna::Docs</h3>
-                            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices vitae auctor eu augue. Cursus mattis molestie a iaculis at. Vestibulum mattis ullamcorper
-                                velit sed ullamcorper morbi tincidunt ornare massa. Et malesuada fames ac turpis egestas sed. Arcu risus quis varius quam quisque id diam vel quam. At ultrices mi tempus imperdiet nulla malesuada. Elementum integer enim
-                                neque volutpat. Id neque aliquam vestibulum morbi. Felis imperdiet proin fermentum leo vel orci porta non. Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Nec dui nunc mattis enim. Imperdiet
-                                sed euismod nisi porta lorem mollis aliquam. Natoque penatibus et magnis dis parturient. Ultrices sagittis orci a scelerisque purus semper eget. Elit scelerisque mauris pellentesque pulvinar. Amet massa vitae tortor condimentum
-                                lacinia quis vel eros donec. Mattis aliquam faucibus purus in massa tempor nec feugiat nisl.
-                            </h5>
-                        </div>
+                    <td>
+                        <a href="http://luna-lang.org" class="btn btn-primary btn-lg">Check out Luna Language</a>
                     </td>
                 </tr>
             </table>
         </div>
-    </body>
+        <table style="width:100%">
+            <tr>
+                <td style="width:29%; vertical-align: top">
+                    <div class="pageHead">
+                        <div>
+                            <div class="search-container">
+                                <table style="width:100%">
+                                    <tr>
+                                        <td style="width:100%">
+                                            <input type="search" placeholder="Search.." id="search_text" style="width:90%">
+                                        </td>
+                                        <td>
+                                            <button id="search"><i class="fa fa-search"></i></button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <h5><a class="btn btn-default" href="#1">StdLib</a></h5>
+                            <h5><a class="btn btn-default" href="#2">StdLib</a></h5>
+                            <h5><a class="btn btn-default" href="#3">StdLib</a></h5>
+                        </div>
+                    </div>
+                </td>
+                <td style="width:2%">
+                </td>
+                <td style="width:69%">
+                    <div id="1" class="pageHead">
+                        <h3>Luna::Docs</h3>
+                        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices vitae auctor eu augue. Cursus mattis molestie a iaculis at. Vestibulum mattis ullamcorper velit
+                            sed ullamcorper morbi tincidunt ornare massa. Et malesuada fames ac turpis egestas sed. Arcu risus quis varius quam quisque id diam vel quam. At ultrices mi tempus imperdiet nulla malesuada. Elementum integer enim neque volutpat.
+                            Id neque aliquam vestibulum morbi. Felis imperdiet proin fermentum leo vel orci porta non. Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Nec dui nunc mattis enim. Imperdiet sed euismod nisi
+                            porta lorem mollis aliquam. Natoque penatibus et magnis dis parturient. Ultrices sagittis orci a scelerisque purus semper eget. Elit scelerisque mauris pellentesque pulvinar. Amet massa vitae tortor condimentum lacinia quis
+                            vel eros donec. Mattis aliquam faucibus purus in massa tempor nec feugiat nisl.
+                        </h5>
+                    </div>
+                    <div id="2" class="pageHead">
+                        <h3>Luna::Docs</h3>
+                        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices vitae auctor eu augue. Cursus mattis molestie a iaculis at. Vestibulum mattis ullamcorper velit
+                            sed ullamcorper morbi tincidunt ornare massa. Et malesuada fames ac turpis egestas sed. Arcu risus quis varius quam quisque id diam vel quam. At ultrices mi tempus imperdiet nulla malesuada. Elementum integer enim neque volutpat.
+                            Id neque aliquam vestibulum morbi. Felis imperdiet proin fermentum leo vel orci porta non. Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Nec dui nunc mattis enim. Imperdiet sed euismod nisi
+                            porta lorem mollis aliquam. Natoque penatibus et magnis dis parturient. Ultrices sagittis orci a scelerisque purus semper eget. Elit scelerisque mauris pellentesque pulvinar. Amet massa vitae tortor condimentum lacinia quis
+                            vel eros donec. Mattis aliquam faucibus purus in massa tempor nec feugiat nisl.
+                        </h5>
+                    </div>
+                    <div id="3" class="pageHead">
+                        <h3>Luna::Docs</h3>
+                        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices vitae auctor eu augue. Cursus mattis molestie a iaculis at. Vestibulum mattis ullamcorper velit
+                            sed ullamcorper morbi tincidunt ornare massa. Et malesuada fames ac turpis egestas sed. Arcu risus quis varius quam quisque id diam vel quam. At ultrices mi tempus imperdiet nulla malesuada. Elementum integer enim neque volutpat.
+                            Id neque aliquam vestibulum morbi. Felis imperdiet proin fermentum leo vel orci porta non. Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Nec dui nunc mattis enim. Imperdiet sed euismod nisi
+                            porta lorem mollis aliquam. Natoque penatibus et magnis dis parturient. Ultrices sagittis orci a scelerisque purus semper eget. Elit scelerisque mauris pellentesque pulvinar. Amet massa vitae tortor condimentum lacinia quis
+                            vel eros donec. Mattis aliquam faucibus purus in massa tempor nec feugiat nisl.
+                        </h5>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
 
 </html>

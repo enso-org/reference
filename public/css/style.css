@@ -21,3 +21,12 @@ body {
 .search-container button:hover {
     background: rgb(24, 28, 22);
 }
+
+#search_para {
+    color: #ebebeb;
+}
+
+.highlight {
+    color: rgb(251, 255, 0);
+    text-decoration: underline;
+}

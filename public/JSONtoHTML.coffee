@@ -1,6 +1,3 @@
-
-`var i`
-`var i`
 myBooks = [{
     'Book ID': '1'
     'Book Name': 'Computer Architecture'
@@ -19,6 +16,7 @@ myBooks = [{
     'Category': 'Science'
     'Price': '210.40'
 }]
+
 # EXTRACT VALUE FOR HTML HEADER. 
 # ('Book ID', 'Book Name', 'Category' and 'Price')
 col = []

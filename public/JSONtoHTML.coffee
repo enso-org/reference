@@ -1,5 +1,5 @@
 xmlhttp = new XMLHttpRequest
-url = 'stdLib_base.json'
+url = 'test.json'
 
 myFunction = (arr) ->
   out = ''

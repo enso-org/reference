@@ -8,7 +8,27 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://coffeescript.org/v2/browser-compiler/coffeescript.js" type="text/javascript"></script>
-    <script src="search.js" type="text/javascript"></script>
+    <script>
+        function doSearch(text) {
+            if (window.find && window.getSelection) {
+                document.designMode = "on";
+                var sel = window.getSelection();
+                sel.collapse(document.body, 0);
+
+                while (window.find(text)) {
+                    document.execCommand("HiliteColor", false, "yellow");
+                    sel.collapseToEnd();
+                }
+                document.designMode = "off";
+            } else if (document.body.createTextRange) {
+                var textRange = document.body.createTextRange();
+                while (textRange.findText(text)) {
+                    textRange.execCommand("BackColor", false, "yellow");
+                    textRange.collapse(false);
+                }
+            }
+        }
+    </script>
     <script src="JSONtoHTML.coffee" type="text/coffeescript"></script>
 </head>
 

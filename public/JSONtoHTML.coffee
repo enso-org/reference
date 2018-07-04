@@ -19,7 +19,7 @@ conversion = (data) ->
       while k < modules[i].classes[j].methods.length
           out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '" style="width:80%"><h4>' + modules[i].classes[j].methods[k].name + '</h4>'
           menu += '<a class="btn btn-default" style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '">' + modules[i].classes[j].methods[k].name + '</a><br>'
-          if modules[i].classes[j].methods[k].documentation != 'null'
+          if modules[i].classes[j].methods[k].documentation != null
             out += '<h5>' + modules[i].classes[j].methods[k].documentation + '</h5>'
           out += '</div></div>'
           k++

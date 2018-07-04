@@ -13,12 +13,12 @@ conversion = (data) ->
     j = 0
     while j < modules[i].classes.length
       out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].classes[j].name + '" style="width:90%"><h4>' + modules[i].classes[j].name + '</h4><h4>' + modules[i].classes[j].documentation + '</h4></div></div>'
-      menu += '<a class="btn btn-default" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + '</a><br>'
+      menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + '</a><br>'
       k = 0
       out += '<div class="container"><div class="pageHead" style="width:85%"><h3>Methods</h3></div></div>'
       while k < modules[i].classes[j].methods.length
           out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '" style="width:80%"><h4>' + modules[i].classes[j].methods[k].name + '</h4>'
-          menu += '<a class="btn btn-default" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '">' + modules[i].classes[j].methods[k].name + '</a><br>'
+          menu += '<a class="btn btn-default" style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '">' + modules[i].classes[j].methods[k].name + '</a><br>'
           if modules[i].classes[j].methods[k].documentation != 'null'
             out += '<h5>' + modules[i].classes[j].methods[k].documentation + '</h5>'
           out += '</div></div>'
@@ -30,7 +30,7 @@ conversion = (data) ->
       j = 0
       while j < modules[i].functions.length
         out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].functions[j].name + '" style="width:90%"><h4>' + modules[i].functions[j].name + '</h5><h4>' + modules[i].functions[j].documentation + '</h5></div></div>'
-        menu += '<a class="btn btn-default" style="margin:20px" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' +  modules[i].functions[j].name + '</a><br>'
+        menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' +  modules[i].functions[j].name + '</a><br>'
         j++
     i++
   document.getElementById('data').innerHTML = out

@@ -32,16 +32,19 @@
                     <div class="pageHead">
                         <div>
                             <div class="search-container">
-                                <table style="width:100%">
-                                    <tr>
-                                        <td style="width:100%">
-                                            <input type="search" placeholder="Search.." id="search_text" style="width:90%">
-                                        </td>
-                                        <td>
-                                            <button id="search"><i class="fa fa-search"></i></button>
-                                        </td>
-                                    </tr>
-                                </table>
+                                <form id="f1" name="f1" action="javascript:void()" onsubmit="if(this.search_text.value!=null && this.search_text.value!='')
+                                    parent.findString(this.search_text.value);return false;">
+                                    <table style="width:100%">
+                                        <tr>
+                                            <td style="width:100%">
+                                                <input type="text" placeholder="Search.." id="search_text" style="width:90%">
+                                            </td>
+                                            <td>
+                                                <button id="search"><i class="fa fa-search"></i></button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </div>
                             <div id="menuPane">
                             </div>

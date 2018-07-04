@@ -1,18 +1,31 @@
-highlight_word = (searchpara) ->
-  text = document.getElementById('search_text').value
-  if text
-    pattern = new RegExp('(' + text + ')', 'gi')
-    new_text = searchpara.replace(pattern, '<span class=\'highlight\'>' + text + '</span>')
-    document.getElementById('data').innerHTML = new_text
-  return
+TRange = null
 
-document.addEventListener 'DOMContentLoaded', (->
-  searchpara = document.getElementById('data').innerHTML
-  searchpara = searchpara.toString()
-
-  document.getElementById('search').onclick = ->
-    highlight_word searchpara
+findString = (str) ->
+  if parseInt(navigator.appVersion) < 4
     return
-
+  strFound = undefined
+  if window.find
+    # CODE FOR BROWSERS THAT SUPPORT window.find
+    strFound = self.find(str)
+    if !strFound
+      strFound = self.find(str, 0, 1)
+      while self.find(str, 0, 1)
+        continue
+  else if navigator.appName.indexOf('Microsoft') != -1
+    # EXPLORER-SPECIFIC CODE
+    if TRange != null
+      TRange.collapse false
+      strFound = TRange.findText(str)
+      if strFound
+        TRange.select()
+    if TRange == null or strFound == 0
+      TRange = self.document.body.createTextRange()
+      strFound = TRange.findText(str)
+      if strFound
+        TRange.select()
+  else if navigator.appName == 'Opera'
+    alert 'Opera browsers not supported, sorry...'
+    return
+  if !strFound
+    alert 'String \'' + str + '\' not found!'
   return
-), false

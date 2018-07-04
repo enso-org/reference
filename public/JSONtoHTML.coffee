@@ -2,6 +2,7 @@ xmlhttp = new XMLHttpRequest
 url = 'stdLib_base.json'
 
 conversion = (data) ->
+  i = 0
   out = '<div class="container"><div class="pageHead">'
   modules = data.modules
   while i < modules.length 

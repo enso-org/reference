@@ -3,11 +3,11 @@ highlight_word = (searchpara) ->
   if text
     pattern = new RegExp('(' + text + ')', 'gi')
     new_text = searchpara.replace(pattern, '<span class=\'highlight\'>' + text + '</span>')
-    document.getElementById('search_para').innerHTML = new_text
+    document.getElementById('data').innerHTML = new_text
   return
 
 document.addEventListener 'DOMContentLoaded', (->
-  searchpara = document.getElementById('search_para').innerHTML
+  searchpara = document.getElementById('data').innerHTML
   searchpara = searchpara.toString()
 
   document.getElementById('search').onclick = ->

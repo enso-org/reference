@@ -3,14 +3,13 @@ url = 'stdLib_base.json'
 
 conversion = (data) ->
   i = 0
-  out = '<div class="container"><div class="pageHead">'
+  out = ''
   modules = data.modules
   while i < modules.length 
-    out += modules[i].classes + '<br>'
+    out += '<div class="container"><div class="pageHead">' + modules[i].classes + '<br></div></div>'
     # '<a href="' + data[i].url + '">' + data[i].display + '</a><br>'
     i++
-  out += '</div></div>'
-  document.getElementById('1').innerHTML = out
+  document.getElementById('data').innerHTML = out
   return
 
 xmlhttp.onreadystatechange = ->

@@ -13,7 +13,7 @@ conversion = (data) ->
     j = 0
     while j < modules[i].classes.length
       out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].classes[j].name + '" style="width:90%"><h4>' + modules[i].classes[j].name + '</h4><h4>' + modules[i].classes[j].documentation + '</h4></div></div>'
-      menu += '<h4><a class="btn btn-default" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + '</a></h4>'
+      menu += '<h4><a class="btn btn-default" style="align:center" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + '</a></h4>'
       k = 0
       out += '<div class="container"><div class="pageHead" style="width:85%"><h3>Methods</h3></div></div>'
       while k < modules[i].classes[j].methods.length

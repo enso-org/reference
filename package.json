@@ -10,6 +10,7 @@
         "coffeescript": "^2.3.1",
         "ejs": "^1.0.0",
         "express": "^4.16.3",
-        "fs": "0.0.1-security"
+        "fs": "0.0.1-security",
+        "required": "^1.0.0"
     }
 }

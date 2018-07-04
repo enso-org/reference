@@ -8,27 +8,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://coffeescript.org/v2/browser-compiler/coffeescript.js" type="text/javascript"></script>
-    <script>
-        function doSearch(text) {
-            if (window.find && window.getSelection) {
-                document.designMode = "on";
-                var sel = window.getSelection();
-                sel.collapse(document.body, 0);
-
-                while (window.find(text)) {
-                    document.execCommand("HiliteColor", false, "yellow");
-                    sel.collapseToEnd();
-                }
-                document.designMode = "off";
-            } else if (document.body.createTextRange) {
-                var textRange = document.body.createTextRange();
-                while (textRange.findText(text)) {
-                    textRange.execCommand("BackColor", false, "yellow");
-                    textRange.collapse(false);
-                }
-            }
-        }
-    </script>
+    <script src="search.js" type="text/javascript"></script>
     <script src="JSONtoHTML.coffee" type="text/coffeescript"></script>
 </head>
 
@@ -52,7 +32,7 @@
                     <div class="pageHead">
                         <div>
                             <div class="search-container">
-                                <form id="f1" name="f1" action="javascript:void()" onsubmit="doSearch(document.getElementById('search_text').value)">
+                                <form id="search" name="searchForm" action="javascript:void()" onsubmit="doSearch(document.getElementById('search_text').value)">
                                     <table style="width:100%">
                                         <tr>
                                             <td style="width:100%">

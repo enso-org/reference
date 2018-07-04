@@ -30,7 +30,7 @@ conversion = (data) ->
       j = 0
       while j < modules[i].functions.length
         out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].functions[j].name + '" style="width:90%"><h4>' + modules[i].functions[j].name + '</h5><h4>' + modules[i].functions[j].documentation + '</h5></div></div>'
-        menu += '<h5><a class="btn btn-default" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' + modules[i].classes[j].methods[k].name + '</a></h5>'
+        menu += '<h5><a class="btn btn-default" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' + modules[i].functions[j].name + '</a></h5>'
         j++
     i++
   document.getElementById('data').innerHTML = out

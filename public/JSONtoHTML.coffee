@@ -34,7 +34,11 @@ conversion = (data) ->
       out += '<div class="container"><div class="pageHead" style="width:95%"><h3>Functions</h3></div></div>'
       j = 0
       while j < modules[i].functions.length
-        out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].functions[j].name + '" style="width:80%"><h4>' + modules[i].functions[j].name + '</h5><h4>' + modules[i].functions[j].documentation + '</h5></div></div>'
+        out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].functions[j].name + '" style="width:80%"><h4>' + modules[i].functions[j].name + '</h4>'
+        if modules[i].functions[j].documentation != null 
+          mdtohtml = markdown.toHTML(modules[i].functions[j].documentation)
+          out += '<h5>' + mdtohtml + '</h5>'
+        out += '</div></div>'
         menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' +  modules[i].functions[j].name + '</a><br>'
         j++
     i++

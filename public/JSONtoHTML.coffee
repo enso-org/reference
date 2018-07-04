@@ -3,7 +3,7 @@ url = 'stdLib_base.json'
 
 conversion = (data) ->
   out = ''
-  menu = ''
+  menu = '<h4>Libraries:</h4>'
   i = 0
   modules = data.modules
   while i < modules.length 

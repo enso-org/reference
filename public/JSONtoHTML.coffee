@@ -1,2 +1,8 @@
-obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}')
-document.getElementById('1').innerHTML = obj.name + ', ' + obj.age
+fs = require 'fs'
+JSONFile = 'stdLib_base.json'
+
+returnJson = ->
+  fs.readFileSync JSONFile, 'utf8'
+
+obj = JSON.parse(returnJson)
+document.getElementById('1').innerHTML = obj

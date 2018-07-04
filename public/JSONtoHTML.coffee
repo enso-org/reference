@@ -14,8 +14,7 @@ conversion = (data) ->
       k = 0
       out += '<div class="container"><div class="pageHead" style="width:85%"><h3>Methods</h3></div></div>'
       while k < modules[i].classes[j].methods.length
-          out += '<div class="container"><div class="pageHead" style="width:80%"><h4>' + modules[i].classes[j].methods[k].name + '</h4></div></div>'
-          out += '<div class="container"><div class="pageHead" style="width:75%"><h5>' + modules[i].classes[j].methods[k].documentation + '</h5></div></div>'
+          out += '<div class="container"><div class="pageHead" style="width:80%"><h4>' + modules[i].classes[j].methods[k].name + '</h4><h5>' + modules[i].classes[j].methods[k].documentation + '</h5></div></div>'
           k++
       out += '</div></div>'
       j++

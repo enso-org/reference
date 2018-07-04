@@ -2624,7 +2624,7 @@ th {
 
 .table-hover>tbody>tr:hover>td,
 .table-hover>tbody>tr:hover>th {
-    background-color: #485563
+    background-color: #E8A455
 }
 
 table col[class*="col-"] {
@@ -2652,7 +2652,7 @@ table th[class*="col-"] {
 .table>thead>tr.active>th,
 .table>tbody>tr.active>th,
 .table>tfoot>tr.active>th {
-    background-color: #485563
+    background-color: #E8A455
 }
 
 .table-hover>tbody>tr>td.active:hover,
@@ -3366,7 +3366,7 @@ fieldset[disabled] .btn {
 .btn-default.active,
 .open>.dropdown-toggle.btn-default {
     color: #ffffff;
-    background-color: #E8A455;
+    background-color: #39444e;
     border-color: rgba(0, 0, 0, 0)
 }
 
@@ -3391,7 +3391,7 @@ fieldset[disabled] .btn-default:active,
 .btn-default.disabled.active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
-    background-color: #E8A455;
+    background-color: #1C1A17;
     border-color: transparent
 }
 
@@ -3809,7 +3809,7 @@ tbody.collapse.in {
 .dropdown-menu>li>a:focus {
     text-decoration: none;
     color: #ebebeb;
-    background-color: #485563
+    background-color: #E8A455
 }
 
 .dropdown-menu>.active>a,
@@ -4910,14 +4910,14 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
     color: #ebebeb;
-    background-color: #485563
+    background-color: #E8A455
 }
 
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
     color: #ebebeb;
-    background-color: #485563
+    background-color: #E8A455
 }
 
 .navbar-default .navbar-nav>.disabled>a,
@@ -4933,7 +4933,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: #485563
+    background-color: #E8A455
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -4948,7 +4948,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .navbar-default .navbar-nav>.open>a,
 .navbar-default .navbar-nav>.open>a:hover,
 .navbar-default .navbar-nav>.open>a:focus {
-    background-color: #485563;
+    background-color: #E8A455;
     color: #ebebeb
 }
 
@@ -4959,13 +4959,13 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
         color: #ebebeb;
-        background-color: #485563
+        background-color: #E8A455
     }
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
         color: #ebebeb;
-        background-color: #485563
+        background-color: #E8A455
     }
     .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a,
     .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:hover,
@@ -5184,7 +5184,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination>li>a:focus,
 .pagination>li>span:focus {
     color: #ebebeb;
-    background-color: #485563;
+    background-color: #E8A455;
     border-color: transparent
 }
 
@@ -5272,7 +5272,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager li>a:hover,
 .pager li>a:focus {
     text-decoration: none;
-    background-color: #485563
+    background-color: #E8A455
 }
 
 .pager .next>a,
@@ -5785,7 +5785,7 @@ a.list-group-item:hover,
 a.list-group-item:focus {
     text-decoration: none;
     color: #ebebeb;
-    background-color: #485563
+    background-color: #E8A455
 }
 
 .list-group-item.disabled,
@@ -5989,7 +5989,7 @@ a.list-group-item-danger.active:focus {
 
 .panel-footer {
     padding: 10px 15px;
-    background-color: #485563;
+    background-color: #E8A455;
     border-top: 1px solid transparent;
     border-bottom-right-radius: -1;
     border-bottom-left-radius: -1
@@ -6702,7 +6702,7 @@ button.close {
     font-size: 15px;
     font-weight: normal;
     line-height: 18px;
-    background-color: #485563;
+    background-color: #E8A455;
     border-bottom: 1px solid #3d4954;
     border-radius: -1 -1 0 0
 }
@@ -7372,7 +7372,7 @@ button.close {
 }
 
 .btn-default:hover {
-    background-color: #485563
+    background-color: #E8A455
 }
 
 .btn-sm,
@@ -7575,7 +7575,7 @@ label,
 }
 
 .panel-default>.panel-heading {
-    background-color: #485563;
+    background-color: #E8A455;
     color: #ebebeb
 }
 
@@ -7590,7 +7590,7 @@ label,
 
 .modal-header,
 .modal-footer {
-    background-color: #485563;
+    background-color: #E8A455;
     border: none;
     border-radius: 0
 }

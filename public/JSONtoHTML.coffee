@@ -9,8 +9,7 @@ conversion = (data) ->
  
   while i < modules.length 
     out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '"><h1>' + modules[i].name + '</h1></div></div>'
-    menu += '<a class="btn btn-default" href="#' + modules[i].name + '">' + modules[i].name + '</a><br><a class="btn btn-default" style="margin-left:60px" href="javascript:showhide(\''+ modules[i].name + 'Menu\')"> (+)</a><br>
-<div id="'+ modules[i].name + '_' + 'Menu" style="display:none;">'
+    menu += '<a class="btn btn-default" href="#' + modules[i].name + '">' + modules[i].name + '</a><br><a class="btn btn-default" style="margin-left:60px" href="javascript:showhide(\''+ modules[i].name + 'Menu\')"> (+)</a><br><div id="'+ modules[i].name + 'Menu" style="display:none;">'
     out += '<div class="container"><div class="pageHead" style="width:95%"><h3>Classes</h3></div></div>'
     j = 0
     

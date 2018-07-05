@@ -34,6 +34,7 @@ conversion = (data) ->
       j++
     if modules[i].functions.length != 0
       out += '<div class="container"><div class="pageHead" style="width:95%"><h3>Functions</h3></div></div>'
+      menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_Functions">' + modules[i].classes[j].name + '</a><br><button class="accordion">(+)</button><div class="panel">'
       j = 0
       while j < modules[i].functions.length
         out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].functions[j].name + '" style="width:80%"><h4><b>' + modules[i].functions[j].name + '</b></h4>'
@@ -43,6 +44,7 @@ conversion = (data) ->
         out += '</div></div>'
         menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' +  modules[i].functions[j].name + '</a><br>'
         j++
+      menu += '</div>'
     i++
   document.getElementById('data').innerHTML = out
   document.getElementById('menuPane').innerHTML = menu

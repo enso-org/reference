@@ -17,7 +17,7 @@ conversion = (data) ->
         mdtohtml = marked(modules[i].classes[j].documentation)
         out += '<h4>' + mdtohtml + '</h4>'
       out += '</div></div>'
-      menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + '</a><br><a class="btn btn-default" style="margin-left:30px" href="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\')">Click to show/hide</a>
+      menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + '</a><a class="btn btn-default" style="margin-left:30px" href="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\')"> - Click to show/hide</a><br>
 <div id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu" style="display:none;">'
       k = 0
       out += '<div class="container"><div class="pageHead" style="width:80%"><h3>Methods</h3></div></div>'
@@ -34,7 +34,7 @@ conversion = (data) ->
       j++
     if modules[i].functions.length != 0
       out += '<div class="container"><div class="pageHead" style="width:95%"><h3>Functions</h3></div></div>'
-      menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_Functions">Functions</a><br><a class="btn btn-default" style="margin-left:30px" href="javascript:showhide(\''+ modules[i].name + '_FunctionsMenu\')">Click to show/hide</a><div id="'+ modules[i].name + '_FunctionsMenu" style="display:none;">'
+      menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_Functions">Functions</a><a class="btn btn-default" style="margin-left:30px" href="javascript:showhide(\''+ modules[i].name + '_FunctionsMenu\')"> - Click to show/hide</a><br><div id="'+ modules[i].name + '_FunctionsMenu" style="display:none;">'
       j = 0
       while j < modules[i].functions.length
         out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].functions[j].name + '" style="width:80%"><h4><b>' + modules[i].functions[j].name + '</b></h4>'

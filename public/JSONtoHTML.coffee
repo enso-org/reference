@@ -14,7 +14,7 @@ conversion = (data) ->
     while j < modules[i].classes.length
       out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].classes[j].name + '" style="width:90%"><h3>' + modules[i].classes[j].name + '</h3>'
       if modules[i].classes[j].documentation != null
-        mdtohtml = markdown.toHTML(modules[i].classes[j].documentation, 'Maruku')
+        mdtohtml = marked(modules[i].classes[j].documentation)
         out += '<h4>' + mdtohtml + '</h4>'
       out += '</div></div>'
       menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + '</a><br>'
@@ -24,7 +24,7 @@ conversion = (data) ->
           out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '" style="width:70%"><h4><b>' + modules[i].classes[j].methods[k].name + '</b></h4>'
           menu += '<a class="btn btn-default" style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '">' + modules[i].classes[j].methods[k].name + '</a><br>'
           if modules[i].classes[j].methods[k].documentation != null
-            mdtohtml = markdown.toHTML(modules[i].classes[j].methods[k].documentation, 'Maruku')
+            mdtohtml = marked(modules[i].classes[j].methods[k].documentation)
             out += '<h5>' + mdtohtml + '</h5>'
           out += '</div></div>'
           k++
@@ -36,7 +36,7 @@ conversion = (data) ->
       while j < modules[i].functions.length
         out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].functions[j].name + '" style="width:80%"><h4><b>' + modules[i].functions[j].name + '</b></h4>'
         if modules[i].functions[j].documentation != null 
-          mdtohtml = markdown.toHTML(modules[i].functions[j].documentation, 'Maruku')
+          mdtohtml = marked(modules[i].functions[j].documentation)
           out += '<h5>' + mdtohtml + '</h5>'
         out += '</div></div>'
         menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' +  modules[i].functions[j].name + '</a><br>'

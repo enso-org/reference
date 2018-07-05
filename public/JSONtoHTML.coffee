@@ -17,7 +17,8 @@ conversion = (data) ->
         mdtohtml = marked(modules[i].classes[j].documentation)
         out += '<h4>' + mdtohtml + '</h4>'
       out += '</div></div>'
-      menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + '</a><br>'
+      menu += '<a class="btn btn-default" style="margin-left:30px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + '</a><br><button class="accordion">(+)</button>
+<div class="panel">'
       k = 0
       out += '<div class="container"><div class="pageHead" style="width:80%"><h3>Methods</h3></div></div>'
       while k < modules[i].classes[j].methods.length
@@ -29,6 +30,7 @@ conversion = (data) ->
           out += '</div></div>'
           k++
       out += '</div></div>'
+      menu += '</div>'
       j++
     if modules[i].functions.length != 0
       out += '<div class="container"><div class="pageHead" style="width:95%"><h3>Functions</h3></div></div>'

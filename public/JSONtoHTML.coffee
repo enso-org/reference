@@ -21,7 +21,7 @@ conversion = (data) ->
       k = 0
       out += '<div class="container"><div class="pageHead" style="width:80%"><h3>Methods</h3></div></div>'
       while k < modules[i].classes[j].methods.length
-          out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '" style="width:70%"><h4>' + modules[i].classes[j].methods[k].name + '</h4>'
+          out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '" style="width:70%"><h4><b>' + modules[i].classes[j].methods[k].name + '</b></h4>'
           menu += '<a class="btn btn-default" style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '">' + modules[i].classes[j].methods[k].name + '</a><br>'
           if modules[i].classes[j].methods[k].documentation != null
             mdtohtml = markdown.toHTML(modules[i].classes[j].methods[k].documentation)

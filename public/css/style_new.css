@@ -24,10 +24,6 @@ a {
     color: #E8A455;
 }
 
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-
 .main {
     margin-left: 350px;
     /* Same as the width of the sidenav */
@@ -107,12 +103,14 @@ a {
     }
 }
 
+p,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+a:hover {
     color: #f1f1f1
 }
 

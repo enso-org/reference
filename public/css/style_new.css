@@ -1,6 +1,101 @@
 body {
     font-family: "Quicksand", sans-serif;
-    background-color: #211F1A
+}
+
+body.dark-mode {
+    background-color: #211F1A;
+}
+
+body.dark-mode>.sidenav {
+    background-color: #1C1A17;
+}
+
+body.dark-mode>.pageHeader {
+    background-color: #1C1A17;
+}
+
+body.dark-mode>.pageHead {
+    background-color: #1C1A17
+}
+
+body.dark-mode>.pageHead>hr {
+    border-top-color: #1C1A17
+}
+
+body.dark-mode>p,
+body.dark-mode>h1,
+body.dark-mode>h2,
+body.dark-mode>h3,
+body.dark-mode>h4,
+body.dark-mode>h5,
+body.dark-mode>h6,
+body.dark-mode>a:hover {
+    color: #f1f1f1;
+}
+
+body.dark-mode>a,
+body.dark-mode>code,
+body.dark-mode>pre {
+    color: #E8A455;
+}
+
+body.dark-mode>code,
+body.dark-mode>pre {
+    background-color: #211F1A;
+    border: 1px solid #1C1A17;
+}
+
+body.dark-mode>kbd {
+    color: #ffffff;
+    background-color: #EEA236;
+}
+
+body.light-mode {
+    background-color: #ffffff;
+}
+
+body.light-mode>.sidenav {
+    background-color: #f1f1f1;
+}
+
+body.light-mode>.pageHeader {
+    background-color: #f1f1f1;
+}
+
+body.light-mode>.pageHead {
+    background-color: #f1f1f1
+}
+
+body.light-mode>.pageHead>hr {
+    border-top-color: #f1f1f1
+}
+
+body.light-mode>p,
+body.light-mode>h1,
+body.light-mode>h2,
+body.light-mode>h3,
+body.light-mode>h4,
+body.light-mode>h5,
+body.light-mode>h6,
+body.light-mode>a:hover {
+    color: #1C1A17;
+}
+
+body.light-mode>a,
+body.light-mode>code,
+body.light-mode>pre {
+    color: #E8A455;
+}
+
+body.light-mode>code,
+body.light-mode>pre {
+    background-color: #ffffff;
+    border: 1px solid #f1f1f1;
+}
+
+body.light-mode>kbd {
+    color: #211F1A;
+    background-color: #EEA236;
 }
 
 .sidenav {
@@ -10,7 +105,6 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #1C1A17;
     overflow-x: hidden;
     padding-top: 20px;
     margin-top: 100px;
@@ -20,7 +114,6 @@ a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     display: inline-block;
-    color: #E8A455;
 }
 
 .main {
@@ -46,7 +139,6 @@ a {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #1C1A17;
     overflow-x: hidden;
 }
 
@@ -54,16 +146,11 @@ a {
     padding: 30px;
     margin-bottom: 30px;
     color: inherit;
-    background-color: #1C1A17
 }
 
 .pageHead p {
     margin-bottom: 15px;
     font-weight: 100
-}
-
-.pageHead>hr {
-    border-top-color: #1C1A17
 }
 
 .container .pageHead {
@@ -99,17 +186,6 @@ a {
     }
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a:hover {
-    color: #f1f1f1
-}
-
 pre {
     overflow: auto
 }
@@ -129,8 +205,6 @@ samp {
 }
 
 code {
-    color: #eea236;
-    background-color: #21201A;
     border-radius: 0
 }
 
@@ -157,9 +231,6 @@ pre {
     line-height: 1.42857143;
     word-break: break-all;
     word-wrap: break-word;
-    color: #EEA236;
-    background-color: #211F1A;
-    border: 1px solid #1C1A17;
     border-radius: 0
 }
 

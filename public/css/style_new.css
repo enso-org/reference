@@ -6,46 +6,46 @@ body.dark-mode {
     background-color: #211F1A;
 }
 
-body.dark-mode>.sidenav {
+body.dark-mode .sidenav {
     background-color: #1C1A17;
 }
 
-body.dark-mode>.pageHeader {
+body.dark-mode .pageHeader {
     background-color: #1C1A17;
 }
 
-body.dark-mode>.pageHead {
+body.dark-mode .pageHead {
     background-color: #1C1A17
 }
 
-body.dark-mode>.pageHead>hr {
+body.dark-mode .pageHead>hr {
     border-top-color: #1C1A17
 }
 
-body.dark-mode>p,
-body.dark-mode>h1,
-body.dark-mode>h2,
-body.dark-mode>h3,
-body.dark-mode>h4,
-body.dark-mode>h5,
-body.dark-mode>h6,
-body.dark-mode>a:hover {
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode a:hover {
     color: #f1f1f1;
 }
 
-body.dark-mode>a,
-body.dark-mode>code,
-body.dark-mode>pre {
+body.dark-mode a,
+body.dark-mode code,
+body.dark-mode pre {
     color: #E8A455;
 }
 
-body.dark-mode>code,
-body.dark-mode>pre {
+body.dark-mode code,
+body.dark-mode pre {
     background-color: #211F1A;
     border: 1px solid #1C1A17;
 }
 
-body.dark-mode>kbd {
+body.dark-mode kbd {
     color: #ffffff;
     background-color: #EEA236;
 }
@@ -54,46 +54,46 @@ body.light-mode {
     background-color: #ffffff;
 }
 
-body.light-mode>.sidenav {
+body.light-mode .sidenav {
     background-color: #f1f1f1;
 }
 
-body.light-mode>.pageHeader {
+body.light-mode .pageHeader {
     background-color: #f1f1f1;
 }
 
-body.light-mode>.pageHead {
+body.light-mode .pageHead {
     background-color: #f1f1f1
 }
 
-body.light-mode>.pageHead>hr {
+body.light-mode .pageHead>hr {
     border-top-color: #f1f1f1
 }
 
-body.light-mode>p,
-body.light-mode>h1,
-body.light-mode>h2,
-body.light-mode>h3,
-body.light-mode>h4,
-body.light-mode>h5,
-body.light-mode>h6,
-body.light-mode>a:hover {
+body.light-mode p,
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6,
+body.light-mode a:hover {
     color: #1C1A17;
 }
 
-body.light-mode>a,
-body.light-mode>code,
-body.light-mode>pre {
+body.light-mode a,
+body.light-mode code,
+body.light-mode pre {
     color: #E8A455;
 }
 
-body.light-mode>code,
-body.light-mode>pre {
+body.light-mode code,
+body.light-mode pre {
     background-color: #ffffff;
     border: 1px solid #f1f1f1;
 }
 
-body.light-mode>kbd {
+body.light-mode kbd {
     color: #211F1A;
     background-color: #EEA236;
 }

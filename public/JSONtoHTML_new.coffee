@@ -3,7 +3,7 @@ url = 'stdLib_base.json'
 
 conversion = (data) ->
   out = ''
-  menu = '<a align="center" >Libraries:</a><br>'
+  menu = '<a align="center" style="width:100%">Libraries:</a><br>'
   i = 0
   modules = data.modules
  

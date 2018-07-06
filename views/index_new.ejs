@@ -3,9 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
+
     <title>Luna::Docs</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style_new.css">
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+
     <script src="https://coffeescript.org/v2/browser-compiler/coffeescript.js" type="text/javascript"></script>
     <script src="search.js" type="text/javascript"></script>
     <script src="JSONtoHTML.coffee" type="text/coffeescript"></script>
@@ -22,6 +26,14 @@
     <div class="main" id="data">
         <!-- Data goes here -->
     </div>
+
+    <!-- Script for showing and hiding accordion menu -->
+    <script>
+        function showhide(id) {
+            var e = document.getElementById(id);
+            e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+        }
+    </script>
 </body>
 
 </html>

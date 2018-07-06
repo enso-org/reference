@@ -15,12 +15,10 @@ body {
 }
 
 .sidenav a {
-    width: 230px;
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
     color: #E8A455;
-    display: inline-block;
 }
 
 .sidenav a:hover {

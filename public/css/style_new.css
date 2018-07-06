@@ -1,5 +1,6 @@
 body {
     font-family: "Quicksand", sans-serif;
+    background-color: #211F1A
 }
 
 .sidenav {
@@ -109,4 +110,13 @@ a {
     .container {
         width: 90%
     }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #f1f1f1
 }

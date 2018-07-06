@@ -48,7 +48,7 @@
     <script>
         function showhide(id, senderId) {
             var f = document.getElementById(senderId);
-            f = (f == 'V') ? '>' : 'V';
+            f.innerHTML = (f.innerHTML == "V") ? ">" : "V";
             var e = document.getElementById(id);
             e.style.display = (e.style.display == 'block') ? 'none' : 'block';
         }

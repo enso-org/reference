@@ -51,12 +51,10 @@
 
             if (f.innerText == "↓") {
                 f.innerText = "→";
-            }
-
-            if (f.innerText == "→") {
+            } else if (f.innerText == "→") {
                 f.innerText = "↓";
             }
-            console.log(f.innerText);
+            console.log(f.innerText + ' ' + f.id + ' ' + f.innerHTML + ' ' + f.textContent + ' ' + f.title);
 
             var e = document.getElementById(id);
             e.style.display = (e.style.display == 'block') ? 'none' : 'block';

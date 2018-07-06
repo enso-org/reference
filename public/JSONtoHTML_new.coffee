@@ -18,7 +18,7 @@ conversion = (data) ->
       
       if modules[i].classes[j].documentation != null
         mdtohtml = marked(modules[i].classes[j].documentation)
-        out += '<h4>' + mdtohtml + '</h4>'
+        out += mdtohtml
       
       out += '</div></div>'
       menu += '<a style="margin-left:30px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + '</a><a   align="right" href="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\')">(+)</a><br>

@@ -49,7 +49,9 @@
         function showhide(id, senderId) {
             if (document.getElementById(senderId).innerHTML == "&#8595") {
                 document.getElementById(senderId).innerHTML = "&#8594";
-            } else {
+            }
+
+            if (document.getElementById(senderId).innerHTML == "&#8594") {
                 document.getElementById(senderId).innerHTML = "&#8595";
             }
 

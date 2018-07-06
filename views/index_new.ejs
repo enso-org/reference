@@ -21,7 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
-<body>
+<body id="body" class="dark-mode">
     <!-- Header -->
     <div class="pageHeader" align="center">
         <table style="width:80%">
@@ -29,10 +29,13 @@
                 <td style="width:15%">
                     <img src="luna-logo.png" style="width:64px;height:64px;">
                 </td>
-                <td style="width:70%">
+                <td style="width:60%">
                     <h2>Luna::Docs</h2>
                 </td>
-                <td style="width:15%">
+                <td style="width:5%">
+                    <button type="button" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">🌛</button>
+                </td>
+                <td style="width:20%">
                     <a href="http://luna-lang.org">Luna Language</a>
                 </td>
             </tr>
@@ -62,6 +65,12 @@
 
             var e = document.getElementById(id);
             e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+        }
+
+        function toggleDarkLight() {
+            var body = document.getElementById("body");
+            var currentClass = body.className;
+            body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
         }
     </script>
 </body>

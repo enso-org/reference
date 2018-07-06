@@ -49,6 +49,7 @@
         function showhide(id, senderId) {
             var f = document.getElementById(senderId);
             f.innerHTML = (f.innerHTML == "&#8595") ? "&#8594" : "&#8595";
+            f.id = senderId
             var e = document.getElementById(id);
             e.style.display = (e.style.display == 'block') ? 'none' : 'block';
         }

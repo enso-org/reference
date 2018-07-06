@@ -48,11 +48,10 @@
     <script>
         function showhide(id, senderId) {
             var f = document.getElementById(senderId);
-
-            if (f.innerText == "↓") {
-                f.innerText = "→";
-            } else if (f.innerText == "→") {
+            if (f.innerText == "→") {
                 f.innerText = "↓";
+            } else {
+                f.innerText = "→";
             }
             console.log(f.innerText + ' ' + f.id + ' ' + f.innerHTML + ' ' + f.textContent + ' ' + f.title);
 

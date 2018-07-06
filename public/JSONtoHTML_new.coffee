@@ -41,7 +41,6 @@ conversion = (data) ->
 
     if modules[i].functions.length != 0
       out += '<div class="container"><div class="pageHead" style="width:95%"><h3>Functions</h3></div></div>'
-      menu += '<a style="margin-left:30px" href="#' + modules[i].name + '_Functions">Functions</a><a align="right" href="javascript:showhide(\''+ modules[i].name + '_FunctionsMenu\')">(+)</a><br><div id="'+ modules[i].name + '_FunctionsMenu" style="display:none;">'
       j = 0
 
       while j < modules[i].functions.length
@@ -54,8 +53,6 @@ conversion = (data) ->
         out += '</div></div>'
         menu += '<a style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' +  modules[i].functions[j].name + '</a><br>'
         j++
-      
-      menu += '</div>'
     
     menu += '</div>'
     i++

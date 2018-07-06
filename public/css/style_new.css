@@ -12,6 +12,7 @@ body {
     background-color: #111;
     overflow-x: hidden;
     padding-top: 20px;
+    margin-top: 60px;
 }
 
 .sidenav a {
@@ -32,6 +33,7 @@ body {
     font-size: 28px;
     /* Increased text to enable scrolling */
     padding: 0px 10px;
+    margin-top: 60px;
 }
 
 @media screen and (max-height: 450px) {
@@ -41,4 +43,15 @@ body {
     .sidenav a {
         font-size: 18px;
     }
+}
+
+.pageHead {
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
 }

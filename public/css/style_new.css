@@ -4,7 +4,7 @@ body {
 
 .sidenav {
     height: 100%;
-    width: 220px;
+    width: 350px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -18,8 +18,8 @@ body {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
-    display: block;
+    color: #E8A455;
+    display: inline-block;
 }
 
 .sidenav a:hover {
@@ -27,7 +27,7 @@ body {
 }
 
 .main {
-    margin-left: 160px;
+    margin-left: 350px;
     /* Same as the width of the sidenav */
     font-size: 28px;
     /* Increased text to enable scrolling */

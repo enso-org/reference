@@ -49,13 +49,14 @@
         function showhide(id, senderId) {
             var f = document.getElementById(senderId);
 
-            if (f.innerHTML == "&#8595") {
-                f.innerHTML = "&#8594";
+            if (f.innerText == "↓") {
+                f.innerText = "→";
             }
 
-            if (f.innerHTML == "&#8594") {
-                f.innerHTML = "&#8595";
+            if (f.innerText == "→") {
+                f.innerText = "↓";
             }
+            console.log(f.innerText);
 
             var e = document.getElementById(id);
             e.style.display = (e.style.display == 'block') ? 'none' : 'block';

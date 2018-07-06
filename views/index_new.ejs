@@ -47,7 +47,7 @@
     <!-- Script for showing and hiding accordion menu -->
     <script>
         function showhide(id, senderId) {
-            document.getElementById(senderId).innerText = (document.getElementById(senderId).innerText == "&#8595") ? "&#8594" : "&#8595";
+            document.getElementById(senderId).innerHTML = (document.getElementById(senderId).innerHTML == "&#8595") ? "&#8594" : "&#8595";
             var e = document.getElementById(id);
             e.style.display = (e.style.display == 'block') ? 'none' : 'block';
         }

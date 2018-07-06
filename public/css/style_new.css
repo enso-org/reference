@@ -9,13 +9,13 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #1C1A17;
     overflow-x: hidden;
     padding-top: 20px;
     margin-top: 100px;
 }
 
-.sidenav a {
+a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     display: inline-block;
@@ -52,6 +52,61 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #1C1A17;
     overflow-x: hidden;
+}
+
+.pageHead {
+    padding: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #1C1A17
+}
+
+.pageHead h1,
+.pageHead .h1 {
+    color: inherit
+}
+
+.pageHead p {
+    margin-bottom: 15px;
+    font-size: 23px;
+    font-weight: 200
+}
+
+.pageHead>hr {
+    border-top-color: #1C1A17
+}
+
+.container .pageHead {
+    border-radius: 30px;
+}
+
+.pageHead .container {
+    max-width: 100%
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+@media (min-width:768px) {
+    .container {
+        width: 90%
+    }
+}
+
+@media (min-width:992px) {
+    .container {
+        width: 90%
+    }
+}
+
+@media (min-width:1200px) {
+    .container {
+        width: 90%
+    }
 }

@@ -64,11 +64,6 @@ a {
     background-color: #1C1A17
 }
 
-.pageHead h1,
-.pageHead .h1 {
-    color: inherit
-}
-
 .pageHead p {
     margin-bottom: 15px;
     font-size: 23px;

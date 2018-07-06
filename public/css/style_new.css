@@ -115,3 +115,70 @@ h5,
 h6 {
     color: #f1f1f1
 }
+
+pre {
+    overflow: auto
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-size: inherit
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace
+}
+
+code {
+    color: #eea236;
+    background-color: #21201A;
+    border-radius: 0
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #ffffff;
+    background-color: #EEA236;
+    border-radius: 0;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25)
+}
+
+kbd kbd {
+    padding: 0;
+    font-size: 100%;
+    box-shadow: none
+}
+
+pre {
+    display: block;
+    padding: 10px;
+    margin: 0 0 10.5px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: #EEA236;
+    background-color: #211F1A;
+    border: 1px solid #1C1A17;
+    border-radius: 0
+}
+
+pre code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border-radius: 0
+}
+
+.pre-scrollable {
+    max-height: 340px;
+    overflow-y: scroll
+}

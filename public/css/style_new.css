@@ -107,7 +107,7 @@ body.light-mode kbd {
     left: 0;
     overflow-x: hidden;
     padding-top: 20px;
-    margin-top: 70px;
+    margin-top: 82px;
 }
 
 a {
@@ -120,10 +120,10 @@ a {
     margin-left: 350px;
     /* Same as the width of the sidenav */
     padding: 0px 10px;
-    margin-top: 100px;
+    margin-top: 102px;
 }
 
-@media screen and (max-height: 450px) {
+@media screen and (max-width: 450px) {
     .sidenav {
         display: none
     }
@@ -135,7 +135,7 @@ a {
 }
 
 .pageHeader {
-    height: 70px;
+    height: 82px;
     width: 100%;
     position: fixed;
     z-index: 1;

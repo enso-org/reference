@@ -1,5 +1,6 @@
 body {
     font-family: "Quicksand", sans-serif;
+    font: 300
 }
 
 body.dark-mode {
@@ -123,13 +124,12 @@ a {
     margin-top: 102px;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
     .sidenav {
         display: none
     }
     .main {
         margin-left: 0px;
-        /* Same as the width of the sidenav */
         padding: 0px 10px;
     }
 }
@@ -145,8 +145,7 @@ a {
 }
 
 .pageHead {
-    padding: 30px;
-    margin-bottom: 30px;
+    padding: 20px;
     color: inherit;
 }
 

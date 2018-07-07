@@ -1,6 +1,5 @@
 body {
     font-family: "Quicksand", sans-serif;
-    font: 300
 }
 
 body.dark-mode {
@@ -130,6 +129,7 @@ a {
     }
     .main {
         margin-left: 0px;
+        /* Same as the width of the sidenav */
         padding: 0px 10px;
     }
 }
@@ -146,6 +146,7 @@ a {
 
 .pageHead {
     padding: 20px;
+    margin-bottom: 20px;
     color: inherit;
 }
 

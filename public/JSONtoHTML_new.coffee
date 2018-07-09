@@ -38,7 +38,7 @@ conversion = (data) ->
       j++
 
     if modules[i].functions.length != 0
-      out += '<div class="container"><div class="pageHead" style="width:90%"><h2>Functions</h2>'
+      out += '<div class="container"><div class="pageHead" id="'+modules[i].name +'_Functions" style="width:90%"><h2>Functions</h2>'
       menu += '<a style="margin-left:30px" href="#' + modules[i].name + '_Functions">Functions</a><div id="'+ modules[i].name + '_FunctionsMenu">'
       j = 0
       while j < modules[i].functions.length

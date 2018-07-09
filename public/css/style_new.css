@@ -75,7 +75,7 @@ body.light-mode h3,
 body.light-mode h4,
 body.light-mode h5,
 body.light-mode h6 {
-    color: #1C1A17;
+    color: #333;
 }
 
 body.light-mode a:hover {
@@ -97,7 +97,7 @@ body.light-mode pre {
 }
 
 body.light-mode kbd {
-    color: #211F1A;
+    color: #333;
     background-color: dodgerblue;
 }
 

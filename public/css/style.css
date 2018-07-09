@@ -181,17 +181,27 @@ pre code {
     padding-left: 2%;
 }
 
-.classDocumentation {}
+.classDocumentation {
+    padding-left: 2%;
+}
 
-.methodDiv {}
+.methodDiv {
+    padding-left: 2%;
+}
 
-.methodDocumentation {}
+.methodDocumentation {
+    padding-left: 2%;
+}
 
-.functions {}
+.functions {
+    padding-left: 2%;
+}
 
 .functionNameDiv {}
 
-.functionDocumentation {}
+.functionDocumentation {
+    padding-left: 2%;
+}
 
 
 /* Ps */
@@ -209,11 +219,20 @@ pre code {
     letter-spacing: 0.016em;
 }
 
-.methodName {}
+.methodName {
+    font-weight: 600;
+}
 
-.functionsHeader {}
+.functionsHeader {
+    font-size: 24px;
+    line-height: 1.20849;
+    font-weight: 500;
+    letter-spacing: 0.015em;
+}
 
-.functionName {}
+.functionName {
+    font-weight: 600;
+}
 
 .className {
     font-size: 24px;

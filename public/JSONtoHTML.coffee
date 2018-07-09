@@ -21,7 +21,7 @@ convert = (data) ->
       output += '<p class="module_overview">Module overview</p>'
       output += '<div class="moduleDocumentation">' + mdtohtml + '</div>'
 
-    output += '<div class="module_classes>'
+    output += '<div class="module_classes">'
     j = 0
     while j < module.classes.length
       Mclass = module.classes[j]

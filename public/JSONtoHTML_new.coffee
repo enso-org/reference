@@ -9,7 +9,7 @@ conversion = (data) ->
  
   while i < modules.length 
     out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '"><h1>' + modules[i].name + '</h1></div></div>'
-    menu += '<br><a align="right" id="'+ modules[i].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + 'Menu\',\''+ modules[i].name + 'Toggle\')">▶</a><a href="#' + modules[i].name + '" onclick="javascript:showhide(\''+ modules[i].name + 'Menu\',\''+ modules[i].name + 'Toggle\')">' + modules[i].name + '</a><br><div id="'+ modules[i].name + 'Menu" style="display:none;">'
+    menu += '<br><a align="right" id="'+ modules[i].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + 'Menu\',\''+ modules[i].name + 'Toggle\')">▶</a><a class="scroll" target="' + modules[i].name + '" onclick="javascript:showhide(\''+ modules[i].name + 'Menu\',\''+ modules[i].name + 'Toggle\')">' + modules[i].name + '</a><br><div id="'+ modules[i].name + 'Menu" style="display:none;">'
     j = 0
     
     while j < modules[i].classes.length
@@ -19,14 +19,14 @@ conversion = (data) ->
         mdtohtml = marked(modules[i].classes[j].documentation)
         out += '<p style="font-size: 20px">' + mdtohtml + '</p>'
       
-      menu += '<a style="margin-left:30px" align="right" id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">▶</a><a  href="#' + modules[i].name + '_' + modules[i].classes[j].name + '" onclick="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">' + modules[i].classes[j].name + ' </a><br>
+      menu += '<a style="margin-left:30px" align="right" id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">▶</a><a class="scroll" target="#' + modules[i].name + '_' + modules[i].classes[j].name + '" onclick="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">' + modules[i].classes[j].name + ' </a><br>
 <div id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu" style="display:none;">'
       k = 0
       
       while k < modules[i].classes[j].methods.length
           out += '<hr>'
           out += '<div id="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '"><h4><b>' + modules[i].classes[j].methods[k].name + '</b></h4>'
-          menu += '<a style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '">' + modules[i].classes[j].methods[k].name + '</a><br>'
+          menu += '<a style="margin-left:60px" class="scroll" target="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '">' + modules[i].classes[j].methods[k].name + '</a><br>'
           if modules[i].classes[j].methods[k].documentation != null
             mdtohtml = marked(modules[i].classes[j].methods[k].documentation)
             out += mdtohtml
@@ -39,7 +39,7 @@ conversion = (data) ->
 
     if modules[i].functions.length != 0
       out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_Functions" style="width:90%"><h2>Functions</h2>'
-      menu += '<a style="margin-left:30px" href="#' + modules[i].name + '_Functions">Functions</a><div id="'+ modules[i].name + '_FunctionsMenu">'
+      menu += '<a style="margin-left:30px" class="scroll" target="' + modules[i].name + '_Functions">Functions</a><div id="'+ modules[i].name + '_FunctionsMenu">'
       j = 0
       while j < modules[i].functions.length
         out += '<hr>'
@@ -49,7 +49,7 @@ conversion = (data) ->
           mdtohtml = marked(modules[i].functions[j].documentation)
           out += mdtohtml
         out += '</div>'
-        menu += '<a style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' +  modules[i].functions[j].name + '</a><br>'
+        menu += '<a style="margin-left:60px" class="scroll" target="' + modules[i].name + '_' + modules[i].functions[j].name + '">' +  modules[i].functions[j].name + '</a><br>'
         j++
       out += '</div></div>'
       menu += '</div>'

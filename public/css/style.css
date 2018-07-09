@@ -1,24 +1,189 @@
-.search-container button {
-    float: right;
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: rgb(44, 41, 35);
-    font-size: 17px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
+body {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    background-color: #ffffff;
 }
 
-.search-container button:hover {
-    background: rgb(24, 28, 22);
+.sidenav,
+.pageHeader {
+    background-color: #fafafa;
+    border: 1px solid #e1e1e1;
 }
 
-#data {
-    color: #ebebeb;
+.pageHead>hr {
+    border-top-color: #fafafa
 }
 
-.highlight {
-    color: rgb(251, 255, 0);
-    text-decoration: underline;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #333;
+}
+
+a:hover {
+    color: #333;
+}
+
+a,
+code,
+pre {
+    color: dodgerblue;
+    background-color: transparent;
+}
+
+code,
+pre {
+    background-color: #ffffff;
+}
+
+kbd {
+    color: #333;
+    background-color: dodgerblue;
+}
+
+hr {
+    border: 0;
+    height: 1.3px;
+    background: #d6d6d6;
+}
+
+.sidenav {
+    height: 100%;
+    width: 350px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 82px;
+}
+
+a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.main {
+    margin-left: 350px;
+    /* Same as the width of the sidenav */
+    padding: 0px 10px;
+    margin-top: 0px;
+}
+
+@media screen and (max-width: 600px) {
+    .sidenav {
+        display: none
+    }
+    .main {
+        margin-left: 0px;
+        margin-top: 82px;
+        /* Same as the width of the sidenav */
+        padding: 0px 10px;
+    }
+    .pageHeader {
+        width: 100% !important;
+    }
+}
+
+.pageHeader {
+    height: 82px;
+    width: 350px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+}
+
+.pageHead {
+    padding: 20px;
+    margin-top: 20px;
+    color: inherit;
+}
+
+.pageHead p {
+    margin-bottom: 15px;
+    font-weight: 100
+}
+
+.container .pageHead {
+    border-radius: 30px;
+}
+
+.pageHead .container {
+    max-width: 100%
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+pre {
+    overflow: auto
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-size: inherit
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace
+}
+
+code {
+    border-radius: 0
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #ffffff;
+    background-color: #EEA236;
+    border-radius: 0;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25)
+}
+
+kbd kbd {
+    padding: 0;
+    font-size: 100%;
+    box-shadow: none
+}
+
+pre {
+    display: block;
+    padding: 10px;
+    margin: 0 0 10.5px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    word-break: break-all;
+    word-wrap: break-word;
+    border-radius: 0
+}
+
+pre code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    white-space: pre-wrap;
+    background-color: transparent;
+    border-radius: 0
+}
+
+.pre-scrollable {
+    max-height: 340px;
+    overflow-y: scroll
 }

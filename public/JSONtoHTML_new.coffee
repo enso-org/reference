@@ -25,7 +25,7 @@ conversion = (data) ->
       out += '<hr><h3>Methods</h3>'
 
       while k < modules[i].classes[j].methods.length
-          out += '<br id="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '"><h4><b>' + modules[i].classes[j].methods[k].name + '</b></h4>'
+          out += '<hr id="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '"><h4><b>' + modules[i].classes[j].methods[k].name + '</b></h4>'
           menu += '<a style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '">' + modules[i].classes[j].methods[k].name + '</a><br>'
           if modules[i].classes[j].methods[k].documentation != null
             mdtohtml = marked(modules[i].classes[j].methods[k].documentation)
@@ -40,20 +40,19 @@ conversion = (data) ->
       out += '<div class="container"><div class="pageHead" style="width:95%"><h3>Functions</h3></div></div>'
       menu += '<a style="margin-left:30px" href="#' + modules[i].name + '_Functions">Functions</a><div id="'+ modules[i].name + '_FunctionsMenu">'
       j = 0
-
+      out += '<div class="container"><div class="pageHead">'
       while j < modules[i].functions.length
-        out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].functions[j].name + '" style="width:80%"><h4><b>' + modules[i].functions[j].name + '</b></h4>'
+        out += '<hr id="' + modules[i].name + '_' + modules[i].functions[j].name + '" style="width:80%"><h4><b>' + modules[i].functions[j].name + '</b></h4>'
         
         if modules[i].functions[j].documentation != null 
           mdtohtml = marked(modules[i].functions[j].documentation)
           out += mdtohtml
         
-        out += '</div></div>'
         menu += '<a style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' +  modules[i].functions[j].name + '</a><br>'
         j++
-      
+      out += '</div></div>'
       menu += '</div>'
-    
+
     menu += '</div>'
     i++
 

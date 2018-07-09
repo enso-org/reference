@@ -108,7 +108,7 @@ body.light-mode kbd {
 hr {
     border: 0;
     height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+    background: #d6d6d6;
 }
 
 .sidenav {

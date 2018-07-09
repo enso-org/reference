@@ -61,7 +61,7 @@ conversion = (data) ->
     i++
 
   document.getElementById('data').innerHTML = out
-  document.getElementById('menuPane').innerHTML = menu
+  document.getElementById('menuPane').innerHTML += menu
   return
 
 xmlhttp.onreadystatechange = ->

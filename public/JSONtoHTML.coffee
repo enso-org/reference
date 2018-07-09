@@ -12,7 +12,7 @@ convert = (data) ->
     module = modules[i]
 
     output += '<div class="moduleDiv"><p class="module">' + module.name + '</p><br>'
-    menu += '<br><a id="'+ module.name + 'Toggle" href="javascript:showhide(\''+ module.name + 'Menu\',\''+ module.name + 'Toggle\') class="toggle">▶</a>'
+    menu += '<br><a id="'+ module.name + 'Toggle" href="javascript:showhide(\''+ module.name + 'Menu\',\''+ module.name + 'Toggle\')" class="toggle">▶</a>'
     menu += '<a class="scrollTo" href="#' + module.name + '">' + module.name + '</a><br>'
     menu += '<div id="'+ module.name + 'Menu" style="display:none;">'
 

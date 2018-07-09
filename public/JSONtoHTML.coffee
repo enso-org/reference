@@ -32,8 +32,8 @@ convert = (data) ->
       if Mclass.documentation != null
         mdtohtml = marked(Mclass.documentation)
         output += '<div class="classDocumentation">' + mdtohtml + '</div>'
-      output += '<div class="module_classes_class_methods">'
 
+      output += '<div class="module_classes_class_methods">'
       k = 0
       while k < Mclass.methods.length
         Mmethod = Mclass.methods[k]
@@ -60,7 +60,7 @@ convert = (data) ->
       while j < module.functions.length
         Mfunction = module.functions[j]
         #output += '<hr>'
-        output += '<div id="' + module.name + '_' + Mfunction.name + '"><p class="functionName">' + Mfunction.name + '</p>'
+        output += '<div id="' + module.name + '_' + Mfunction.name + '" class="functionNameDiv"><p class="functionName">' + Mfunction.name + '</p>'
         menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a><br>'
 
         if Mfunction.documentation != null 
@@ -80,7 +80,7 @@ convert = (data) ->
   document.getElementById('menuPane').innerHTML += menu
   return
 
-#old converting method
+### old converting method
 conversion = (data) ->
   out = ''
   menu = ''
@@ -140,6 +140,7 @@ conversion = (data) ->
   document.getElementById('data').innerHTML = out
   document.getElementById('menuPane').innerHTML += menu
   return
+###
 
 xmlhttp.onreadystatechange = ->
   if @readyState == 4 and @status == 200

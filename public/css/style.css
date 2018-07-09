@@ -1,6 +1,7 @@
 body {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
 }
 
 .sidenav,
@@ -186,7 +187,11 @@ pre code {
 
 /* Ps */
 
-.module {}
+.module {
+    font-size: 40px;
+    line-height: 1.05;
+    font-weight: 500;
+}
 
 .module_overview {}
 

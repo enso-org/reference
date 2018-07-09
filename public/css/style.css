@@ -197,7 +197,9 @@ pre code {
     padding-left: 2%;
 }
 
-.functionNameDiv {}
+.functionNameDiv {
+    padding-left: 2%;
+}
 
 .functionDocumentation {
     padding-left: 2%;

@@ -31,12 +31,13 @@
 
     <!-- Side navigation -->
     <div class="sidenav" id="menuPane">
+        <!-- 
         <div class="search-container">
             <form class="searchForm" id="search" name="searchForm" action="javascript:void()" onsubmit="doSearch(document.getElementById('search_text').value)">
                 <input type="text" placeholder="Search.." id="search_text" style="width:90%">
                 <button id="search"><i class="fa fa-search"></i></button>
             </form>
-        </div>
+        </div> -->
         <!-- Menu goes here -->
     </div>
 
@@ -80,20 +81,6 @@
         });
 
         function doSearch(text) {
-            //remove previous highlight
-            if (window.find && window.getSelection) {
-                document.designMode = "on";
-                var sel = window.getSelection();
-                sel.collapse(document.body, 0);
-                document.execCommand("HiliteColor", false, transparent);
-                sel.collapseToEnd();
-                document.designMode = "off";
-            } else if (document.body.createTextRange) {
-                var textRange = document.body.createTextRange();
-                textRange.execCommand("BackColor", false, transparent);
-                textRange.collapse(false);
-            }
-
             //add highlight to searched text on page
             if (window.find && window.getSelection) {
                 document.designMode = "on";

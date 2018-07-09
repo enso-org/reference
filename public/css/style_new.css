@@ -54,13 +54,9 @@ body.light-mode {
     background-color: #ffffff;
 }
 
-body.light-mode .sidenav {
-    background-color: #fafafa;
-    border: 1px solid #e1e1e1;
-}
-
+body.light-mode .sidenav,
 body.light-mode .pageHeader {
-    background-color: #eaeaea;
+    background-color: #fafafa;
     border: 1px solid #e1e1e1;
 }
 

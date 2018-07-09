@@ -1,6 +1,86 @@
 xmlhttp = new XMLHttpRequest
 url = 'stdLib_base.json'
 
+#convert JSON to HTML
+convert = (data) ->
+  output = ''
+  menu = ''
+  modules = data.modules
+
+  i = 0
+  while i < modules.length
+    module = modules[i]
+
+    output += '<div class="moduleDiv"><p class="module">' + module.name + '</p><br>'
+    menu += '<br><a id="'+ module.name + 'Toggle" href="javascript:showhide(\''+ module.name + 'Menu\',\''+ module.name + 'Toggle\') class="toggle">▶</a>'
+    menu += '<a class="scrollTo" href="#' + module.name + '">' + module.name + '</a><br>'
+    menu += '<div id="'+ module.name + 'Menu" style="display:none;">'
+
+    if module.documentation != null
+      mdtohtml = marked(module.documentation)
+      output += '<p class="module_overview">Module overview</p>'
+      output += '<div class="moduleDocumentation">' + mdtohtml + '</div>'
+
+    output += '<div class="module_classes>'
+    j = 0
+    while j < module.classes.length
+      Mclass = module.classes[j]
+      output += '<div class="module_classes_class">'
+      menu += '<a style="margin-left:30px" align="right" id="'+ module.name + '_' + Mclass.name + 'Toggle" href="javascript:showhide(\''+ module.name + '_' + Mclass.name + 'Menu\',\''+ module.name + '_' + Mclass.name + 'Toggle\')">▶</a>'
+      menu += '<a class="scrollTo" href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a><br><div id="'+ module.name + '_' + Mclass.name + 'Menu" style="display:none;">'
+      
+      if Mclass.documentation != null
+        mdtohtml = marked(Mclass.documentation)
+        output += '<div class="classDocumentation">' + mdtohtml + '</div>'
+      output += '<div class="module_classes_class_methods">'
+
+      k = 0
+      while k < Mclass.methods.length
+        Mmethod = Mclass.methods[k]
+        #output += '<hr>'
+        output += '<div id="' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '" class="methodDiv"><p class="methodName">' + Mmethod.name + '</p>'
+        menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a><br>'
+        if Mmethod.documentation != null
+          mdtohtml = marked(Mmethod.documentation)
+          output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
+        output += '</div>'
+        k++
+      
+      output += '</div></div>'
+      menu += '</div>'
+      j++
+    output += '</div>'
+    
+    if module.functions.length != 0
+      output += '<div class="functions" id="' + module.name + '_Functions"><p class="functionsHeader">Functions</p>'
+      menu += '<a class="scrollTo" style="margin-left:30px" href="#' +module.name + '_Functions">Functions</a>'
+      menu += '<div id="'+ module.name + '_FunctionsMenu">'
+
+      j = 0
+      while j < module.functions.length
+        Mfunction = module.functions[j]
+        #output += '<hr>'
+        output += '<div id="' + module.name + '_' + Mfunction.name + '"><p class="functionName">' + Mfunction.name + '</p>'
+        menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a><br>'
+
+        if Mfunction.documentation != null 
+          mdtohtml = marked(Mfunction.documentation)
+          output += '<div class="functionDocumentation">' + mdtohtml + '</div>'
+        output += '</div>'
+        j++
+
+      output += '</div>'
+      menu += '</div>'
+
+    output += '</div>'
+    menu += '</div>'
+    i++
+  
+  document.getElementById('data').innerHTML = output
+  document.getElementById('menuPane').innerHTML += menu
+  return
+
+#old converting method
 conversion = (data) ->
   out = ''
   menu = ''
@@ -64,7 +144,7 @@ conversion = (data) ->
 xmlhttp.onreadystatechange = ->
   if @readyState == 4 and @status == 200
     data = JSON.parse(@responseText)
-    conversion data
+    convert data
   return
 
 xmlhttp.open 'GET', url, true

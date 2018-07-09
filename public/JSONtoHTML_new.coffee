@@ -22,14 +22,15 @@ conversion = (data) ->
       menu += '<a style="margin-left:30px" align="right" id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">▶</a><a  href="#' + modules[i].name + '_' + modules[i].classes[j].name + '" onclick="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">' + modules[i].classes[j].name + ' </a><br>
 <div id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu" style="display:none;">'
       k = 0
-      out += '<p>Methods</p>'
-
+      
       while k < modules[i].classes[j].methods.length
-          out += '<hr id="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '"><h4><b>' + modules[i].classes[j].methods[k].name + '</b></h4>'
+          out += '<hr>'
+          out += '<div id="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '"><h4><b>' + modules[i].classes[j].methods[k].name + '</b></h4>'
           menu += '<a style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '">' + modules[i].classes[j].methods[k].name + '</a><br>'
           if modules[i].classes[j].methods[k].documentation != null
             mdtohtml = marked(modules[i].classes[j].methods[k].documentation)
             out += mdtohtml
+          out += '</div>'
           k++
       
       out += '</div></div>'
@@ -42,12 +43,13 @@ conversion = (data) ->
       j = 0
       out += '<div class="container"><div class="pageHead">'
       while j < modules[i].functions.length
-        out += '<hr id="' + modules[i].name + '_' + modules[i].functions[j].name + '" style="width:80%"><h4><b>' + modules[i].functions[j].name + '</b></h4>'
+        out += '<hr>'
+        out += '<div id="' + modules[i].name + '_' + modules[i].functions[j].name + '" style="width:80%"><h4><b>' + modules[i].functions[j].name + '</b></h4>'
         
         if modules[i].functions[j].documentation != null 
           mdtohtml = marked(modules[i].functions[j].documentation)
           out += mdtohtml
-        
+        out += '</div>'
         menu += '<a style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' +  modules[i].functions[j].name + '</a><br>'
         j++
       out += '</div></div>'

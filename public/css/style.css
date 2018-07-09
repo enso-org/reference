@@ -143,7 +143,8 @@ pre {
     line-height: 1.42857143;
     word-break: break-all;
     word-wrap: break-word;
-    border-radius: 0
+    border-radius: 0;
+    background-color: #fafafa;
 }
 
 pre code {
@@ -151,7 +152,7 @@ pre code {
     font-size: inherit;
     color: inherit;
     white-space: pre-wrap;
-    background-color: #fafafa;
+    background-color: transparent;
     border-radius: 0
 }
 

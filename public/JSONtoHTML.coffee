@@ -16,7 +16,7 @@ convert = (data) ->
     menu += '<a class="scrollTo" href="#' + module.name + '">' + module.name + '</a><br>'
     menu += '<div id="'+ module.name + 'Menu" style="display:none;">'
 
-    if module.documentation != null
+    if module.documentation != null && module.documentation != undefined
       mdtohtml = marked(module.documentation)
       output += '<p class="module_overview">Module overview</p>'
       output += '<div class="moduleDocumentation">' + mdtohtml + '</div>'

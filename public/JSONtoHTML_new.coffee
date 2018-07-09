@@ -38,13 +38,12 @@ conversion = (data) ->
       j++
 
     if modules[i].functions.length != 0
-      out += '<div class="container"><div class="pageHead" style="width:95%"><h3>Functions</h3></div></div>'
+      out += '<div class="container"><div class="pageHead" style="width:90%"><h3>Functions</h3>'
       menu += '<a style="margin-left:30px" href="#' + modules[i].name + '_Functions">Functions</a><div id="'+ modules[i].name + '_FunctionsMenu">'
       j = 0
-      out += '<div class="container"><div class="pageHead">'
       while j < modules[i].functions.length
         out += '<hr>'
-        out += '<div id="' + modules[i].name + '_' + modules[i].functions[j].name + '" style="width:80%"><h4><b>' + modules[i].functions[j].name + '</b></h4>'
+        out += '<div id="' + modules[i].name + '_' + modules[i].functions[j].name + '"><h4><b>' + modules[i].functions[j].name + '</b></h4>'
         
         if modules[i].functions[j].documentation != null 
           mdtohtml = marked(modules[i].functions[j].documentation)

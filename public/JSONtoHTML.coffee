@@ -25,7 +25,7 @@ convert = (data) ->
     j = 0
     while j < module.classes.length
       Mclass = module.classes[j]
-      output += '<div class="module_classes_class">'
+      output += '<div class="module_classes_class"><p class="className">' + Mclass.name + '</p>'
       menu += '<a style="margin-left:30px" align="right" id="'+ module.name + '_' + Mclass.name + 'Toggle" href="javascript:showhide(\''+ module.name + '_' + Mclass.name + 'Menu\',\''+ module.name + '_' + Mclass.name + 'Toggle\')">▶</a>'
       menu += '<a class="scrollTo" href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a><br><div id="'+ module.name + '_' + Mclass.name + 'Menu" style="display:none;">'
       

@@ -11,7 +11,7 @@ convert = (data) ->
   while i < modules.length
     module = modules[i]
 
-    output += '<div class="moduleDiv"><p class="module">' + module.name + '</p><br>'
+    output += '<div class="moduleDiv"><p class="module">' + module.name + '</p>'
     menu += '<br><a id="'+ module.name + 'Toggle" href="javascript:showhide(\''+ module.name + 'Menu\',\''+ module.name + 'Toggle\')" class="toggle">▶</a>'
     menu += '<a class="scrollTo" href="#' + module.name + '">' + module.name + '</a><br>'
     menu += '<div id="'+ module.name + 'Menu" style="display:none;">'
@@ -25,6 +25,7 @@ convert = (data) ->
     j = 0
     while j < module.classes.length
       Mclass = module.classes[j]
+      output += '<hr>'
       output += '<div class="module_classes_class"><p class="className">' + Mclass.name + '</p>'
       menu += '<a style="margin-left:30px" align="right" id="'+ module.name + '_' + Mclass.name + 'Toggle" href="javascript:showhide(\''+ module.name + '_' + Mclass.name + 'Menu\',\''+ module.name + '_' + Mclass.name + 'Toggle\')">▶</a>'
       menu += '<a class="scrollTo" href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a><br><div id="'+ module.name + '_' + Mclass.name + 'Menu" style="display:none;">'
@@ -37,7 +38,7 @@ convert = (data) ->
       k = 0
       while k < Mclass.methods.length
         Mmethod = Mclass.methods[k]
-        #output += '<hr>'
+        output += '<hr>'
         output += '<div id="' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '" class="methodDiv"><p class="methodName">' + Mmethod.name + '</p>'
         menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a><br>'
         if Mmethod.documentation != null
@@ -59,7 +60,7 @@ convert = (data) ->
       j = 0
       while j < module.functions.length
         Mfunction = module.functions[j]
-        #output += '<hr>'
+        output += '<hr>'
         output += '<div id="' + module.name + '_' + Mfunction.name + '" class="functionNameDiv"><p class="functionName">' + Mfunction.name + '</p>'
         menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a><br>'
 
@@ -74,6 +75,7 @@ convert = (data) ->
 
     output += '</div>'
     menu += '</div>'
+    output += '<hr>'
     i++
   
   document.getElementById('data').innerHTML = output

@@ -196,7 +196,12 @@ pre code {
     font-weight: 500;
 }
 
-.module_overview {}
+.module_overview {
+    font-size: 22px;
+    line-height: 1.45455;
+    font-weight: 300;
+    letter-spacing: 0.016em;
+}
 
 .methodName {}
 
@@ -204,4 +209,9 @@ pre code {
 
 .functionName {}
 
-.className {}
+.className {
+    font-size: 24px;
+    line-height: 1.20849;
+    font-weight: 500;
+    letter-spacing: 0.015em;
+}

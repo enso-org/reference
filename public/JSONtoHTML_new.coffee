@@ -13,7 +13,7 @@ conversion = (data) ->
     j = 0
     
     while j < modules[i].classes.length
-      out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].classes[j].name + '" style="width:90%"><h3>' + modules[i].classes[j].name + '</h3>'
+      out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_' + modules[i].classes[j].name + '" style="width:90%"><h2>' + modules[i].classes[j].name + '</h2>'
       
       if modules[i].classes[j].documentation != null
         mdtohtml = marked(modules[i].classes[j].documentation)
@@ -22,7 +22,7 @@ conversion = (data) ->
       menu += '<a style="margin-left:30px" align="right" id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">▶</a><a  href="#' + modules[i].name + '_' + modules[i].classes[j].name + '" onclick="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">' + modules[i].classes[j].name + ' </a><br>
 <div id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu" style="display:none;">'
       k = 0
-      out += '<hr><h3>Methods</h3>'
+      out += '<p>Methods</p>'
 
       while k < modules[i].classes[j].methods.length
           out += '<hr id="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '"><h4><b>' + modules[i].classes[j].methods[k].name + '</b></h4>'

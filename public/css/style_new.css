@@ -55,7 +55,7 @@ body.light-mode {
 }
 
 body.light-mode .sidenav {
-    background-color: #f1f1f1;
+    background-color: #fafafa;
     border: 1px solid #e1e1e1;
 }
 
@@ -65,11 +65,11 @@ body.light-mode .pageHeader {
 }
 
 body.light-mode .pageHead {
-    background-color: #f1f1f1
+    background-color: #fafafa
 }
 
 body.light-mode .pageHead>hr {
-    border-top-color: #f1f1f1
+    border-top-color: #fafafa
 }
 
 body.light-mode p,

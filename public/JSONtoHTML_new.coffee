@@ -21,7 +21,7 @@ conversion = (data) ->
         out += mdtohtml
       
       out += '</div></div>'
-      menu += '<a style="margin-left:30px" align="right" id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">▶</a><a  href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + '</a><br>
+      menu += '<a style="margin-left:30px" align="right" id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">▶</a><a  href="#' + modules[i].name + '_' + modules[i].classes[j].name + '" onclick="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">' + modules[i].classes[j].name + ' </a><br>
 <div id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu" style="display:none;">'
       k = 0
       out += '<div class="container"><div class="pageHead" style="width:80%"><h3>Methods</h3></div></div>'

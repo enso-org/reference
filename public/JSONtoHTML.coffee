@@ -53,6 +53,7 @@ convert = (data) ->
     output += '</div>'
     
     if module.functions.length != 0
+      output += '<hr>'
       output += '<div class="functions" id="' + module.name + '_Functions"><p class="functionsHeader">Functions</p>'
       menu += '<a class="scrollTo" style="margin-left:30px" href="#' +module.name + '_Functions">Functions</a>'
       menu += '<div id="'+ module.name + '_FunctionsMenu">'

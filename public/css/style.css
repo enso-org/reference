@@ -187,11 +187,11 @@ pre code {
 }
 
 .methodDiv {
-    padding-left: 2%;
+    padding-left: 10%;
 }
 
 .methodDocumentation {
-    padding-left: 2%;
+    padding-left: 5%;
 }
 
 .functions {
@@ -199,11 +199,11 @@ pre code {
 }
 
 .functionNameDiv {
-    padding-left: 3.6%;
+    padding-left: 11%;
 }
 
 .functionDocumentation {
-    padding-left: 2%;
+    padding-left: 5%;
 }
 
 

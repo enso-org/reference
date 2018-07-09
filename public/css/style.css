@@ -215,3 +215,9 @@ pre code {
     font-weight: 500;
     letter-spacing: 0.015em;
 }
+
+.lunaDocsLogo {
+    font-size: 40px;
+    line-height: 1.05;
+    font-weight: 400;
+}

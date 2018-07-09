@@ -78,15 +78,20 @@ body.light-mode h2,
 body.light-mode h3,
 body.light-mode h4,
 body.light-mode h5,
-body.light-mode h6,
-body.light-mode a:hover {
+body.light-mode h6 {
     color: #1C1A17;
+}
+
+body.light-mode a:hover {
+    color: white;
+    background-color: dodgerblue;
 }
 
 body.light-mode a,
 body.light-mode code,
 body.light-mode pre {
-    color: #E8A455;
+    color: dodgerblue;
+    background-color: transparent;
 }
 
 body.light-mode code,
@@ -97,7 +102,7 @@ body.light-mode pre {
 
 body.light-mode kbd {
     color: #211F1A;
-    background-color: #EEA236;
+    background-color: dodgerblue;
 }
 
 .sidenav {

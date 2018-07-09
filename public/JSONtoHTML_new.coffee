@@ -3,13 +3,13 @@ url = 'stdLib_base.json'
 
 conversion = (data) ->
   out = ''
-  menu = '<a align="center" style="width:100%">Libraries:</a><br>'
+  menu = ''
   i = 0
   modules = data.modules
  
   while i < modules.length 
     out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '"><h1>' + modules[i].name + '</h1></div></div>'
-    menu += '<a align="right" id="'+ modules[i].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + 'Menu\',\''+ modules[i].name + 'Toggle\')">▶</a><a href="#' + modules[i].name + '">' + modules[i].name + '</a><br><div id="'+ modules[i].name + 'Menu" style="display:none;">'
+    menu += '<br><a align="right" id="'+ modules[i].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + 'Menu\',\''+ modules[i].name + 'Toggle\')">▶</a><a href="#' + modules[i].name + '">' + modules[i].name + '</a><br><div id="'+ modules[i].name + 'Menu" style="display:none;">'
     out += '<div class="container"><div class="pageHead" style="width:95%"><h3>Classes</h3></div></div>'
     j = 0
     

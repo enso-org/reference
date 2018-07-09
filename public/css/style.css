@@ -9,10 +9,6 @@ body {
     border: 1px solid #e1e1e1;
 }
 
-.pageHead>hr {
-    border-top-color: #fafafa
-}
-
 p,
 h1,
 h2,
@@ -100,32 +96,6 @@ a {
     overflow-x: hidden;
 }
 
-.pageHead {
-    padding: 20px;
-    margin-top: 20px;
-    color: inherit;
-}
-
-.pageHead p {
-    margin-bottom: 15px;
-    font-weight: 100
-}
-
-.container .pageHead {
-    border-radius: 30px;
-}
-
-.pageHead .container {
-    max-width: 100%
-}
-
-.container {
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px
-}
-
 pre {
     overflow: auto
 }
@@ -187,3 +157,41 @@ pre code {
     max-height: 340px;
     overflow-y: scroll
 }
+
+
+/* DIVs */
+
+.moduleDiv {}
+
+.moduleDocumentation {}
+
+.module_classes {}
+
+.module_classes_class {}
+
+.module_classes_class_methods {}
+
+.classDocumentation {}
+
+.methodDiv {}
+
+.methodDocumentation {}
+
+.functions {}
+
+.functionNameDiv {}
+
+.functionDocumentation {}
+
+
+/* Ps */
+
+.module {}
+
+.module_overview {}
+
+.methodName {}
+
+.functionsHeader {}
+
+.functionName {}

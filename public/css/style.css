@@ -144,7 +144,7 @@ pre code {
 /* DIVs */
 
 .moduleDiv {
-    margin: 30px 10px;
+    margin: 30px 16px;
 }
 
 .moduleDocumentation {}
@@ -201,7 +201,7 @@ pre code {
     font-size: 40px;
     line-height: 1.05;
     font-weight: 900;
-    padding-bottom: 22px;
+    padding-bottom: 16px;
 }
 
 .module_overview {

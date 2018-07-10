@@ -78,13 +78,13 @@ a {
     max-width: 980px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 740px) {
     .sidenav {
         display: none
     }
     .main {
-        margin-left: 0px;
-        margin-top: 82px;
+        margin-left: 0px !important;
+        margin-top: 82px !important;
         /* Same as the width of the sidenav */
         padding: 0px;
         position: initial

@@ -25,14 +25,14 @@ a:hover {
 }
 
 a {
-    color: dodgerblue;
+    color: #0070c9;
     background-color: transparent;
 }
 
 code,
 pre {
     background-color: #fafafa;
-    color: darkblue;
+    color: #0070c9;
     line-height: 2.0;
     background-color: transparent;
 }
@@ -107,7 +107,7 @@ samp {
 code,
 pre,
 samp {
-    font-family: Menlo, Monaco, Consolas, "Courier New", monospace
+    font-family: 'SF Mono', Menlo, monospace;
 }
 
 code {

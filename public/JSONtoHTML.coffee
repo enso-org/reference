@@ -39,12 +39,17 @@ convert = (data) ->
       while k < Mclass.methods.length
         Mmethod = Mclass.methods[k]
         #output += '<hr>'
-        output += '<div id="' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '" class="methodDiv"><p class="methodName">' + Mmethod.name + '</p>'
-        menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a><br>'
-        if Mmethod.documentation != null
-          mdtohtml = marked(Mmethod.documentation)
-          output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
-        output += '</div>'
+        if Array.isArray(Mmethod)
+          l = 0
+          while l < Mmethod.length
+            MmethodType = Mmethod[l]
+        else
+          output += '<div id="' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '" class="methodDiv"><p class="methodName">' + Mmethod.name + '</p>'
+          menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a><br>'
+          if Mmethod.documentation != null
+            mdtohtml = marked(Mmethod.documentation)
+            output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
+          output += '</div>'
         k++
       
       output += '</div></div>'

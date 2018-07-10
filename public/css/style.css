@@ -86,7 +86,8 @@ a {
         margin-left: 0px;
         margin-top: 82px;
         /* Same as the width of the sidenav */
-        padding: 0px 10px;
+        padding: 0px;
+        position: initial
     }
     .pageHeader {
         width: 100% !important;

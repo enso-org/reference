@@ -73,6 +73,7 @@ a {
     /* Same as the width of the sidenav */
     padding: 0px;
     margin-top: 0px;
+    max-width: 980px;
 }
 
 @media screen and (max-width: 600px) {

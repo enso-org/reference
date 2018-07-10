@@ -42,11 +42,11 @@ convert = (data) ->
 
         if Mmethod.type != null && Mmethod.type != undefined
           #We have methods which have been segregated to types
-          output += '</div class="methodTypeDiv">' + Mmethod.type
+          output += '<div class="methodTypeDiv">' + Mmethod.type
           if Mmethod.documentation != null
             mdtohtml = marked(Mmethod.documentation)
             output += '<div class="methodTypeDocumentation">' + mdtohtml + '</div>'
-            
+
           l = 0
           while l < Mmethod.methods.length
             MmethodWithType = Mmethod.methods[l]

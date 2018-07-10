@@ -164,9 +164,21 @@ pre code {
     margin-bottom: 20px;
 }
 
-.methodTypeDiv {}
+.methodTypeDiv {
+    padding-left: 50px;
+    font-size: 18px;
+    line-height: 1.45455;
+    font-weight: 300;
+    letter-spacing: 0.016em;
+}
 
-.methodTypeDocumentation {}
+.methodTypeDocumentation {
+    padding-left: 50px;
+    font-size: 18px;
+    line-height: 1.45455;
+    font-weight: 300;
+    letter-spacing: 0.016em;
+}
 
 .module_classes {}
 
@@ -233,6 +245,12 @@ pre code {
 
 .methodName {
     font-weight: 600;
+}
+
+.MethodTypeHead {
+    font-size: 30px;
+    line-height: 1.52;
+    font-weight: 400;
 }
 
 .functionsHeader {

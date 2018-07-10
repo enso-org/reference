@@ -42,7 +42,7 @@ convert = (data) ->
 
         if Mmethod.type != null && Mmethod.type != undefined
           #We have methods which have been segregated to types
-          output += '<div class="methodTypeDiv">' + Mmethod.type
+          output += '<div class="methodTypeDiv"><p class="MethodTypeHead">' + Mmethod.type + '</p>'
           if Mmethod.documentation != null
             mdtohtml = marked(Mmethod.documentation)
             output += '<div class="methodTypeDocumentation">' + mdtohtml + '</div>'

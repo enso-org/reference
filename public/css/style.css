@@ -25,12 +25,14 @@ h6 {
 }
 
 a:hover {
-    color: #333;
+    color: #0070c9;
+    text-decoration: underline;
 }
 
 a {
-    color: #0070c9;
+    color: #333;
     background-color: transparent;
+    text-decoration: none;
 }
 
 code,

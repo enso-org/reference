@@ -39,21 +39,30 @@ convert = (data) ->
       while k < Mclass.methods.length
         Mmethod = Mclass.methods[k]
         #output += '<hr>'
-        if Array.isArray(Mmethod)
+
+        if Mmethod.type != null && Mmethod.type != undefined
+          #We have methods which have been segregated to types
+          output += '</div class="methodTypeDiv">' + Mmethod.type
+          if Mmethod.documentation != null
+            mdtohtml = marked(Mmethod.documentation)
+            output += '<div class="methodTypeDocumentation">' + mdtohtml + '</div>'
+            
           l = 0
-          output += '</div class="methodWithTypeDiv">' + Mmethod.type
-          while l < Mmethod.length
-            MmethodFromType = Mmethod[l]
-            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodFromType.name + '" class="methodDiv"><p class="methodName">' + MmethodFromType.name + '</p>'
-            menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + MmethodFromType.name + '">' + MmethodFromType.name + '</a><br>'
-            if MmethodFromType.documentation != null
-              mdtohtml = marked(MmethodFromType.documentation)
+          while l < Mmethod.methods.length
+            MmethodWithType = Mmethod.methods[l]
+            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '" class="methodDiv"><p class="methodName">' + MmethodWithType.name + '</p>'
+            menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '">' + MmethodWithType.name + '</a><br>'
+            if MmethodWithType.documentation != null
+              mdtohtml = marked(MmethodWithType.documentation)
               output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
             output += '</div>'
+            l++
           output += '</div>'
+
         else
           output += '<div id="' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '" class="methodDiv"><p class="methodName">' + Mmethod.name + '</p>'
           menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a><br>'
+          
           if Mmethod.documentation != null
             mdtohtml = marked(Mmethod.documentation)
             output += '<div class="methodDocumentation">' + mdtohtml + '</div>'

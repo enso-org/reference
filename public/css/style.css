@@ -109,6 +109,9 @@ a {
 
 .showMenuOnSmallScreen {
     display: none;
+    font-size: 30px;
+    cursor: pointer;
+    margin: auto 5px;
 }
 
 .pageHeader {

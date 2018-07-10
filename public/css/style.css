@@ -72,6 +72,8 @@ a {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    left: 350px;
+    right: 350px;
     /* Same as the width of the sidenav */
     padding: 0px;
     margin-top: 0px;
@@ -93,7 +95,7 @@ a {
     }
 }
 
-@media screen and (max-width: 1670px) {
+@media screen and (max-width: 1300px) {
     .main {
         margin-left: 350px;
         /* Same as the width of the sidenav */

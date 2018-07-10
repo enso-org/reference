@@ -80,7 +80,7 @@ a {
 
 @media screen and (max-width: 740px) {
     .sidenav {
-        display: none
+        width: 0 !important;
     }
     .main {
         margin-left: 0px !important;
@@ -92,6 +92,9 @@ a {
     .pageHeader {
         width: 100% !important;
     }
+    .showMenuOnSmallScreen {
+        display: inherit;
+    }
 }
 
 @media screen and (max-width: 1670px) {
@@ -102,6 +105,10 @@ a {
         margin-top: 0px;
         max-width: 980px;
     }
+}
+
+.showMenuOnSmallScreen {
+    display: none;
 }
 
 .pageHeader {

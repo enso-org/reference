@@ -51,6 +51,7 @@
 <body id="body">
     <!-- Header -->
     <div class="pageHeader" style="display: inline-flex">
+        <span class="showMenuOnSmallScreen" style="font-size:30px;cursor:pointer" onclick="openNav()">☰</span>
         <a href="http://luna-lang.org"><img src="luna-logo.png" style="width:64px;height:64px;"></a>
         <p class="lunaDocsLogo">Luna Docs</p>
     </div>
@@ -77,6 +78,17 @@
 
             var e = document.getElementById(id);
             e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+        }
+    </script>
+
+    <!-- Script for showing and hiding side menu -->
+    <script>
+        function openNav() {
+            document.getElementById("menuPane").style.width = "350px !important";
+        }
+
+        function closeNav() {
+            document.getElementById("menuPane").style.width = "0 !important";
         }
     </script>
 </body>

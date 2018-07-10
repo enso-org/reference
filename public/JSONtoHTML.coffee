@@ -41,8 +41,16 @@ convert = (data) ->
         #output += '<hr>'
         if Array.isArray(Mmethod)
           l = 0
+          output += '</div class="methodWithTypeDiv">' + Mmethod.type
           while l < Mmethod.length
-            MmethodType = Mmethod[l]
+            MmethodFromType = Mmethod[l]
+            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodFromType.name + '" class="methodDiv"><p class="methodName">' + MmethodFromType.name + '</p>'
+            menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + MmethodFromType.name + '">' + MmethodFromType.name + '</a><br>'
+            if MmethodFromType.documentation != null
+              mdtohtml = marked(MmethodFromType.documentation)
+              output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
+            output += '</div>'
+          output += '</div>'
         else
           output += '<div id="' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '" class="methodDiv"><p class="methodName">' + Mmethod.name + '</p>'
           menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a><br>'

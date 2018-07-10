@@ -69,14 +69,13 @@ a {
 }
 
 .main {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
     /* Same as the width of the sidenav */
     padding: 0px;
     margin-top: 0px;
     max-width: 980px;
-    position: relative;
-    left: 350px;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 @media screen and (max-width: 600px) {
@@ -91,6 +90,16 @@ a {
     }
     .pageHeader {
         width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 1325px) {
+    .main {
+        margin-left: 350px;
+        /* Same as the width of the sidenav */
+        padding: 0px;
+        margin-top: 0px;
+        max-width: 980px;
     }
 }
 

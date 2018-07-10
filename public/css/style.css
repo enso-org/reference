@@ -144,7 +144,7 @@ pre code {
 /* DIVs */
 
 .moduleDiv {
-    margin: 30px 16px;
+    margin: 16px 20px;
 }
 
 .moduleDocumentation {}
@@ -152,12 +152,10 @@ pre code {
 .module_classes {}
 
 .module_classes_class {
-    padding-left: 10%;
+    padding-left: 50px;
 }
 
-.module_classes_class_methods {
-    padding-left: 2%;
-}
+.module_classes_class_methods {}
 
 .classDocumentation {
     font-size: 22px;
@@ -167,11 +165,12 @@ pre code {
 }
 
 .methodDiv {
-    padding-left: 10%;
+    padding-left: 100px;
+    margin-bottom: 20px;
 }
 
 .methodDocumentation {
-    padding-left: 5%;
+    padding-left: 50px;
     font-size: 18px;
     line-height: 1.45455;
     font-weight: 300;
@@ -179,15 +178,15 @@ pre code {
 }
 
 .functions {
-    padding-left: 10%;
+    padding-left: 50px;
 }
 
 .functionNameDiv {
-    padding-left: 12%;
+    padding-left: 100px;
 }
 
 .functionDocumentation {
-    padding-left: 5%;
+    padding-left: 50px;
     font-size: 18px;
     line-height: 1.45455;
     font-weight: 300;

@@ -160,7 +160,9 @@ pre code {
     margin: 16px 20px;
 }
 
-.moduleDocumentation {}
+.moduleDocumentation {
+    margin-bottom: 20px;
+}
 
 .module_classes {}
 
@@ -222,6 +224,7 @@ pre code {
     line-height: 1.45455;
     font-weight: 300;
     letter-spacing: 0.016em;
+    margin-bottom: 10px;
 }
 
 .methodName {

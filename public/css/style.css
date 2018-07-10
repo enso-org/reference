@@ -93,7 +93,7 @@ a {
         width: 100% !important;
     }
     .showMenuOnSmallScreen {
-        display: inherit;
+        display: block !important;
     }
 }
 

@@ -173,11 +173,11 @@ pre code {
 }
 
 .methodTypeDocumentation {
-    padding-left: 50px;
     font-size: 18px;
     line-height: 1.45455;
     font-weight: 300;
     letter-spacing: 0.016em;
+    margin-bottom: 20px;
 }
 
 .module_classes {}
@@ -193,6 +193,7 @@ pre code {
     line-height: 1.45455;
     font-weight: 300;
     letter-spacing: 0.016em;
+    margin-bottom: 20px;
 }
 
 .methodDiv {

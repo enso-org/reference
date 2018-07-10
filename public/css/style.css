@@ -208,12 +208,12 @@ pre code {
 }
 
 .methodDiv {
-    padding-left: 100px;
+    padding-left: 50px;
     margin-bottom: 20px;
 }
 
 .methodDocumentation {
-    padding-left: 50px;
+    padding-left: 20px;
     font-size: 18px;
     line-height: 1.45455;
     font-weight: 300;
@@ -225,12 +225,12 @@ pre code {
 }
 
 .functionNameDiv {
-    padding-left: 100px;
+    padding-left: 50px;
     margin-bottom: 20px;
 }
 
 .functionDocumentation {
-    padding-left: 50px;
+    padding-left: 20px;
     font-size: 18px;
     line-height: 1.45455;
     font-weight: 300;

@@ -84,10 +84,10 @@
     <!-- Script for showing and hiding side menu -->
     <script>
         function openNav() {
-            if (document.getElementsByClassName("sidenav").style.width != "350px") {
-                document.getElementsByClassName("sidenav").style.width = "350px";
+            if (document.getElementById("menuPane").style.width != "350px") {
+                document.getElementById("menuPane").style.width = "350px !important";
             } else {
-                document.getElementsByClassName("sidenav").style.width = "0";
+                document.getElementById("menuPane").style.width = "0 !important";
             }
         }
     </script>

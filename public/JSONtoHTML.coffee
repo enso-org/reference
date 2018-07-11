@@ -118,24 +118,24 @@ getMenuData = (data) ->
           l = 0
           while l < Mmethod.methods.length
             MmethodWithType = Mmethod.methods[l]
-            menu += '<li><a style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '">' + MmethodWithType.name + '</a></li>'
+            menu += '<li><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '">' + MmethodWithType.name + '</a></li>'
             l++
 
         else
-          menu += '<li><a style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a></li>'
+          menu += '<li><a href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a></li>'
         k++
       
       menu += '</ul></li>'
       j++
     
     if module.functions.length != 0
-      menu += '<li><a style="margin-left:30px" href="#' +module.name + '_Functions">Functions</a>'
+      menu += '<li><a href="#' +module.name + '_Functions">Functions</a>'
       menu += '<ul>'
 
       j = 0
       while j < module.functions.length
         Mfunction = module.functions[j]
-        menu += '<li><a style="margin-left:60px" href="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a></li>'
+        menu += '<li><a href="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a></li>'
         j++
 
       menu += '</ul></li>'

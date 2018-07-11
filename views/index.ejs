@@ -118,7 +118,7 @@
         });
 
         // Bind to scroll
-        $(main).scroll(function() {
+        $(window.getElementById("data")).scroll(function() {
             // Get container scroll position
             var fromTop = $(this).scrollTop();
 
@@ -135,8 +135,8 @@
                 lastId = id;
                 // Set/remove active class
                 menuItems
-                    .parent().removeClass("current")
-                    .end().filter("[href='#" + id + "']").parent().addClass("current");
+                    .parent().removeClass("active")
+                    .end().filter("[href='#" + id + "']").parent().addClass("active");
             }
         });
     </script>

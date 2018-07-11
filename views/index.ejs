@@ -104,7 +104,8 @@
                 if (item.length) {
                     return item;
                 }
-            });
+            }),
+            mainDataPane = $("#data");
 
         // Bind click handler to menu items
         // so we can get a fancy scroll animation
@@ -118,7 +119,7 @@
         });
 
         // Bind to scroll
-        $(window.getElementById("data")).scroll(function() {
+        $(mainDataPane).scroll(function() {
             // Get container scroll position
             var fromTop = $(this).scrollTop();
 

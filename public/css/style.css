@@ -305,7 +305,7 @@ pre code {
 }
 
 .treeMenu ul ul {
-    margin-left: .5em
+    margin-left: 1em
 }
 
 .treeMenu ul:before {
@@ -323,7 +323,7 @@ pre code {
     margin: 0;
     padding: 0 1em;
     line-height: 2em;
-    color: #369;
+    color: #333;
     font-weight: 700;
     position: relative
 }
@@ -341,7 +341,7 @@ pre code {
 }
 
 .treeMenu ul li:last-child:before {
-    background: #fff;
+    background: #fafafa;
     height: auto;
     top: 1em;
     bottom: 0
@@ -353,14 +353,14 @@ pre code {
 
 .treeMenu li a {
     text-decoration: none;
-    color: #369;
+    color: #333;
 }
 
 .treeMenu li button,
 .treeMenu li button:active,
 .treeMenu li button:focus {
     text-decoration: none;
-    color: #369;
+    color: #333;
     border: none;
     background: transparent;
     margin: 0px 0px 0px 0px;

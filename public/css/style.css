@@ -31,7 +31,6 @@ a:hover {
 }
 
 a {
-    color: #333;
     background-color: transparent;
     text-decoration: none;
 }
@@ -220,8 +219,13 @@ pre code {
     letter-spacing: 0.016em;
 }
 
-.current {
+.current,
+#menuPane {
     color: #0070c9;
+}
+
+#menuPane {
+    color: #333;
 }
 
 .functions {

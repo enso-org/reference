@@ -96,6 +96,7 @@
         (function($) {
             $(document).ready(function() {
                 var navChildren = $("#menuPane").children();
+                console.log(navChildren)
                 var aArray = [];
                 for (var i = 0; i < navChildren.length; i++) {
                     var aChild = navChildren[i];
@@ -117,7 +118,7 @@
                     }
 
                 }
-
+                console.log(aArray)
                 $(window).scroll(function() {
                     var windowPos = $(window).scrollTop();
                     var windowHeight = $(window).height();

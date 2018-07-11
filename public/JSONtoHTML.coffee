@@ -91,7 +91,7 @@ getMainData = (data) ->
 
 #convert JSON to HTML - get menu data
 getMenuData = (data) ->
-  menu = '<ul>'
+  menu = '<ul class="treeMenu">'
   modules = data.modules
 
   i = 0
@@ -106,7 +106,7 @@ getMenuData = (data) ->
     while j < module.classes.length
       Mclass = module.classes[j]
       menu += '<li><a style="margin-left:30px" align="right" id="'+ module.name + '_' + Mclass.name + 'Toggle" href="javascript:showhide(\''+ module.name + '_' + Mclass.name + 'Menu\',\''+ module.name + '_' + Mclass.name + 'Toggle\')">▶</a>'
-      menu += '<a href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a><div id="'+ module.name + '_' + Mclass.name + 'Menu" style="display:none;">'
+      menu += '<a href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a>'
       menu += '<ul>'
       k = 0
       while k < Mclass.methods.length

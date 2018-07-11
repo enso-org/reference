@@ -106,8 +106,8 @@ getMenuData = (data) ->
     while j < module.classes.length
       Mclass = module.classes[j]
       menu += '<li><a style="margin-left:30px" align="right" id="'+ module.name + '_' + Mclass.name + 'Toggle" href="javascript:showhide(\''+ module.name + '_' + Mclass.name + 'Menu\',\''+ module.name + '_' + Mclass.name + 'Toggle\')">▶</a>'
-      menu += '<a href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a><div id="'+ module.name + '_' + Mclass.name + 'Menu" style="display:none;"></li>'
-      menu += '<li><ul>'
+      menu += '<a href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a><div id="'+ module.name + '_' + Mclass.name + 'Menu" style="display:none;">'
+      menu += '<ul>'
       k = 0
       while k < Mclass.methods.length
         Mmethod = Mclass.methods[k]
@@ -129,8 +129,8 @@ getMenuData = (data) ->
       j++
     
     if module.functions.length != 0
-      menu += '<li><a style="margin-left:30px" href="#' +module.name + '_Functions">Functions</a></li>'
-      menu += '<li><ul>'
+      menu += '<li><a style="margin-left:30px" href="#' +module.name + '_Functions">Functions</a>'
+      menu += '<ul>'
 
       j = 0
       while j < module.functions.length

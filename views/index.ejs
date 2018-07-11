@@ -21,30 +21,50 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" type="text/javascript"></script>
 
     <script>
-        $(document).ready(function() {
-            // Add smooth scrolling to all links
-            $("a").on('click', function(event) {
+        (function($) {
+            $(document).ready(function() {
+                var navChildren = $("menuPane").children();
+                console.log(navChildren)
+                var aArray = [];
+                for (var i = 0; i < navChildren.length; i++) {
+                    var aChild = navChildren[i];
+                    var ahref = $(aChild).attr('href');
+                    aArray.push(ahref);
+                    if (aChild.childElementCount != 0) {
+                        for (var j = 0; j < aChild.children.length; j++) {
+                            var aChildChild = aChild.children[j];
+                            var ahrefhref = $(aChildChild).attr('href');
+                            aArray.push(ahrefhref);
+                            if (aChildChild.childElementCount != 0) {
+                                for (var k = 0; k < aChildChild.children.length; k++) {
+                                    var aChildChildChild = aChildChild.children[k];
+                                    var ahrefhrefhref = $(aChildChildChild).attr('href');
+                                    aArray.push(ahrefhrefhref);
+                                }
+                            }
+                        }
+                    }
 
-                // Make sure this.hash has a value before overriding default behavior
-                if (this.hash !== "") {
-                    // Prevent default anchor click behavior
-                    event.preventDefault();
+                }
+                console.log(aArray)
+                $(window).scroll(function() {
+                    var windowPos = $(window).scrollTop();
+                    var windowHeight = $(window).height();
+                    var docHeight = $(document).height();
+                    for (var i = 0; i < aArray.length; i++) {
+                        var theID = aArray[i];
+                        var secPosition = $(theID).offset().top;
+                        var divHeight = $(theID).height();
+                        if (windowPos >= secPosition && windowPos < (secPosition + divHeight)) {
+                            $("a[href='" + theID + "']").parent().addClass("current");
+                        } else {
+                            $("a[href='" + theID + "']").parent().removeClass("current");
+                        }
+                    }
+                });
 
-                    // Store hash
-                    var hash = this.hash;
-
-                    // Using jQuery's animate() method to add smooth page scroll
-                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 800, function() {
-
-                        // Add hash (#) to URL when done scrolling (default click behavior)
-                        window.location.hash = hash;
-                    });
-                } // End if
             });
-        });
+        })(jQuery);
     </script>
 </head>
 
@@ -90,53 +110,6 @@
                 document.getElementById("menuPane").style.width = "0";
             }
         }
-    </script>
-
-    <script>
-        (function($) {
-            $(document).ready(function() {
-                var navChildren = $("menuPane").children();
-                console.log(navChildren)
-                var aArray = [];
-                for (var i = 0; i < navChildren.length; i++) {
-                    var aChild = navChildren[i];
-                    var ahref = $(aChild).attr('href');
-                    aArray.push(ahref);
-                    if (aChild.childElementCount != 0) {
-                        for (var j = 0; j < aChild.children.length; j++) {
-                            var aChildChild = aChild.children[j];
-                            var ahrefhref = $(aChildChild).attr('href');
-                            aArray.push(ahrefhref);
-                            if (aChildChild.childElementCount != 0) {
-                                for (var k = 0; k < aChildChild.children.length; k++) {
-                                    var aChildChildChild = aChildChild.children[k];
-                                    var ahrefhrefhref = $(aChildChildChild).attr('href');
-                                    aArray.push(ahrefhrefhref);
-                                }
-                            }
-                        }
-                    }
-
-                }
-                console.log(aArray)
-                $(window).scroll(function() {
-                    var windowPos = $(window).scrollTop();
-                    var windowHeight = $(window).height();
-                    var docHeight = $(document).height();
-                    for (var i = 0; i < aArray.length; i++) {
-                        var theID = aArray[i];
-                        var secPosition = $(theID).offset().top;
-                        var divHeight = $(theID).height();
-                        if (windowPos >= secPosition && windowPos < (secPosition + divHeight)) {
-                            $("a[href='" + theID + "']").parent().addClass("current");
-                        } else {
-                            $("a[href='" + theID + "']").parent().removeClass("current");
-                        }
-                    }
-                });
-
-            });
-        })(jQuery);
     </script>
 </body>
 

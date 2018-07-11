@@ -91,23 +91,23 @@ getMainData = (data) ->
 
 #convert JSON to HTML - get menu data
 getMenuData = (data) ->
-  menu = ''
+  menu = '<ul>'
   modules = data.modules
 
   i = 0
   while i < modules.length
     module = modules[i]
 
-    menu += '<br><a id="'+ module.name + 'Toggle" href="javascript:showhide(\''+ module.name + 'Menu\',\''+ module.name + 'Toggle\')" class="toggle">▶</a>'
-    menu += '<a href="#' + module.name + '">' + module.name + '</a><br>'
-    menu += '<div id="'+ module.name + 'Menu" style="display:none;">'
+    menu += '<li><a id="'+ module.name + 'Toggle" href="javascript:showhide(\''+ module.name + 'Menu\',\''+ module.name + 'Toggle\')" class="toggle">▶</a>'
+    menu += '<a href="#' + module.name + '">' + module.name + '</a><li>'
+    menu += '<li><ul>'
 
     j = 0
     while j < module.classes.length
       Mclass = module.classes[j]
-      menu += '<a style="margin-left:30px" align="right" id="'+ module.name + '_' + Mclass.name + 'Toggle" href="javascript:showhide(\''+ module.name + '_' + Mclass.name + 'Menu\',\''+ module.name + '_' + Mclass.name + 'Toggle\')">▶</a>'
-      menu += '<a href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a><br><div id="'+ module.name + '_' + Mclass.name + 'Menu" style="display:none;">'
-
+      menu += '<li><a style="margin-left:30px" align="right" id="'+ module.name + '_' + Mclass.name + 'Toggle" href="javascript:showhide(\''+ module.name + '_' + Mclass.name + 'Menu\',\''+ module.name + '_' + Mclass.name + 'Toggle\')">▶</a>'
+      menu += '<a href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a><div id="'+ module.name + '_' + Mclass.name + 'Menu" style="display:none;"></li>'
+      menu += '<li><ul>'
       k = 0
       while k < Mclass.methods.length
         Mmethod = Mclass.methods[k]
@@ -118,29 +118,30 @@ getMenuData = (data) ->
           l = 0
           while l < Mmethod.methods.length
             MmethodWithType = Mmethod.methods[l]
-            menu += '<a style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '">' + MmethodWithType.name + '</a><br>'
+            menu += '<li><a style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '">' + MmethodWithType.name + '</a></li>'
             l++
 
         else
-          menu += '<a style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a><br>'
+          menu += '<li><a style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a></li>'
         k++
       
-      menu += '</div>'
+      menu += '</ul></li>'
       j++
     
     if module.functions.length != 0
-      menu += '<a style="margin-left:30px" href="#' +module.name + '_Functions">Functions</a>'
-      menu += '<div id="'+ module.name + '_FunctionsMenu">'
+      menu += '<li><a style="margin-left:30px" href="#' +module.name + '_Functions">Functions</a></li>'
+      menu += '<li><ul>'
 
       j = 0
       while j < module.functions.length
         Mfunction = module.functions[j]
-        menu += '<a style="margin-left:60px" href="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a><br>'
+        menu += '<li><a style="margin-left:60px" href="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a></li>'
         j++
 
-      menu += '</div>'
-    menu += '</div>'
+      menu += '</ul></li>'
+    menu += '</ul></li>'  
     i++
+  menu += '</ul>'
   document.getElementById('menuPane').innerHTML += menu
   return
 

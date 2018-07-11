@@ -120,7 +120,7 @@
         // Bind to scroll
         $(main).scroll(function() {
             // Get container scroll position
-            var fromTop = $(this).scrollTop() + sideMenuHeight;
+            var fromTop = $(this).scrollTop();
 
             // Get id of current scroll item
             var cur = scrollItems.map(function() {

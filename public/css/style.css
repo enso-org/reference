@@ -35,6 +35,15 @@ a {
     text-decoration: none;
 }
 
+.current,
+#menuPane a {
+    color: #0070c9;
+}
+
+#menuPane a {
+    color: #333;
+}
+
 code,
 pre {
     background-color: #fafafa;
@@ -217,15 +226,6 @@ pre code {
     line-height: 1.45455;
     font-weight: 300;
     letter-spacing: 0.016em;
-}
-
-.current,
-#menuPane {
-    color: #0070c9;
-}
-
-#menuPane {
-    color: #333;
 }
 
 .functions {

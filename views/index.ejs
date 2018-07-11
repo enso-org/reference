@@ -21,42 +21,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $(document).on("scroll", onScroll);
+            $("a").on('click', function(event) {
 
-            $('a[href^="#"]').on('click', function(e) {
-                e.preventDefault();
-                $(document).off("scroll");
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
 
-                $('a').each(function() {
-                    $(this).removeClass('active');
-                })
-                $(this).addClass('active');
+                    // Store hash
+                    var hash = this.hash;
 
-                var target = this.hash,
-                    menu = target;
-                $target = $(target);
-                $('html, body').stop().animate({
-                    'scrollTop': $target.offset().top + 2
-                }, 500, 'swing', function() {
-                    window.location.hash = target;
-                    $(document).on("scroll", onScroll);
-                });
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function() {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
             });
         });
-
-        function onScroll(event) {
-            var scrollPos = $(document).scrollTop();
-            $('#menuPane').each(function() {
-                var currLink = $(this);
-                var refElement = $(currLink.attr("href"));
-                if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                    $('#menuPane').removeClass("active");
-                    currLink.addClass("active");
-                } else {
-                    currLink.removeClass("active");
-                }
-            });
-        }
     </script>
 </head>
 

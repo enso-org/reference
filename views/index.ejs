@@ -111,7 +111,7 @@
         menuItems.click(function(e) {
             var href = $(this).attr("href"),
                 offsetTop = href === "#" ? 0 : $(href).offset().top;
-            $('html, body, .main').stop().animate({
+            $('html, body').stop().animate({
                 scrollTop: offsetTop
             }, 300);
             e.preventDefault();

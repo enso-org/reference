@@ -13,10 +13,7 @@ convert = (data) ->
 
     output += '<div class="moduleDiv" id="'+ module.name + '"><p class="module">' + module.name + '</p>'
     menu += '<br><a id="'+ module.name + 'Toggle" href="javascript:showhide(\''+ module.name + 'Menu\',\''+ module.name + 'Toggle\')" class="toggle">▶</a>'
-    if i == 0
-      menu += '<a class="current" href="#' + module.name + '">' + module.name + '</a><br>'
-    else 
-      menu += '<a href="#' + module.name + '">' + module.name + '</a><br>'
+    menu += '<a href="#' + module.name + '">' + module.name + '</a><br>'
     menu += '<div id="'+ module.name + 'Menu" style="display:none;">'
 
     if module.documentation != null && module.documentation != undefined

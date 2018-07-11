@@ -99,8 +99,8 @@ getMenuData = (data) ->
     module = modules[i]
 
     menu += '<li><a id="'+ module.name + 'Toggle" href="javascript:showhide(\''+ module.name + 'Menu\',\''+ module.name + 'Toggle\')" class="toggle">▶</a>'
-    menu += '<a href="#' + module.name + '">' + module.name + '</a><li>'
-    menu += '<li><ul>'
+    menu += '<a href="#' + module.name + '">' + module.name + '</a>'
+    menu += '<ul>'
 
     j = 0
     while j < module.classes.length

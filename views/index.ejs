@@ -24,7 +24,7 @@
     <script>
         $.fn.extend({
             treed: function(o) {
-
+                console.log("exec")
                 var openedClass = 'angle-double-down';
                 var closedClass = 'angle-double-right';
 
@@ -39,10 +39,10 @@
 
                 //initialize each of the top levels
                 var tree = $(this);
-                tree.addClass("tree");
+                tree.addClass("treeMenu");
                 tree.find('li').has("ul").each(function() {
                     var branch = $(this); //li with children ul
-                    branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
+                    branch.prepend("<i class='indicator " + closedClass + "'></i>");
                     branch.addClass('branch');
                     branch.on('click', function(e) {
                         if (this == e.target) {

@@ -35,9 +35,8 @@ a {
     text-decoration: none;
 }
 
-.current,
-#menuPane a {
-    color: #0070c9;
+.current {
+    color: #0070c9 !important;
 }
 
 #menuPane a {

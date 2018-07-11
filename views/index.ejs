@@ -22,8 +22,9 @@
     <script src="jquery.combinedScroll.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('nav a').pageNav();
+        $("a[href^=#]").on("click", function(e) {
+            e.preventDefault();
+            history.pushState({}, "", this.href);
         });
     </script>
 </head>

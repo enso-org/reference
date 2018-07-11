@@ -91,7 +91,7 @@ getMainData = (data) ->
 
 #convert JSON to HTML - get menu data
 getMenuData = (data) ->
-  menu = '<ul class="treeMenu">'
+  menu = '<ul class="treeMenu" id="treeMID">'
   modules = data.modules
 
   i = 0

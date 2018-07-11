@@ -20,6 +20,65 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" type="text/javascript"></script>
 
+    <script>
+        $.fn.extend({
+            treed: function(o) {
+
+                var openedClass = 'angle-double-down';
+                var closedClass = 'angle-double-right';
+
+                if (typeof o != 'undefined') {
+                    if (typeof o.openedClass != 'undefined') {
+                        openedClass = o.openedClass;
+                    }
+                    if (typeof o.closedClass != 'undefined') {
+                        closedClass = o.closedClass;
+                    }
+                };
+
+                //initialize each of the top levels
+                var tree = $(this);
+                tree.addClass("tree");
+                tree.find('li').has("ul").each(function() {
+                    var branch = $(this); //li with children ul
+                    branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
+                    branch.addClass('branch');
+                    branch.on('click', function(e) {
+                        if (this == e.target) {
+                            var icon = $(this).children('i:first');
+                            icon.toggleClass(openedClass + " " + closedClass);
+                            $(this).children().children().toggle();
+                        }
+                    })
+                    branch.children().children().toggle();
+                });
+                //fire event from the dynamically added icon
+                tree.find('.branch .indicator').each(function() {
+                    $(this).on('click', function() {
+                        $(this).closest('li').click();
+                    });
+                });
+                //fire event to open branch if the li contains an anchor instead of text
+                tree.find('.branch>a').each(function() {
+                    $(this).on('click', function(e) {
+                        $(this).closest('li').click();
+                        e.preventDefault();
+                    });
+                });
+                //fire event to open branch if the li contains a button instead of text
+                tree.find('.branch>button').each(function() {
+                    $(this).on('click', function(e) {
+                        $(this).closest('li').click();
+                        e.preventDefault();
+                    });
+                });
+            }
+        });
+
+        //Initialization of treeviews
+
+        $('#treeMID').treed();
+    </script>
 </head>
 
 <body id="body">
@@ -38,22 +97,6 @@
     <div class="main" id="data">
         <!-- Data goes here -->
     </div>
-
-    <!-- Script for showing and hiding accordion menu -->
-    <script>
-        function showhide(id, senderId) {
-            var f = document.getElementById(senderId);
-            if (f.innerText == "▶") {
-                f.innerText = "▼";
-            } else {
-                f.innerText = "▶";
-            }
-            console.log(f.innerText + ' ' + f.id + ' ' + f.innerHTML + ' ' + f.textContent + ' ' + f.title);
-
-            var e = document.getElementById(id);
-            e.style.display = (e.style.display == 'block') ? 'none' : 'block';
-        }
-    </script>
 
     <!-- Script for showing and hiding side menu -->
     <script>

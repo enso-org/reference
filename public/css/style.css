@@ -31,16 +31,13 @@ a:hover {
 }
 
 a {
+    color: #333;
     background-color: transparent;
     text-decoration: none;
 }
 
-.current {
-    color: #0070c9 !important;
-}
-
-#menuPane a {
-    color: #333;
+nav a.Active {
+    font-weight: 600;
 }
 
 code,

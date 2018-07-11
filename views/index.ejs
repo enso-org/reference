@@ -119,11 +119,11 @@
         });
 
         // Bind to scroll
-        $(mainDataPane).scroll(function() {
+        $(window).scroll(function() {
             // Get container scroll position
             var fromTop = $(this).scrollTop();
-
-            // Get id of current scroll item
+            console.log(fromTop)
+                // Get id of current scroll item
             var cur = scrollItems.map(function() {
                 if ($(this).offset().top < fromTop)
                     return this;
@@ -131,7 +131,7 @@
             // Get the id of the current element
             cur = cur[cur.length - 1];
             var id = cur && cur.length ? cur[0].id : "";
-
+            console.log(id)
             if (lastId !== id) {
                 lastId = id;
                 // Set/remove active class

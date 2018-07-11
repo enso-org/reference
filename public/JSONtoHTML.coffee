@@ -13,7 +13,7 @@ convert = (data) ->
 
     output += '<div class="moduleDiv" id="'+ module.name + '"><p class="module">' + module.name + '</p>'
     menu += '<br><a id="'+ module.name + 'Toggle" href="javascript:showhide(\''+ module.name + 'Menu\',\''+ module.name + 'Toggle\')" class="toggle">▶</a>'
-    menu += '<a class="scrollTo" href="#' + module.name + '">' + module.name + '</a><br>'
+    menu += '<a class="current" href="#' + module.name + '">' + module.name + '</a><br>'
     menu += '<div id="'+ module.name + 'Menu" style="display:none;">'
 
     if module.documentation != null && module.documentation != undefined
@@ -28,7 +28,7 @@ convert = (data) ->
       output += '<hr>'
       output += '<div class="module_classes_class" id="' + module.name + '_' + Mclass.name + '"><p class="className">' + Mclass.name + '</p>'
       menu += '<a style="margin-left:30px" align="right" id="'+ module.name + '_' + Mclass.name + 'Toggle" href="javascript:showhide(\''+ module.name + '_' + Mclass.name + 'Menu\',\''+ module.name + '_' + Mclass.name + 'Toggle\')">▶</a>'
-      menu += '<a class="scrollTo" href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a><br><div id="'+ module.name + '_' + Mclass.name + 'Menu" style="display:none;">'
+      menu += '<a href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a><br><div id="'+ module.name + '_' + Mclass.name + 'Menu" style="display:none;">'
       
       if Mclass.documentation != null
         mdtohtml = marked(Mclass.documentation)
@@ -51,7 +51,7 @@ convert = (data) ->
           while l < Mmethod.methods.length
             MmethodWithType = Mmethod.methods[l]
             output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '" class="methodDiv"><p class="methodName">' + MmethodWithType.name + '</p>'
-            menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '">' + MmethodWithType.name + '</a><br>'
+            menu += '<a style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '">' + MmethodWithType.name + '</a><br>'
             if MmethodWithType.documentation != null
               mdtohtml = marked(MmethodWithType.documentation)
               output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
@@ -61,7 +61,7 @@ convert = (data) ->
 
         else
           output += '<div id="' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '" class="methodDiv"><p class="methodName">' + Mmethod.name + '</p>'
-          menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a><br>'
+          menu += '<a style="margin-left:60px" href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a><br>'
           
           if Mmethod.documentation != null
             mdtohtml = marked(Mmethod.documentation)
@@ -77,7 +77,7 @@ convert = (data) ->
     if module.functions.length != 0
       output += '<hr>'
       output += '<div class="functions" id="' + module.name + '_Functions"><p class="functionsHeader">Functions</p>'
-      menu += '<a class="scrollTo" style="margin-left:30px" href="#' +module.name + '_Functions">Functions</a>'
+      menu += '<a style="margin-left:30px" href="#' +module.name + '_Functions">Functions</a>'
       menu += '<div id="'+ module.name + '_FunctionsMenu">'
 
       j = 0
@@ -85,7 +85,7 @@ convert = (data) ->
         Mfunction = module.functions[j]
         #output += '<hr>'
         output += '<div id="' + module.name + '_' + Mfunction.name + '" class="functionNameDiv"><p class="functionName">' + Mfunction.name + '</p>'
-        menu += '<a class="scrollTo" style="margin-left:60px" href="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a><br>'
+        menu += '<a style="margin-left:60px" href="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a><br>'
 
         if Mfunction.documentation != null 
           mdtohtml = marked(Mfunction.documentation)
@@ -114,7 +114,7 @@ conversion = (data) ->
  
   while i < modules.length 
     out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '"><h1>' + modules[i].name + '</h1></div></div>'
-    menu += '<br><a align="right" id="'+ modules[i].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + 'Menu\',\''+ modules[i].name + 'Toggle\')">▶</a><a class="scrollTo" href="#' + modules[i].name + '">' + modules[i].name + '</a><br><div id="'+ modules[i].name + 'Menu" style="display:none;">'
+    menu += '<br><a align="right" id="'+ modules[i].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + 'Menu\',\''+ modules[i].name + 'Toggle\')">▶</a><a href="#' + modules[i].name + '">' + modules[i].name + '</a><br><div id="'+ modules[i].name + 'Menu" style="display:none;">'
     j = 0
     
     while j < modules[i].classes.length
@@ -124,14 +124,14 @@ conversion = (data) ->
         mdtohtml = marked(modules[i].classes[j].documentation)
         out += '<p style="font-size: 20px">' + mdtohtml + '</p>'
       
-      menu += '<a style="margin-left:30px" align="right" id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">▶</a><a class="scrollTo" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + ' </a><br>
+      menu += '<a style="margin-left:30px" align="right" id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle" href="javascript:showhide(\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu\',\''+ modules[i].name + '_' + modules[i].classes[j].name + 'Toggle\')">▶</a><a href="#' + modules[i].name + '_' + modules[i].classes[j].name + '">' + modules[i].classes[j].name + ' </a><br>
 <div id="'+ modules[i].name + '_' + modules[i].classes[j].name + 'Menu" style="display:none;">'
       k = 0
       
       while k < modules[i].classes[j].methods.length
           out += '<hr>'
           out += '<div id="' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '"><h4><b>' + modules[i].classes[j].methods[k].name + '</b></h4>'
-          menu += '<a class="scrollTo" style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '">' + modules[i].classes[j].methods[k].name + '</a><br>'
+          menu += '<a style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].classes[j].name + '_' + modules[i].classes[j].methods[k].name + '">' + modules[i].classes[j].methods[k].name + '</a><br>'
           if modules[i].classes[j].methods[k].documentation != null
             mdtohtml = marked(modules[i].classes[j].methods[k].documentation)
             out += mdtohtml
@@ -144,7 +144,7 @@ conversion = (data) ->
 
     if modules[i].functions.length != 0
       out += '<div class="container"><div class="pageHead" id="' + modules[i].name + '_Functions" style="width:90%"><h2>Functions</h2>'
-      menu += '<a class="scrollTo" style="margin-left:30px" href="#' + modules[i].name + '_Functions">Functions</a><div id="'+ modules[i].name + '_FunctionsMenu">'
+      menu += '<a style="margin-left:30px" href="#' + modules[i].name + '_Functions">Functions</a><div id="'+ modules[i].name + '_FunctionsMenu">'
       j = 0
       while j < modules[i].functions.length
         out += '<hr>'
@@ -154,7 +154,7 @@ conversion = (data) ->
           mdtohtml = marked(modules[i].functions[j].documentation)
           out += mdtohtml
         out += '</div>'
-        menu += '<a class="scrollTo" style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' +  modules[i].functions[j].name + '</a><br>'
+        menu += '<a style="margin-left:60px" href="#' + modules[i].name + '_' + modules[i].functions[j].name + '">' +  modules[i].functions[j].name + '</a><br>'
         j++
       out += '</div></div>'
       menu += '</div>'

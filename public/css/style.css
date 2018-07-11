@@ -220,6 +220,10 @@ pre code {
     letter-spacing: 0.016em;
 }
 
+.current a {
+    background-color: #0070c9;
+}
+
 .functions {
     padding-left: 50px;
 }

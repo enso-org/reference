@@ -134,6 +134,7 @@ getMenuData = (data) ->
 
       j = 0
       while j < module.functions.length
+        Mfunction = module.functions[j]
         menu += '<a style="margin-left:60px" href="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a><br>'
         j++
 

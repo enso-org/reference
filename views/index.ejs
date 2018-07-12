@@ -99,7 +99,6 @@
                 tree.find('.branch>button').each(function() {
                     $(this).on('click', function(e) {
                         $(this).closest('li').click();
-                        $('.menuitem').smoothScroll();
                     });
                 });
             }
@@ -118,6 +117,7 @@
                     if (mutations[i].addedNodes[j].id == "treeMID") {
                         console.log("tree was added!");
                         $('#treeMID').treed();
+                        $('.menuitem').smoothScroll();
                     }
                 }
             }

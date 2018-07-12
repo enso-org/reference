@@ -21,7 +21,41 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" type="text/javascript"></script>
+</head>
+
+<body id="body">
+    <!-- Header -->
+    <div class="pageHeader" style="display: inline-flex">
+        <span class="showMenuOnSmallScreen" onclick="openNav()">☰</span>
+        <a href="http://luna-lang.org"><img src="luna-logo.png" style="width:64px;height:64px;"></a>
+        <p class="lunaDocsLogo">Luna Docs</p>
+    </div>
+    <!-- Side navigation -->
+    <div class="sidenav" id="menuPane">
+        <!-- Menu goes here -->
+    </div>
+
+    <!-- Page content -->
+    <div class="main" id="data">
+        <!-- Data goes here -->
+    </div>
+
+    <!-- Script for showing and hiding side menu -->
     <script>
+        function openNav() {
+            if (document.getElementById("menuPane").style.width != "350px") {
+                document.getElementById("menuPane").style.width = "350px";
+            } else {
+                document.getElementById("menuPane").style.width = "0";
+            }
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#treeMID').treed();
+        });
+
         $.fn.extend({
             treed: function(o) {
                 console.log("exec")
@@ -75,39 +109,6 @@
                 });
             }
         });
-
-        //Initialization of treeviews
-
-        $('#treeMID').treed();
-    </script>
-</head>
-
-<body id="body">
-    <!-- Header -->
-    <div class="pageHeader" style="display: inline-flex">
-        <span class="showMenuOnSmallScreen" onclick="openNav()">☰</span>
-        <a href="http://luna-lang.org"><img src="luna-logo.png" style="width:64px;height:64px;"></a>
-        <p class="lunaDocsLogo">Luna Docs</p>
-    </div>
-    <!-- Side navigation -->
-    <div class="sidenav" id="menuPane">
-        <!-- Menu goes here -->
-    </div>
-
-    <!-- Page content -->
-    <div class="main" id="data">
-        <!-- Data goes here -->
-    </div>
-
-    <!-- Script for showing and hiding side menu -->
-    <script>
-        function openNav() {
-            if (document.getElementById("menuPane").style.width != "350px") {
-                document.getElementById("menuPane").style.width = "350px";
-            } else {
-                document.getElementById("menuPane").style.width = "0";
-            }
-        }
     </script>
 </body>
 

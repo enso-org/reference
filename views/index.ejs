@@ -143,8 +143,8 @@
                 $(this).addClass('active');
 
                 var target = this.hash,
-                    menu = target;
-                $target = $(target);
+                    menu = target,
+                    $target = $(target);
                 $('html, body').stop().animate({
                     'scrollTop': $target.offset().top + 2
                 }, 500, 'swing', function() {
@@ -158,7 +158,7 @@
             var scrollPos = $(document).scrollTop();
             $('#treeMID a').each(function() {
                 var currLink = $(this);
-                var refElement = $(currLink.attr("href"));
+                var refElement = currLink.attr("href");
                 if (refElement.position().top <= scrollPos) {
                     $('.treeMenu li a').removeClass("active");
                     currLink.addClass("active");

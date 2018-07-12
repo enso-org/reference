@@ -356,7 +356,7 @@ pre code {
     color: #333;
 }
 
-.active a {
+.active {
     text-decoration: none;
     color: #0070c9 !important;
 }

@@ -99,14 +99,14 @@ getMenuData = (data) ->
     module = modules[i]
 
     menu += '<li>'
-    menu += '<a onclick="#' + module.name + '">' + module.name + '</a>'
+    menu += '<a href="#' + module.name + '">' + module.name + '</a>'
     menu += '<ul>'
 
     j = 0
     while j < module.classes.length
       Mclass = module.classes[j]
       menu += '<li>'
-      menu += '<a onclick="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a>'
+      menu += '<a href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a>'
       menu += '<ul>'
       k = 0
       while k < Mclass.methods.length
@@ -118,24 +118,24 @@ getMenuData = (data) ->
           l = 0
           while l < Mmethod.methods.length
             MmethodWithType = Mmethod.methods[l]
-            menu += '<li><a onclick="#' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '">' + MmethodWithType.name + '</a></li>'
+            menu += '<li><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '">' + MmethodWithType.name + '</a></li>'
             l++
 
         else
-          menu += '<li><a onclick="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a></li>'
+          menu += '<li><a href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a></li>'
         k++
       
       menu += '</ul></li>'
       j++
     
     if module.functions.length != 0
-      menu += '<li><a onclick="#' +module.name + '_Functions">Functions</a>'
+      menu += '<li><a href="#' +module.name + '_Functions">Functions</a>'
       menu += '<ul>'
 
       j = 0
       while j < module.functions.length
         Mfunction = module.functions[j]
-        menu += '<li><a onclick="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a></li>'
+        menu += '<li><a href="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a></li>'
         j++
 
       menu += '</ul></li>'

@@ -150,7 +150,6 @@ xmlhttp.onreadystatechange = ->
     data = JSON.parse(@responseText)
     getMainData data
     getMenuData data
-    $( "#treeMID" ).trigger( "loaded" )
   return
 
 xmlhttp.open 'GET', url, true

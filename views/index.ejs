@@ -52,10 +52,20 @@
     </script>
 
     <script>
-        $("#treeMID").on("loaded", function() {
+        $("#treeMID").on("loaded", SendMessage);
+
+        function SendMessage(e) {
+            $.event.trigger({
+                type: "newMessage"
+            });
+        }
+
+        $(document).on("newMessage", newMessageHandler);
+
+        // newMessage event handler
+        function newMessageHandler(e) {
             $('#treeMID').treed();
-            console.log("loaded")
-        });
+        }
 
         $.fn.extend({
             treed: function(o) {

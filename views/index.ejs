@@ -52,8 +52,9 @@
     </script>
 
     <script>
-        $(document).ready(function() {
+        $("#treeMID").on("loaded", function() {
             $('#treeMID').treed();
+            console.log("loaded")
         });
 
         $.fn.extend({

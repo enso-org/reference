@@ -154,3 +154,4 @@ xmlhttp.onreadystatechange = ->
 
 xmlhttp.open 'GET', url, true
 xmlhttp.send()
+$( "#treeMID" ).trigger( "loaded" )

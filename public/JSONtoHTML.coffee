@@ -102,14 +102,14 @@ getMenuData = (data) ->
 
     menu += '<li>'
     menu += '<a href="#' + module.name + '">' + module.name + '</a>'
-    menu += '<i class="indicator' + closedClass + '></i><ul class="branch">'
+    menu += '<i class="indicator ' + closedClass + '></i><ul class="branch">'
 
     j = 0
     while j < module.classes.length
       Mclass = module.classes[j]
       menu += '<li>'
       menu += '<a href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a>'
-      menu += '<i class="indicator' + closedClass + '></i><ul class="branch">'
+      menu += '<i class="indicator ' + closedClass + '></i><ul class="branch">'
       k = 0
       while k < Mclass.methods.length
         Mmethod = Mclass.methods[k]
@@ -132,7 +132,7 @@ getMenuData = (data) ->
     
     if module.functions.length != 0
       menu += '<li><a href="#' +module.name + '_Functions">Functions</a>'
-      menu += '<i class="indicator' + closedClass + '></i><ul class="branch">'
+      menu += '<i class="indicator ' + closedClass + '></i><ul class="branch">'
 
       j = 0
       while j < module.functions.length

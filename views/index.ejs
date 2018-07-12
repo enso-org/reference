@@ -165,7 +165,7 @@
 
                 $('.menuitem').each(function() {
                     var currLink = $(this);
-                    var refElement = $(currLink.attr("href"));
+                    var refElement = currLink.attr("href");
                     if (refElement.offset().top <= scrollPos && refElement.offset().top + refElement.height() > scrollPos) {
                         $('.menuitem').removeClass("active");
                         currLink.addClass("active");

@@ -126,8 +126,8 @@
                             //  $(document).off("scroll");
                             var athis = this;
                             var target = this.hash,
-                                menu = target;
-                            $target = $(target);
+                                menu = target,
+                                $target = $(target);
                             $('html, body').stop().animate({
                                 'scrollTop': $target.offset().top + 2
                             }, 800, 'swing', function() {
@@ -156,6 +156,7 @@
                                 } else {
                                     console.log(top);
                                 }
+
                                 if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
                                     $('.menuitem').removeClass("active");
                                     currLink.addClass("active");

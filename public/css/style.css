@@ -55,7 +55,7 @@ hr {
 }
 
 .sidenav {
-    height: 100%;
+    height: calc(100% - 90px);
     width: 350px;
     position: fixed;
     z-index: 1;

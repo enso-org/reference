@@ -91,25 +91,23 @@ getMainData = (data) ->
 
 #convert JSON to HTML - get menu data
 getMenuData = (data) ->
-  menu = '<ul class="treeMenu" id="treeMID">'
+  menu = '<ul id="treeMID">'
   modules = data.modules
-  openedClass = 'fa fa-angle-double-down'
-  closedClass = 'fa fa-angle-double-right'
 
   i = 0
   while i < modules.length
     module = modules[i]
 
-    menu += '<li><i class="indicator ' + closedClass + '"></i>'
+    menu += '<li>'
     menu += '<a href="#' + module.name + '">' + module.name + '</a>'
-    menu += '<ul class="branch">'
+    menu += '<ul>'
 
     j = 0
     while j < module.classes.length
       Mclass = module.classes[j]
-      menu += '<li><i class="indicator ' + closedClass + '"></i>'
+      menu += '<li>'
       menu += '<a href="#' + module.name + '_' + Mclass.name + '">' + Mclass.name + ' </a>'
-      menu += '<ul class="branch">'
+      menu += '<ul>'
       k = 0
       while k < Mclass.methods.length
         Mmethod = Mclass.methods[k]
@@ -132,7 +130,7 @@ getMenuData = (data) ->
     
     if module.functions.length != 0
       menu += '<li><a href="#' +module.name + '_Functions">Functions</a>'
-      menu += '<ul class="branch">'
+      menu += '<ul>'
 
       j = 0
       while j < module.functions.length

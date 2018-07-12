@@ -53,12 +53,13 @@
 
     <script>
         $(document).ready(function() {
+            console.log("exec")
             $('#treeMID').treed();
         });
 
         $.fn.extend({
             treed: function(o) {
-                console.log("exec")
+
                 var openedClass = 'fa fa-angle-double-down';
                 var closedClass = 'fa fa-angle-double-right';
 

@@ -147,6 +147,15 @@
                             $('.menuitem').each(function() {
                                 var currLink = $(this);
                                 var refElement = $(currLink.attr("href"));
+
+                                var top = ($(currLink.attr("href")).offset() || {
+                                    "top": NaN
+                                }).top;
+                                if (isNaN(top)) {
+                                    console.log("something is wrong, no top");
+                                } else {
+                                    console.log(top);
+                                }
                                 if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
                                     $('.menuitem').removeClass("active");
                                     currLink.addClass("active");

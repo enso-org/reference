@@ -159,7 +159,7 @@
             $('#treeMID a').each(function() {
                 var currLink = $(this);
                 var refElement = currLink.attr("href");
-                if (refElement.position().top <= scrollPos) {
+                if (currLink.position().top <= scrollPos) {
                     $('.treeMenu li a').removeClass("active");
                     currLink.addClass("active");
                 } else {

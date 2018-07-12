@@ -109,11 +109,6 @@
         //Initialization of treeviews
         MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
-        $("#treeMID").live("load", function(e) {
-            e.preventDefault();
-            $('#treeMID').treed();
-        });
-
         // define a new observer
         var obs = new MutationObserver(function(mutations, observer) {
             // look through all mutations that just occured
@@ -132,6 +127,10 @@
         // have the observer observe for changes in children
         obs.observe($("#menuPane").get(0), {
             childList: true
+        });
+
+        $("#treeMID").live("DOMNodeInserted", function(event) {
+            console.log("a new div has been appended to the page");
         });
     </script>
 </body>

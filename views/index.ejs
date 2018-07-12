@@ -52,15 +52,13 @@
     </script>
 
     <script>
-        var MY_SELECTOR = "#treeMID" // Could be any selector
-
         var observer = new MutationObserver(function(mutations) {
             for (var i = 0; i < mutations.length; i++) {
                 for (var j = 0; j < mutations[i].addedNodes.length; j++) {
                     // We're iterating through _all_ the elements as the parser parses them,
                     // deciding if they're the one we're looking for.
-                    if (mutations[i].addedNodes[j].id == MY_SELECTOR) {
-                        alert("My Element Is Ready!");
+                    if (mutations[i].addedNodes[j].id == "#treeMID") {
+                        console.log("My Element Is Ready!");
                         $('#treeMID').treed();
                         // We found our element, we're done:
                         observer.disconnect();

@@ -356,6 +356,12 @@ pre code {
     color: #333;
 }
 
+.treeMenu li a,
+.active {
+    text-decoration: none;
+    color: #0070c9;
+}
+
 .treeMenu li button,
 .treeMenu li button:active,
 .treeMenu li button:focus {

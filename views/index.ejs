@@ -52,20 +52,28 @@
     </script>
 
     <script>
-        $("#treeMID").on("loaded", SendMessage);
+        var MY_SELECTOR = "#treeMID" // Could be any selector
 
-        function SendMessage(e) {
-            $.event.trigger({
-                type: "newMessage"
-            });
-        }
+        var observer = new MutationObserver(function(mutations) {
+            for (var i = 0; i < mutations.length; i++) {
+                for (var j = 0; j < mutations[i].addedNodes.length; j++) {
+                    // We're iterating through _all_ the elements as the parser parses them,
+                    // deciding if they're the one we're looking for.
+                    if (mutations[i].addedNodes[j].matches(MY_SELECTOR)) {
+                        alert("My Element Is Ready!");
+                        $('#treeMID').treed();
+                        // We found our element, we're done:
+                        observer.disconnect();
+                    };
+                }
+            }
+        });
 
-        $(document).on("newMessage", newMessageHandler);
+        observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true
+        });
 
-        // newMessage event handler
-        function newMessageHandler(e) {
-            $('#treeMID').treed();
-        }
 
         $.fn.extend({
             treed: function(o) {

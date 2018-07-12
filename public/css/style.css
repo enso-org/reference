@@ -358,7 +358,7 @@ pre code {
 
 .active {
     text-decoration: none;
-    color: #0070c9 !important;
+    color: #0070c9;
 }
 
 .treeMenu li button,

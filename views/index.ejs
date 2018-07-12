@@ -117,6 +117,44 @@
                     if (mutations[i].addedNodes[j].id == "treeMID") {
                         console.log("tree was added!");
                         $('#treeMID').treed();
+
+                        $('a[href^="#site-main"]').addClass('active');
+
+                        //smoothscroll
+                        $('.menuitem').on('click', function(e) {
+                            e.preventDefault();
+                            //  $(document).off("scroll");
+                            var athis = this;
+                            var target = this.hash,
+                                menu = target;
+                            $target = $(target);
+                            $('html, body').stop().animate({
+                                'scrollTop': $target.offset().top + 2
+                            }, 800, 'swing', function() {
+                                window.location.hash = target;
+                                $('.menuitem').removeClass('active');
+                                $(athis).addClass('active');
+
+                            });
+                        });
+
+                        $(window).scroll(function(event) {
+                            var scrollPos = $(document).scrollTop();
+                            if (scrollPos === 0) {
+                                $('a[href^="#site-main"]').addClass('active');
+                                return;
+                            }
+                            $('.menuitem').each(function() {
+                                var currLink = $(this);
+                                var refElement = $(currLink.attr("href"));
+                                if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                                    $('.menuitem').removeClass("active");
+                                    currLink.addClass("active");
+                                } else {
+                                    currLink.removeClass("active");
+                                }
+                            });
+                        })
                     }
                 }
             }
@@ -126,98 +164,6 @@
         obs.observe($("#menuPane").get(0), {
             childList: true
         });
-
-        $(document).ready(function() {
-
-            $('a[href^="#Std.Base"]').addClass('active');
-
-            //smoothscroll
-            $('.menuitem').on('click', function(e) {
-
-                // Make sure this.hash has a value before overriding default behavior
-                if (this.hash !== "") {
-                    // Prevent default anchor click behavior
-                    e.preventDefault();
-
-                    // Store hash
-                    var hash = this.hash;
-
-                    // Using jQuery's animate() method to add smooth page scroll
-                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 800, function() {
-
-                        // Add hash (#) to URL when done scrolling (default click behavior)
-                        window.location.hash = hash;
-                    });
-                } // End if
-
-            });
-
-
-            $(window).scroll(function(event) {
-                var scrollPos = $(document).scrollTop();
-                if (scrollPos === 0) {
-                    $('a[href^="#Std.Base"]').addClass('active');
-                    return;
-                }
-
-                $('.menuitem').each(function() {
-                    var currLink = $(this);
-                    var refElement = currLink.attr("href");
-                    if (refElement.offset().top <= scrollPos && refElement.offset().top + refElement.height() > scrollPos) {
-                        $('.menuitem').removeClass("active");
-                        currLink.addClass("active");
-                    } else {
-                        currLink.removeClass("active");
-                    }
-                });
-
-            })
-
-        });
-
-        /*
-        $(document).ready(function() {
-            $(document).on("scroll", onScroll);
-
-            //smoothscroll
-            $('a[href^="#"]').on('click', function(e) {
-                e.preventDefault();
-                $(document).off("scroll");
-
-                $('a').each(function() {
-                    $(this).removeClass('active');
-                })
-                $(this).addClass('active');
-
-                var target = this.hash,
-                    menu = target,
-                    $target = $(target);
-                $('html, body').stop().animate({
-                    'scrollTop': $target.offset().top + 2
-                }, 500, 'swing', function() {
-                    window.location.hash = target;
-                    $(document).on("scroll", onScroll);
-                });
-            });
-        });
-
-        function onScroll(event) {
-            var scrollPos = $(document).scrollTop();
-            $('#treeMID a').each(function() {
-                var currLink = $(this);
-                var refElement = currLink.attr("href");
-                if (currLink.position().top <= scrollPos) {
-                    $('.treeMenu li a').removeClass("active");
-                    currLink.addClass("active");
-                } else {
-                    currLink.removeClass("active");
-                }
-            });
-        }
-        */
     </script>
 </body>
 

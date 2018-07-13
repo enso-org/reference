@@ -29,7 +29,7 @@
     <!-- Header -->
     <div class="pageHeader" style="display: inline-flex">
         <span class="showMenuOnSmallScreen" onclick="openNav()">☰</span>
-        <a href="http://luna-lang.org"><img src="luna-logo.png" style="width:64px;height:64px;"></a>
+        <a href="http://luna-lang.org"><img id="logo"></a>
         <p class="lunaDocsLogo">Luna Docs</p>
     </div>
     <!-- Side navigation -->
@@ -54,10 +54,8 @@
     </script>
     <script src="CreateTree.js" type="text/javascript"></script>
     <script>
-        var logo = document.createElement("div");
-        var body = document.getElementById("body");
-        body.appendChild(logo);
-        logo.innerHTML = exports.generateText(20, true)
+        var logo = document.getElementById("logo");
+        logo.innerHTML = exports.generateText(32, true)
             // logo.innerHTML = exports.generateInAppLogo(128, true)+exports.generateText(128, true);
             // logo.innerHTML = exports.generateWhiteBackgroundLogo(128, true);
             // logo.innerHTML = exports.generateMinimalBlackLogo(256, true);

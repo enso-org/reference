@@ -199,9 +199,8 @@ pre code {
     margin-top: 20px;
 }
 
-
-}
 .module_classes_class_methods {}
+
 .classDocumentation {
     font-size: 22px;
     line-height: 1.45455;
@@ -209,10 +208,12 @@ pre code {
     letter-spacing: 0.016em;
     margin-bottom: 20px;
 }
+
 .methodDiv {
     padding-left: 50px;
     margin-bottom: 20px;
 }
+
 .methodDocumentation {
     padding-left: 20px;
     font-size: 18px;
@@ -220,6 +221,7 @@ pre code {
     font-weight: 300;
     letter-spacing: 0.016em;
 }
+
 .functions {
     padding: 40px;
     background-color: #fff;
@@ -227,11 +229,11 @@ pre code {
     margin-top: 20px;
 }
 
-}
 .functionNameDiv {
     padding-left: 50px;
     margin-bottom: 20px;
 }
+
 .functionDocumentation {
     padding-left: 20px;
     font-size: 18px;
@@ -240,13 +242,16 @@ pre code {
     letter-spacing: 0.016em;
 }
 
+
 /* Ps */
+
 .module {
     font-size: 40px;
     line-height: 1.05;
     font-weight: 900;
     padding-bottom: 16px;
 }
+
 .module_overview {
     font-size: 22px;
     line-height: 1.45455;
@@ -254,27 +259,33 @@ pre code {
     letter-spacing: 0.016em;
     margin-bottom: 10px;
 }
+
 .methodName {
     font-weight: 600;
 }
+
 .MethodTypeHead {
     font-size: 30px;
     line-height: 1.52;
     font-weight: 400;
 }
+
 .functionsHeader {
     font-size: 40px;
     line-height: 1.52;
     font-weight: 500;
 }
+
 .functionName {
     font-weight: 600;
 }
+
 .className {
     font-size: 40px;
     line-height: 1.52;
     font-weight: 500;
 }
+
 .lunaDocsLogo {
     color: #fafafa;
     font-size: 32px;
@@ -282,19 +293,23 @@ pre code {
     font-weight: 400;
     margin: auto;
 }
+
 .treeMenu,
 .treeMenu ul {
     margin: 0;
     padding: 0;
     list-style: none
 }
+
 .treeMenu ul {
     margin-left: 1em;
     position: relative
 }
+
 .treeMenu ul ul {
     margin-left: 1em
 }
+
 .treeMenu ul:before {
     content: "";
     display: block;
@@ -305,6 +320,7 @@ pre code {
     left: 0;
     border-left: 1px solid
 }
+
 .treeMenu li {
     margin: 0;
     padding: 0 1em;
@@ -313,6 +329,7 @@ pre code {
     font-weight: 700;
     position: relative
 }
+
 .treeMenu ul li:before {
     content: "";
     display: block;
@@ -324,23 +341,28 @@ pre code {
     top: 1em;
     left: 0
 }
+
 .treeMenu ul li:last-child:before {
     background: #fafafa;
     height: auto;
     top: 1em;
     bottom: 0
 }
+
 .indicator {
     margin-right: 5px;
 }
+
 .treeMenu li a {
     text-decoration: none;
     color: #333;
 }
+
 .active {
     text-decoration: none;
     color: #0070c9;
 }
+
 .treeMenu li button,
 .treeMenu li button:active,
 .treeMenu li button:focus {

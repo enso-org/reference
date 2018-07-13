@@ -57,10 +57,10 @@
     <script src="CreateTree.js" type="text/javascript"></script>
     <script>
         var logo = document.getElementById("logo");
-        logo.innerHTML = exports.generateText(32, true)
-            // logo.innerHTML = exports.generateInAppLogo(128, true)+exports.generateText(128, true);
-            // logo.innerHTML = exports.generateWhiteBackgroundLogo(128, true);
-            // logo.innerHTML = exports.generateMinimalBlackLogo(256, true);
+        //logo.innerHTML = exports.generateText(32, true)
+        logo.innerHTML = exports.generateInAppLogo(32, true) + exports.generateText(32, true);
+        // logo.innerHTML = exports.generateWhiteBackgroundLogo(32, true);
+        // logo.innerHTML = exports.generateMinimalBlackLogo(32, true);
         console.log(logo.innerHTML);
     </script>
 </body>

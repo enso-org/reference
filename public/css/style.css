@@ -323,10 +323,10 @@ pre code {
 
 .treeMenu li {
     margin: 0;
-    padding: 0 1em;
-    line-height: 2em;
+    padding: 13px;
+    line-height: 0.1em;
     color: #333;
-    font-weight: 700;
+    font-weight: 400;
     position: relative
 }
 

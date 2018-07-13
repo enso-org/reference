@@ -175,6 +175,7 @@ pre code {
     font-weight: 300;
     letter-spacing: 0.016em;
     padding-bottom: 50px;
+    padding-top: 10px;
 }
 
 .methodTypeDocumentation {
@@ -191,7 +192,8 @@ pre code {
     padding: 40px;
     background-color: #fff;
     border-radius: 40px;
-    margin-top: 20px;
+    margin-top: 32px;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.06);
 }
 
 .module_classes_class_methods {}
@@ -283,7 +285,7 @@ pre code {
 
 .lunaDocsLogo {
     color: #fafafa;
-    font-size: 32px;
+    font-size: 24px;
     line-height: 1.05;
     font-weight: 400;
     margin: auto;
@@ -308,10 +310,10 @@ pre code {
 .treeMenu li {
     margin: 0;
     padding: 13px;
-    line-height: 0.1em;
+    line-height: 0;
     color: #333;
-    font-weight: 400;
-    position: relative
+    font-weight: 300;
+    position: relative;
 }
 
 .indicator {

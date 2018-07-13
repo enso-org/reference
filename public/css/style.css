@@ -77,7 +77,6 @@ hr {
 }
 
 a {
-    padding: 6px 8px 6px 16px;
     text-decoration: none;
     display: inline-block;
 }
@@ -310,17 +309,6 @@ pre code {
     margin-left: 1em
 }
 
-.treeMenu ul:before {
-    content: "";
-    display: block;
-    width: 0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    border-left: 1px solid
-}
-
 .treeMenu li {
     margin: 0;
     padding: 13px;
@@ -328,25 +316,6 @@ pre code {
     color: #333;
     font-weight: 400;
     position: relative
-}
-
-.treeMenu ul li:before {
-    content: "";
-    display: block;
-    width: 10px;
-    height: 0;
-    border-top: 1px solid;
-    margin-top: -1px;
-    position: absolute;
-    top: 1em;
-    left: 0
-}
-
-.treeMenu ul li:last-child:before {
-    background: #fafafa;
-    height: auto;
-    top: 1em;
-    bottom: 0
 }
 
 .indicator {

@@ -6,6 +6,7 @@
         "start": "node server.js"
     },
     "dependencies": {
+        "luna-logo": "^1.1.8",
         "marked": "^0.4.0"
     },
     "devDependencies": {

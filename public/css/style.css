@@ -223,6 +223,8 @@ pre code {
 
 .functions {
     padding-left: 50px;
+    background-color: #fff;
+    border-radius: 40px;
 }
 
 .functionNameDiv {

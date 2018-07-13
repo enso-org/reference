@@ -72,7 +72,7 @@ hr {
     left: 0;
     overflow-x: hidden;
     padding-top: 20px;
-    margin-top: 82px;
+    margin-top: 48px;
 }
 
 a {
@@ -97,7 +97,6 @@ a {
     }
     .main {
         margin-left: 0px !important;
-        margin-top: 82px !important;
         /* Same as the width of the sidenav */
         padding: 0px;
         position: initial
@@ -112,7 +111,6 @@ a {
         margin-left: 350px;
         /* Same as the width of the sidenav */
         padding: 0px;
-        margin-top: 0px;
         max-width: 980px;
     }
 }
@@ -289,7 +287,6 @@ pre code {
     line-height: 1.05;
     font-weight: 400;
     margin: auto;
-    width: 80%;
 }
 
 .treeMenu,

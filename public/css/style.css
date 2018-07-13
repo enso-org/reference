@@ -308,24 +308,23 @@ pre code {
 }
 
 .treeMenu li {
-    margin: 0;
-    line-height: 0;
+    line-height: 1.4em;
     color: #333;
     font-weight: 300;
     position: relative;
-    padding-left: 12px;
+    padding-left: 16px;
     padding-bottom: 6px;
 }
 
+
+}
 .indicator {
     margin-right: 5px;
 }
-
 .treeMenu li a {
     text-decoration: none;
     color: #333;
 }
-
 .active {
     text-decoration: none;
     color: #0070c9 !important;

@@ -316,15 +316,15 @@ pre code {
     padding-bottom: 6px;
 }
 
-
-}
 .indicator {
-    margin-right: 5px;
+    margin-right: 8px
 }
+
 .treeMenu li a {
     text-decoration: none;
     color: #333;
 }
+
 .active {
     text-decoration: none;
     color: #0070c9 !important;

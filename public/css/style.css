@@ -1,6 +1,6 @@
 body {
     font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    background-color: #ffffff;
+    background-color: #fafafa;
     -webkit-font-smoothing: antialiased;
     font-size: 17px;
     line-height: 1.52947;
@@ -8,10 +8,13 @@ body {
     letter-spacing: -0.021em;
 }
 
-.sidenav,
-.pageHeader {
+.sidenav {
     background-color: #fafafa;
-    border: 1px solid #e1e1e1;
+}
+
+.pageHeader {
+    background-color: #333;
+    color: #fafafa !important;
 }
 
 p,
@@ -185,6 +188,7 @@ pre code {
     font-weight: 300;
     letter-spacing: 0.016em;
     margin-bottom: 100px;
+    background-color: #fff
 }
 
 .methodTypeDocumentation {

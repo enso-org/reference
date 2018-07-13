@@ -188,7 +188,6 @@ pre code {
     font-weight: 300;
     letter-spacing: 0.016em;
     margin-bottom: 100px;
-    background-color: #fff
 }
 
 .methodTypeDocumentation {
@@ -203,6 +202,8 @@ pre code {
 
 .module_classes_class {
     padding-left: 50px;
+    background-color: #fff;
+    border-radius: 40px;
 }
 
 .module_classes_class_methods {}

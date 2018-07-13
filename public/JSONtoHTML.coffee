@@ -20,7 +20,6 @@ getMainData = (data) ->
     j = 0
     while j < module.classes.length
       Mclass = module.classes[j]
-      output += '<hr>'
       output += '<div class="module_classes_class" id="' + module.name + '_' + Mclass.name + '"><p class="className">' + Mclass.name + '</p>'
      
       if Mclass.documentation != null
@@ -31,7 +30,6 @@ getMainData = (data) ->
       k = 0
       while k < Mclass.methods.length
         Mmethod = Mclass.methods[k]
-        #output += '<hr>'
 
         if Mmethod.type != null && Mmethod.type != undefined
           #We have methods which have been segregated to types
@@ -47,6 +45,7 @@ getMainData = (data) ->
             if MmethodWithType.documentation != null
               mdtohtml = marked(MmethodWithType.documentation)
               output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
+            output += '<hr>'
             output += '</div>'
             l++
           output += '</div>'
@@ -57,6 +56,7 @@ getMainData = (data) ->
           if Mmethod.documentation != null
             mdtohtml = marked(Mmethod.documentation)
             output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
+          output += '<hr>'
           output += '</div>'
         k++
       
@@ -65,25 +65,22 @@ getMainData = (data) ->
     output += '</div>'
     
     if module.functions.length != 0
-      output += '<hr>'
       output += '<div class="functions" id="' + module.name + '_Functions"><p class="functionsHeader">Functions</p>'
 
       j = 0
       while j < module.functions.length
         Mfunction = module.functions[j]
-        #output += '<hr>'
         output += '<div id="' + module.name + '_' + Mfunction.name + '" class="functionNameDiv"><p class="functionName">' + Mfunction.name + '</p>'
 
         if Mfunction.documentation != null 
           mdtohtml = marked(Mfunction.documentation)
           output += '<div class="functionDocumentation">' + mdtohtml + '</div>'
+        output += '<hr>'
         output += '</div>'
         j++
 
       output += '</div>'
-
     output += '</div>'
-    output += '<hr>'
     i++
   
   document.getElementById('data').innerHTML = output
@@ -111,7 +108,6 @@ getMenuData = (data) ->
       k = 0
       while k < Mclass.methods.length
         Mmethod = Mclass.methods[k]
-        #output += '<hr>'
 
         if Mmethod.type != null && Mmethod.type != undefined
           #We have methods which have been segregated to types

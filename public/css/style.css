@@ -14,7 +14,13 @@ body {
 
 .pageHeader {
     background-color: #333;
-    color: #fafafa !important;
+    height: 48px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
 }
 
 p,
@@ -81,7 +87,7 @@ a {
     position: relative;
     /* Same as the width of the sidenav */
     padding: 0px;
-    margin-top: 0px;
+    margin-top: 48px;
     max-width: 980px;
 }
 
@@ -95,9 +101,6 @@ a {
         /* Same as the width of the sidenav */
         padding: 0px;
         position: initial
-    }
-    .pageHeader {
-        width: 100% !important;
     }
     .showMenuOnSmallScreen {
         display: block !important;
@@ -119,16 +122,6 @@ a {
     font-size: 30px;
     cursor: pointer;
     margin: auto 5px;
-}
-
-.pageHeader {
-    height: 82px;
-    width: 350px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
 }
 
 pre {
@@ -291,10 +284,12 @@ pre code {
 }
 
 .lunaDocsLogo {
-    font-size: 40px;
+    color: #fafafa;
+    font-size: 32px;
     line-height: 1.05;
     font-weight: 400;
     margin: auto;
+    width: 80%;
 }
 
 .treeMenu,

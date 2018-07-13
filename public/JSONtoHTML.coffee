@@ -45,8 +45,7 @@ getMainData = (data) ->
             if MmethodWithType.documentation != null
               mdtohtml = marked(MmethodWithType.documentation)
               output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
-            if l < (Mmethod.methods.length-1)
-              output += '<hr>'
+            
             output += '</div>'
             l++
           output += '</div>'
@@ -57,8 +56,7 @@ getMainData = (data) ->
           if Mmethod.documentation != null
             mdtohtml = marked(Mmethod.documentation)
             output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
-          if k < (Mclass.methods.length-1)
-            output += '<hr>'
+          
           output += '</div>'
         k++
       
@@ -77,8 +75,7 @@ getMainData = (data) ->
         if Mfunction.documentation != null 
           mdtohtml = marked(Mfunction.documentation)
           output += '<div class="functionDocumentation">' + mdtohtml + '</div>'
-        if j < (module.functions.length-1)
-          output += '<hr>'
+        
         output += '</div>'
         j++
 

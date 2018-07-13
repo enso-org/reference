@@ -209,6 +209,16 @@ class MinimalBlackLogo extends Logo {
     }
 }
 
+class MinimalWhiteLogo extends Logo {
+    constructor(size, compatibleMode) {
+        super(size, compatibleMode);
+        this.borderMax = 10
+        this.borderSpread = 0
+        this.init()
+        this.body = `<use ${this.ref}="#logo" fill="#fafafa"/>`
+    }
+}
+
 class AppLogo extends Logo {
     constructor(size, compatibleMode) {
         super(size, compatibleMode);
@@ -292,6 +302,7 @@ exports.generateLogo = fastGenerate(Logo);
 exports.generateAppLogo = fastGenerate(AppLogo);
 exports.generateInAppLogo = fastGenerate(InAppLogo);
 exports.generateMinimalBlackLogo = fastGenerate(MinimalBlackLogo);
+exports.generateMinimalWhiteLogo = fastGenerate(MinimalWhiteLogo);
 exports.generateBlackBackgroundLogo = fastGenerate(BlackBackgroundLogo);
 exports.generateWhiteBackgroundLogo = fastGenerate(WhiteBackgroundLogo);
 exports.generateInAppLogoWithText = (size, mode) => exports.generateInAppLogo(size, mode) + exports.generateText(size, mode, 20);

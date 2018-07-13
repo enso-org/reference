@@ -30,39 +30,39 @@
     <div class="pageHeader" style="display: inline-flex">
         <span class="showMenuOnSmallScreen" onclick="openNav()">☰</span>
         <a href="http://luna-lang.org">
-            <div id="logo">
+            <div id="logo" style="padding: 9px"></div>
         </a>
         <p class="lunaDocsLogo">Luna Docs</p>
-        </div>
-        <!-- Side navigation -->
-        <div class="sidenav" id="menuPane">
-            <!-- Menu goes here -->
-        </div>
+    </div>
+    <!-- Side navigation -->
+    <div class="sidenav" id="menuPane">
+        <!-- Menu goes here -->
+    </div>
 
-        <!-- Page content -->
-        <div class="main" id="data">
-            <!-- Data goes here -->
-        </div>
+    <!-- Page content -->
+    <div class="main" id="data">
+        <!-- Data goes here -->
+    </div>
 
-        <!-- Script for showing and hiding side menu -->
-        <script>
-            function openNav() {
-                if (document.getElementById("menuPane").style.width != "350px") {
-                    document.getElementById("menuPane").style.width = "350px";
-                } else {
-                    document.getElementById("menuPane").style.width = "0";
-                }
+    <!-- Script for showing and hiding side menu -->
+    <script>
+        function openNav() {
+            if (document.getElementById("menuPane").style.width != "350px") {
+                document.getElementById("menuPane").style.width = "350px";
+            } else {
+                document.getElementById("menuPane").style.width = "0";
             }
-        </script>
-        <script src="CreateTree.js" type="text/javascript"></script>
-        <script>
-            var logo = document.getElementById("logo");
-            logo.innerHTML = exports.generateWhiteBackgroundLogo(32, true)
-                // logo.innerHTML = exports.generateInAppLogo(128, true)+exports.generateText(128, true);
-                // logo.innerHTML = exports.generateWhiteBackgroundLogo(128, true);
-                // logo.innerHTML = exports.generateMinimalBlackLogo(256, true);
-            console.log(logo.innerHTML);
-        </script>
+        }
+    </script>
+    <script src="CreateTree.js" type="text/javascript"></script>
+    <script>
+        var logo = document.getElementById("logo");
+        logo.innerHTML = exports.generateWhiteBackgroundLogo(32, true)
+            // logo.innerHTML = exports.generateInAppLogo(128, true)+exports.generateText(128, true);
+            // logo.innerHTML = exports.generateWhiteBackgroundLogo(128, true);
+            // logo.innerHTML = exports.generateMinimalBlackLogo(256, true);
+        console.log(logo.innerHTML);
+    </script>
 </body>
 
 </html>

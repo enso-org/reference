@@ -35,18 +35,14 @@ h6 {
 }
 
 a:hover {
-    color: #0070c9;
-    text-decoration: underline;
+    color: #0070c9 !important;
+    text-decoration: none;
 }
 
 a {
     color: #333;
     background-color: transparent;
     text-decoration: none;
-}
-
-nav a.Active {
-    font-weight: 600;
 }
 
 code,
@@ -329,7 +325,7 @@ pre code {
 
 .active {
     text-decoration: none;
-    color: #0070c9;
+    color: #0070c9 !important;
 }
 
 .treeMenu li button,

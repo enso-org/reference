@@ -72,6 +72,7 @@ var obs = new MutationObserver(function(mutations, observer) {
                             var target = $(this.hash);
                             target = target.length ? target : $('[name=\"' + this.hash.slice(1) + '\"]');
                             // Does a scroll target exist?
+                            console.log(target + target.length + target.id + target.hash)
                             if (target.length) {
                                 // Only prevent default if animation is actually gonna happen
                                 event.preventDefault();

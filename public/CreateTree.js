@@ -60,6 +60,7 @@ var obs = new MutationObserver(function(mutations, observer) {
 
                 $('a[href^="#"]').on('click', function(event) {
                     var target = $(this.getAttribute('href'));
+                    console.log(target.id);
                     if (target.length) {
                         event.preventDefault();
                         $('html, body').stop().animate({

@@ -58,6 +58,16 @@ var obs = new MutationObserver(function(mutations, observer) {
             if (mutations[i].addedNodes[j].id == "treeMID") {
                 console.log("tree was added!");
                 $('#treeMID').treed();
+
+                $('a[href^="#"]').on('click', function(event) {
+                    var target = $(this.getAttribute('href'));
+                    if (target.length) {
+                        event.preventDefault();
+                        $('html, body').stop().animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                    }
+                });
             }
         }
     }

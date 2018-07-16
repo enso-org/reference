@@ -56,7 +56,6 @@ var obs = new MutationObserver(function(mutations, observer) {
         for (var j = 0; j < mutations[i].addedNodes.length; ++j) {
             // was a child added with ID of 'bar'?
             if (mutations[i].addedNodes[j].id == "treeMID") {
-                console.log("tree was added!");
                 $('#treeMID').treed();
 
                 $('a[href^="#"]').on('click', function(event) {
@@ -66,6 +65,7 @@ var obs = new MutationObserver(function(mutations, observer) {
                         $('html, body').stop().animate({
                             scrollTop: target.offset().top
                         }, 1000);
+                        console.log("c!");
                     }
                 });
             }

@@ -58,10 +58,7 @@ var obs = new MutationObserver(function(mutations, observer) {
             if (mutations[i].addedNodes[j].id == "treeMID") {
                 $('#treeMID').treed();
 
-                $('a[href*="#"]')
-                    // Remove links that don't actually link to anything
-                    .not('[href="#"]')
-                    .not('[href="#0"]')
+                $('a[href*="#"]:not([href="#"]')
                     .click(function(event) {
                         // On-page links
                         if (
@@ -71,8 +68,9 @@ var obs = new MutationObserver(function(mutations, observer) {
                             // Figure out element to scroll to
                             var target = $(this.hash);
                             target = target.length ? target : $('[name=\"' + this.hash.slice(1) + '\"]');
-                            // Does a scroll target exist?
-                            console.log(target + target.length + target.id + target.hash)
+                            console.log(this.hash.slice(1))
+                                // Does a scroll target exist?
+                            console.log(target)
                             if (target.length) {
                                 // Only prevent default if animation is actually gonna happen
                                 event.preventDefault();

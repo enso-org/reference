@@ -68,7 +68,9 @@ var obs = new MutationObserver(function(mutations, observer) {
                         if (url == (this.href)) {
                             $(this).closest("li").addClass("active");
                             //for making parent of submenu active
+                            $(this).closest("li").parent().addClass("active");
                             $(this).closest("li").parent().parent().addClass("active");
+                            $(this).closest("li").parent().parent().parent().addClass("active");
                         }
                     });
                 });

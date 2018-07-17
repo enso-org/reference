@@ -66,11 +66,11 @@ var obs = new MutationObserver(function(mutations, observer) {
                     $(".treeMenu a").each(function() {
                         // checks if its the same on the address bar
                         if (url == (this.href)) {
-                            $(this).closest("li").addClass("active");
+                            $(this).closest("a").addClass("active");
                             //for making parent of submenu active
-                            $(this).closest("li").parent().addClass("active");
-                            $(this).closest("li").parent().parent().addClass("active");
-                            $(this).closest("li").parent().parent().parent().addClass("active");
+                            $(this).closest("a").parent().addClass("active");
+                            $(this).closest("a").parent().parent().addClass("active");
+                            $(this).closest("a").parent().parent().parent().addClass("active");
                         }
                     });
                 });

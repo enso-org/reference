@@ -1,5 +1,5 @@
 body {
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #fafafa;
     -webkit-font-smoothing: antialiased;
     font-size: 17px;
@@ -131,7 +131,7 @@ samp {
 code,
 pre,
 samp {
-    font-family: 'SF Mono', Menlo, monospace;
+    font-family: 'Source Code Pro', Menlo, monospace;
 }
 
 pre {

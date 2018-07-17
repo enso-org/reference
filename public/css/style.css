@@ -325,7 +325,8 @@ pre code {
     color: #333;
 }
 
-.active {
+.treeMenu ul li.active a,
+.treeMenu ul li a:hover {
     text-decoration: none;
     color: #0070c9 !important;
 }

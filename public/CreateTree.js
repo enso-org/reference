@@ -73,7 +73,7 @@ var obs = new MutationObserver(function(mutations, observer) {
                                     if ($(parents[i]).is("li,a")) {
                                         $(parents[i]).addClass('active');
 
-                                    } else if (!$(parents[i]).is("li,a")) {
+                                    } else if ($(parents[i]).is("li")) {
                                         $(parents[i]).css("display", "");
                                     }
                                 } else {

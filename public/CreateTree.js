@@ -67,13 +67,17 @@ var obs = new MutationObserver(function(mutations, observer) {
                         // checks if its the same on the address bar
                         if (url == (this.href)) {
                             var parents = getParents(this);
+                            for (var i = 0; i < parents.length; i++) {
+                                if (parents[i].id != "menuPane") {
+                                    if (parents[i] != "ul") {
+                                        parents[i].addClass("active");
+                                        if (i > 1) {
+                                            parents[i].children.addClass("active");
+                                        }
+                                    }
+                                }
+                            }
                             console.log(parents)
-                            $(this).closest("a").addClass("active");
-                            //for making parent of submenu active
-                            $(this).closest("a").parent().parent().parent().addClass("active");
-                            $(this).closest("a").parent().parent().parent().children().addClass("active");
-                            $(this).closest("a").parent().parent().parent().parent().parent().addClass("active");
-                            $(this).closest("a").parent().parent().parent().parent().parent().children().addClass("active");
                         }
                     });
                 });

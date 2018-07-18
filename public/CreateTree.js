@@ -66,6 +66,8 @@ var obs = new MutationObserver(function(mutations, observer) {
                     $(".treeMenu a").each(function() {
                         // checks if its the same on the address bar
                         if (url == (this.href)) {
+                            var parents = getParents(this);
+                            console.log(parents)
                             $(this).closest("a").addClass("active");
                             //for making parent of submenu active
                             $(this).closest("a").parent().parent().parent().addClass("active");
@@ -84,3 +86,18 @@ var obs = new MutationObserver(function(mutations, observer) {
 obs.observe($("#menuPane").get(0), {
     childList: true
 });
+
+var getParents = function(elem) {
+
+    // Set up a parent array
+    var parents = [];
+
+    // Push each parent element to the array
+    for (; elem && elem !== document; elem = elem.parentNode) {
+        parents.push(elem);
+    }
+
+    // Return our parent array
+    return parents;
+
+};

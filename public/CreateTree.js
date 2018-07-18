@@ -58,8 +58,6 @@ var obs = new MutationObserver(function(mutations, observer) {
             if (mutations[i].addedNodes[j].id == "treeMID") {
                 $('#treeMID').treed();
 
-                updateMenuActivity('https://luna-docs.herokuapp.com/#Std.Base');
-
                 $(function() {
                     // Perform on every scroll
                     $(document).scroll(function() {

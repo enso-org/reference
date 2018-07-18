@@ -72,9 +72,7 @@ var obs = new MutationObserver(function(mutations, observer) {
                                 if ($(parents[i]).id != "menuPane") {
                                     if ($(parents[i]).is("li,a")) {
                                         $(parents[i]).addClass('active');
-                                        if (i > 1) {
-                                            $(parents[i]).children().addClass('active');
-                                        }
+
                                     }
                                 } else {
                                     break

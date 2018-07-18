@@ -72,15 +72,11 @@ var obs = new MutationObserver(function(mutations, observer) {
                                 if ($(parents[i]).attr("id") != "menuPane") {
                                     if ($(parents[i]).is("li,a")) {
                                         $(parents[i]).addClass('active');
-                                        if ($(parents[i]).is("li")) {
-                                            $(parents[i]).children().css("display", "");
-
-                                            var openedClass = 'fa fa-caret-down';
-                                            var closedClass = 'fa fa-caret-right';
-                                            var icon = $(this).children('i:first');
-                                            icon.toggleClass(openedClass + " " + closedClass);
-                                            $(this).children().children().toggle();
-                                        }
+                                        $(parents[i]).closest('i').click();
+                                    }
+                                    if ($(parents[i]).attr("class") != "branch") {
+                                        $(parents[i]).css("display", "");
+                                        $(parents[i]).children().css("display", "");
                                     }
                                 } else {
                                     break;

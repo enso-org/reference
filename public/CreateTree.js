@@ -132,15 +132,16 @@ var updateMenuActivity = function(url) {
                 if ($(parents[i]).attr("id") != "menuPane") {
                     if ($(parents[i]).is("li,a")) {
                         $(parents[i]).addClass('active');
-                        var openedClass = 'fa fa-caret-down';
-                        var closedClass = 'fa fa-caret-right';
-                        if ($(parents[i]).children('i:first').attr("class") == closedClass) {
-                            var icon = $(parents[i]).children('i:first');
-                            icon.toggleClass(openedClass);
-                        }
                     }
-                    if ($(parents[i]).attr("class") != "branch") {
-                        $(parents[i]).css("display", "");
+                }
+                if ($(parents[i]).attr("class") != "branch") {
+                    $(parents[i]).css("display", "");
+                    var openedClass = 'fa fa-caret-down';
+                    var closedClass = 'fa fa-caret-right';
+                    console.log($(parents[i]).closest('i'))
+                    if ($(parents[i]).children('i:first').attr("class") == closedClass) {
+                        var icon = $(parents[i]).children('i:first');
+                        icon.toggleClass(openedClass);
                         $(parents[i]).children().css("display", "");
                     }
                 } else {

@@ -73,7 +73,7 @@ var obs = new MutationObserver(function(mutations, observer) {
                                     if ($(parents[i]).is("li,a")) {
                                         $(parents[i]).addClass('active');
                                         if (i > 1) {
-                                            parents[i].getElementsByTagName("a")[0].addClass('active');
+                                            $(parents[i]).find('a').addClass('active');
                                         }
                                     }
                                 } else {

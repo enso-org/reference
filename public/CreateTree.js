@@ -69,10 +69,12 @@ var obs = new MutationObserver(function(mutations, observer) {
                             var parents = getParents(this);
                             for (var i = 0; i < parents.length; i++) {
                                 console.log($(parents[i]))
-                                if ($(parents[i]).id() != 'menuPane') {
+                                if ($(parents[i]).id != 'menuPane') {
                                     if ($(parents[i]).is("li,a")) {
                                         $(parents[i]).addClass('active');
 
+                                    } else {
+                                        $(parents[i]).css("background-color", "yellow");
                                     }
                                 } else {
                                     break;

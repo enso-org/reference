@@ -68,6 +68,7 @@ var obs = new MutationObserver(function(mutations, observer) {
                         if (url == (this.href)) {
                             var parents = getParents(this);
                             for (var i = 0; i < parents.length; i++) {
+                                console.log(parents[i])
                                 if (parents[i].id != "menuPane") {
                                     if (parents[i] != "ul") {
                                         parents[i].addClass("active");

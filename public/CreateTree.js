@@ -58,31 +58,44 @@ var obs = new MutationObserver(function(mutations, observer) {
             if (mutations[i].addedNodes[j].id == "treeMID") {
                 $('#treeMID').treed();
 
-                $(function() {
-                    // this will get the full URL at the address bar
-                    var url = window.location.href;
+                updateMenuActivity(window.location.href);
 
-                    // passes on every "a" tag
-                    $(".treeMenu a").each(function() {
-                        // checks if its the same on the address bar
-                        if (url == (this.href)) {
-                            var parents = getParents(this);
-                            for (var i = 0; i < parents.length; i++) {
-                                console.log($(parents[i]))
-                                if ($(parents[i]).attr("id") != "menuPane") {
-                                    if ($(parents[i]).is("li,a")) {
-                                        $(parents[i]).addClass('active');
-                                        $(parents[i]).closest('i').click();
-                                    }
-                                    if ($(parents[i]).attr("class") != "branch") {
-                                        $(parents[i]).css("display", "");
-                                        $(parents[i]).children().css("display", "");
-                                    }
-                                } else {
-                                    break;
-                                }
-                            }
-                            console.log(parents)
+                $(function() {
+                    // Perform on every scroll
+                    $(document).scroll(function() {
+                        var data = $("#data");
+                        var modules = data.children().children();
+                        var scrollpos = $(document).scrollTop() + 100;
+                        var start = 0;
+                        var end = modules.length;
+                        var c = 0;
+
+                        while (start != end) {
+                            c++;
+                            var mid = start + Math.floor((end - start) / 2);
+                            if ($(modules[mid]).offset().top < scrollpos)
+                                start = mid + 1;
+                            else
+                                end = mid;
+                        }
+
+                        var startC = 0;
+                        var endC = $(modules[start - 1]).children().length
+
+                        while (startC != endC) {
+                            c++;
+                            var mid = startC + Math.floor((endC - startC) / 2);
+                            if ($($(modules[start - 1]).children()[mid]).offset().top < scrollpos)
+                                startC = mid + 1;
+                            else
+                                endC = mid;
+                        }
+
+                        var id = $($(modules[start - 1]).children()[startC - 1]).attr('id')
+                        if (id != undefined) {
+                            var url = 'https://luna-docs.herokuapp.com/#' + id
+                            console.log(url)
+                            updateMenuActivity(url);
                         }
                     });
                 });
@@ -97,16 +110,44 @@ obs.observe($("#menuPane").get(0), {
 });
 
 var getParents = function(elem) {
-
     // Set up a parent array
     var parents = [];
-
     // Push each parent element to the array
     for (; elem && elem !== document; elem = elem.parentNode) {
         parents.push(elem);
     }
-
     // Return our parent array
     return parents;
+};
 
+var updateMenuActivity = function(url) {
+    $(".treeMenu li,a").removeClass("active");
+    // passes on every "a" tag
+    $(".treeMenu a").each(function() {
+        // checks if its the same on the address bar
+
+        if (url == (this.href)) {
+            var parents = getParents(this);
+            for (var i = 0; i < parents.length; i++) {
+                if ($(parents[i]).attr("id") != "menuPane") {
+                    if ($(parents[i]).is("li,a")) {
+                        $(parents[i]).addClass('active');
+                        var openedClass = 'fa fa-caret-down';
+                        var closedClass = 'fa fa-caret-right';
+                        if (i > 1 && $(parents[i]).children('i:first').attr("class") == closedClass) {
+                            var icon = $(parents[i]).children('i:first');
+                            icon.toggleClass(openedClass + " " + closedClass);
+                        }
+                    }
+                    if ($(parents[i]).attr("class") != "branch") {
+                        $(parents[i]).css("display", "");
+                        $(parents[i]).children().css("display", "");
+                    }
+                } else {
+                    break;
+                }
+            }
+
+        }
+    });
 };

@@ -75,7 +75,7 @@ var obs = new MutationObserver(function(mutations, observer) {
 
                                     }
                                 } else {
-                                    break
+                                    break;
                                 }
                             }
                             console.log(parents)

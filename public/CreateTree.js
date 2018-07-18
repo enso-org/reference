@@ -136,7 +136,7 @@ var updateMenuActivity = function(url) {
                         var closedClass = 'fa fa-caret-right';
                         if ($(parents[i]).children('i:first').attr("class") == closedClass) {
                             var icon = $(parents[i]).children('i:first');
-                            icon.toggleClass(openedClass + " " + closedClass);
+                            icon.toggleClass(openedClass);
                         }
                     }
                     if ($(parents[i]).attr("class") != "branch") {

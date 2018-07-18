@@ -58,7 +58,7 @@ var obs = new MutationObserver(function(mutations, observer) {
             if (mutations[i].addedNodes[j].id == "treeMID") {
                 $('#treeMID').treed();
 
-                updateMenuActivity(window.location.href);
+                updateMenuActivity('https://luna-docs.herokuapp.com/#Std.Base');
 
                 $(function() {
                     // Perform on every scroll
@@ -94,7 +94,6 @@ var obs = new MutationObserver(function(mutations, observer) {
                         var id = $($(modules[start - 1]).children()[startC - 1]).attr('id')
                         if (id != undefined) {
                             var url = 'https://luna-docs.herokuapp.com/#' + id
-                            console.log(url)
                             updateMenuActivity(url);
                         }
                     });
@@ -137,7 +136,7 @@ var updateMenuActivity = function(url) {
                         $(parents[i]).css("display", "");
                         var openedClass = 'fa fa-caret-down';
                         var closedClass = 'fa fa-caret-right';
-                        console.log($(parents[i]).children('i:first'))
+                        console.log($(parents[i]).children('i'))
                         if ($(parents[i]).children('i:first').attr("class") == closedClass) {
                             var icon = $(parents[i]).children('i:first');
                             icon.toggleClass(openedClass);

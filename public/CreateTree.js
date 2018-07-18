@@ -75,6 +75,8 @@ var obs = new MutationObserver(function(mutations, observer) {
                                             parents[i].children.addClass("active");
                                         }
                                     }
+                                } else {
+                                    break
                                 }
                             }
                             console.log(parents)

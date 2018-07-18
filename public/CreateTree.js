@@ -71,6 +71,7 @@ var obs = new MutationObserver(function(mutations, observer) {
                             $(this).closest("a").parent().parent().parent().addClass("active");
                             $(this).closest("a").parent().parent().parent().children().addClass("active");
                             $(this).closest("a").parent().parent().parent().parent().parent().addClass("active");
+                            $(this).closest("a").parent().parent().parent().parent().parent().children().addClass("active");
                         }
                     });
                 });

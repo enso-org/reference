@@ -134,7 +134,7 @@ var updateMenuActivity = function(url) {
                         $(parents[i]).addClass('active');
                         var openedClass = 'fa fa-caret-down';
                         var closedClass = 'fa fa-caret-right';
-                        if (i > 1 && $(parents[i]).children('i:first').attr("class") == closedClass) {
+                        if ($(parents[i]).children('i:first').attr("class") == closedClass) {
                             var icon = $(parents[i]).children('i:first');
                             icon.toggleClass(openedClass + " " + closedClass);
                         }

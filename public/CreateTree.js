@@ -158,8 +158,9 @@ var updateMenuActivity = function(url) {
                         if (i > 1 && $(parents[i]).children('i:first').hasClass(closedClass)) {
                             var icon = $(parents[i]).children('i:first');
                             icon.toggleClass(openedClass + " " + closedClass);
+                        } else {
+                            $(parents[i]).children().css("display", "none");
                         }
-                        $(parents[i]).children().css("display", "none");
                     }
                 } else {
                     break;

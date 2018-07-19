@@ -147,19 +147,17 @@ var updateMenuActivity = function(url) {
         } else {
             var parents = getParents(this);
             for (var i = 0; i < parents.length; i++) {
-                if ($(parents[i]).attr("id") != "menuPane") {
+                if ($(parents[i]).attr("id") != "treeMID") {
                     if ($(parents[i]).is("li,a")) {
                         $(parents[i]).removeClass('active');
                     }
-                    if ($(parents[i]).attr("class") != "branch") {
-                        $(parents[i]).css("display", "");
+                    if (!$(parents[i]).hasClass("branch")) {
                         var openedClass = 'fa fa-caret-down';
                         var closedClass = 'fa fa-caret-right';
-                        if (i > 1 && $(parents[i]).children('i:first').hasClass(closedClass)) {
+                        if (i > 1 && $(parents[i]).children('i:first').hasClass(openedClass)) {
                             var icon = $(parents[i]).children('i:first');
                             icon.toggleClass(openedClass + " " + closedClass);
-                        } else {
-                            $(parents[i]).children().css("display", "none");
+                            parents[i].css("display", "none");
                         }
                     }
                 } else {

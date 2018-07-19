@@ -150,7 +150,7 @@ var updateMenuActivity = function(url) {
                     if ($(parents[i]).is("li,a")) {
                         $(parents[i]).removeClass('active');
                     }
-                    if ($(parents[i]).attr("class") != "branch") {
+                    if (!$(parents[i]).hasClass("branch") || !$(parents[i]).hasClass("treeMenu")) {
                         $(parents[i]).css("display", "none");
                         var openedClass = 'fa fa-caret-down';
                         var closedClass = 'fa fa-caret-right';

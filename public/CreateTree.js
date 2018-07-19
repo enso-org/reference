@@ -91,7 +91,7 @@ var obs = new MutationObserver(function(mutations, observer) {
 
                         var id = $($(modules[start - 1]).children()[startC - 1]).attr('id')
                         if (id != undefined) {
-                            var url = 'https://luna-docs.herokuapp.com/#' + id
+                            var url = window.location.href.split('#')[0] + "#" + id;
                             updateMenuActivity(url);
                         }
                     });

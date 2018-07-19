@@ -146,7 +146,9 @@ var updateMenuActivity = function(url) {
             for (var i = 0; i < parents.length; i++) {
                 if ($(parents[i]).attr("id") != "menuPane") {
                     if (i == 0) {
-                        $(parents)[0].scrollIntoView(true);
+                        if (!isVisible($(parents)[0])) {
+                            $(parents)[0].scrollIntoView(true);
+                        }
                     }
                     if ($(parents[i]).is("li,a")) {
                         $(parents[i]).addClass('active');
@@ -169,3 +171,7 @@ var updateMenuActivity = function(url) {
         }
     });
 };
+
+function isVisible(e) {
+    return !!(e.offsetWidth || e.offsetHeight || e.getClientRects().length);
+}

@@ -1,5 +1,5 @@
 xmlhttp = new XMLHttpRequest
-url = 'doc.json'
+url = 'stdLib_base_test.json'
 
 #convert JSON to HTML - get data for main panel
 getMainData = (data) ->

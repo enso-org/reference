@@ -118,7 +118,6 @@ var getParents = function(elem) {
 };
 
 var updateMenuActivity = function(url) {
-    $(".treeMenu li,a").removeClass("active");
     // passes on every "a" tag
     $(".treeMenu a").each(function() {
         // checks if its the same on the address bar

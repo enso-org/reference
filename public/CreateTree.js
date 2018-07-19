@@ -127,7 +127,7 @@ var updateMenuActivity = function(url) {
             for (var i = 0; i < parents.length; i++) {
                 if ($(parents[i]).attr("id") != "menuPane") {
                     if (i == 0) {
-                        $(parents[i]).scrollIntoView(true);
+                        $(parents)[0].scrollIntoView(true);
                     }
                     if ($(parents[i]).is("li,a")) {
                         $(parents[i]).addClass('active');

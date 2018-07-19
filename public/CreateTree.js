@@ -159,7 +159,7 @@ var updateMenuActivity = function(url) {
                             var icon = $(parents[i]).children('i:first');
                             icon.toggleClass(openedClass + " " + closedClass);
                         }
-                        $(parents[i]).children().css("display", "");
+                        $(parents[i]).children().css("display", "none");
                     }
                 } else {
                     break;

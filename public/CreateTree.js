@@ -118,6 +118,7 @@ var getParents = function(elem) {
 };
 
 var updateMenuActivity = function(url) {
+    $(".treeMenu li,a").removeClass("active");
     // passes on every "a" tag
     $(".treeMenu a").each(function() {
         // checks if its the same on the address bar
@@ -146,19 +147,19 @@ var updateMenuActivity = function(url) {
         } else {
             var parents = getParents(this);
             for (var i = 0; i < parents.length; i++) {
-                if ($(parents[i]).attr("id") != "treeMID") {
+                if ($(parents[i]).attr("id") != "menuPane") {
                     if ($(parents[i]).is("li,a")) {
                         $(parents[i]).removeClass('active');
                     }
-                    if (!$(parents[i]).hasClass("branch") || !$(parents[i]).hasClass("treeMenu")) {
-                        $(parents[i]).css("display", "none");
+                    if ($(parents[i]).attr("class") != "branch") {
+                        $(parents[i]).css("display", "");
                         var openedClass = 'fa fa-caret-down';
                         var closedClass = 'fa fa-caret-right';
                         if (i > 1 && $(parents[i]).children('i:first').hasClass(closedClass)) {
                             var icon = $(parents[i]).children('i:first');
                             icon.toggleClass(openedClass + " " + closedClass);
                         }
-                        $(parents[i]).children().css("display", "none");
+                        $(parents[i]).children().css("display", "");
                     }
                 } else {
                     break;

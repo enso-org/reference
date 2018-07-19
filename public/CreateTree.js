@@ -146,7 +146,7 @@ var updateMenuActivity = function(url) {
         } else {
             var parents = getParents(this);
             for (var i = 0; i < parents.length; i++) {
-                if ($(parents[i]).attr("id") != "menuPane") {
+                if ($(parents[i]).attr("id") != "treeMID") {
                     if ($(parents[i]).is("li,a")) {
                         $(parents[i]).removeClass('active');
                     }

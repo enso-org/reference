@@ -118,6 +118,7 @@ var getParents = function(elem) {
 };
 
 var updateMenuActivity = function(url) {
+    $(".treeMenu li,a").removeClass("active");
     // passes on every "a" tag
     $(".treeMenu a").each(function() {
         // checks if its the same on the address bar
@@ -125,7 +126,7 @@ var updateMenuActivity = function(url) {
             var parents = getParents(this);
             for (var i = 0; i < parents.length; i++) {
                 if ($(parents[i]).attr("id") != "menuPane") {
-                    if ($(parents[i]).is("li,a,i")) {
+                    if ($(parents[i]).is("li,a")) {
                         $(parents[i]).addClass('active');
                     }
                     if ($(parents[i]).attr("class") != "branch") {
@@ -143,26 +144,6 @@ var updateMenuActivity = function(url) {
                 }
             }
 
-        } else {
-            var parents = getParents(this);
-            for (var i = 0; i < parents.length; i++) {
-                if ($(parents[i]).attr("id") != "treeMID") {
-                    if ($(parents[i]).is("li,a,i")) {
-                        $(parents[i]).removeClass('active');
-                    }
-                    if (!$(parents[i]).hasClass("branch")) {
-                        var openedClass = 'fa fa-caret-down';
-                        var closedClass = 'fa fa-caret-right';
-                        if (i > 1 && $(parents[i]).children('i:first').hasClass(openedClass)) {
-                            var icon = $(parents[i]).children('i:first');
-                            icon.toggleClass(openedClass + " " + closedClass);
-                            parents[i].css("display", "none");
-                        }
-                    }
-                } else {
-                    break;
-                }
-            }
         }
     });
 };

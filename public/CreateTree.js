@@ -125,7 +125,7 @@ var updateMenuActivity = function(url) {
             var parents = getParents(this);
             for (var i = 0; i < parents.length; i++) {
                 if ($(parents[i]).attr("id") != "menuPane") {
-                    if ($(parents[i]).is("li,a")) {
+                    if ($(parents[i]).is("li,a,i")) {
                         $(parents[i]).addClass('active');
                     }
                     if ($(parents[i]).attr("class") != "branch") {
@@ -147,7 +147,7 @@ var updateMenuActivity = function(url) {
             var parents = getParents(this);
             for (var i = 0; i < parents.length; i++) {
                 if ($(parents[i]).attr("id") != "treeMID") {
-                    if ($(parents[i]).is("li,a")) {
+                    if ($(parents[i]).is("li,a,i")) {
                         $(parents[i]).removeClass('active');
                     }
                     if (!$(parents[i]).hasClass("branch")) {

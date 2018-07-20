@@ -146,8 +146,9 @@ var updateMenuActivity = function(url) {
             for (var i = 0; i < parents.length; i++) {
                 if ($(parents[i]).attr("id") != "menuPane") {
                     if (i == 0) {
-                        $(parents)[0].scrollIntoView(true);
-                        if ($(parents)[0].position().bottom > ($(document).height() - 50) || $(parents)[0].position().top < 0) {
+                        var activeItem = $(parents)[0];
+                        activeItem.scrollIntoView(true);
+                        if (activeItem.position().bottom > ($(document).height() - 50) || activeItem.position().top < 0) {
                             console.log("off screen");
                         }
                     }

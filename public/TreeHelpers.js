@@ -62,6 +62,9 @@ var treeDataObserver = new MutationObserver(function(mutations, observer) {
                     window.setTimeout(function() {
                         offsetAnchor();
                     }, 0);
+
+                    var url = window.location.href;
+                    updateMenuActivity(url);
                 });
                 window.setTimeout(offsetAnchor, 0);
             }

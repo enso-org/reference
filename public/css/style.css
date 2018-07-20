@@ -82,6 +82,7 @@ a {
     padding: 0px;
     margin-top: 48px;
     max-width: 980px;
+    overflow-x: hidden;
 }
 
 @media screen and (max-width: 740px) {

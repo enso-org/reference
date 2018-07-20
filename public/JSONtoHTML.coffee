@@ -27,6 +27,7 @@ getMainData = (data) ->
 
       output += '<div class="module_classes_class_methods">'
       k = 0
+      printedInfo = false
       while k < Mclass.methods.length
         Mmethod = Mclass.methods[k]
 
@@ -49,6 +50,9 @@ getMainData = (data) ->
           output += '</div>'
 
         else
+          if printedInfo == false 
+            output += '<p class="MethodTypeHead">Unclassified methods</p>'
+            printedInfo = true
           output += '<div id="' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '" class="methodDiv"><p class="methodName">' + Mmethod.name + '</p>'
           
           if Mmethod.documentation != null

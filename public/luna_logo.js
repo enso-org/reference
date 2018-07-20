@@ -1,16 +1,3 @@
-//
-// class SVG {
-//   constructor(){
-//     this.defs   = [];
-//     this.bodies = [];
-//   }
-//
-//   render() {
-//
-//   }
-// }
-
-
 class Text {
     constructor(size = 64, compatibleMode = true, xoff = 0) {
         this.size = size;

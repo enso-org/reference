@@ -13,11 +13,10 @@ $.fn.extend({
             }
         };
 
-        //initialize each of the top levels
         var tree = $(this);
         tree.addClass("treeMenu");
         tree.find('li').has("ul").each(function() {
-            var branch = $(this); //li with children ul
+            var branch = $(this);
             branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
             branch.addClass('branch');
             branch.on('click', function(e) {
@@ -29,14 +28,13 @@ $.fn.extend({
             })
             branch.children().children().toggle();
         });
-        //fire event from the dynamically added icon
+
         tree.find('.branch .indicator').each(function() {
             $(this).on('click', function() {
                 $(this).closest('li').click();
             });
         });
 
-        //fire event to open branch if the li contains a button instead of text
         tree.find('.branch>button').each(function() {
             $(this).on('click', function(e) {
                 $(this).closest('li').click();
@@ -45,23 +43,14 @@ $.fn.extend({
     }
 });
 
-//Initialization of treeviews
-MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
-// define a new observer
-var obs = new MutationObserver(function(mutations, observer) {
-    // look through all mutations that just occured
+MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+var treeDataObserver = new MutationObserver(function(mutations, observer) {
     for (var i = 0; i < mutations.length; ++i) {
-        // look through all added nodes of this mutation
         for (var j = 0; j < mutations[i].addedNodes.length; ++j) {
-            // was a child added with ID of 'bar'?
             if (mutations[i].addedNodes[j].id == "treeMID") {
                 $('#treeMID').treed();
-
-                $(function() {
-
-                });
-
+                scrollableAfterDOMContentLoadedProperly();
 
                 function offsetAnchor() {
                     if (location.hash.length !== 0) {
@@ -80,7 +69,7 @@ var obs = new MutationObserver(function(mutations, observer) {
     }
 });
 
-obs.observe($("#menuPane").get(0), {
+treeDataObserver.observe($("#menuPane").get(0), {
     childList: true
 });
 
@@ -149,38 +138,36 @@ function checkIfInView(elem, partial) {
     return isTotal || isPart;
 }
 
-$(document).scroll(function() {
-    var data = $("#data");
-    var modules = data.children().children();
-    var scrollpos = $(document).scrollTop() + 100;
-    var start = 0;
-    var end = modules.length;
-    var c = 0;
-
-    while (start != end) {
-        c++;
-        var mid = start + Math.floor((end - start) / 2);
-        if ($(modules[mid]).offset().top < scrollpos)
-            start = mid + 1;
-        else
-            end = mid;
-    }
-
-    var startC = 0;
-    var endC = $(modules[start - 1]).children().length
-
-    while (startC != endC) {
-        c++;
-        var mid = startC + Math.floor((endC - startC) / 2);
-        if ($($(modules[start - 1]).children()[mid]).offset().top < scrollpos)
-            startC = mid + 1;
-        else
-            endC = mid;
-    }
-
-    var id = $($(modules[start - 1]).children()[startC - 1]).attr('id')
-    if (id != undefined) {
-        var url = window.location.href.split('#')[0] + "#" + id;
-        updateMenuActivity(url);
-    }
-});
+function scrollableAfterDOMContentLoadedProperly() {
+    $(document).scroll(function() {
+        var data = $("#data");
+        var modules = data.children().children();
+        var scrollpos = $(document).scrollTop() + 100;
+        var start = 0;
+        var end = modules.length;
+        var c = 0;
+        while (start != end) {
+            c++;
+            var mid = start + Math.floor((end - start) / 2);
+            if ($(modules[mid]).offset().top < scrollpos)
+                start = mid + 1;
+            else
+                end = mid;
+        }
+        var startC = 0;
+        var endC = $(modules[start - 1]).children().length;
+        while (startC != endC) {
+            c++;
+            var mid = startC + Math.floor((endC - startC) / 2);
+            if ($($(modules[start - 1]).children()[mid]).offset().top < scrollpos)
+                startC = mid + 1;
+            else
+                endC = mid;
+        }
+        var id = $($(modules[start - 1]).children()[startC - 1]).attr('id');
+        if (id != undefined) {
+            var url = window.location.href.split('#')[0] + "#" + id;
+            updateMenuActivity(url);
+        }
+    });
+}

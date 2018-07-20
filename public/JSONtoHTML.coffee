@@ -1,7 +1,6 @@
 xmlhttp = new XMLHttpRequest
 url = 'stdLib_base_test.json'
 
-#convert JSON to HTML - get data for main panel
 getMainData = (data) ->
   output = ''
   modules = data.modules
@@ -32,7 +31,6 @@ getMainData = (data) ->
         Mmethod = Mclass.methods[k]
 
         if Mmethod.type != null && Mmethod.type != undefined
-          #We have methods which have been segregated to types
           output += '<div class="methodTypeDiv"><p class="MethodTypeHead">' + Mmethod.type + '</p>'
           if Mmethod.documentation != null
             mdtohtml = marked(Mmethod.documentation)
@@ -86,7 +84,9 @@ getMainData = (data) ->
   document.getElementById('data').innerHTML = output
   return
 
-#convert JSON to HTML - get menu data
+
+
+
 getMenuData = (data) ->
   menu = '<ul id="treeMID">'
   modules = data.modules
@@ -110,7 +110,6 @@ getMenuData = (data) ->
         Mmethod = Mclass.methods[k]
 
         if Mmethod.type != null && Mmethod.type != undefined
-          #We have methods which have been segregated to types
           l = 0
           while l < Mmethod.methods.length
             MmethodWithType = Mmethod.methods[l]
@@ -140,6 +139,9 @@ getMenuData = (data) ->
   menu += '</ul>'
   document.getElementById('menuPane').innerHTML += menu
   return
+
+
+
 
 xmlhttp.onreadystatechange = ->
   if @readyState == 4 and @status == 200

@@ -149,7 +149,7 @@ var updateMenuActivity = function(url) {
                         var activeItem = $(parents)[0];
 
                         var position = $(activeItem).position();
-                        if (position.bottom > ($(document).height() - 50) || position.top < 0) {
+                        if (position.bottom > ($(window).height() - 50) || position.top < 0) {
                             console.log("off screen");
                             activeItem.scrollIntoView(true);
                         }

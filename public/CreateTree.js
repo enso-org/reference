@@ -147,11 +147,11 @@ var updateMenuActivity = function(url) {
                 if ($(parents[i]).attr("id") != "menuPane") {
                     if (i == 0) {
                         var activeItem = $(parents)[0];
-                        activeItem.scrollIntoView(true);
 
                         var position = $(activeItem).position();
                         if (position.bottom > ($(document).height() - 50) || position.top < 0) {
                             console.log("off screen");
+                            activeItem.scrollIntoView(true);
                         }
                     }
                     if ($(parents[i]).is("li,a")) {

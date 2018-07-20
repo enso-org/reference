@@ -33,10 +33,12 @@ getMainData = (data) ->
 
         if Mmethod.type != null && Mmethod.type != undefined
           output += '<div class="methodTypeDiv"><p class="MethodTypeHead">' + Mmethod.type + '</p>'
+          ###
+          For method section info, now commented out
           if Mmethod.documentation != null
             mdtohtml = marked(Mmethod.documentation)
             output += '<div class="methodTypeDocumentation">' + mdtohtml + '</div>'
-
+          ###
           l = 0
           while l < Mmethod.methods.length
             MmethodWithType = Mmethod.methods[l]

@@ -8,10 +8,6 @@ body {
     letter-spacing: -0.021em;
 }
 
-.sidenav {
-    background-color: #fafafa;
-}
-
 .pageHeader {
     background-color: #333;
     height: 48px;
@@ -21,6 +17,7 @@ body {
     top: 0;
     left: 0;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 p,
@@ -61,6 +58,7 @@ hr {
 }
 
 .sidenav {
+    background-color: #fafafa;
     height: calc(100% - 69px);
     width: 350px;
     position: fixed;

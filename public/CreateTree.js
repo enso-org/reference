@@ -59,118 +59,77 @@ var obs = new MutationObserver(function(mutations, observer) {
                 $('#treeMID').treed();
 
                 $(function() {
-                    // Perform on every scroll
-                    $(document).scroll(function() {
-                        var data = $("#data");
-                        var modules = data.children().children();
-                        var scrollpos = $(document).scrollTop() + 100;
-                        var start = 0;
-                        var end = modules.length;
-                        var c = 0;
 
-                        while (start != end) {
-                            c++;
-                            var mid = start + Math.floor((end - start) / 2);
-                            if ($(modules[mid]).offset().top < scrollpos)
-                                start = mid + 1;
-                            else
-                                end = mid;
-                        }
-
-                        var startC = 0;
-                        var endC = $(modules[start - 1]).children().length
-
-                        while (startC != endC) {
-                            c++;
-                            var mid = startC + Math.floor((endC - startC) / 2);
-                            if ($($(modules[start - 1]).children()[mid]).offset().top < scrollpos)
-                                startC = mid + 1;
-                            else
-                                endC = mid;
-                        }
-
-                        var id = $($(modules[start - 1]).children()[startC - 1]).attr('id')
-                        if (id != undefined) {
-                            var url = window.location.href.split('#')[0] + "#" + id;
-                            updateMenuActivity(url);
-                        }
-                    });
                 });
 
-                // The function actually applying the offset
+
                 function offsetAnchor() {
                     if (location.hash.length !== 0) {
                         window.scrollTo(window.scrollX, window.scrollY - 50);
                     }
                 }
 
-                // Captures click events of all <a> elements with href starting with #
                 $(document).on('click', 'a[href^="#"]', function(event) {
-                    // Click events are captured before hashchanges. Timeout
-                    // causes offsetAnchor to be called after the page jump.
                     window.setTimeout(function() {
                         offsetAnchor();
                     }, 0);
                 });
-
-                // Set the offset when entering page with hash present in the url
                 window.setTimeout(offsetAnchor, 0);
             }
         }
     }
 });
 
-// have the observer observe for changes in children
 obs.observe($("#menuPane").get(0), {
     childList: true
 });
 
 var getParents = function(elem) {
-    // Set up a parent array
     var parents = [];
-    // Push each parent element to the array
     for (; elem && elem !== document; elem = elem.parentNode) {
         parents.push(elem);
     }
-    // Return our parent array
     return parents;
 };
 
 var updateMenuActivity = function(url) {
     $(".treeMenu li,a").removeClass("active");
-    // passes on every "a" tag
+
     $(".treeMenu a").each(function() {
-        // checks if its the same on the address bar
         if (url == (this.href)) {
             var parents = getParents(this);
+
             for (var i = 0; i < parents.length; i++) {
                 if ($(parents[i]).attr("id") != "menuPane") {
+
                     if (i == 0) {
                         var activeItem = $(parents)[0];
-                        console.log(checkIfInView($(activeItem)))
                         if (checkIfInView($(activeItem)) == false) {
-                            console.log("off screen");
-                            //activeItem.scrollIntoView(true);
+                            activeItem.scrollIntoView(true);
                         }
                     }
+
                     if ($(parents[i]).is("li,a")) {
                         $(parents[i]).addClass('active');
                     }
+
                     if ($(parents[i]).attr("class") != "branch") {
                         $(parents[i]).css("display", "");
                         var openedClass = 'fa fa-caret-down';
                         var closedClass = 'fa fa-caret-right';
+
                         if (i > 1 && $(parents[i]).children('i:first').hasClass(closedClass)) {
                             var icon = $(parents[i]).children('i:first');
                             icon.toggleClass(openedClass + " " + closedClass);
                         }
+
                         $(parents[i]).children().css("display", "");
                     }
+
                 } else {
                     break;
                 }
             }
-
         }
     });
 };
@@ -189,3 +148,39 @@ function checkIfInView(elem, partial) {
 
     return isTotal || isPart;
 }
+
+$(document).scroll(function() {
+    var data = $("#data");
+    var modules = data.children().children();
+    var scrollpos = $(document).scrollTop() + 100;
+    var start = 0;
+    var end = modules.length;
+    var c = 0;
+
+    while (start != end) {
+        c++;
+        var mid = start + Math.floor((end - start) / 2);
+        if ($(modules[mid]).offset().top < scrollpos)
+            start = mid + 1;
+        else
+            end = mid;
+    }
+
+    var startC = 0;
+    var endC = $(modules[start - 1]).children().length
+
+    while (startC != endC) {
+        c++;
+        var mid = startC + Math.floor((endC - startC) / 2);
+        if ($($(modules[start - 1]).children()[mid]).offset().top < scrollpos)
+            startC = mid + 1;
+        else
+            endC = mid;
+    }
+
+    var id = $($(modules[start - 1]).children()[startC - 1]).attr('id')
+    if (id != undefined) {
+        var url = window.location.href.split('#')[0] + "#" + id;
+        updateMenuActivity(url);
+    }
+});

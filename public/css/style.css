@@ -68,7 +68,7 @@ hr {
     top: 0;
     left: 0;
     overflow-x: hidden;
-    padding-top: 20px;
+    padding-top: 24px;
     margin-top: 48px;
 }
 
@@ -192,7 +192,7 @@ pre code {
     padding: 40px;
     background-color: #fff;
     border-radius: 40px;
-    margin-top: 32px;
+    margin-top: 48px;
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.06);
 }
 
@@ -312,7 +312,7 @@ pre code {
     color: #333;
     font-weight: 300;
     position: relative;
-    padding-left: 16px;
+    padding-left: 24px;
     padding-bottom: 6px;
 }
 
@@ -328,4 +328,9 @@ pre code {
 .active {
     text-decoration: none;
     color: #0070c9 !important;
+}
+
+#logoPlace {
+    padding: 12px;
+    padding-left: 24px;
 }

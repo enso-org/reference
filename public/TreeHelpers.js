@@ -97,7 +97,7 @@ var updateMenuActivity = function(url) {
                     if (i == 0) {
                         var activeItem = $(parents)[0];
                         if (checkIfInView($(activeItem)) == false) {
-                            activeItem.scrollIntoView(true);
+                            activeItem.scrollIntoView({ block: 'end', behavior: 'smooth' });
                         }
                     }
 

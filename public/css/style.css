@@ -97,10 +97,14 @@ a {
         display: block !important;
     }
     .module_classes {
-        margin: -30px;
+        margin: -30px !important;
     }
     .module_classes_class {
-        padding: 30px;
+        padding: 30px !important;
+    }
+    .methodDiv {
+        padding-left: 2px !important;
+        margin-bottom: 0px !important;
     }
 }
 

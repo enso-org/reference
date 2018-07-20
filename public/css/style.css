@@ -59,7 +59,7 @@ hr {
 
 .sidenav {
     background-color: #fafafa;
-    height: calc(100% - 69px);
+    height: calc(100% - 90px);
     width: 350px;
     position: fixed;
     z-index: 1;

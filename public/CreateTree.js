@@ -146,8 +146,9 @@ var updateMenuActivity = function(url) {
             for (var i = 0; i < parents.length; i++) {
                 if ($(parents[i]).attr("id") != "menuPane") {
                     if (i == 0) {
-                        if (!isVisible($(parents)[0])) {
-                            $(parents)[0].scrollIntoView(true);
+                        $(parents)[0].scrollIntoView(true);
+                        if ($(parents)[0].position().bottom > ($(document).height() - 50) || $(parents)[0].position().top < 0) {
+                            console.log("off screen");
                         }
                     }
                     if ($(parents[i]).is("li,a")) {
@@ -171,7 +172,3 @@ var updateMenuActivity = function(url) {
         }
     });
 };
-
-function isVisible(e) {
-    return !!(e.offsetWidth || e.offsetHeight || e.getClientRects().length);
-}

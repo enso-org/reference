@@ -197,7 +197,7 @@ pre code {
 .module_classes_class_methods {}
 
 .classDocumentation {
-    font-size: 22px;
+    font-size: 16px;
     line-height: 1.45455;
     font-weight: 300;
     letter-spacing: 0.016em;
@@ -306,8 +306,8 @@ pre code {
 }
 
 .treeMenu li {
-    line-height: 1.4em;
-    color: #333;
+    line-height: 1.6em;
+    color: #616060;
     font-weight: 300;
     position: relative;
     padding-left: 24px;

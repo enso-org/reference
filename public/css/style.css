@@ -99,6 +99,9 @@ a {
     .module_classes {
         margin: -30px;
     }
+    .module_classes_class {
+        padding: 30px;
+    }
 }
 
 @media screen and (max-width: 1670px) {

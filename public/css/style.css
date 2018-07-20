@@ -96,6 +96,9 @@ a {
     .showMenuOnSmallScreen {
         display: block !important;
     }
+    .module_classes {
+        margin: -30px;
+    }
 }
 
 @media screen and (max-width: 1670px) {
@@ -183,8 +186,6 @@ pre code {
     letter-spacing: 0.016em;
     margin-bottom: 20px;
 }
-
-.module_classes {}
 
 .module_classes_class {
     padding: 40px;

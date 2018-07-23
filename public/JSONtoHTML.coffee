@@ -42,7 +42,11 @@ getMainData = (data) ->
           l = 0
           while l < Mmethod.methods.length
             MmethodWithType = Mmethod.methods[l]
-            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '" class="methodDiv"><p class="methodName">' + MmethodWithType.name + '</p>'
+            MmethodWithTypeNameAndType = MmethodWithType.name.split(":")
+            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0] + '" class="methodDiv"><p class="methodName">' + MmethodWithTypeNameAndType[0]
+            if MmethodWithTypeNameAndType[1] != undefined
+              output += '<code>:' + MmethodWithTypeNameAndType[1] + '</code>'
+            output += '</p>'
             if MmethodWithType.documentation != null
               mdtohtml = marked(MmethodWithType.documentation)
               output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
@@ -55,7 +59,12 @@ getMainData = (data) ->
           if printedInfo == false 
             output += '<p class="MethodTypeHead">Unclassified methods</p>'
             printedInfo = true
-          output += '<div id="' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '" class="methodDiv"><p class="methodName">' + Mmethod.name + '</p>'
+          
+          MmethodWithNameAndType = Mmethod.name.split(":")
+          output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0] + '" class="methodDiv"><p class="methodName">' + MmethodWithNameAndType[0]
+          if MmethodWithNameAndType[1] != undefined
+            output += '<code>:' + MmethodWithNameAndType[1] + '</code>'
+          output += '</p>'
           
           if Mmethod.documentation != null
             mdtohtml = marked(Mmethod.documentation)
@@ -74,8 +83,11 @@ getMainData = (data) ->
       j = 0
       while j < module.functions.length
         Mfunction = module.functions[j]
-        output += '<div id="' + module.name + '_' + Mfunction.name + '" class="functionNameDiv"><p class="functionName">' + Mfunction.name + '</p>'
-
+        MfunctionNameAndType = Mfunction.name.split(":")
+        output += '<div id="' + module.name + '_' + MfunctionNameAndType[0] + '" class="functionNameDiv"><p class="functionName">' + MfunctionNameAndType[0]
+        if MfunctionNameAndType[1] != undefined
+          output += '<code>:' + MfunctionNameAndType[1] + '</code>'
+        output += '</p>'
         if Mfunction.documentation != null 
           mdtohtml = marked(Mfunction.documentation)
           output += '<div class="functionDocumentation">' + mdtohtml + '</div>'
@@ -119,11 +131,13 @@ getMenuData = (data) ->
           l = 0
           while l < Mmethod.methods.length
             MmethodWithType = Mmethod.methods[l]
-            menu += '<li><a class="menuitem" href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithType.name + '">' + MmethodWithType.name + '</a></li>'
+            MmethodWithTypeNameAndType = MmethodWithType.name.split(":")
+            menu += '<li><a class="menuitem" href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0] + '">' + MmethodWithTypeNameAndType[0] + '</a></li>'
             l++
 
         else
-          menu += '<li><a class="menuitem" href="#' + module.name + '_' + Mclass.name + '_' + Mmethod.name + '">' + Mmethod.name + '</a></li>'
+          MmethodNameAndType = Mmethod.name.split(":")
+          menu += '<li><a class="menuitem" href="#' + module.name + '_' + Mclass.name + '_' + MmethodNameAndType[0] + '">' + MmethodNameAndType[0] + '</a></li>'
         k++
       
       menu += '</ul></li>'
@@ -136,7 +150,8 @@ getMenuData = (data) ->
       j = 0
       while j < module.functions.length
         Mfunction = module.functions[j]
-        menu += '<li><a class="menuitem" href="#' + module.name + '_' + Mfunction.name + '">' +  Mfunction.name + '</a></li>'
+        MfunctionNameAndType = Mfunction.name.split(":")
+        menu += '<li><a class="menuitem" href="#' + module.name + '_' + MfunctionNameAndType[0] + '">' +  MfunctionNameAndType[0] + '</a></li>'
         j++
 
       menu += '</ul></li>'

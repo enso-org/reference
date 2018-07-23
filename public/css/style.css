@@ -125,19 +125,10 @@ a {
     color: #fafafa;
 }
 
-pre {
-    overflow: auto
-}
-
 code,
 pre,
 samp {
-    font-size: inherit
-}
-
-code,
-pre,
-samp {
+    font-size: inherit;
     font-family: 'Source Code Pro', Menlo, monospace;
 }
 
@@ -150,6 +141,7 @@ pre {
     word-break: break-all;
     word-wrap: break-word;
     background-color: #fafafa;
+    overflow: auto;
 }
 
 pre code {
@@ -204,10 +196,8 @@ pre code {
     box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.06);
 }
 
-.module_classes_class_methods {}
-
 .classDocumentation {
-    font-size: 16px;
+    font-size: 22px;
     line-height: 1.45455;
     font-weight: 300;
     letter-spacing: 0.016em;
@@ -220,8 +210,8 @@ pre code {
 }
 
 .methodDocumentation {
-    padding-left: 16px;
-    font-size: 16px;
+    padding-left: 20px;
+    font-size: 18px;
     line-height: 1.45455;
     font-weight: 300;
     letter-spacing: 0.016em;
@@ -273,7 +263,7 @@ pre code {
 .MethodTypeHead {
     font-size: 24px;
     line-height: 1.52;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .functionsHeader {
@@ -317,7 +307,7 @@ pre code {
 }
 
 .treeMenu li {
-    line-height: 1.6em;
+    line-height: 1.4em;
     color: #616060;
     font-weight: 300;
     position: relative;

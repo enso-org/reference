@@ -25,6 +25,10 @@ getMainData = (data) ->
         mdtohtml = marked(Mclass.documentation)
         output += '<div class="classDocumentation">' + mdtohtml + '</div>'
 
+      if Mclass.longDocumentation != null && Mclass.longDocumentation != undefined
+        mdtohtml = marked(Mclass.longDocumentation)
+        output += '<div class="classLongDocumentation">' + mdtohtml + '</div>'  
+
       output += '<div class="module_classes_class_methods">'
       k = 0
       printedInfo = false

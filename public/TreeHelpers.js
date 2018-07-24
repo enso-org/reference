@@ -17,8 +17,9 @@ $.fn.extend({
         tree.addClass("treeMenu");
         tree.find('li').has("ul").each(function() {
             var branch = $(this);
-            branch.prepend("<i class='indicator glyphicon " + closedClass + "'></i>");
+            branch.prepend("<i class='indicator " + closedClass + "'></i>");
             branch.addClass('branch');
+            console.log(getParents(branch));
             branch.on('click', function(e) {
                 if (this == e.target) {
                     var icon = $(this).children('i:first');

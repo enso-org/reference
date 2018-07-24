@@ -54,7 +54,6 @@ var treeDataObserver = new MutationObserver(function(mutations, observer) {
 
                 updateMenuActivity(window.location.href);
                 if ($(window.location.hash) && window.location.hash != "") {
-                    console.log(window.location.hash);
                     location.href = window.location.hash;
                 }
 

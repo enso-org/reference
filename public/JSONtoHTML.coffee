@@ -50,7 +50,7 @@ getMainData = (data) ->
           while l < Mmethod.methods.length
             MmethodWithType = Mmethod.methods[l]
             MmethodWithTypeNameAndType = MmethodWithType.name.split(":")
-            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0] + '" class="methodDiv"><p class="methodName">' + MmethodWithTypeNameAndType[0]
+            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="methodDiv"><p class="methodName">' + MmethodWithTypeNameAndType[0].replace(/\s/g,'')
             if MmethodWithTypeNameAndType[1] != undefined
               output += '<code>:' + MmethodWithTypeNameAndType[1] + '</code>'
             output += '</p>'
@@ -68,7 +68,7 @@ getMainData = (data) ->
             printedInfo = true
           
           MmethodWithNameAndType = Mmethod.name.split(":")
-          output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0] + '" class="methodDiv"><p class="methodName">' + MmethodWithNameAndType[0]
+          output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="methodDiv"><p class="methodName">' + MmethodWithNameAndType[0].replace(/\s/g,'')
           if MmethodWithNameAndType[1] != undefined
             output += '<code>:' + MmethodWithNameAndType[1] + '</code>'
           output += '</p>'
@@ -92,7 +92,7 @@ getMainData = (data) ->
       while j < module.functions.length
         Mfunction = module.functions[j]
         MfunctionNameAndType = Mfunction.name.split(":")
-        output += '<div id="' + module.name + '_' + MfunctionNameAndType[0] + '" class="functionNameDiv"><p class="functionName">' + MfunctionNameAndType[0]
+        output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="functionNameDiv"><p class="functionName">' + MfunctionNameAndType[0].replace(/\s/g,'')
         if MfunctionNameAndType[1] != undefined
           output += '<code>:' + MfunctionNameAndType[1] + '</code>'
         output += '</p>'

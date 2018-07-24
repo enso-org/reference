@@ -59,7 +59,7 @@ var treeDataObserver = new MutationObserver(function(mutations, observer) {
 
                 function offsetAnchor() {
                     if (location.hash.length !== 0) {
-                        window.scrollTo(window.scrollX, window.scrollY - 50);
+                        window.scrollTo(window.scrollX, window.scrollY - 100);
                     }
                 }
 
@@ -90,7 +90,7 @@ var getParents = function(elem) {
 };
 
 var updateMenuActivity = function(url) {
-    $(".treeMenu li,a").removeClass("active");
+    $(".treeMenu li,a,ul").removeClass("active");
 
     $(".treeMenu a").each(function() {
         if (url == (this.href)) {

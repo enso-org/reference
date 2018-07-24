@@ -1,90 +1,3 @@
-body {
-    font-family: 'SF Pro Text', 'Open Sans', sans-serif;
-    background-color: #fafafa;
-    -webkit-font-smoothing: antialiased;
-    font-size: 17px;
-    line-height: 1.52947;
-    font-weight: 400;
-    letter-spacing: -0.021em;
-}
-
-.pageHeader {
-    background-color: #333;
-    height: 48px;
-    width: 100%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #333;
-    margin: 0;
-}
-
-a:hover {
-    color: #0070c9 !important;
-    text-decoration: none;
-}
-
-a {
-    color: #333;
-    background-color: transparent;
-    text-decoration: none;
-}
-
-code,
-pre {
-    background-color: #fafafa;
-    color: #0070c9;
-    line-height: 2.0;
-    background-color: transparent;
-}
-
-hr {
-    border: 0;
-    height: 1.3px;
-    width: 90%;
-    background: #d6d6d6;
-}
-
-.sidenav {
-    background-color: #fafafa;
-    height: calc(100% - 90px);
-    width: 350px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    padding-top: 48px;
-    margin-top: 48px;
-}
-
-a {
-    text-decoration: none;
-    display: inline-block;
-}
-
-.main {
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    padding: 0px;
-    margin-top: 48px;
-    max-width: 980px;
-    overflow-x: hidden;
-}
-
 @media screen and (max-width: 740px) {
     .sidenav {
         width: 0;
@@ -117,20 +30,50 @@ a {
     }
 }
 
-.showMenuOnSmallScreen {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    margin: auto 12px;
-    color: #fafafa;
+body {
+    font-family: 'SF Pro Text', 'Open Sans', sans-serif;
+    background-color: #fafafa;
+    -webkit-font-smoothing: antialiased;
+    font-size: 17px;
+    line-height: 1.52947;
+    font-weight: 400;
+    letter-spacing: -0.021em;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #333;
+    margin: 0;
+}
+
+a:hover {
+    color: #0070c9 !important;
+    text-decoration: none;
+}
+
+a {
+    color: #333;
+    background-color: transparent;
+    text-decoration: none;
+    display: inline-block;
 }
 
 code,
 pre,
 samp {
+    background-color: #fafafa;
+    color: #0070c9;
+    line-height: 2.0;
+    background-color: transparent;
     font-size: inherit;
     font-family: 'Menlo', 'Roboto Mono', 'Source Code Pro', Monaco, courier, monospace;
     line-height: 1.3em;
+    display: inline-block;
 }
 
 pre {
@@ -153,13 +96,48 @@ pre code {
     background-color: transparent;
 }
 
-.pre-scrollable {
-    max-height: 340px;
-    overflow-y: scroll
+.sidenav {
+    background-color: #fafafa;
+    height: calc(100% - 90px);
+    width: 350px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 48px;
+    margin-top: 48px;
 }
 
+.main {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding: 0px;
+    margin-top: 48px;
+    max-width: 980px;
+    overflow-x: hidden;
+}
 
-/* DIVs */
+.showMenuOnSmallScreen {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin: auto 12px;
+    color: #fafafa;
+}
+
+.pageHeader {
+    background-color: #333;
+    height: 48px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 
 .moduleDiv {
     padding: 20px;
@@ -253,9 +231,6 @@ pre code {
     bottom: 6px;
 }
 
-
-/* Ps */
-
 .module {
     font-size: 40px;
     line-height: 1.05;
@@ -283,6 +258,9 @@ pre code {
     line-height: 1.52;
     padding-bottom: 30px;
     font-weight: 500;
+    white-space: nowrap;
+    overflow-x: auto;
+    display: inline-block;
 }
 
 .functionsHeader {
@@ -358,4 +336,8 @@ pre code {
 #logoPlace {
     padding: 12px;
     padding-left: 24px;
+}
+
+.indicator.active.fa-caret-down.fa {
+    padding-bottom: 1em;
 }

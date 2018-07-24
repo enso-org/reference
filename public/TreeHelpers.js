@@ -90,7 +90,7 @@ var getParents = function(elem) {
 };
 
 var updateMenuActivity = function(url) {
-    $(".treeMenu li,a,ul").removeClass("active");
+    $(".treeMenu li,a,ul,i").removeClass("active");
 
     $(".treeMenu a").each(function() {
         if (url == (this.href)) {

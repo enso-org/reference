@@ -9,8 +9,8 @@ getMainData = (data) ->
   while i < modules.length
     module = modules[i]
     output += '<div class="moduleDiv" id="'+ module.name + '">'
-    output += '<p class="module" onMouseOver="document.getElementById(\''+module.name+'_Hover\').style.display = \'inline-block\'">' + module.name + '</p>'
-    output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="">Source</a>&emsp;<a href="#' + module.name + '">#</a></div>'
+    output += '<div style="width:100%" onMouseOver="document.getElementById(\''+module.name+'_Hover\').style.display = \'inline-block\'"><p class="module">' + module.name + '</p>'
+    output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="" class="fa fa-code"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#' + module.name + '" class="fa fa-anchor"></a></div></div>'
 
     if module.documentation != null && module.documentation != undefined
       mdtohtml = marked(module.documentation)
@@ -21,8 +21,8 @@ getMainData = (data) ->
     j = 0
     while j < module.classes.length
       Mclass = module.classes[j]
-      output += '<div class="module_classes_class" id="' + module.name + '_' + Mclass.name + '"><p class="className" onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_Hover\').style.display = \'inline-block\'">' + Mclass.name + '</p>'
-      output += '<div id="' + module.name + '_' + Mclass.name + '_Hover" class="hoverableAnchorsInClass"><a href="">Source</a>&emsp;<a href="#' + module.name + '_' + Mclass.name + '">#</a></div>'
+      output += '<div class="module_classes_class" id="' + module.name + '_' + Mclass.name + '"><div style="width:100%" onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_Hover\').style.display = \'inline-block\'"><p class="className">' + Mclass.name + '</p>'
+      output += '<div id="' + module.name + '_' + Mclass.name + '_Hover" class="hoverableAnchors"><a href="" class="fa fa-code"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#' + module.name + '_' + Mclass.name + '" class="fa fa-anchor"></a></div></div>'
      
       if Mclass.documentation != null
         mdtohtml = marked(Mclass.documentation)
@@ -85,8 +85,8 @@ getMainData = (data) ->
     output += '</div>'
     
     if module.functions.length != 0
-      output += '<div class="functions" id="' + module.name + '_Functions"><p class="functionsHeader" onMouseOver="document.getElementById(\'' + module.name + '_Functions_Hover\').style.display = \'inline-block\'">Functions</p>'
-      output += '<div id="' + module.name + '_Functions_Hover" class="hoverableAnchorsInClass"><a href="">Source</a>&emsp;<a href="#' + module.name + '_Functions">#</a></div>'
+      output += '<div class="functions" id="' + module.name + '_Functions"><div style="width:100%"  onMouseOver="document.getElementById(\'' + module.name + '_Functions_Hover\').style.display = \'inline-block\'"><p class="functionsHeader">Functions</p>'
+      output += '<div id="' + module.name + '_Functions_Hover" class="hoverableAnchors"><a href="" class="fa fa-code"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#' + module.name + '_Functions" class="fa fa-anchor"></a></div></div>'
 
       j = 0
       while j < module.functions.length

@@ -248,20 +248,9 @@ pre code {
 
 .hoverableAnchors {
     display: none;
-    padding: 5px 20px;
-    margin-left: 40px;
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.06);
-}
-
-.hoverableAnchorsInClass {
-    display: none;
-    padding: 5px 20px;
-    margin-left: 40px;
-    background-color: #fafafa;
-    border-radius: 20px;
-    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.09);
+    margin-left: 24px;
+    position: relative;
+    bottom: 6px;
 }
 
 

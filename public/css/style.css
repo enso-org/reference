@@ -310,7 +310,7 @@ pre code {
     padding-bottom: 1em;
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 700px) {
     .sidenav {
         width: 0;
     }
@@ -334,10 +334,10 @@ pre code {
     }
 }
 
-@media screen and (max-width: 1670px) {
+@media screen and (max-width: 1670px) and (min-width: 700px) {
     .main {
-        margin-left: 350px;
+        margin-left: 350px !important;
         padding: 0px;
-        max-width: 980px;
+        max-width: 980px !important;
     }
 }

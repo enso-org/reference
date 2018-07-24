@@ -52,6 +52,12 @@ var treeDataObserver = new MutationObserver(function(mutations, observer) {
                 $('#treeMID').treed();
                 scrollableAfterDOMContentLoadedProperly();
 
+                updateMenuActivity(window.location.href);
+                if ($(window.location.hash)) {
+                    var urlSplit = document.URL.split("#");
+                    location.href = document.URL.split[0] + window.location.hash;
+                }
+
                 function offsetAnchor() {
                     if (location.hash.length !== 0) {
                         window.scrollTo(window.scrollX, window.scrollY - 50);

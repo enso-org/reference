@@ -1,5 +1,5 @@
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'SF Pro Text', 'Open Sans', sans-serif;
     background-color: #fafafa;
     -webkit-font-smoothing: antialiased;
     font-size: 17px;
@@ -129,7 +129,8 @@ code,
 pre,
 samp {
     font-size: inherit;
-    font-family: 'Source Code Pro', Menlo, monospace;
+    font-family: 'Menlo', 'Roboto Mono', 'Source Code Pro', Monaco, courier, monospace;
+    line-height: 1.3em;
 }
 
 pre {

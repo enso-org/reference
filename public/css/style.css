@@ -123,8 +123,6 @@ pre code {
     line-height: 1.45455;
     font-weight: 300;
     letter-spacing: 0.016em;
-    /* padding-bottom: 32px; */
-    /* padding-top: 32px; */
 }
 
 .methodTypeDocumentation {
@@ -331,6 +329,9 @@ pre code {
     .methodDiv {
         padding-left: 2px !important;
         margin-bottom: 0px !important;
+    }
+    * {
+        font-size: 95%;
     }
 }
 

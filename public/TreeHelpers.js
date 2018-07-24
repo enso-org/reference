@@ -19,7 +19,6 @@ $.fn.extend({
             var branch = $(this);
             branch.prepend("<i class='indicator " + closedClass + "'></i>");
             branch.addClass('branch');
-            console.log(getParents(branch));
             branch.on('click', function(e) {
                 if (this == e.target) {
                     var icon = $(this).children('i:first');
@@ -54,8 +53,8 @@ var treeDataObserver = new MutationObserver(function(mutations, observer) {
                 scrollableAfterDOMContentLoadedProperly();
 
                 updateMenuActivity(window.location.href);
-                if ($(window.location.hash)) {
-                    var urlSplit = document.URL.split("#");
+                if ($(window.location.hash) && window.location.hash != "") {
+                    console.log(window.location.hash);
                     location.href = window.location.hash;
                 }
 

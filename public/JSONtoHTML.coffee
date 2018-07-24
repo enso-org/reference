@@ -8,7 +8,9 @@ getMainData = (data) ->
   i = 0
   while i < modules.length
     module = modules[i]
-    output += '<div class="moduleDiv" id="'+ module.name + '"><p class="module">' + module.name + '</p>'
+    output += '<div class="moduleDiv" id="'+ module.name + '">'
+    output += '<p class="module" onMouseOver="document.getElementById(\''+module.name+'_Hover\').style.display = \'inline-block\'">' + module.name + '</p>'
+    output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="">Source</a>&emsp;<a href="#' + module.name + '">#</a></div>'
 
     if module.documentation != null && module.documentation != undefined
       mdtohtml = marked(module.documentation)
@@ -19,7 +21,8 @@ getMainData = (data) ->
     j = 0
     while j < module.classes.length
       Mclass = module.classes[j]
-      output += '<div class="module_classes_class" id="' + module.name + '_' + Mclass.name + '"><p class="className">' + Mclass.name + '</p>'
+      output += '<div class="module_classes_class" id="' + module.name + '_' + Mclass.name + '"><p class="className" onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_Hover\').style.display = \'inline-block\'">' + Mclass.name + '</p>'
+      output += '<div id="' + module.name + '_' + Mclass.name + '_Hover" class="hoverableAnchorsInClass"><a href="">Source</a>&emsp;<a href="#' + module.name + '_' + Mclass.name + '">#</a></div>'
      
       if Mclass.documentation != null
         mdtohtml = marked(Mclass.documentation)
@@ -82,7 +85,8 @@ getMainData = (data) ->
     output += '</div>'
     
     if module.functions.length != 0
-      output += '<div class="functions" id="' + module.name + '_Functions"><p class="functionsHeader">Functions</p>'
+      output += '<div class="functions" id="' + module.name + '_Functions"><p class="functionsHeader" onMouseOver="document.getElementById(\'' + module.name + '_Functions_Hover\').style.display = \'inline-block\'">Functions</p>'
+      output += '<div id="' + module.name + '_Functions_Hover" class="hoverableAnchorsInClass"><a href="">Source</a>&emsp;<a href="#' + module.name + '_Functions">#</a></div>'
 
       j = 0
       while j < module.functions.length
@@ -164,9 +168,6 @@ getMenuData = (data) ->
   menu += '</ul>'
   document.getElementById('menuPane').innerHTML += menu
   return
-
-
-
 
 xmlhttp.onreadystatechange = ->
   if @readyState == 4 and @status == 200

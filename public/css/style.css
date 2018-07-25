@@ -353,7 +353,7 @@ pre code {
 
 /* Screen sizing */
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 780px) {
     .sidenav {
         width: 0;
     }
@@ -385,7 +385,7 @@ pre code {
     }
 }
 
-@media screen and (max-width: 1670px) and (min-width: 700px) {
+@media screen and (max-width: 1670px) and (min-width: 780px) {
     .main {
         margin-left: 350px !important;
         padding: 0px;

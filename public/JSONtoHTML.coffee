@@ -10,7 +10,10 @@ getMainData = (data) ->
     module = modules[i]
     output += '<div class="moduleDiv" id="'+ module.name + '">'
     output += '<div style="width:100%" onMouseOver="document.getElementById(\''+module.name+'_Hover\').style.display = \'inline-block\'"><p class="module">' + module.name + '</p>'
-    output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="" class="fa fa-code"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#' + module.name + '" class="fa fa-anchor"></a></div></div>'
+    if module.tag != null && module.tag != undefined 
+      output += '<div class="tag tag_' + module.tag + '"><p class="fa fa-tags">&nbsp;&nbsp;' + module.tag + '</p></div>'
+    output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="" class="fa fa-code" title="Jump to source"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#' + module.name + '" class="fa fa-anchor" title="Get anchor link"></a></div>'
+    output += '</div>'
 
     if module.documentation != null && module.documentation != undefined
       mdtohtml = marked(module.documentation)
@@ -22,6 +25,8 @@ getMainData = (data) ->
     while j < module.classes.length
       Mclass = module.classes[j]
       output += '<div class="module_classes_class" id="' + module.name + '_' + Mclass.name + '"><div style="width:100%" onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_Hover\').style.display = \'inline-block\'"><p class="className">' + Mclass.name + '</p>'
+      if Mclass.tag != null && Mclass.tag != undefined 
+        output += '<div class="tag tag_' + Mclass.tag + '"><p class="fa fa-tags">&nbsp;&nbsp;' + Mclass.tag + '</p></div>'
       output += '<div id="' + module.name + '_' + Mclass.name + '_Hover" class="hoverableAnchors"><a href="" class="fa fa-code"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#' + module.name + '_' + Mclass.name + '" class="fa fa-anchor"></a></div></div>'
      
       if Mclass.documentation != null
@@ -52,7 +57,9 @@ getMainData = (data) ->
             MmethodWithTypeNameAndType = MmethodWithType.name.split(":")
             output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="methodDiv"><p class="methodName">' + MmethodWithTypeNameAndType[0].replace(/\s/g,'')
             if MmethodWithTypeNameAndType[1] != undefined
-              output += '<code>:' + MmethodWithTypeNameAndType[1] + '</code>'
+              output += '<code>:&nbsp;' + MmethodWithTypeNameAndType[1] + '</code>'
+            if MmethodWithType.tag != null && MmethodWithType.tag != undefined 
+              output += '<div class="tag tag_' + MmethodWithType.tag + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + MmethodWithType.tag + '</p></div>'
             output += '</p>'
             if MmethodWithType.documentation != null
               mdtohtml = marked(MmethodWithType.documentation)
@@ -71,6 +78,8 @@ getMainData = (data) ->
           output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="methodDiv"><p class="methodName">' + MmethodWithNameAndType[0].replace(/\s/g,'')
           if MmethodWithNameAndType[1] != undefined
             output += '<code>:' + MmethodWithNameAndType[1] + '</code>'
+          if Mmethod.tag != null && Mmethod.tag != undefined 
+              output += '<div class="tag tag_' + Mmethod.tag + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + Mmethod.tag + '</p></div>'
           output += '</p>'
           
           if Mmethod.documentation != null
@@ -95,6 +104,8 @@ getMainData = (data) ->
         output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="functionNameDiv"><p class="functionName">' + MfunctionNameAndType[0].replace(/\s/g,'')
         if MfunctionNameAndType[1] != undefined
           output += '<code>:' + MfunctionNameAndType[1] + '</code>'
+        if Mfunction.tag != null && Mfunction.tag != undefined 
+              output += '<div class="tag tag_' + Mfunction.tag + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + Mfunction.tag + '</p></div>'
         output += '</p>'
         if Mfunction.documentation != null 
           mdtohtml = marked(Mfunction.documentation)

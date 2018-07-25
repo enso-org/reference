@@ -36,9 +36,7 @@ a {
 code,
 pre,
 samp {
-    background-color: #fafafa;
     color: #0070c9;
-    line-height: 2.0;
     background-color: transparent;
     font-size: inherit;
     font-family: 'Menlo', 'Roboto Mono', 'Source Code Pro', Monaco, courier, monospace;
@@ -201,6 +199,7 @@ pre code {
 
 .methodName {
     font-weight: 600;
+    display: inline-block;
 }
 
 .MethodTypeHead {
@@ -224,6 +223,7 @@ pre code {
 
 .functionName {
     font-weight: 600;
+    display: inline-block;
 }
 
 .className {
@@ -328,9 +328,9 @@ pre code {
 .tag {
     display: inline-block;
     margin-left: 24px;
-    padding: 6px;
+    padding: 4px 18px;
     position: relative;
-    bottom: 6px;
+    bottom: 8px;
     border-radius: 24px;
 }
 

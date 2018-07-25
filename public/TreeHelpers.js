@@ -96,7 +96,6 @@ var updateMenuActivity = function(url) {
         if (url == (this.href)) {
             var parents = getParents(this);
 
-
             for (var i = 0; i < parents.length; i++) {
                 if ($(parents[i]).attr("id") != "menuPane") {
 
@@ -108,9 +107,7 @@ var updateMenuActivity = function(url) {
                     }
 
                     if ($(parents[i]).is("li,a")) {
-                        $(parents[i]).addClass('active');
                         $(parents[i]).children().addClass('active');
-
                     }
 
                     if ($(parents[i]).attr("class") != "branch") {

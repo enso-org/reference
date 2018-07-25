@@ -98,7 +98,6 @@ var updateMenuActivity = function(url) {
 
             for (var i = 0; i < parents.length; i++) {
                 if ($(parents[i]).attr("id") != "menuPane") {
-
                     if (i == 0) {
                         var activeItem = $(parents)[0];
                         if (checkIfInView($(activeItem)) == false) {

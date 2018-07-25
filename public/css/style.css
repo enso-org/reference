@@ -383,9 +383,6 @@ pre code {
         padding-left: 2px !important;
         margin-bottom: 0px !important;
     }
-    * {
-        font-size: 95%;
-    }
 }
 
 @media screen and (max-width: 1670px) and (min-width: 700px) {

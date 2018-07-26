@@ -6,7 +6,7 @@ body {
     -webkit-font-smoothing: antialiased;
     font-size: 17px;
     line-height: 1.52947;
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: -0.021em;
 }
 
@@ -311,7 +311,7 @@ pre code {
 .active {
     text-decoration: none;
     color: #333 !important;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .indicator {

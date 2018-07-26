@@ -9,10 +9,10 @@ getMainData = (data) ->
   while i < modules.length
     module = modules[i]
     output += '<div class="moduleDiv" id="'+ module.name + '">'
-    output += '<div style="width:100%" onMouseOver="document.getElementById(\''+module.name+'_Hover\').style.display = \'inline-block\'"><p class="module">' + module.name + '</p>'
+    output += '<div style="width:100%" onMouseOver="document.getElementById(\''+module.name+'_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\''+module.name+'_Hover\').style.display = \'none\'"><p class="module">' + module.name + '</p>'
     if module.tag != null && module.tag != undefined 
       output += '<div class="tag tag_' + module.tag + '"><p class="fa fa-tags">&nbsp;&nbsp;' + module.tag + '</p></div>'
-    output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="" class="fa fa-code" title="Jump to source"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#' + module.name + '" class="fa fa-anchor" title="Get anchor link"></a></div>'
+    output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="#' + module.name + '" class="fa fa-anchor" title="Get anchor link"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-code" title="Jump to source"></a></div>'
     output += '</div>'
 
     if module.documentation != null && module.documentation != undefined
@@ -24,10 +24,10 @@ getMainData = (data) ->
     j = 0
     while j < module.classes.length
       Mclass = module.classes[j]
-      output += '<div class="module_classes_class" id="' + module.name + '_' + Mclass.name + '"><div style="width:100%" onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_Hover\').style.display = \'inline-block\'"><p class="className">' + Mclass.name + '</p>'
+      output += '<div class="module_classes_class" id="' + module.name + '_' + Mclass.name + '"><div style="width:100%" onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_' + Mclass.name + '_Hover\').style.display = \'none\'"><p class="className">' + Mclass.name + '</p>'
       if Mclass.tag != null && Mclass.tag != undefined 
         output += '<div class="tag tag_' + Mclass.tag + '"><p class="fa fa-tags">&nbsp;&nbsp;' + Mclass.tag + '</p></div>'
-      output += '<div id="' + module.name + '_' + Mclass.name + '_Hover" class="hoverableAnchors"><a href="" class="fa fa-code"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#' + module.name + '_' + Mclass.name + '" class="fa fa-anchor"></a></div></div>'
+      output += '<div id="' + module.name + '_' + Mclass.name + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-code"></a></div></div>'
      
       if Mclass.documentation != null
         mdtohtml = marked(Mclass.documentation)
@@ -57,7 +57,7 @@ getMainData = (data) ->
             MmethodWithTypeNameAndType = MmethodWithType.name.split(":")
             output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="methodDiv"><p class="methodName">' + MmethodWithTypeNameAndType[0].replace(/\s/g,'')
             if MmethodWithTypeNameAndType[1] != undefined
-              output += '<code>:&nbsp;' + MmethodWithTypeNameAndType[1] + '</code>'
+              output += '<code>&nbsp;:' + MmethodWithTypeNameAndType[1] + '</code>'
             if MmethodWithType.tag != null && MmethodWithType.tag != undefined 
               output += '<div class="tag tag_' + MmethodWithType.tag + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + MmethodWithType.tag + '</p></div>'
             output += '</p>'
@@ -77,7 +77,7 @@ getMainData = (data) ->
           MmethodWithNameAndType = Mmethod.name.split(":")
           output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="methodDiv"><p class="methodName">' + MmethodWithNameAndType[0].replace(/\s/g,'')
           if MmethodWithNameAndType[1] != undefined
-            output += '<code>:' + MmethodWithNameAndType[1] + '</code>'
+            output += '<code>&nbsp;:' + MmethodWithNameAndType[1] + '</code>'
           if Mmethod.tag != null && Mmethod.tag != undefined 
               output += '<div class="tag tag_' + Mmethod.tag + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + Mmethod.tag + '</p></div>'
           output += '</p>'
@@ -94,8 +94,8 @@ getMainData = (data) ->
     output += '</div>'
     
     if module.functions.length != 0
-      output += '<div class="functions" id="' + module.name + '_Functions"><div style="width:100%"  onMouseOver="document.getElementById(\'' + module.name + '_Functions_Hover\').style.display = \'inline-block\'"><p class="functionsHeader">Functions</p>'
-      output += '<div id="' + module.name + '_Functions_Hover" class="hoverableAnchors"><a href="" class="fa fa-code"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#' + module.name + '_Functions" class="fa fa-anchor"></a></div></div>'
+      output += '<div class="functions" id="' + module.name + '_Functions"><div style="width:100%"  onMouseOver="document.getElementById(\'' + module.name + '_Functions_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_Functions_Hover\').style.display = \'none\'"><p class="functionsHeader">Functions</p>'
+      output += '<div id="' + module.name + '_Functions_Hover" class="hoverableAnchors"><a href="#' + module.name + '_Functions" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-code"></a></div></div>'
 
       j = 0
       while j < module.functions.length
@@ -103,7 +103,7 @@ getMainData = (data) ->
         MfunctionNameAndType = Mfunction.name.split(":")
         output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="functionNameDiv"><p class="functionName">' + MfunctionNameAndType[0].replace(/\s/g,'')
         if MfunctionNameAndType[1] != undefined
-          output += '<code>:' + MfunctionNameAndType[1] + '</code>'
+          output += '<code>&nbsp;:' + MfunctionNameAndType[1] + '</code>'
         if Mfunction.tag != null && Mfunction.tag != undefined 
               output += '<div class="tag tag_' + Mfunction.tag + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + Mfunction.tag + '</p></div>'
         output += '</p>'

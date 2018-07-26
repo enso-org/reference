@@ -1,8 +1,8 @@
 /* HTML Elements settings */
 
 body {
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    background-color: #ffffff;
+    font-family: 'Avenir', 'Open Sans', sans-serif;
+    background-color: #fafafa;
     -webkit-font-smoothing: antialiased;
     font-size: 17px;
     line-height: 1.52947;
@@ -39,7 +39,7 @@ samp {
     color: #0070c9;
     background-color: transparent;
     font-size: inherit;
-    font-family: 'SF Mono', 'Menlo', 'Roboto Mono', 'Source Code Pro', monospace;
+    font-family: 'Roboto Mono', 'Source Code Pro', Monaco, courier, monospace;
     line-height: 1.3em;
     display: inline-block;
 }

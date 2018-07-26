@@ -105,16 +105,17 @@ var updateMenuActivity = function(url) {
                         }
                     }
 
-                    if ($(parents[i]).is("li,a")) {
+                    if ($(parents[i]).is("li,a") && i > 0) {
+                        $(parents[i]).addClass('active');
                         $(parents[i]).children().addClass('active');
                     }
 
-                    if ($(parents[i]).attr("class") != "branch") {
+                    if (i > 1 && $(parents[i]).attr("class") != "branch") {
                         $(parents[i]).css("display", "");
                         var openedClass = 'fa fa-caret-down';
                         var closedClass = 'fa fa-caret-right';
 
-                        if (i > 1 && $(parents[i]).children('i:first').hasClass(closedClass)) {
+                        if ($(parents[i]).children('i:first').hasClass(closedClass)) {
                             var icon = $(parents[i]).children('i:first');
                             icon.toggleClass(openedClass + " " + closedClass);
                         }

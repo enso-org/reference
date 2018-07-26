@@ -45,6 +45,7 @@ getMainData = (data) ->
 
         if Mmethod.type != null && Mmethod.type != undefined
           output += '<div class="methodTypeDiv"><p class="MethodTypeHead">' + Mmethod.type + '</p>'
+          
           ###
           For method section info, now commented out
           if Mmethod.documentation != null
@@ -55,12 +56,16 @@ getMainData = (data) ->
           while l < Mmethod.methods.length
             MmethodWithType = Mmethod.methods[l]
             MmethodWithTypeNameAndType = MmethodWithType.name.split(":")
-            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="methodDiv"><p class="methodName">' + MmethodWithTypeNameAndType[0].replace(/\s/g,'')
+            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="methodDiv">'
+            output += '<div style="width:100%" onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'none\'">'
+            output += '<p class="methodName">' + MmethodWithTypeNameAndType[0].replace(/\s/g,'')
             if MmethodWithTypeNameAndType[1] != undefined
               output += '<code>&nbsp;:' + MmethodWithTypeNameAndType[1] + '</code>'
+            output += '</p>'
             if MmethodWithType.tag != null && MmethodWithType.tag != undefined 
               output += '<div class="tag tag_' + MmethodWithType.tag + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + MmethodWithType.tag + '</p></div>'
-            output += '</p>'
+            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-code"></a></div></div>'
+
             if MmethodWithType.documentation != null
               mdtohtml = marked(MmethodWithType.documentation)
               output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
@@ -75,13 +80,16 @@ getMainData = (data) ->
             printedInfo = true
           
           MmethodWithNameAndType = Mmethod.name.split(":")
-          output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="methodDiv"><p class="methodName">' + MmethodWithNameAndType[0].replace(/\s/g,'')
+          output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="methodDiv">'
+          output += '<div style="width:100%" onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'none\'">'
+          output += '<p class="methodName">' + MmethodWithNameAndType[0].replace(/\s/g,'')
           if MmethodWithNameAndType[1] != undefined
             output += '<code>&nbsp;:' + MmethodWithNameAndType[1] + '</code>'
+          output += '</p>'  
           if Mmethod.tag != null && Mmethod.tag != undefined 
               output += '<div class="tag tag_' + Mmethod.tag + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + Mmethod.tag + '</p></div>'
-          output += '</p>'
-          
+          output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-code"></a></div></div>'
+
           if Mmethod.documentation != null
             mdtohtml = marked(Mmethod.documentation)
             output += '<div class="methodDocumentation">' + mdtohtml + '</div>'
@@ -101,12 +109,16 @@ getMainData = (data) ->
       while j < module.functions.length
         Mfunction = module.functions[j]
         MfunctionNameAndType = Mfunction.name.split(":")
-        output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="functionNameDiv"><p class="functionName">' + MfunctionNameAndType[0].replace(/\s/g,'')
+        output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="functionNameDiv">'
+        output += '<div style="width:100%" onMouseOver="document.getElementById(\'' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'none\'">'
+        output += '<p class="functionName">' + MfunctionNameAndType[0].replace(/\s/g,'')
         if MfunctionNameAndType[1] != undefined
           output += '<code>&nbsp;:' + MfunctionNameAndType[1] + '</code>'
+        output += '</p>'
         if Mfunction.tag != null && Mfunction.tag != undefined 
               output += '<div class="tag tag_' + Mfunction.tag + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + Mfunction.tag + '</p></div>'
-        output += '</p>'
+        output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-code"></a></div></div>'
+
         if Mfunction.documentation != null 
           mdtohtml = marked(Mfunction.documentation)
           output += '<div class="functionDocumentation">' + mdtohtml + '</div>'

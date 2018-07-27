@@ -52,11 +52,6 @@ var treeDataObserver = new MutationObserver(function(mutations, observer) {
                 $('#treeMID').treed();
                 scrollableAfterDOMContentLoadedProperly();
 
-                updateMenuActivity(window.location.href);
-                if ($(window.location.hash) && window.location.hash != "") {
-                    location.href = window.location.hash;
-                }
-
                 function offsetAnchor() {
                     if (location.hash.length !== 0) {
                         window.scrollTo(window.scrollX, window.scrollY - 100);
@@ -72,6 +67,12 @@ var treeDataObserver = new MutationObserver(function(mutations, observer) {
                     updateMenuActivity(url);
                 });
                 window.setTimeout(offsetAnchor, 0);
+
+                if (window.location.hash != "") {
+                    var url = encodeURI(window.location.hash);
+                    location.href = url;
+                }
+                updateMenuActivity(window.location.href);
             }
         }
     }

@@ -11,8 +11,9 @@ getMainData = (data) ->
     output += '<div class="moduleDiv" id="'+ module.name + '">'
     output += '<div style="width:100%" onMouseOver="document.getElementById(\''+module.name+'_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\''+module.name+'_Hover\').style.display = \'none\'"><p class="module">' + module.name + '</p>'
     if module.tag != null && module.tag != undefined 
-      output += '<div class="tag tag_' + module.tag + '"><p class="fa fa-tags">&nbsp;&nbsp;' + module.tag + '</p></div>'
-    output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="#' + module.name + '" class="fa fa-anchor" title="Get anchor link"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-code" title="Jump to source"></a></div>'
+      tagType = module.tag.split(":")
+      output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '"><p class="fa fa-tags">&nbsp;&nbsp;' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
+    output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="#' + module.name + '" class="fa fa-anchor" title="Get anchor link"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code" title="Jump to source"></a></div>'
     output += '</div>'
 
     if module.documentation != null && module.documentation != undefined
@@ -26,8 +27,9 @@ getMainData = (data) ->
       Mclass = module.classes[j]
       output += '<div class="module_classes_class" id="' + module.name + '_' + Mclass.name + '"><div style="width:100%" onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_' + Mclass.name + '_Hover\').style.display = \'none\'"><p class="className">' + Mclass.name + '</p>'
       if Mclass.tag != null && Mclass.tag != undefined 
-        output += '<div class="tag tag_' + Mclass.tag + '"><p class="fa fa-tags">&nbsp;&nbsp;' + Mclass.tag + '</p></div>'
-      output += '<div id="' + module.name + '_' + Mclass.name + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-code"></a></div></div>'
+        tagType = Mclass.tag.split(":")
+        output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '"><p class="fa fa-tags">&nbsp;&nbsp;' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
+      output += '<div id="' + module.name + '_' + Mclass.name + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
      
       if Mclass.documentation != null
         mdtohtml = marked(Mclass.documentation)
@@ -63,8 +65,9 @@ getMainData = (data) ->
               output += '<code>&nbsp;:' + MmethodWithTypeNameAndType[1] + '</code>'
             output += '</p>'
             if MmethodWithType.tag != null && MmethodWithType.tag != undefined 
-              output += '<div class="tag tag_' + MmethodWithType.tag + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + MmethodWithType.tag + '</p></div>'
-            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-code"></a></div></div>'
+              tagType = MmethodWithType.tag.split(":")
+              output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
+            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
 
             if MmethodWithType.documentation != null
               mdtohtml = marked(MmethodWithType.documentation)
@@ -87,8 +90,9 @@ getMainData = (data) ->
             output += '<code>&nbsp;:' + MmethodWithNameAndType[1] + '</code>'
           output += '</p>'  
           if Mmethod.tag != null && Mmethod.tag != undefined 
-              output += '<div class="tag tag_' + Mmethod.tag + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + Mmethod.tag + '</p></div>'
-          output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-code"></a></div></div>'
+            tagType = Mmethod.tag.split(":")
+            output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
+          output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
 
           if Mmethod.documentation != null
             mdtohtml = marked(Mmethod.documentation)
@@ -103,7 +107,7 @@ getMainData = (data) ->
     
     if module.functions.length != 0
       output += '<div class="functions" id="' + module.name + '_Functions"><div style="width:100%"  onMouseOver="document.getElementById(\'' + module.name + '_Functions_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_Functions_Hover\').style.display = \'none\'"><p class="functionsHeader">Functions</p>'
-      output += '<div id="' + module.name + '_Functions_Hover" class="hoverableAnchors"><a href="#' + module.name + '_Functions" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-code"></a></div></div>'
+      output += '<div id="' + module.name + '_Functions_Hover" class="hoverableAnchors"><a href="#' + module.name + '_Functions" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
 
       j = 0
       while j < module.functions.length
@@ -115,9 +119,11 @@ getMainData = (data) ->
         if MfunctionNameAndType[1] != undefined
           output += '<code>&nbsp;:' + MfunctionNameAndType[1] + '</code>'
         output += '</p>'
+
         if Mfunction.tag != null && Mfunction.tag != undefined 
-              output += '<div class="tag tag_' + Mfunction.tag + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + Mfunction.tag + '</p></div>'
-        output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-code"></a></div></div>'
+          tagType = Mfunction.tag.split(":")
+          output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
+        output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
 
         if Mfunction.documentation != null 
           mdtohtml = marked(Mfunction.documentation)

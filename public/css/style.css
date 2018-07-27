@@ -326,23 +326,25 @@ pre code {
 .tag {
     display: inline-block;
     margin-left: 24px;
-    padding: 2px 4px;
     position: relative;
     bottom: 8px;
-    border-radius: 8px;
     font-size: 16px;
+    border: 1px solid #ccc;
+    padding: 0.1em 12px;
+    border-radius: 16px;
+    box-sizing: inherit;
 }
 
-.tag_deprecated {
-    box-shadow: 0px 0px 4px rgba(255, 0, 0, 0.3);
+.tag_deprecated>p {
+    color: orange;
 }
 
-.tag_modified {
-    box-shadow: 0px 0px 4px rgba(0, 0, 255, 0.3);
+.tag_modified>p {
+    color: purple;
 }
 
-.tag_added {
-    box-shadow: 0px 0px 4px rgba(0, 255, 0, 0.3);
+.tag_added>p {
+    color: green;
 }
 
 

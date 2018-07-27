@@ -179,6 +179,7 @@ pre code {
     margin-left: 24px;
     position: relative;
     bottom: 6px;
+    float: right;
 }
 
 .module {

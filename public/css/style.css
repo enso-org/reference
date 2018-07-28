@@ -87,6 +87,7 @@ pre code {
     margin-top: 48px;
     max-width: 980px;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .moduleDiv {

@@ -12,7 +12,7 @@ getMainData = (data) ->
     output += '<div style="width:100%" onMouseOver="document.getElementById(\''+module.name+'_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\''+module.name+'_Hover\').style.display = \'none\'"><p class="module">' + module.name + '</p>'
     if module.tag != null && module.tag != undefined 
       tagType = module.tag.split(":")
-      output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '"><p class="<!--fa fa-tags-->">' + tagType[0].replace(/\s/g,'') + ' in' + tagType[1].replace(/\s/g,'')+ '</p></div>'
+      output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '"><p class="<!--fa fa-tags-->">' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
     output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="#' + module.name + '" class="fa fa-anchor" title="Get anchor link"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code" title="Jump to source"></a></div>'
     output += '</div>'
 

@@ -186,7 +186,7 @@ pre code {
 .module {
     font-size: 40px;
     line-height: 1.05;
-    font-weight: 900;
+    font-weight: 600;
     padding-bottom: 16px;
     white-space: nowrap;
     overflow-x: auto;
@@ -237,7 +237,6 @@ pre code {
     white-space: nowrap;
     overflow-x: auto;
     display: inline-block;
-    padding-bottom: 16px;
 }
 
 

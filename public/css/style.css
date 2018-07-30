@@ -4,7 +4,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: #fafafa;
     -webkit-font-smoothing: antialiased;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.52947;
     font-weight: 400;
     letter-spacing: -0.021em;
@@ -39,7 +39,7 @@ samp {
     color: #0070c9;
     background-color: transparent;
     font-size: inherit;
-    font-family: 'Roboto Mono', 'Source Code Pro', Monaco, courier, Menlo, monospace;
+    font-family: 'Source Code Pro', Monaco, courier, Menlo, monospace;
     line-height: 1.3em;
     font-weight: 500;
     display: inline-block;

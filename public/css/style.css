@@ -1,12 +1,12 @@
 /* HTML Elements settings */
 
 body {
-    font-family: 'Avenir', 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #fafafa;
     -webkit-font-smoothing: antialiased;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.52947;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: -0.021em;
 }
 
@@ -39,8 +39,9 @@ samp {
     color: #0070c9;
     background-color: transparent;
     font-size: inherit;
-    font-family: 'Roboto Mono', 'Source Code Pro', Monaco, courier, monospace;
+    font-family: 'Roboto Mono', 'Source Code Pro', Monaco, courier, Menlo, monospace;
     line-height: 1.3em;
+    font-weight: 500;
     display: inline-block;
 }
 
@@ -172,13 +173,20 @@ pre code {
 
 .hoverableAnchors {
     display: none;
-    float: right;
+    margin-left: 24px;
+    position: relative;
+    bottom: 8px;
+}
+
+.methodDiv .hoverableAnchors,
+.functionNameDiv .hoverableAnchors {
+    bottom: 0px;
 }
 
 .module {
-    font-size: 48px;
+    font-size: 40px;
     line-height: 1.05;
-    font-weight: 500;
+    font-weight: 900;
     padding-bottom: 16px;
     white-space: nowrap;
     overflow-x: auto;
@@ -194,7 +202,7 @@ pre code {
 }
 
 .methodName {
-    font-weight: 500;
+    font-weight: 600;
     display: inline-block;
 }
 
@@ -308,7 +316,7 @@ pre code {
 .active {
     text-decoration: none;
     color: #333 !important;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .indicator {
@@ -339,16 +347,17 @@ pre code {
     font-weight: 100;
 }
 
+.tag_deprecated {
+    border: 1px solid #c35400 !important;
+}
+
 .tag_deprecated>p {
-    color: orange;
+    color: #c35400;
 }
 
-.tag_modified>p {
-    color: purple;
-}
-
+.tag_modified>p,
 .tag_added>p {
-    color: green;
+    color: #ccc;
 }
 
 

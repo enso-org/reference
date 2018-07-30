@@ -12,7 +12,7 @@ getMainData = (data) ->
     output += '<div style="width:100%" onMouseOver="document.getElementById(\''+module.name+'_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\''+module.name+'_Hover\').style.display = \'none\'"><p class="module">' + module.name + '</p>'
     if module.tag != null && module.tag != undefined 
       tagType = module.tag.split(":")
-      output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '"><p class="fa fa-tags">&nbsp;&nbsp;' + tagType[0].replace(/\s/g,'') + ' in' + tagType[1].replace(/\s/g,'')+ '</p></div>'
+      output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '"><p class="<!--fa fa-tags-->">' + tagType[0].replace(/\s/g,'') + ' in' + tagType[1].replace(/\s/g,'')+ '</p></div>'
     output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="#' + module.name + '" class="fa fa-anchor" title="Get anchor link"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code" title="Jump to source"></a></div>'
     output += '</div>'
 
@@ -28,7 +28,7 @@ getMainData = (data) ->
       output += '<div class="module_classes_class" id="' + module.name + '_' + Mclass.name + '"><div style="width:100%" onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_' + Mclass.name + '_Hover\').style.display = \'none\'"><p class="className">' + Mclass.name + '</p>'
       if Mclass.tag != null && Mclass.tag != undefined 
         tagType = Mclass.tag.split(":")
-        output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '"><p class="fa fa-tags">&nbsp;&nbsp;' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
+        output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '"><p class="<!--fa fa-tags-->">' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
       output += '<div id="' + module.name + '_' + Mclass.name + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
      
       if Mclass.documentation != null
@@ -66,7 +66,7 @@ getMainData = (data) ->
             output += '</p>'
             if MmethodWithType.tag != null && MmethodWithType.tag != undefined 
               tagType = MmethodWithType.tag.split(":")
-              output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
+              output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '" style="bottom:0"><p class="<!--fa fa-tags-->">' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
             output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
 
             if MmethodWithType.documentation != null
@@ -91,7 +91,7 @@ getMainData = (data) ->
           output += '</p>'  
           if Mmethod.tag != null && Mmethod.tag != undefined 
             tagType = Mmethod.tag.split(":")
-            output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
+            output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '" style="bottom:0"><p class="<!--fa fa-tags-->">' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
           output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
 
           if Mmethod.documentation != null
@@ -122,7 +122,7 @@ getMainData = (data) ->
 
         if Mfunction.tag != null && Mfunction.tag != undefined 
           tagType = Mfunction.tag.split(":")
-          output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '" style="bottom:0"><p class="fa fa-tags">&nbsp;&nbsp;' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
+          output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '" style="bottom:0"><p class="<!--fa fa-tags-->">' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
         output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
 
         if Mfunction.documentation != null 

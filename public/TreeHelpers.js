@@ -101,8 +101,15 @@ var updateMenuActivity = function(url) {
                 if ($(parents[i]).attr("id") != "menuPane") {
                     if (i == 0) {
                         var activeItem = $(parents)[0];
+
                         if (checkIfInView($(activeItem)) == false) {
-                            activeItem.scrollIntoView({ block: 'end', behavior: 'smooth' });
+                            var wH = $(window).height();
+                            var activeY = $(activeItem).offset().top - scrollY;
+                            if (activeY > wH / 2) {
+                                activeItem.scrollIntoView(false);
+                            } else {
+                                activeItem.scrollIntoView(true);
+                            }
                         }
                     }
 
@@ -187,4 +194,30 @@ function scrollableAfterDOMContentLoadedProperly() {
             updateMenuActivity(url);
         }
     });
+}
+
+function getPosition(el) {
+    var xPos = 0;
+    var yPos = 0;
+
+    while (el) {
+        if (el.tagName == "div") {
+            // deal with browser quirks with body/window/document and page scroll
+            var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+            var yScroll = el.scrollTop || document.documentElement.scrollTop;
+
+            xPos += (el.offsetLeft - xScroll + el.clientLeft);
+            yPos += (el.offsetTop - yScroll + el.clientTop);
+        } else {
+            // for all other non-BODY elements
+            xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+            yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+        }
+
+        el = el.offsetParent;
+    }
+    return {
+        x: xPos,
+        y: yPos
+    };
 }

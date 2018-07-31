@@ -67,6 +67,12 @@ var treeDataObserver = new MutationObserver(function(mutations, observer) {
                     updateMenuActivity(url);
                 });
                 window.setTimeout(offsetAnchor, 0);
+
+                if (window.location.hash != "") {
+                    var url = encodeURI(window.location.hash);
+                    location.href = url;
+
+                }
             }
         }
     }

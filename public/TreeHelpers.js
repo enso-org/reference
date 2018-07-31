@@ -131,13 +131,15 @@ var updateMenuActivity = function(url) {
                         $(parents[i]).children().css("display", "");
                     }
 
-                    array = $(parents[3]).children()[1].href.split("_")
+                    if ($(parents[3]).children()[1].href != undefined) {
+                        array = $(parents[3]).children()[1].href.split("_")
 
-                    if (array[array.length - 1] == "Functions") {
-                        $(parents[2]).children().css("display", "none");
-                        var icon = $(parents[3]).children('i:first');
-                        icon.removeClass(openedClass);
-                        icon.addClass(closedClass);
+                        if (array[array.length - 1] == "Functions") {
+                            $(parents[2]).children().css("display", "none");
+                            var icon = $(parents[3]).children('i:first');
+                            icon.removeClass(openedClass);
+                            icon.addClass(closedClass);
+                        }
                     }
                 } else {
                     break;

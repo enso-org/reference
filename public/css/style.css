@@ -126,9 +126,9 @@ pre code {
 }
 
 .classDocumentation {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.45455;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.016em;
     margin-bottom: 10px;
 }
@@ -207,7 +207,7 @@ pre code {
 }
 
 .MethodTypeHead {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 1.52;
     padding-bottom: 30px;
     font-weight: 500;

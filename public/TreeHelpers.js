@@ -61,6 +61,7 @@ var treeDataObserver = new MutationObserver(function(mutations, observer) {
                 $(document).on('click', 'a[href^="#"]', function(event) {
                     window.setTimeout(function() {
                         offsetAnchor();
+                        window.scrollBy(0, 50);
                     }, 0);
 
                     var url = window.location.href;
@@ -131,7 +132,7 @@ var updateMenuActivity = function(url) {
                         $(parents[i]).children().css("display", "");
                     }
 
-                    if (typeof($(parents[3]).children()[1].href) !== 'undefined') {
+                    if ($(parents[3]).children()[1] !== undefined) {
                         array = $(parents[3]).children()[1].href.split("_")
 
                         if (array[array.length - 1] == "Functions") {

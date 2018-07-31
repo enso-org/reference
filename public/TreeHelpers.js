@@ -131,7 +131,7 @@ var updateMenuActivity = function(url) {
                         $(parents[i]).children().css("display", "");
                     }
 
-                    if ($(parents[3]).children()[1].href != undefined) {
+                    if (typeof($(parents[3]).children()[1].href) !== 'undefined') {
                         array = $(parents[3]).children()[1].href.split("_")
 
                         if (array[array.length - 1] == "Functions") {

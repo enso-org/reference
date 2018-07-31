@@ -222,6 +222,7 @@ pre code {
     font-weight: 500;
     white-space: nowrap;
     overflow-x: auto;
+    padding-bottom: 22px;
     display: inline-block;
 }
 
@@ -236,6 +237,7 @@ pre code {
     font-weight: 500;
     white-space: nowrap;
     overflow-x: auto;
+    padding-bottom: 16px;
     display: inline-block;
 }
 

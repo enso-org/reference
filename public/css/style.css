@@ -196,7 +196,7 @@ pre code {
 .module_overview {
     font-size: 22px;
     line-height: 1.45455;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.016em;
     margin-bottom: 10px;
 }
@@ -325,7 +325,7 @@ pre code {
 }
 
 .indicator.fa-caret-down.fa {
-    padding-bottom: 1em;
+    padding-bottom: 16px;
 }
 
 

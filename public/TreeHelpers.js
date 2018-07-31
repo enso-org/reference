@@ -71,7 +71,7 @@ var treeDataObserver = new MutationObserver(function(mutations, observer) {
                 if (window.location.hash != "") {
                     var url = encodeURI(window.location.hash);
                     location.href = url;
-
+                    window.scrollBy(0, 50);
                 }
             }
         }

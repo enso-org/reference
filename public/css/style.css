@@ -4,10 +4,10 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: #fafafa;
     -webkit-font-smoothing: antialiased;
-    font-size: 17px;
+    font-size: 17.1px;
     line-height: 1.52947;
     font-weight: 400;
-    letter-spacing: -0.041em;
+    letter-spacing: -0.021em;
 }
 
 p,
@@ -184,12 +184,13 @@ pre code {
 }
 
 .module {
-    font-size: 40px;
+    font-size: 41px;
     line-height: 1.05;
     font-weight: 600;
     padding-bottom: 16px;
     white-space: nowrap;
     overflow-x: auto;
+    letter-spacing: -0.036em;
     display: inline-block;
 }
 

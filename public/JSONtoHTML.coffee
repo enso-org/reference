@@ -14,8 +14,10 @@ getMainData = (data) ->
     if module.tag != null && module.tag != undefined 
       tagType = module.tag.split(":")
       output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '"><p class="<!--fa fa-tags-->">' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
-    output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="#' + module.name + '" class="fa fa-anchor" title="Get anchor link"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code" title="Jump to source"></a></div>'
-    output += '</div>'
+    output += '<div id="'+module.name+'_Hover" class="hoverableAnchors"><a href="#' + module.name + '" class="fa fa-anchor" title="Get anchor link"></a>&nbsp;&nbsp;&nbsp;&nbsp;'
+    if module.link != null && module.link != undefined 
+      output += '<a href="" class="fa fa-file-code" title="Jump to source"></a>'
+    output += '</div></div>'
 
     if module.documentation != null && module.documentation != undefined
       mdtohtml = marked(module.documentation)
@@ -30,7 +32,10 @@ getMainData = (data) ->
       if Mclass.tag != null && Mclass.tag != undefined 
         tagType = Mclass.tag.split(":")
         output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '"><p class="<!--fa fa-tags-->">' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
-      output += '<div id="' + module.name + '_' + Mclass.name + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
+      output += '<div id="' + module.name + '_' + Mclass.name + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;'
+      if Mclass.link != null && Mclass.link != undefined
+        output += '<a href="' + Mclass.link +'" class="fa fa-file-code"></a>'
+      output += '</div></div>'
      
       if Mclass.documentation != null
         mdtohtml = marked(Mclass.documentation)
@@ -68,7 +73,10 @@ getMainData = (data) ->
             if MmethodWithType.tag != null && MmethodWithType.tag != undefined 
               tagType = MmethodWithType.tag.split(":")
               output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '" style="bottom:0"><p class="<!--fa fa-tags-->">' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
-            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
+            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;'
+            if MmethodWithType.link != null && MmethodWithType.link != undefined  
+              output += '<a href="' + MmethodWithType.link +'" class="fa fa-file-code"></a>'
+            output += '</div></div>'
 
             if MmethodWithType.documentation != null
               mdtohtml = marked(MmethodWithType.documentation)
@@ -94,7 +102,10 @@ getMainData = (data) ->
           if Mmethod.tag != null && Mmethod.tag != undefined 
             tagType = Mmethod.tag.split(":")
             output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '" style="bottom:0"><p class="<!--fa fa-tags-->">' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
-          output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
+          output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;'
+          if Mmethod.link != null && Mmethod.link != undefined  
+            output += '<a href="' + Mmethod.link + '" class="fa fa-file-code"></a>'
+          output += '</div></div>'
 
           if Mmethod.documentation != null
             mdtohtml = marked(Mmethod.documentation)
@@ -127,7 +138,10 @@ getMainData = (data) ->
         if Mfunction.tag != null && Mfunction.tag != undefined 
           tagType = Mfunction.tag.split(":")
           output += '<div class="tag tag_' + tagType[0].replace(/\s/g,'') + '" style="bottom:0"><p class="<!--fa fa-tags-->">' + tagType[0].replace(/\s/g,'') + ' in ' + tagType[1].replace(/\s/g,'')+ '</p></div>'
-        output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>'
+        output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '_Hover" class="hoverableAnchors"><a href="#' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;'
+        if Mfunction.link != null && Mfunction.link != undefined  
+          output += '<a href="' + Mfunction.link + '" class="fa fa-file-code"></a>'
+        output += '</div></div>'
 
         if Mfunction.documentation != null 
           mdtohtml = marked(Mfunction.documentation)

@@ -9,10 +9,10 @@
         "dep-linker": "^1.0.24",
         "jquery": "^3.3.1",
         "luna-logo": "^1.1.8",
-        "marked": "^0.4.0"
+        "marked": "^0.4.0",
+        "coffeescript": "^2.3.1"
     },
     "devDependencies": {
-        "coffeescript": "^2.3.1",
         "ejs": "^2.5.5",
         "express": "^4.16.3"
     }

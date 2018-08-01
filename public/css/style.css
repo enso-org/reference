@@ -191,7 +191,7 @@ pre code {
     white-space: nowrap;
     overflow-x: auto;
     letter-spacing: -0.036em;
-    display: inline-block;
+    display: inline;
 }
 
 .module_overview {
@@ -204,7 +204,7 @@ pre code {
 
 .methodName {
     font-weight: 600;
-    display: inline-block;
+    display: inline;
 }
 
 .MethodTypeHead {
@@ -239,7 +239,7 @@ pre code {
     white-space: nowrap;
     overflow-x: auto;
     padding-bottom: 16px;
-    display: inline-block;
+    display: inline;
 }
 
 

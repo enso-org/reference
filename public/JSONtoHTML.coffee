@@ -80,7 +80,7 @@ getMainData = (data) ->
 
         else
           if printedInfo == false 
-            output += '<div class="MethodTypeDiv">'
+            output += '<div class="methodTypeDiv">'
             output += '<p class="MethodTypeHead">Unclassified methods</p>'
             printedInfo = true
           

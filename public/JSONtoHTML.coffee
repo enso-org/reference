@@ -80,6 +80,7 @@ getMainData = (data) ->
 
         else
           if printedInfo == false 
+            output += '<div class="MethodTypeDiv">'
             output += '<p class="MethodTypeHead">Unclassified methods</p>'
             printedInfo = true
           
@@ -101,6 +102,8 @@ getMainData = (data) ->
           
           output += '</div>'
         k++
+        if k == Mclass.methods.length
+          output += '</div>'
       
       output += '</div></div>'
       j++

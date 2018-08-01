@@ -170,7 +170,6 @@ function scrollableAfterDOMContentLoadedProperly() {
         $('.module_classes_class, .functions').each(function() {
             $(this).css('background-color', 'white');
             if (checkIfInView($(this), true) == true) {
-                console.log($(this).attr('id'))
                 var url = window.location.href.split('#')[0] + "#" + $(this).attr('id');
                 updateMenuActivity(url);
             }

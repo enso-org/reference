@@ -1,7 +1,7 @@
 var express = require("express");
 
 var DepLinker = require('dep-linker');
-DepLinker.copyDependenciesTo('./public/scripts')
+DepLinker.copyDependenciesTo('/public/Scripts');
 
 var app = express();
 var port = process.env.PORT || 8080;

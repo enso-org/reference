@@ -12,7 +12,6 @@
         "marked": "^0.4.0"
     },
     "devDependencies": {
-        "coffeescript": "^2.3.1",
         "ejs": "^2.5.5",
         "express": "^4.16.3"
     }

@@ -1,5 +1,6 @@
-xmlhttp = new XMLHttpRequest
-url = 'stdLib_base_test.json'
+# Variables
+xmlHttp = new XMLHttpRequest
+jsonFile = 'stdLib_base_test.json'
 
 getMainData = (data) ->
   output = ''
@@ -198,12 +199,13 @@ getMenuData = (data) ->
   document.getElementById('menuPane').innerHTML += menu
   return
 
-xmlhttp.onreadystatechange = ->
+# Processed on page load
+xmlHttp.onreadystatechange = ->
   if @readyState == 4 and @status == 200
     data = JSON.parse(@responseText)
     getMainData data
     getMenuData data
   return
 
-xmlhttp.open 'GET', url, true
-xmlhttp.send()
+xmlHttp.open 'GET', jsonFile, true
+xmlHttp.send()

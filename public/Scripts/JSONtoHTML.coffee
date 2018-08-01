@@ -1,6 +1,6 @@
 # Variables
 xmlHttp = new XMLHttpRequest
-jsonFile = 'stdLib_base_test.json'
+jsonFile = 'JSONData/stdLib_base_test.json'
 
 getMainData = (data) ->
   output = ''

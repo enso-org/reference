@@ -1,5 +1,5 @@
 var express = require("express")
-require('luna-logo')
+
 var app = express()
 var port = process.env.PORT || 8080
 

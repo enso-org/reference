@@ -1,6 +1,6 @@
 {
     "name": "luna_docs",
-    "description": "Luna documentation",
+    "description": "Luna Docs",
     "main": "server.js",
     "scripts": {
         "start": "node server.js"

@@ -1,13 +1,15 @@
-var express = require("express")
-var lunaLogo = require("luna-logo")
+var express = require("express");
 
-var app = express()
-var port = process.env.PORT || 8080
+var DepLinker = require('dep-linker');
+DepLinker.copyDependenciesTo('./public/scripts')
 
-app.set("view engine", "ejs")
-app.use(express.static(__dirname + "/public"))
+var app = express();
+var port = process.env.PORT || 8080;
+
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 app.get("/", function(req, res) {
-    res.render("index", { lunaLogo: lunaLogo })
+    res.render("index")
 })
 
-app.listen(port, function() {})
+app.listen(port, function() {});

@@ -324,6 +324,7 @@ pre code {
 .indicator {
     margin-right: 8px;
     width: 10px;
+    cursor: pointer;
 }
 
 .indicator.fa-caret-down.fa {

@@ -167,7 +167,6 @@ function checkIfInView(elem, partial) {
 
 function scrollableAfterDOMContentLoadedProperly() {
     $(document).scroll(function() {
-
         $('.module_classes_class, .functions').each(function() {
             $(this).css('background-color', 'white');
             if (checkIfInView($(this), true) == true) {
@@ -176,6 +175,5 @@ function scrollableAfterDOMContentLoadedProperly() {
                 updateMenuActivity(url);
             }
         });
-
     });
 }

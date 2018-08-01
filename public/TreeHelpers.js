@@ -167,60 +167,15 @@ function checkIfInView(elem, partial) {
 
 function scrollableAfterDOMContentLoadedProperly() {
     $(document).scroll(function() {
-        var data = $("#data");
-        var modules = data.children().children();
-        var scrollpos = $(document).scrollTop() + 100;
-        var start = 0;
-        var end = modules.length;
-        var c = 0;
-        while (start != end) {
-            c++;
-            var mid = start + Math.floor((end - start) / 2);
-            if ($(modules[mid]).offset().top < scrollpos)
-                start = mid + 1;
-            else
-                end = mid;
-        }
-        var startC = 0;
-        var endC = $(modules[start - 1]).children().length;
-        while (startC != endC) {
-            c++;
-            var mid = startC + Math.floor((endC - startC) / 2);
-            if ($($(modules[start - 1]).children()[mid]).offset().top < scrollpos)
-                startC = mid + 1;
-            else
-                endC = mid;
-        }
-        var id = $($(modules[start - 1]).children()[startC - 1]).attr('id');
-        if (id != undefined) {
-            var url = window.location.href.split('#')[0] + "#" + id;
-            updateMenuActivity(url);
-        }
+
+        $('.module_classes_class, .functions').each(function() {
+            $(this).css('background-color', 'white');
+            if (checkIfInView($(this), true) == true) {
+                console.log($(this).attr('id'))
+                var url = window.location.href.split('#')[0] + "#" + $(this).attr('id');
+                updateMenuActivity(url);
+            }
+        });
+
     });
-}
-
-function getPosition(el) {
-    var xPos = 0;
-    var yPos = 0;
-
-    while (el) {
-        if (el.tagName == "div") {
-            // deal with browser quirks with body/window/document and page scroll
-            var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
-            var yScroll = el.scrollTop || document.documentElement.scrollTop;
-
-            xPos += (el.offsetLeft - xScroll + el.clientLeft);
-            yPos += (el.offsetTop - yScroll + el.clientTop);
-        } else {
-            // for all other non-BODY elements
-            xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
-            yPos += (el.offsetTop - el.scrollTop + el.clientTop);
-        }
-
-        el = el.offsetParent;
-    }
-    return {
-        x: xPos,
-        y: yPos
-    };
 }

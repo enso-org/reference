@@ -59,8 +59,8 @@ getMainData = (data) ->
           while l < Mmethod.methods.length
             MmethodWithType = Mmethod.methods[l]
             MmethodWithTypeNameAndType = MmethodWithType.name.split(":")
-            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="methodDiv">'
-            output += '<div style="width:100%" onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'none\'">'
+            output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '" class="methodDiv"  onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_' + Mclass.name + '_' + MmethodWithTypeNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'none\'">'
+            output += '<div style="width:100%">'
             output += '<p class="methodName">' + MmethodWithTypeNameAndType[0].replace(/\s/g,'')
             if MmethodWithTypeNameAndType[1] != undefined
               output += '<code>&nbsp;:' + MmethodWithTypeNameAndType[1] + '</code>'
@@ -84,8 +84,8 @@ getMainData = (data) ->
             printedInfo = true
           
           MmethodWithNameAndType = Mmethod.name.split(":")
-          output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="methodDiv">'
-          output += '<div style="width:100%" onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'none\'">'
+          output += '<div id="' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '" class="methodDiv"  onMouseOver="document.getElementById(\'' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_' + Mclass.name + '_' + MmethodWithNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'none\'">'
+          output += '<div style="width:100%">'
           output += '<p class="methodName">' + MmethodWithNameAndType[0].replace(/\s/g,'')
           if MmethodWithNameAndType[1] != undefined
             output += '<code>&nbsp;:' + MmethodWithNameAndType[1] + '</code>'
@@ -114,8 +114,8 @@ getMainData = (data) ->
       while j < module.functions.length
         Mfunction = module.functions[j]
         MfunctionNameAndType = Mfunction.name.split(":")
-        output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="functionNameDiv">'
-        output += '<div style="width:100%" onMouseOver="document.getElementById(\'' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'none\'">'
+        output += '<div id="' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '" class="functionNameDiv"  onMouseOver="document.getElementById(\'' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'inline-block\'" onMouseOut="document.getElementById(\'' + module.name + '_' + MfunctionNameAndType[0].replace(/\s/g,'') + '_Hover\').style.display = \'none\'">'
+        output += '<div style="width:100%">'
         output += '<p class="functionName">' + MfunctionNameAndType[0].replace(/\s/g,'')
         if MfunctionNameAndType[1] != undefined
           output += '<code>&nbsp;:' + MfunctionNameAndType[1] + '</code>'

@@ -364,6 +364,10 @@ pre code {
     color: #aaa;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 
 /* Screen sizing */
 

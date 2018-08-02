@@ -103,7 +103,7 @@ var updateMenuActivity = function(url) {
                     if (i == 0) {
                         var activeItem = $(parents)[0];
 
-                        if (checkIfInView($(activeItem)) == false) {
+                        if (checkIfInView($(".sidenav"), $(activeItem), true) == false) {
                             var wH = $(window).height();
                             var activeY = $(activeItem).offset().top - scrollY;
                             if (activeY > wH / 2) {
@@ -150,8 +150,8 @@ var updateMenuActivity = function(url) {
     });
 };
 
-function checkIfInView(elem, partial) {
-    var container = $(".sidenav");
+function checkIfInView(par, elem, partial) {
+    var container = par;
     var contHeight = container.height();
     var contTop = container.scrollTop();
     var contBottom = contTop + contHeight;
@@ -172,7 +172,7 @@ function scrollableAfterDOMContentLoadedProperly() {
             //check each panel if it is on screen
             $('.module_classes_class, .functions').each(function() {
                 $(this).css('background-color', 'white');
-                if (checkIfInView($(this), true) == true) {
+                if (checkIfInView($(".main"), $(this), true) == true) {
                     // update active menu item
                     var url = window.location.href.split('#')[0] + "#" + $(this).attr('id');
                     updateMenuActivity(url);
@@ -184,9 +184,10 @@ function scrollableAfterDOMContentLoadedProperly() {
 
 // Show navigation menu on small screens and make it on full screen
 function openNav() {
-    if (document.getElementById("menuPane").style.width != '0') {
-        document.getElementById("menuPane").style.width = '0';
+    //check if opened
+    if (document.getElementById("menuPane").style.width != "0") {
+        document.getElementById("menuPane").style.width = "0";
     } else {
-        document.getElementById("menuPane").style.width = $(document).width();
+        document.getElementById("menuPane").style.width = `${$(document).width()}`;
     }
 }

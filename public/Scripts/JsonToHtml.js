@@ -10,13 +10,24 @@ const getMainData = function(data) {
     while (i < modules.length) {
         var mdtohtml, tagType;
         const module = modules[i];
-        output += `<div class="moduleDiv" id="${module.name}">`;
-        output += `<div style="width:100%" onMouseOver="document.getElementById('${module.name}_Hover').style.display = 'inline-block'" onMouseOut="document.getElementById('${module.name}_Hover').style.display = 'none'"><p class="module">${module.name}</p>`;
+
+        output += `<div class="moduleDiv" id="${module.name}">\
+        <div style="width:100%" \
+        onMouseOver="document.getElementById('${module.name}_Hover').style.display = 'inline-block'" \
+        onMouseOut="document.getElementById('${module.name}_Hover').style.display = 'none'">\
+        <p class="module">${module.name}</p>`;
+
         if ((module.tag !== null) && (module.tag !== undefined)) {
             tagType = module.tag.split(":");
-            output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}"><p class="<!--fa fa-tags-->">${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
+
+            output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}">\
+            <p class="<!--fa fa-tags-->">\
+            ${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
         }
-        output += `<div id="${module.name}_Hover" class="hoverableAnchors"><a href="#${module.name}" class="fa fa-anchor" title="Get anchor link"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
+        output += `<div id="${module.name}_Hover" class="hoverableAnchors">\
+        <a href="#${module.name}" class="fa fa-anchor" title="Get anchor link">\
+        </a>&nbsp;&nbsp;&nbsp;&nbsp;`;
+
         if ((module.link !== null) && (module.link !== undefined)) {
             output += '<a href="" class="fa fa-file-code" title="Jump to source"></a>';
         }
@@ -32,12 +43,23 @@ const getMainData = function(data) {
         let j = 0;
         while (j < module.classes.length) {
             const Mclass = module.classes[j];
-            output += `<div class="module_classes_class" id="${module.name}_${Mclass.name}"><div style="width:100%" onMouseOver="document.getElementById('${module.name}_${Mclass.name}_Hover').style.display = 'inline-block'" onMouseOut="document.getElementById('${module.name}_${Mclass.name}_Hover').style.display = 'none'"><p class="className">${Mclass.name}</p>`;
+
+            output += `<div class="module_classes_class" id="${module.name}_${Mclass.name}">\
+            <div style="width:100%" \
+            onMouseOver="document.getElementById('${module.name}_${Mclass.name}_Hover').style.display = 'inline-block'" \
+            onMouseOut="document.getElementById('${module.name}_${Mclass.name}_Hover').style.display = 'none'">\
+            <p class="className">${Mclass.name}</p>`;
+
             if ((Mclass.tag !== null) && (Mclass.tag !== undefined)) {
                 tagType = Mclass.tag.split(":");
-                output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}"><p class="<!--fa fa-tags-->">${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
+                output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}">\
+                <p class="<!--fa fa-tags-->">\
+                ${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
             }
-            output += `<div id="${module.name}_${Mclass.name}_Hover" class="hoverableAnchors"><a href="#${module.name}_${Mclass.name}" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
+            output += `<div id="${module.name}_${Mclass.name}_Hover" \
+            class="hoverableAnchors"><a href="#${module.name}_${Mclass.name}" \
+            class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
+
             if ((Mclass.link !== null) && (Mclass.link !== undefined)) {
                 output += `<a href="${Mclass.link(+'" class="fa fa-file-code"></a>')}`;
             }
@@ -60,30 +82,39 @@ const getMainData = function(data) {
                 const Mmethod = Mclass.methods[k];
 
                 if ((Mmethod.type !== null) && (Mmethod.type !== undefined)) {
-                    output += `<div class="methodTypeDiv"><p class="MethodTypeHead">${Mmethod.type}</p>`;
+                    output += `<div class="methodTypeDiv">\
+                    <p class="MethodTypeHead">${Mmethod.type}</p>`;
 
-                    /*
-                    For method section info, now commented out
-                    if Mmethod.documentation != null
-                      mdtohtml = marked(Mmethod.documentation)
-                      output += '<div class="methodTypeDocumentation">' + mdtohtml + '</div>'
-                    */
+                    if (Mmethod.documentation != null) {
+                        mdtohtml = marked(Mmethod.documentation);
+                        output += `<div class="methodTypeDocumentation">${mdtohtml}</div>`;
+                    }
+
                     let l = 0;
                     while (l < Mmethod.methods.length) {
                         const MmethodWithType = Mmethod.methods[l];
                         const MmethodWithTypeNameAndType = MmethodWithType.name.split(":");
-                        output += `<div id="${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}" class="methodDiv"  onMouseOver="document.getElementById('${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'inline-block'" onMouseOut="document.getElementById('${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'none'">`;
+
+                        output += `<div id="${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}"\
+                         class="methodDiv" \
+                         onMouseOver="document.getElementById('${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'inline-block'" \
+                         onMouseOut="document.getElementById('${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'none'">`;
                         output += '<div style="width:100%">';
                         output += `<p class="methodName">${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}`;
+
                         if (MmethodWithTypeNameAndType[1] !== undefined) {
                             output += `<code>&nbsp;:${MmethodWithTypeNameAndType[1]}</code>`;
                         }
                         output += '</p>';
                         if ((MmethodWithType.tag !== null) && (MmethodWithType.tag !== undefined)) {
                             tagType = MmethodWithType.tag.split(":");
-                            output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}" style="bottom:0"><p class="<!--fa fa-tags-->">${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
+                            output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}" style="bottom:0">\
+                            <p class="<!--fa fa-tags-->">${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
                         }
-                        output += `<div id="${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}_Hover" class="hoverableAnchors"><a href="#${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
+                        output += `<div id="${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}_Hover" \
+                        class="hoverableAnchors"><a href="#${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}" \
+                        class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
+
                         if ((MmethodWithType.link !== null) && (MmethodWithType.link !== undefined)) {
                             output += `<a href="${MmethodWithType.link(+'" class="fa fa-file-code"></a>')}`;
                         }
@@ -107,18 +138,25 @@ const getMainData = function(data) {
                     }
 
                     const MmethodWithNameAndType = Mmethod.name.split(":");
-                    output += `<div id="${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}" class="methodDiv"  onMouseOver="document.getElementById('${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'inline-block'" onMouseOut="document.getElementById('${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'none'">`;
+
+                    output += `<div id="${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}" class="methodDiv"  \
+                    onMouseOver="document.getElementById('${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'inline-block'" \
+                    onMouseOut="document.getElementById('${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'none'">`;
                     output += '<div style="width:100%">';
                     output += `<p class="methodName">${MmethodWithNameAndType[0].replace(/\s/g,'')}`;
+
                     if (MmethodWithNameAndType[1] !== undefined) {
                         output += `<code>&nbsp;:${MmethodWithNameAndType[1]}</code>`;
                     }
                     output += '</p>';
                     if ((Mmethod.tag !== null) && (Mmethod.tag !== undefined)) {
                         tagType = Mmethod.tag.split(":");
-                        output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}" style="bottom:0"><p class="<!--fa fa-tags-->">${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
+                        output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}" style="bottom:0">\
+                        <p class="<!--fa fa-tags-->">${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
                     }
-                    output += `<div id="${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}_Hover" class="hoverableAnchors"><a href="#${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
+                    output += `<div id="${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}_Hover" class="hoverableAnchors">\
+                    <a href="#${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
+
                     if ((Mmethod.link !== null) && (Mmethod.link !== undefined)) {
                         output += `<a href="${Mmethod.link}" class="fa fa-file-code"></a>`;
                     }
@@ -143,16 +181,24 @@ const getMainData = function(data) {
         output += '</div>';
 
         if (module.functions.length !== 0) {
-            output += `<div class="functions" id="${module.name}_Functions"><div style="width:100%"  onMouseOver="document.getElementById('${module.name}_Functions_Hover').style.display = 'inline-block'" onMouseOut="document.getElementById('${module.name}_Functions_Hover').style.display = 'none'"><p class="functionsHeader">Functions</p>`;
-            output += `<div id="${module.name}_Functions_Hover" class="hoverableAnchors"><a href="#${module.name}_Functions" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="fa fa-file-code"></a></div></div>`;
+            output += `<div class="functions" id="${module.name}_Functions"><div style="width:100%"  \
+            onMouseOver="document.getElementById('${module.name}_Functions_Hover').style.display = 'inline-block'" \
+            onMouseOut="document.getElementById('${module.name}_Functions_Hover').style.display = 'none'"><p class="functionsHeader">Functions</p>`;
+            output += `<div id="${module.name}_Functions_Hover" class="hoverableAnchors">\
+            <a href="#${module.name}_Functions" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;\
+            <a href="" class="fa fa-file-code"></a></div></div>`;
 
             j = 0;
             while (j < module.functions.length) {
                 const Mfunction = module.functions[j];
                 const MfunctionNameAndType = Mfunction.name.split(":");
-                output += `<div id="${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}" class="functionNameDiv"  onMouseOver="document.getElementById('${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'inline-block'" onMouseOut="document.getElementById('${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'none'">`;
+
+                output += `<div id="${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}" class="functionNameDiv"  \
+                onMouseOver="document.getElementById('${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'inline-block'" \
+                onMouseOut="document.getElementById('${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'none'">`;
                 output += '<div style="width:100%">';
                 output += `<p class="functionName">${MfunctionNameAndType[0].replace(/\s/g,'')}`;
+
                 if (MfunctionNameAndType[1] !== undefined) {
                     output += `<code>&nbsp;:${MfunctionNameAndType[1]}</code>`;
                 }
@@ -160,9 +206,13 @@ const getMainData = function(data) {
 
                 if ((Mfunction.tag !== null) && (Mfunction.tag !== undefined)) {
                     tagType = Mfunction.tag.split(":");
-                    output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}" style="bottom:0"><p class="<!--fa fa-tags-->">${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
+                    output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}" style="bottom:0">\
+                    <p class="<!--fa fa-tags-->">${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
                 }
-                output += `<div id="${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}_Hover" class="hoverableAnchors"><a href="#${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
+                output += `<div id="${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}_Hover" class="hoverableAnchors">\
+                <a href="#${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}" \
+                class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
+
                 if ((Mfunction.link !== null) && (Mfunction.link !== undefined)) {
                     output += `<a href="${Mfunction.link}" class="fa fa-file-code"></a>`;
                 }
@@ -216,7 +266,8 @@ const getMenuData = function(data) {
                     while (l < Mmethod.methods.length) {
                         const MmethodWithType = Mmethod.methods[l];
                         const MmethodWithTypeNameAndType = MmethodWithType.name.split(":");
-                        menu += `<li><a class="menuitem" href="#${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0]}">${MmethodWithTypeNameAndType[0]}</a></li>`;
+                        menu += `<li><a class="menuitem" href="#${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0]}">\
+                        ${MmethodWithTypeNameAndType[0]}</a></li>`;
                         l++;
                     }
 

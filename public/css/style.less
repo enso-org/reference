@@ -1,3 +1,4 @@
+/* Variables */
 @backgroundColor: #fafafa;
 @textColor: #333;
 @blueColor: #0070c9;
@@ -6,15 +7,24 @@
 @deprecatedColor: #c35400;
 @boxShadowColor: rgba(0, 0, 0, 0.06);
 @panelBackground: #fff;
-/* HTML Elements settings */
 
+@infoWeight: 300;
+@sourceAndHeadWeight: 500;
+@mainWeight: 400;
+@bigHeightForMarginsAndPaddings: 48px;
+@boldWeight: 600;
+
+@smallScreenSize: 780px;
+@menuWidth: 350px;
+
+/* HTML Elements settings */
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: @backgroundColor;
     -webkit-font-smoothing: antialiased;
     font-size: 17.1px;
     line-height: 1.52947;
-    font-weight: 400;
+    font-weight: @mainWeight;
     letter-spacing: -0.021em;
 }
 
@@ -49,7 +59,7 @@ samp {
     font-size: inherit;
     font-family: 'Source Code Pro', Monaco, courier, Menlo, monospace;
     line-height: 1.3em;
-    font-weight: 500;
+    font-weight: @sourceAndHeadWeight;
     display: inline-block;
 }
 
@@ -75,7 +85,7 @@ pre code {
 
 .pageHeader {
     background-color: @textColor;
-    height: 48px;
+    height: @bigHeightForMarginsAndPaddings;
     width: 100%;
     position: fixed;
     z-index: 2;
@@ -93,7 +103,7 @@ pre code {
     margin-right: auto;
     position: relative;
     padding: 0px;
-    margin-top: 48px;
+    margin-top: @bigHeightForMarginsAndPaddings;
     max-width: 980px;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -102,7 +112,7 @@ pre code {
 
 .moduleDiv {
     padding: 20px;
-    padding-top: 48px;
+    padding-top: @bigHeightForMarginsAndPaddings;
 }
 
 .moduleDocumentation {
@@ -110,18 +120,18 @@ pre code {
 }
 
 .methodTypeDiv {
-    margin-top: 48px;
-    margin-bottom: 48px;
+    margin-top: @bigHeightForMarginsAndPaddings;
+    margin-bottom: @bigHeightForMarginsAndPaddings;
     font-size: 18px;
     line-height: 1.45455;
-    font-weight: 300;
+    font-weight: @infoWeight;
     letter-spacing: 0.016em;
 }
 
 .methodTypeDocumentation {
     font-size: 18px;
     line-height: 1.45455;
-    font-weight: 300;
+    font-weight: @infoWeight;
     letter-spacing: 0.016em;
     margin-bottom: 20px;
 }
@@ -130,14 +140,14 @@ pre code {
     padding: 40px;
     background-color: @panelBackground;
     border-radius: 40px;
-    margin-top: 48px;
+    margin-top: @bigHeightForMarginsAndPaddings;
     box-shadow: 0px 0px 16px @boxShadowColor;
 }
 
 .classDocumentation {
     font-size: 24px;
     line-height: 1.45455;
-    font-weight: 400;
+    font-weight: @mainWeight;
     letter-spacing: 0.016em;
     margin-bottom: 10px;
 }
@@ -155,7 +165,7 @@ pre code {
     padding-left: 20px;
     font-size: 18px;
     line-height: 1.45455;
-    font-weight: 300;
+    font-weight: @infoWeight;
     letter-spacing: 0.016em;
 }
 
@@ -163,7 +173,7 @@ pre code {
     padding: 40px;
     background-color: @panelBackground;
     border-radius: 40px;
-    margin-top: 48px;
+    margin-top: @bigHeightForMarginsAndPaddings;
     box-shadow: 0px 0px 16px @boxShadowColor;
 }
 
@@ -176,7 +186,7 @@ pre code {
     padding-left: 20px;
     font-size: 18px;
     line-height: 1.45455;
-    font-weight: 300;
+    font-weight: @infoWeight;
     letter-spacing: 0.016em;
 }
 
@@ -195,7 +205,7 @@ pre code {
 .module {
     font-size: 41px;
     line-height: 1.05;
-    font-weight: 600;
+    font-weight: @boldWeight;
     padding-bottom: 16px;
     white-space: nowrap;
     overflow-x: auto;
@@ -206,13 +216,13 @@ pre code {
 .module_overview {
     font-size: 22px;
     line-height: 1.45455;
-    font-weight: 400;
+    font-weight: @mainWeight;
     letter-spacing: 0.016em;
     margin-bottom: 10px;
 }
 
 .methodName {
-    font-weight: 600;
+    font-weight: @boldWeight;
     display: inline;
 }
 
@@ -220,7 +230,7 @@ pre code {
     font-size: 20px;
     line-height: 1.52;
     padding-bottom: 30px;
-    font-weight: 500;
+    font-weight: @sourceAndHeadWeight;
     white-space: nowrap;
     overflow-x: auto;
     display: inline-block;
@@ -229,7 +239,7 @@ pre code {
 .functionsHeader {
     font-size: 40px;
     line-height: 1.52;
-    font-weight: 500;
+    font-weight: @sourceAndHeadWeight;
     white-space: nowrap;
     overflow-x: auto;
     padding-bottom: 22px;
@@ -237,14 +247,14 @@ pre code {
 }
 
 .functionName {
-    font-weight: 600;
+    font-weight: @boldWeight;
     display: inline-block;
 }
 
 .className {
     font-size: 40px;
     line-height: 1.52;
-    font-weight: 500;
+    font-weight: @sourceAndHeadWeight;
     white-space: nowrap;
     overflow-x: auto;
     padding-bottom: 16px;
@@ -258,7 +268,7 @@ pre code {
     color: @backgroundColor;
     font-size: 24px;
     line-height: 1.05;
-    font-weight: 400;
+    font-weight: @mainWeight;
     margin: auto;
 }
 
@@ -273,14 +283,14 @@ pre code {
 .sidenav {
     background-color: @backgroundColor;
     height: calc(100% - 96px);
-    width: 350px;
+    width: @menuWidth;
     position: fixed;
     z-index: 10;
     top: 0;
     left: 0;
     overflow-x: hidden;
-    padding-top: 48px;
-    margin-top: 48px;
+    padding-top: @bigHeightForMarginsAndPaddings;
+    margin-top: @bigHeightForMarginsAndPaddings;
 }
 
 .showMenuOnSmallScreen {
@@ -310,7 +320,7 @@ pre code {
 .treeMenu li {
     line-height: 1.4em;
     color: @grayMenuListColor;
-    font-weight: 400;
+    font-weight: @mainWeight;
     position: relative;
     padding-left: 24px;
     padding-bottom: 6px;
@@ -327,7 +337,7 @@ pre code {
 .active {
     text-decoration: none;
     color: @textColor !important;
-    font-weight: 600;
+    font-weight: @boldWeight;
 }
 
 .indicator {
@@ -357,7 +367,7 @@ pre code {
 
 .tag>p {
     letter-spacing: -1px;
-    font-weight: 400;
+    font-weight: @mainWeight;
 }
 
 .tag_deprecated {
@@ -380,7 +390,7 @@ pre code {
 
 /* Screen sizing */
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: @smallScreenSize) {
     .sidenav {
         width: 0;
     }
@@ -403,7 +413,7 @@ pre code {
         margin-bottom: 0px !important;
     }
     .functions {
-        margin: 48px -30px !important;
+        margin: @bigHeightForMarginsAndPaddings -30px !important;
         padding: 30px !important;
     }
     .functionNameDiv {
@@ -412,13 +422,13 @@ pre code {
     }
 }
 
-@media screen and (max-width: 1670px) and (min-width: 780px) {
+@media screen and (max-width: 1670px) and (min-width: @smallScreenSize) {
     .main {
-        margin-left: 350px !important;
+        margin-left: @menuWidth !important;
         padding: 0px;
         max-width: 980px !important;
     }
     .sidenav {
-        width: 350px !important;
+        width: @menuWidth !important;
     }
 }

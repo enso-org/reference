@@ -176,3 +176,11 @@ function scrollableAfterDOMContentLoadedProperly() {
         });
     });
 }
+
+function openNav() {
+    if (document.getElementById("menuPane").style.width != "350px") {
+        document.getElementById("menuPane").style.width = "350px";
+    } else {
+        document.getElementById("menuPane").style.width = "0";
+    }
+}

@@ -1,15 +1,18 @@
 const xmlHttp = new XMLHttpRequest;
 const jsonFile = 'JSONData/stdLib_base_test.json';
 
+// Parsing data from json for main panel
 const getMainData = function(data) {
     let output = '';
     const { modules } = data;
 
+    //checking every module
     let currentModuleNumber = 0;
     while (currentModuleNumber < modules.length) {
         var mdtohtml, tagType;
         const module = modules[currentModuleNumber];
 
+        //setting module name div with events and its tags
         output += `<div class="moduleDiv" id="${module.name}">\
         <div style="width:100%" \
         onMouseOver="document.getElementById('${module.name}_Hover').style.display = 'inline-block'" \
@@ -32,6 +35,7 @@ const getMainData = function(data) {
         }
         output += '</div></div>';
 
+        //setting module name div documentation
         if ((module.documentation !== null) && (module.documentation !== undefined)) {
             mdtohtml = marked(module.documentation);
             output += '<p class="module_overview">Module overview</p>';
@@ -43,6 +47,7 @@ const getMainData = function(data) {
         while (currentModuleClassNumber < module.classes.length) {
             const Mclass = module.classes[currentModuleClassNumber];
 
+            //setting class name div and its events and tags
             output += `<div class="module_classes_class" id="${module.name}_${Mclass.name}">\
             <div style="width:100%" \
             onMouseOver="document.getElementById('${module.name}_${Mclass.name}_Hover').style.display = 'inline-block'" \
@@ -65,6 +70,7 @@ const getMainData = function(data) {
             }
             output += '</div></div>';
 
+            //setting class documentation div
             if (Mclass.documentation !== null) {
                 mdtohtml = marked(Mclass.documentation);
                 output += `<div class="classDocumentation">${mdtohtml}</div>`;
@@ -77,16 +83,18 @@ const getMainData = function(data) {
 
             output += '<div class="module_classes_class_methods">';
 
+            //setting class methods
             let currentModuleClassMethodNumber = 0;
             let printedInfo = false;
             while (currentModuleClassMethodNumber < Mclass.methods.length) {
                 const Mmethod = Mclass.methods[currentModuleClassMethodNumber];
 
-                // Check if methods are segregated by types
+                // Check if methods are classified
                 if ((Mmethod.type !== null) && (Mmethod.type !== undefined)) {
                     output += `<div class="methodTypeDiv">\
                     <p class="MethodTypeHead">${Mmethod.type}</p>`;
 
+                    //setting method classifications
                     if (Mmethod.documentation != null) {
                         mdtohtml = marked(Mmethod.documentation);
                         output += `<div class="methodTypeDocumentation">${mdtohtml}</div>`;
@@ -96,16 +104,19 @@ const getMainData = function(data) {
                     while (currentModuleClassMethodFromTypeNumber < Mmethod.methods.length) {
                         const MmethodWithType = Mmethod.methods[currentModuleClassMethodFromTypeNumber];
                         const MmethodWithTypeNameAndType = MmethodWithType.name.split(":");
+                        const __nameOfMethodWithType = MmethodWithTypeNameAndType[0].replace(/\s/g, '');
+                        const __typeOfMethodWithType = MmethodWithTypeNameAndType[1]
 
-                        output += `<div id="${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}"\
+                        //setting methods names, events and documentation
+                        output += `<div id="${module.name}_${Mclass.name}_${__nameOfMethodWithType}"\
                          class="methodDiv" \
-                         onMouseOver="document.getElementById('${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'inline-block'" \
-                         onMouseOut="document.getElementById('${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'none'">`;
+                         onMouseOver="document.getElementById('${module.name}_${Mclass.name}_${__nameOfMethodWithType}_Hover').style.display = 'inline-block'" \
+                         onMouseOut="document.getElementById('${module.name}_${Mclass.name}_${__nameOfMethodWithType}_Hover').style.display = 'none'">`;
                         output += '<div style="width:100%">';
-                        output += `<p class="methodName">${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}`;
+                        output += `<p class="methodName">${__nameOfMethodWithType}`;
 
-                        if (MmethodWithTypeNameAndType[1] !== undefined) {
-                            output += `<code>&nbsp;:${MmethodWithTypeNameAndType[1]}</code>`;
+                        if (__typeOfMethodWithType !== undefined) {
+                            output += `<code>&nbsp;:${__typeOfMethodWithType}</code>`;
                         }
                         output += '</p>';
                         if ((MmethodWithType.tag !== null) && (MmethodWithType.tag !== undefined)) {
@@ -115,8 +126,8 @@ const getMainData = function(data) {
                             output += `<div class="tag tag_${_typeOfTag.replace(/\s/g,'')}" style="bottom:0">\
                             <p>${_typeOfTag.replace(/\s/g,'')} in ${_versionOfChange.replace(/\s/g,'')}</p></div>`;
                         }
-                        output += `<div id="${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}_Hover" \
-                        class="hoverableAnchors"><a href="#${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}" \
+                        output += `<div id="${module.name}_${Mclass.name}_${__nameOfMethodWithType}_Hover" \
+                        class="hoverableAnchors"><a href="#${module.name}_${Mclass.name}_${__nameOfMethodWithType}" \
                         class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
 
                         if ((MmethodWithType.link !== null) && (MmethodWithType.link !== undefined)) {
@@ -135,33 +146,36 @@ const getMainData = function(data) {
                     output += '</div>';
 
                 } else {
+                    // displaying info that those methods aren't classified yet
                     if (printedInfo === false) {
                         output += '<div class="methodTypeDiv">';
                         output += '<p class="MethodTypeHead">Unclassified methods</p>';
                         printedInfo = true;
                     }
 
+                    //setting method names, events and documentation
                     const MmethodWithNameAndType = Mmethod.name.split(":");
-
-                    output += `<div id="${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}" class="methodDiv"  \
-                    onMouseOver="document.getElementById('${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'inline-block'" \
-                    onMouseOut="document.getElementById('${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'none'">`;
+                    const __nameOfMethod = MmethodWithNameAndType[0].replace(/\s/g, '');
+                    const __typeOfMethod = MmethodWithNameAndType[1];
+                    output += `<div id="${module.name}_${Mclass.name}_${__nameOfMethod}" class="methodDiv"  \
+                    onMouseOver="document.getElementById('${module.name}_${Mclass.name}_${__nameOfMethod}_Hover').style.display = 'inline-block'" \
+                    onMouseOut="document.getElementById('${module.name}_${Mclass.name}_${__nameOfMethod}_Hover').style.display = 'none'">`;
                     output += '<div style="width:100%">';
-                    output += `<p class="methodName">${MmethodWithNameAndType[0].replace(/\s/g,'')}`;
+                    output += `<p class="methodName">${__nameOfMethod}`;
 
-                    if (MmethodWithNameAndType[1] !== undefined) {
-                        output += `<code>&nbsp;:${MmethodWithNameAndType[1]}</code>`;
+                    if (__typeOfMethod !== undefined) {
+                        output += `<code>&nbsp;:${__typeOfMethod}</code>`;
                     }
                     output += '</p>';
                     if ((Mmethod.tag !== null) && (Mmethod.tag !== undefined)) {
                         tagType = Mmethod.tag.split(":");
-                        var _typeOfTag = tagType[0]
-                        var _versionOfChange = tagType[1]
+                        var _typeOfTag = tagType[0];
+                        var _versionOfChange = tagType[1];
                         output += `<div class="tag tag_${_typeOfTag.replace(/\s/g,'')}" style="bottom:0">\
                         <p>${_typeOfTag.replace(/\s/g,'')} in ${_versionOfChange.replace(/\s/g,'')}</p></div>`;
                     }
-                    output += `<div id="${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}_Hover" class="hoverableAnchors">\
-                    <a href="#${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
+                    output += `<div id="${module.name}_${Mclass.name}_${__nameOfMethod}_Hover" class="hoverableAnchors">\
+                    <a href="#${module.name}_${Mclass.name}_${__nameOfMethod}" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
 
                     if ((Mmethod.link !== null) && (Mmethod.link !== undefined)) {
                         output += `<a href="${Mmethod.link}" class="fa fa-file-code"></a>`;
@@ -175,6 +189,7 @@ const getMainData = function(data) {
 
                     output += '</div>';
                 }
+                //getting to next method or classification
                 currentModuleClassMethodNumber++;
 
                 if (currentModuleClassMethodNumber === Mclass.methods.length) {
@@ -182,11 +197,13 @@ const getMainData = function(data) {
                 }
             }
 
+            //getting to next class
             output += '</div></div>';
             currentModuleClassNumber++;
         }
         output += '</div>';
 
+        //looping through each function in current module
         if (module.functions.length !== 0) {
             output += `<div class="functions" id="${module.name}_Functions"><div style="width:100%"  \
             onMouseOver="document.getElementById('${module.name}_Functions_Hover').style.display = 'inline-block'" \
@@ -197,17 +214,19 @@ const getMainData = function(data) {
 
             let currentModuleFunctionNumber = 0;
             while (currentModuleFunctionNumber < module.functions.length) {
+                // setting each function name, documentation and events
                 const Mfunction = module.functions[currentModuleFunctionNumber];
                 const MfunctionNameAndType = Mfunction.name.split(":");
-
-                output += `<div id="${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}" class="functionNameDiv"  \
-                onMouseOver="document.getElementById('${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'inline-block'" \
-                onMouseOut="document.getElementById('${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}_Hover').style.display = 'none'">`;
+                const __nameOfFunctionWithType = MfunctionNameAndType[0].replace(/\s/g, '');
+                const __typeOfFunctionWithType = MfunctionNameAndType[1];
+                output += `<div id="${module.name}_${__nameOfFunctionWithType}" class="functionNameDiv"  \
+                onMouseOver="document.getElementById('${module.name}_${__nameOfFunctionWithType}_Hover').style.display = 'inline-block'" \
+                onMouseOut="document.getElementById('${module.name}_${__nameOfFunctionWithType}_Hover').style.display = 'none'">`;
                 output += '<div style="width:100%">';
-                output += `<p class="functionName">${MfunctionNameAndType[0].replace(/\s/g,'')}`;
+                output += `<p class="functionName">${__nameOfFunctionWithType}`;
 
-                if (MfunctionNameAndType[1] !== undefined) {
-                    output += `<code>&nbsp;:${MfunctionNameAndType[1]}</code>`;
+                if (__typeOfFunctionWithType !== undefined) {
+                    output += `<code>&nbsp;:${__typeOfFunctionWithType}</code>`;
                 }
                 output += '</p>';
 
@@ -218,8 +237,8 @@ const getMainData = function(data) {
                     output += `<div class="tag tag_${_typeOfTag.replace(/\s/g,'')}" style="bottom:0">\
                     <p>${_typeOfTag.replace(/\s/g,'')} in ${_versionOfChange.replace(/\s/g,'')}</p></div>`;
                 }
-                output += `<div id="${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}_Hover" class="hoverableAnchors">\
-                <a href="#${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}" \
+                output += `<div id="${module.name}_${__nameOfFunctionWithType}_Hover" class="hoverableAnchors">\
+                <a href="#${module.name}_${__nameOfFunctionWithType}" \
                 class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
 
                 if ((Mfunction.link !== null) && (Mfunction.link !== undefined)) {
@@ -232,26 +251,29 @@ const getMainData = function(data) {
                     output += `<div class="functionDocumentation">${mdtohtml}</div>`;
                 }
 
+                // going to next function
                 output += '</div>';
                 currentModuleFunctionNumber++;
             }
 
             output += '</div>';
         }
+        // going to next module
         output += '</div>';
         currentModuleNumber++;
     }
 
+    // sending processed data to html file
     document.getElementById('data').innerHTML = output;
 };
 
 
-
-
+// processing data for tree menu
 const getMenuData = function(data) {
     let menu = '<ul id="treeMID">';
     const { modules } = data;
 
+    // looping through each module
     let currentModuleNumber = 0;
     while (currentModuleNumber < modules.length) {
         const module = modules[currentModuleNumber];
@@ -260,12 +282,14 @@ const getMenuData = function(data) {
         menu += `<a class="menuitem" href="#${module.name}">${module.name}</a>`;
         menu += '<ul>';
 
+        // looping through each class
         let currentModuleClassNumber = 0;
         while (currentModuleClassNumber < module.classes.length) {
             const Mclass = module.classes[currentModuleClassNumber];
             menu += '<li>';
             menu += `<a class="menuitem" href="#${module.name}_${Mclass.name}">${Mclass.name} </a>`;
             menu += '<ul>';
+            // looping through each class' method
             let currentModuleClassMethodNumber = 0;
             while (currentModuleClassMethodNumber < Mclass.methods.length) {
                 const Mmethod = Mclass.methods[currentModuleClassMethodNumber];
@@ -291,6 +315,7 @@ const getMenuData = function(data) {
             currentModuleClassNumber++;
         }
 
+        // looping through each module function
         if (module.functions.length !== 0) {
             menu += `<li><a class="menuitem" href="#${module.name}_Functions">Functions</a>`;
             menu += '<ul>';
@@ -309,10 +334,12 @@ const getMenuData = function(data) {
         currentModuleNumber++;
     }
     menu += '</ul>';
+
+    // sending processed menu data to html file
     document.getElementById('menuPane').innerHTML += menu;
 };
 
-// Processed on page load
+// Processing http request on page load
 xmlHttp.onreadystatechange = function() {
     if ((this.readyState === 4) && (this.status === 200)) {
         const data = JSON.parse(this.responseText);

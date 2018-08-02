@@ -196,6 +196,6 @@ function openNav() {
     if (document.getElementById("menuPane").style.width != "0") {
         document.getElementById("menuPane").style.width = "0";
     } else {
-        document.getElementById("menuPane").style.width = `${$(document).width()}px`;
+        document.getElementById("menuPane").style.width = "350px";
     }
 }

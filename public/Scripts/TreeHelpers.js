@@ -166,15 +166,17 @@ function checkIfInView(elem, partial) {
 }
 
 function scrollableAfterDOMContentLoadedProperly() {
-    $(document).scroll(function() {
-        $('.module_classes_class, .functions').each(function() {
-            $(this).css('background-color', 'white');
-            if (checkIfInView($(this), true) == true) {
-                var url = window.location.href.split('#')[0] + "#" + $(this).attr('id');
-                updateMenuActivity(url);
-            }
+    if ($(document).width() > 780) {
+        $(document).scroll(function() {
+            $('.module_classes_class, .functions').each(function() {
+                $(this).css('background-color', 'white');
+                if (checkIfInView($(this), true) == true) {
+                    var url = window.location.href.split('#')[0] + "#" + $(this).attr('id');
+                    updateMenuActivity(url);
+                }
+            });
         });
-    });
+    }
 }
 
 function openNav() {

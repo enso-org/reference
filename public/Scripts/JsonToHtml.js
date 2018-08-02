@@ -1,4 +1,3 @@
-// Constants
 const xmlHttp = new XMLHttpRequest;
 const jsonFile = 'JSONData/stdLib_base_test.json';
 
@@ -6,10 +5,10 @@ const getMainData = function(data) {
     let output = '';
     const { modules } = data;
 
-    let i = 0;
-    while (i < modules.length) {
+    let currentModuleNumber = 0;
+    while (currentModuleNumber < modules.length) {
         var mdtohtml, tagType;
-        const module = modules[i];
+        const module = modules[currentModuleNumber];
 
         output += `<div class="moduleDiv" id="${module.name}">\
         <div style="width:100%" \
@@ -19,10 +18,10 @@ const getMainData = function(data) {
 
         if ((module.tag !== null) && (module.tag !== undefined)) {
             tagType = module.tag.split(":");
-
-            output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}">\
-            <p class="<!--fa fa-tags-->">\
-            ${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
+            var _typeOfTag = tagType[0]
+            var _versionOfChange = tagType[1]
+            output += `<div class="tag tag_${_typeOfTag.replace(/\s/g,'')}">\
+            <p>${_typeOfTag.replace(/\s/g,'')} in ${_versionOfChange.replace(/\s/g,'')}</p></div>`;
         }
         output += `<div id="${module.name}_Hover" class="hoverableAnchors">\
         <a href="#${module.name}" class="fa fa-anchor" title="Get anchor link">\
@@ -40,9 +39,9 @@ const getMainData = function(data) {
         }
 
         output += '<div class="module_classes">';
-        let j = 0;
-        while (j < module.classes.length) {
-            const Mclass = module.classes[j];
+        let currentModuleClassNumber = 0;
+        while (currentModuleClassNumber < module.classes.length) {
+            const Mclass = module.classes[currentModuleClassNumber];
 
             output += `<div class="module_classes_class" id="${module.name}_${Mclass.name}">\
             <div style="width:100%" \
@@ -52,9 +51,10 @@ const getMainData = function(data) {
 
             if ((Mclass.tag !== null) && (Mclass.tag !== undefined)) {
                 tagType = Mclass.tag.split(":");
-                output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}">\
-                <p class="<!--fa fa-tags-->">\
-                ${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
+                var _typeOfTag = tagType[0]
+                var _versionOfChange = tagType[1]
+                output += `<div class="tag tag_${_typeOfTag.replace(/\s/g,'')}">\
+                <p>${_typeOfTag.replace(/\s/g,'')} in ${_versionOfChange.replace(/\s/g,'')}</p></div>`;
             }
             output += `<div id="${module.name}_${Mclass.name}_Hover" \
             class="hoverableAnchors"><a href="#${module.name}_${Mclass.name}" \
@@ -76,11 +76,13 @@ const getMainData = function(data) {
             }
 
             output += '<div class="module_classes_class_methods">';
-            let k = 0;
-            let printedInfo = false;
-            while (k < Mclass.methods.length) {
-                const Mmethod = Mclass.methods[k];
 
+            let currentModuleClassMethodNumber = 0;
+            let printedInfo = false;
+            while (currentModuleClassMethodNumber < Mclass.methods.length) {
+                const Mmethod = Mclass.methods[currentModuleClassMethodNumber];
+
+                // Check if methods are segregated by types
                 if ((Mmethod.type !== null) && (Mmethod.type !== undefined)) {
                     output += `<div class="methodTypeDiv">\
                     <p class="MethodTypeHead">${Mmethod.type}</p>`;
@@ -90,9 +92,9 @@ const getMainData = function(data) {
                         output += `<div class="methodTypeDocumentation">${mdtohtml}</div>`;
                     }
 
-                    let l = 0;
-                    while (l < Mmethod.methods.length) {
-                        const MmethodWithType = Mmethod.methods[l];
+                    let currentModuleClassMethodFromTypeNumber = 0;
+                    while (currentModuleClassMethodFromTypeNumber < Mmethod.methods.length) {
+                        const MmethodWithType = Mmethod.methods[currentModuleClassMethodFromTypeNumber];
                         const MmethodWithTypeNameAndType = MmethodWithType.name.split(":");
 
                         output += `<div id="${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}"\
@@ -108,8 +110,10 @@ const getMainData = function(data) {
                         output += '</p>';
                         if ((MmethodWithType.tag !== null) && (MmethodWithType.tag !== undefined)) {
                             tagType = MmethodWithType.tag.split(":");
-                            output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}" style="bottom:0">\
-                            <p class="<!--fa fa-tags-->">${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
+                            var _typeOfTag = tagType[0]
+                            var _versionOfChange = tagType[1]
+                            output += `<div class="tag tag_${_typeOfTag.replace(/\s/g,'')}" style="bottom:0">\
+                            <p>${_typeOfTag.replace(/\s/g,'')} in ${_versionOfChange.replace(/\s/g,'')}</p></div>`;
                         }
                         output += `<div id="${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}_Hover" \
                         class="hoverableAnchors"><a href="#${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0].replace(/\s/g,'')}" \
@@ -126,7 +130,7 @@ const getMainData = function(data) {
                         }
 
                         output += '</div>';
-                        l++;
+                        currentModuleClassMethodFromTypeNumber++;
                     }
                     output += '</div>';
 
@@ -151,8 +155,10 @@ const getMainData = function(data) {
                     output += '</p>';
                     if ((Mmethod.tag !== null) && (Mmethod.tag !== undefined)) {
                         tagType = Mmethod.tag.split(":");
-                        output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}" style="bottom:0">\
-                        <p class="<!--fa fa-tags-->">${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
+                        var _typeOfTag = tagType[0]
+                        var _versionOfChange = tagType[1]
+                        output += `<div class="tag tag_${_typeOfTag.replace(/\s/g,'')}" style="bottom:0">\
+                        <p>${_typeOfTag.replace(/\s/g,'')} in ${_versionOfChange.replace(/\s/g,'')}</p></div>`;
                     }
                     output += `<div id="${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}_Hover" class="hoverableAnchors">\
                     <a href="#${module.name}_${Mclass.name}_${MmethodWithNameAndType[0].replace(/\s/g,'')}" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;`;
@@ -169,14 +175,15 @@ const getMainData = function(data) {
 
                     output += '</div>';
                 }
-                k++;
-                if (k === Mclass.methods.length) {
+                currentModuleClassMethodNumber++;
+
+                if (currentModuleClassMethodNumber === Mclass.methods.length) {
                     output += '</div>';
                 }
             }
 
             output += '</div></div>';
-            j++;
+            currentModuleClassNumber++;
         }
         output += '</div>';
 
@@ -188,9 +195,9 @@ const getMainData = function(data) {
             <a href="#${module.name}_Functions" class="fa fa-anchor"></a>&nbsp;&nbsp;&nbsp;&nbsp;\
             <a href="" class="fa fa-file-code"></a></div></div>`;
 
-            j = 0;
-            while (j < module.functions.length) {
-                const Mfunction = module.functions[j];
+            let currentModuleFunctionNumber = 0;
+            while (currentModuleFunctionNumber < module.functions.length) {
+                const Mfunction = module.functions[currentModuleFunctionNumber];
                 const MfunctionNameAndType = Mfunction.name.split(":");
 
                 output += `<div id="${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}" class="functionNameDiv"  \
@@ -206,8 +213,10 @@ const getMainData = function(data) {
 
                 if ((Mfunction.tag !== null) && (Mfunction.tag !== undefined)) {
                     tagType = Mfunction.tag.split(":");
-                    output += `<div class="tag tag_${tagType[0].replace(/\s/g,'')}" style="bottom:0">\
-                    <p class="<!--fa fa-tags-->">${tagType[0].replace(/\s/g,'')} in ${tagType[1].replace(/\s/g,'')}</p></div>`;
+                    var _typeOfTag = tagType[0]
+                    var _versionOfChange = tagType[1]
+                    output += `<div class="tag tag_${_typeOfTag.replace(/\s/g,'')}" style="bottom:0">\
+                    <p>${_typeOfTag.replace(/\s/g,'')} in ${_versionOfChange.replace(/\s/g,'')}</p></div>`;
                 }
                 output += `<div id="${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}_Hover" class="hoverableAnchors">\
                 <a href="#${module.name}_${MfunctionNameAndType[0].replace(/\s/g,'')}" \
@@ -224,13 +233,13 @@ const getMainData = function(data) {
                 }
 
                 output += '</div>';
-                j++;
+                currentModuleFunctionNumber++;
             }
 
             output += '</div>';
         }
         output += '</div>';
-        i++;
+        currentModuleNumber++;
     }
 
     document.getElementById('data').innerHTML = output;
@@ -243,61 +252,61 @@ const getMenuData = function(data) {
     let menu = '<ul id="treeMID">';
     const { modules } = data;
 
-    let i = 0;
-    while (i < modules.length) {
-        const module = modules[i];
+    let currentModuleNumber = 0;
+    while (currentModuleNumber < modules.length) {
+        const module = modules[currentModuleNumber];
 
         menu += '<li>';
         menu += `<a class="menuitem" href="#${module.name}">${module.name}</a>`;
         menu += '<ul>';
 
-        let j = 0;
-        while (j < module.classes.length) {
-            const Mclass = module.classes[j];
+        let currentModuleClassNumber = 0;
+        while (currentModuleClassNumber < module.classes.length) {
+            const Mclass = module.classes[currentModuleClassNumber];
             menu += '<li>';
             menu += `<a class="menuitem" href="#${module.name}_${Mclass.name}">${Mclass.name} </a>`;
             menu += '<ul>';
-            let k = 0;
-            while (k < Mclass.methods.length) {
-                const Mmethod = Mclass.methods[k];
+            let currentModuleClassMethodNumber = 0;
+            while (currentModuleClassMethodNumber < Mclass.methods.length) {
+                const Mmethod = Mclass.methods[currentModuleClassMethodNumber];
 
                 if ((Mmethod.type !== null) && (Mmethod.type !== undefined)) {
-                    let l = 0;
-                    while (l < Mmethod.methods.length) {
-                        const MmethodWithType = Mmethod.methods[l];
+                    let currentModuleClassMethodFromTypeNumber = 0;
+                    while (currentModuleClassMethodFromTypeNumber < Mmethod.methods.length) {
+                        const MmethodWithType = Mmethod.methods[currentModuleClassMethodFromTypeNumber];
                         const MmethodWithTypeNameAndType = MmethodWithType.name.split(":");
                         menu += `<li><a class="menuitem" href="#${module.name}_${Mclass.name}_${MmethodWithTypeNameAndType[0]}">\
                         ${MmethodWithTypeNameAndType[0]}</a></li>`;
-                        l++;
+                        currentModuleClassMethodFromTypeNumber++;
                     }
 
                 } else {
                     const MmethodNameAndType = Mmethod.name.split(":");
                     menu += `<li><a class="menuitem" href="#${module.name}_${Mclass.name}_${MmethodNameAndType[0]}">${MmethodNameAndType[0]}</a></li>`;
                 }
-                k++;
+                currentModuleClassMethodNumber++;
             }
 
             menu += '</ul></li>';
-            j++;
+            currentModuleClassNumber++;
         }
 
         if (module.functions.length !== 0) {
             menu += `<li><a class="menuitem" href="#${module.name}_Functions">Functions</a>`;
             menu += '<ul>';
 
-            j = 0;
-            while (j < module.functions.length) {
-                const Mfunction = module.functions[j];
+            currentModuleFunctionNumber = 0;
+            while (currentModuleFunctionNumber < module.functions.length) {
+                const Mfunction = module.functions[currentModuleFunctionNumber];
                 const MfunctionNameAndType = Mfunction.name.split(":");
                 menu += `<li><a class="menuitem" href="#${module.name}_${MfunctionNameAndType[0]}">${MfunctionNameAndType[0]}</a></li>`;
-                j++;
+                currentModuleFunctionNumber++;
             }
 
             menu += '</ul></li>';
         }
         menu += '</ul></li>';
-        i++;
+        currentModuleNumber++;
     }
     menu += '</ul>';
     document.getElementById('menuPane').innerHTML += menu;

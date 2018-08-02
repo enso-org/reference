@@ -313,13 +313,15 @@ const getMenuData = function(data) {
 };
 
 // Processed on page load
-xmlHttp.onreadystatechange = function() {
-    if ((this.readyState === 4) && (this.status === 200)) {
-        const data = JSON.parse(this.responseText);
-        getMainData(data);
-        getMenuData(data);
-    }
-};
+$(window).on('load', function() {
+    xmlHttp.onreadystatechange = function() {
+        if ((this.readyState === 4) && (this.status === 200)) {
+            const data = JSON.parse(this.responseText);
+            getMainData(data);
+            getMenuData(data);
+        }
+    };
 
-xmlHttp.open('GET', jsonFile, true);
-xmlHttp.send();
+    xmlHttp.open('GET', jsonFile, true);
+    xmlHttp.send();
+});

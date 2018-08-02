@@ -1,12 +1,12 @@
 var express = require("express");
-import { Compiler } from 'express-compile';
+var compiler = require('express-compile');
 
 var DepLinker = require('dep-linker');
 DepLinker.copyDependenciesTo('./public/Scripts');
 
 var app = express();
 var port = process.env.PORT || 8080;
-app.use(Compiler({
+app.use(compiler.Compiler({
     root: '.',
     cwd: 'public',
     paths: ['public/**/*'],

@@ -1,8 +1,16 @@
+@backgroundColor: #fafafa;
+@textColor: #333;
+@blueColor: #0070c9;
+@grayMenuListColor: #616060;
+@grayTagColor: #aaa; 
+@deprecatedColor: #c35400;
+@boxShadowColor: rgba(0, 0, 0, 0.06);
+@panelBackground: #fff;
 /* HTML Elements settings */
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #fafafa;
+    background-color: @backgroundColor;
     -webkit-font-smoothing: antialiased;
     font-size: 17.1px;
     line-height: 1.52947;
@@ -17,17 +25,17 @@ h3,
 h4,
 h5,
 h6 {
-    color: #333;
+    color: @textColor;
     margin: 0;
 }
 
 a:hover {
-    color: #0070c9 !important;
+    color: @blueColor !important;
     text-decoration: none;
 }
 
 a {
-    color: #333;
+    color: @textColor;
     background-color: transparent;
     text-decoration: none;
     display: inline-block;
@@ -36,7 +44,7 @@ a {
 code,
 pre,
 samp {
-    color: #0070c9;
+    color: @blueColor;
     background-color: transparent;
     font-size: inherit;
     font-family: 'Source Code Pro', Monaco, courier, Menlo, monospace;
@@ -53,7 +61,7 @@ pre {
     line-height: 1.42857143;
     word-break: break-all;
     word-wrap: break-word;
-    background-color: #fafafa;
+    background-color: @backgroundColor;
     overflow: auto;
 }
 
@@ -66,7 +74,7 @@ pre code {
 }
 
 .pageHeader {
-    background-color: #333;
+    background-color: @textColor;
     height: 48px;
     width: 100%;
     position: fixed;
@@ -119,10 +127,10 @@ pre code {
 
 .module_classes_class {
     padding: 40px;
-    background-color: #fff;
+    background-color: @panelBackground;
     border-radius: 40px;
     margin-top: 48px;
-    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: 0px 0px 16px @boxShadowColor;
 }
 
 .classDocumentation {
@@ -152,10 +160,10 @@ pre code {
 
 .functions {
     padding: 40px;
-    background-color: #fff;
+    background-color: @panelBackground;
     border-radius: 40px;
     margin-top: 48px;
-    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: 0px 0px 16px @boxShadowColor;
 }
 
 .functionNameDiv {
@@ -246,7 +254,7 @@ pre code {
 /* Logo settings */
 
 .lunaDocsLogo {
-    color: #fafafa;
+    color: @backgroundColor;
     font-size: 24px;
     line-height: 1.05;
     font-weight: 400;
@@ -262,7 +270,7 @@ pre code {
 /* Tree menu layout settings */
 
 .sidenav {
-    background-color: #fafafa;
+    background-color: @backgroundColor;
     height: calc(100% - 96px);
     width: 350px;
     position: fixed;
@@ -279,7 +287,7 @@ pre code {
     font-size: 24px;
     cursor: pointer;
     margin: auto 12px;
-    color: #fafafa;
+    color: @backgroundColor;
 }
 
 .treeMenu,
@@ -300,7 +308,7 @@ pre code {
 
 .treeMenu li {
     line-height: 1.4em;
-    color: #616060;
+    color: @grayMenuListColor;
     font-weight: 400;
     position: relative;
     padding-left: 24px;
@@ -309,7 +317,7 @@ pre code {
 
 .treeMenu li a {
     text-decoration: none;
-    color: #616060;
+    color: @grayMenuListColor;
 }
 
 
@@ -317,7 +325,7 @@ pre code {
 
 .active {
     text-decoration: none;
-    color: #333 !important;
+    color: @textColor !important;
     font-weight: 600;
 }
 
@@ -340,7 +348,7 @@ pre code {
     position: relative;
     bottom: 8px;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: 1px solid @grayTagColor;
     padding: 0.1em 12px;
     border-radius: 8px;
     box-sizing: inherit;
@@ -352,16 +360,16 @@ pre code {
 }
 
 .tag_deprecated {
-    border: 1px solid #c35400 !important;
+    border: 1px solid @deprecatedColor !important;
 }
 
 .tag_deprecated>p {
-    color: #c35400;
+    color: @deprecatedColor;
 }
 
 .tag_modified>p,
 .tag_added>p {
-    color: #aaa;
+    color: @grayTagColor;
 }
 
 ::-webkit-scrollbar {

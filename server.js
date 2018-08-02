@@ -1,18 +1,12 @@
 var express = require("express");
-var compiler = require('express-compile');
 
 var DepLinker = require('dep-linker');
 DepLinker.copyDependenciesTo('./public/Scripts');
 
 var app = express();
 var port = process.env.PORT || 8080;
-app.use(compiler.Compiler({
-    root: '.',
-    cwd: 'public',
-    paths: ['public/**/*'],
-    ignore: ['node_modules/**/*'],
-    ignoreStyleCache: true
-}));
+
+app.use(require('less-middleware')({ src: __dirname + '/public' }));
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));

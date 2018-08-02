@@ -9,6 +9,7 @@
         "chalk": "^2.4.1",
         "dep-linker": "^1.0.24",
         "jquery": "^3.3.1",
+        "less-middleware": "^3.0.1",
         "luna-logo": "^1.1.8",
         "marked": "^0.4.0"
     },

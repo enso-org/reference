@@ -103,7 +103,7 @@ var updateMenuActivity = function(url) {
                     if (i == 0) {
                         var activeItem = $(parents)[0];
 
-                        if (checkIfInView($(".sidenav"), $(activeItem), true) == false) {
+                        if (checkIfInView($(activeItem)) == false) {
                             var wH = $(window).height();
                             var activeY = $(activeItem).offset().top - scrollY;
                             if (activeY > wH / 2) {
@@ -150,8 +150,8 @@ var updateMenuActivity = function(url) {
     });
 };
 
-function checkIfInView(par, elem, partial) {
-    var container = par;
+function checkIfInView(elem, partial) {
+    var container = $(".sidenav");
     var contHeight = container.height();
     var contTop = container.scrollTop();
     var contBottom = contTop + contHeight;
@@ -172,7 +172,7 @@ function scrollableAfterDOMContentLoadedProperly() {
             //check each panel if it is on screen
             $('.module_classes_class, .functions').each(function() {
                 $(this).css('background-color', 'white');
-                if (checkIfInView($(".main"), $(this), true) == true) {
+                if (checkIfInView($(this), true) == true) {
                     // update active menu item
                     var url = window.location.href.split('#')[0] + "#" + $(this).attr('id');
                     updateMenuActivity(url);

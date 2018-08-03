@@ -202,9 +202,9 @@ function openNav() {
     const screenWidth = $(document).width();
     console.log(screenWidth);
 
-    if (document.getElementById("menuPane").style.width != "350px") {
-        document.getElementById("menuPane").style.width = "350px";
-        document.getElementById("data").style.marginLeft = "350px";
+    if (document.getElementById("menuPane").style.width != `${screenWidth}px`) {
+        document.getElementById("menuPane").style.width = `${screenWidth}px`;
+        document.getElementById("data").style.marginLeft = `${screenWidth}px`;
     } else {
         document.getElementById("menuPane").style.width = "0";
         document.getElementById("data").style.marginLeft = "0";

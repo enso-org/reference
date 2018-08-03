@@ -193,9 +193,14 @@ function scrollableAfterDOMContentLoadedProperly() {
 // Show navigation menu on small screens and make it on full screen
 function openNav() {
     //check if opened
+    const screenWidth = $(document).width();
+    console.log(screenWidth);
+
     if (document.getElementById("menuPane").style.width != "350px") {
         document.getElementById("menuPane").style.width = "350px";
+        document.getElementById("data").style.marginLeft = "350px";
     } else {
         document.getElementById("menuPane").style.width = "0";
+        document.getElementById("data").style.marginLeft = "0";
     }
 }

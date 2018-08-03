@@ -95,11 +95,6 @@ const getMainData = function(data) {
                     <p class="MethodTypeHead">${Mmethod.type}</p>`;
 
                     //setting method classifications
-                    if (Mmethod.documentation != null) {
-                        mdtohtml = marked(Mmethod.documentation);
-                        output += `<div class="methodTypeDocumentation">${mdtohtml}</div>`;
-                    }
-
                     let currentModuleClassMethodFromTypeNumber = 0;
                     while (currentModuleClassMethodFromTypeNumber < Mmethod.methods.length) {
                         const MmethodWithType = Mmethod.methods[currentModuleClassMethodFromTypeNumber];

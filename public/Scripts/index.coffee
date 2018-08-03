@@ -1,1 +1,1 @@
-console.log 'hey'
+alert "I knew it!"

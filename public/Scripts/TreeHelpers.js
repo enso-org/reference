@@ -42,30 +42,32 @@ var treeDataObserver = new MutationObserver(function(mutations, observer) {
         for (var j = 0; j < mutations[i].addedNodes.length; ++j) {
             //check if browser rendered place for tree menu
             if (mutations[i].addedNodes[j].id == "treeMID") {
-                if ($(document).width() > minScreenWidth) {
-                    //creation of new tree menu
-                    $('#treeMID').treed();
-                    //setting up scrolling events
-                    scrollableAfterDOMContentLoadedProperly();
+                //creation of new tree menu
+                $('#treeMID').treed();
+                //setting up scrolling events
+                scrollableAfterDOMContentLoadedProperly();
 
-                    function offsetAnchor() {
-                        if (location.hash.length !== 0) {
-                            window.scrollTo(window.scrollX, window.scrollY - 100);
-                        }
+                function offsetAnchor() {
+                    if (location.hash.length !== 0) {
+                        window.scrollTo(window.scrollX, window.scrollY - 100);
                     }
-
-                    //activating proper places on click on menu
-                    $(document).on('click', 'a[href^="#"]', function(event) {
-                        window.setTimeout(function() {
-                            offsetAnchor();
-                            window.scrollBy(0, 50);
-                        }, 0);
-
-                        var url = window.location.href;
-                        updateMenuActivity(url);
-                    });
-                    window.setTimeout(offsetAnchor, 0);
                 }
+
+                //activating proper places on click on menu
+                $(document).on('click', 'a[href^="#"]', function(event) {
+                    window.setTimeout(function() {
+                        offsetAnchor();
+                        window.scrollBy(0, 50);
+                    }, 0);
+
+                    if ($(document).width() <= minScreenWidth) {
+                        document.getElementById("menuPane").style.width = "0px";
+                        document.getElementById("data").style.marginLeft = "0px";
+                    }
+                    var url = window.location.href;
+                    updateMenuActivity(url);
+                });
+                window.setTimeout(offsetAnchor, 0);
 
                 //going to proper anchor from url
                 if (window.location.hash != "") {

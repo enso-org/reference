@@ -1,7 +1,7 @@
 var express = require("express");
 var CoffeeScript = require('coffeescript');
 CoffeeScript.register();
-require('/public/Scripts');
+require('./public/Scripts');
 
 var DepLinker = require('dep-linker');
 DepLinker.copyDependenciesTo('./public/Scripts');

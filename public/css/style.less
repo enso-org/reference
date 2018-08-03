@@ -1,4 +1,3 @@
-/* Variables */
 @backgroundColor: #fafafa;
 @textColor: #333;
 @blueColor: #0070c9;
@@ -15,17 +14,34 @@
 @boldWeight: 600;
 
 @smallScreenSize: 780px;
+@maxScreenWidthForShrinkableMain: 1670px;
 @menuWidth: 350px;
+@mobilePaddingsAndWidths: 0;
 
-/* HTML Elements settings */
+@mainFontSize: 17px;
+@mainLineHeight: 1.45;
+@hoverableAnchorsBottominMethodAndFunction: 0;
+@fontMargin: 0;
+@maxMainWidth: 980px;
+@paddingsChanges: 30px;
+@mainLetterSpacing: -0.021em;
+@prePaddingsandModuleMargins: 10px;
+@bigFont: 40px;
+@logoFontAndClassName: 24px;
+@smallFontForCode: 14px;
+@tagBorderRadiusAndBottoms: 8px;
+@mediumFont: 18px;
+@sidenavHeight: calc(100% - 96px);
+
+
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: @backgroundColor;
     -webkit-font-smoothing: antialiased;
-    font-size: 17.1px;
-    line-height: 1.52947;
+    font-size: @mainFontSize;
+    line-height: @mainLineHeight;
     font-weight: @mainWeight;
-    letter-spacing: -0.021em;
+    letter-spacing: @mainLetterSpacing;
 }
 
 p,
@@ -36,7 +52,7 @@ h4,
 h5,
 h6 {
     color: @textColor;
-    margin: 0;
+    margin: @fontMargin;
 }
 
 a:hover {
@@ -58,17 +74,16 @@ samp {
     background-color: transparent;
     font-size: inherit;
     font-family: 'Source Code Pro', Monaco, courier, Menlo, monospace;
-    line-height: 1.3em;
+    line-height: @mainLineHeight;
     font-weight: @sourceAndHeadWeight;
     display: inline-block;
 }
 
 pre {
     display: block;
-    padding: 10px;
-    margin: 0 0 10.5px;
-    font-size: 14px;
-    line-height: 1.42857143;
+    padding: @prePaddingsandModuleMargins;
+    font-size: @smallFontForCode;
+    line-height: @mainLineHeight;
     word-break: break-all;
     word-wrap: break-word;
     background-color: @backgroundColor;
@@ -76,7 +91,7 @@ pre {
 }
 
 pre code {
-    padding: 0;
+    padding: @fontMargin;
     font-size: inherit;
     color: inherit;
     white-space: pre-wrap;
@@ -89,8 +104,8 @@ pre code {
     width: 100%;
     position: fixed;
     z-index: 2;
-    top: 0;
-    left: 0;
+    top: @fontMargin;
+    left: @fontMargin;
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -102,9 +117,9 @@ pre code {
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    padding: 0px;
+    padding: @fontMargin;
     margin-top: @bigHeightForMarginsAndPaddings;
-    max-width: 980px;
+    max-width: @maxMainWidth;
     overflow-x: hidden;
     overflow-y: hidden;
     z-index: 1;
@@ -122,34 +137,34 @@ pre code {
 .methodTypeDiv {
     margin-top: @bigHeightForMarginsAndPaddings;
     margin-bottom: @bigHeightForMarginsAndPaddings;
-    font-size: 18px;
-    line-height: 1.45455;
+    font-size: @mediumFont;
+    line-height: @mainLineHeight;
     font-weight: @infoWeight;
     letter-spacing: 0.016em;
 }
 
 .methodTypeDocumentation {
-    font-size: 18px;
-    line-height: 1.45455;
+    font-size: @mediumFont;
+    line-height: @mainLineHeight;
     font-weight: @infoWeight;
     letter-spacing: 0.016em;
     margin-bottom: 20px;
 }
 
 .module_classes_class {
-    padding: 40px;
+    padding: @bigFont;
     background-color: @panelBackground;
-    border-radius: 40px;
+    border-radius: @bigFont;
     margin-top: @bigHeightForMarginsAndPaddings;
     box-shadow: 0px 0px 16px @boxShadowColor;
 }
 
 .classDocumentation {
-    font-size: 24px;
-    line-height: 1.45455;
+    font-size: @logoFontAndClassName;
+    line-height: @mainLineHeight;
     font-weight: @mainWeight;
     letter-spacing: 0.016em;
-    margin-bottom: 10px;
+    margin-bottom: @prePaddingsandModuleMargins;
 }
 
 .classLongDocumentation {
@@ -163,16 +178,16 @@ pre code {
 
 .methodDocumentation {
     padding-left: 20px;
-    font-size: 18px;
-    line-height: 1.45455;
+    font-size: @mediumFont;
+    line-height: @mainLineHeight;
     font-weight: @infoWeight;
     letter-spacing: 0.016em;
 }
 
 .functions {
-    padding: 40px;
+    padding: @bigFont;
     background-color: @panelBackground;
-    border-radius: 40px;
+    border-radius: @bigFont;
     margin-top: @bigHeightForMarginsAndPaddings;
     box-shadow: 0px 0px 16px @boxShadowColor;
 }
@@ -184,22 +199,22 @@ pre code {
 
 .functionDocumentation {
     padding-left: 20px;
-    font-size: 18px;
-    line-height: 1.45455;
+    font-size: @mediumFont;
+    line-height: @mainLineHeight;
     font-weight: @infoWeight;
     letter-spacing: 0.016em;
 }
 
 .hoverableAnchors {
     display: none;
-    margin-left: 24px;
+    margin-left: @logoFontAndClassName;
     position: relative;
-    bottom: 8px;
+    bottom: @tagBorderRadiusAndBottoms;
 }
 
 .methodDiv .hoverableAnchors,
 .functionNameDiv .hoverableAnchors {
-    bottom: 0px;
+    bottom: @hoverableAnchorsBottominMethodAndFunction;
 }
 
 .module {
@@ -215,10 +230,10 @@ pre code {
 
 .module_overview {
     font-size: 22px;
-    line-height: 1.45455;
+    line-height: @mainLineHeight;
     font-weight: @mainWeight;
     letter-spacing: 0.016em;
-    margin-bottom: 10px;
+    margin-bottom: @prePaddingsandModuleMargins;
 }
 
 .methodName {
@@ -228,8 +243,8 @@ pre code {
 
 .MethodTypeHead {
     font-size: 20px;
-    line-height: 1.52;
-    padding-bottom: 30px;
+    line-height: @mainLineHeight;
+    padding-bottom: @paddingsChanges;
     font-weight: @sourceAndHeadWeight;
     white-space: nowrap;
     overflow-x: auto;
@@ -237,8 +252,8 @@ pre code {
 }
 
 .functionsHeader {
-    font-size: 40px;
-    line-height: 1.52;
+    font-size: @bigFont;
+    line-height: @mainLineHeight;
     font-weight: @sourceAndHeadWeight;
     white-space: nowrap;
     overflow-x: auto;
@@ -252,8 +267,8 @@ pre code {
 }
 
 .className {
-    font-size: 40px;
-    line-height: 1.52;
+    font-size: @bigFont;
+    line-height: @mainLineHeight;
     font-weight: @sourceAndHeadWeight;
     white-space: nowrap;
     overflow-x: auto;
@@ -266,7 +281,7 @@ pre code {
 
 .lunaDocsLogo {
     color: @backgroundColor;
-    font-size: 24px;
+    font-size: @logoFontAndClassName;
     line-height: 1.05;
     font-weight: @mainWeight;
     margin: auto;
@@ -274,7 +289,7 @@ pre code {
 
 #logoPlace {
     padding: 12px;
-    padding-left: 24px;
+    padding-left: @logoFontAndClassName;
 }
 
 
@@ -282,12 +297,12 @@ pre code {
 
 .sidenav {
     background-color: @backgroundColor;
-    height: calc(100% - 96px);
+    height: @sidenavHeight;
     width: @menuWidth;
     position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
+    z-index: 3;
+    top: @fontMargin;
+    left: @fontMargin;
     overflow-x: hidden;
     padding-top: @bigHeightForMarginsAndPaddings;
     margin-top: @bigHeightForMarginsAndPaddings;
@@ -295,7 +310,7 @@ pre code {
 
 .showMenuOnSmallScreen {
     display: none;
-    font-size: 24px;
+    font-size: @logoFontAndClassName;
     cursor: pointer;
     margin: auto 12px;
     color: @backgroundColor;
@@ -303,8 +318,8 @@ pre code {
 
 .treeMenu,
 .treeMenu ul {
-    margin: 0;
-    padding: 0;
+    margin: @fontMargin;
+    padding: @fontMargin;
     list-style: none
 }
 
@@ -318,11 +333,11 @@ pre code {
 }
 
 .treeMenu li {
-    line-height: 1.4em;
+    line-height: @mainLineHeight;
     color: @grayMenuListColor;
     font-weight: @mainWeight;
     position: relative;
-    padding-left: 24px;
+    padding-left: @logoFontAndClassName;
     padding-bottom: 6px;
 }
 
@@ -341,8 +356,8 @@ pre code {
 }
 
 .indicator {
-    margin-right: 8px;
-    width: 10px;
+    margin-right: @tagBorderRadiusAndBottoms;
+    width: @prePaddingsandModuleMargins;
     cursor: pointer;
 }
 
@@ -355,13 +370,13 @@ pre code {
 
 .tag {
     display: inline-block;
-    margin-left: 24px;
+    margin-left: @logoFontAndClassName;
     position: relative;
-    bottom: 8px;
-    font-size: 14px;
+    bottom: @tagBorderRadiusAndBottoms;
+    font-size: @smallFontForCode;
     border: 1px solid @grayTagColor;
     padding: 0.1em 12px;
-    border-radius: 8px;
+    border-radius: @tagBorderRadiusAndBottoms;
     box-sizing: inherit;
 }
 
@@ -392,41 +407,39 @@ pre code {
 
 @media screen and (max-width: @smallScreenSize) {
     .sidenav {
-        width: 0;
+        width: @mobilePaddingsAndWidths;
     }
     .main {
-        margin-left: 0px !important;
-        padding: 0px;
+        margin-left: @mobilePaddingsAndWidths !important;
+        padding: @mobilePaddingsAndWidths;
         position: initial
     }
     .showMenuOnSmallScreen {
         display: block !important;
     }
     .module_classes {
-        margin: -30px !important;
+        margin: -@paddingsChanges !important;
     }
     .module_classes_class {
-        padding: 30px !important;
+        padding: @paddingsChanges !important;
     }
     .methodDiv {
-        padding-left: 2px !important;
-        margin-bottom: 0px !important;
+        padding-left: @mobilePaddingsAndWidths!important;
     }
     .functions {
-        margin: @bigHeightForMarginsAndPaddings -30px !important;
-        padding: 30px !important;
+        margin: @bigHeightForMarginsAndPaddings -@paddingsChanges !important;
+        padding: @paddingsChanges !important;
     }
     .functionNameDiv {
-        padding-left: 2px !important;
-        margin-bottom: 0px !important;
+        padding-left: @mobilePaddingsAndWidths!important;
     }
 }
 
-@media screen and (max-width: 1670px) and (min-width: @smallScreenSize) {
+@media screen and (max-width: @maxScreenWidthForShrinkableMain) and (min-width: @smallScreenSize) {
     .main {
         margin-left: @menuWidth !important;
-        padding: 0px;
-        max-width: 980px !important;
+        padding: @mobilePaddingsAndWidths;
+        max-width: @maxMainWidth !important;
     }
     .sidenav {
         width: @menuWidth !important;

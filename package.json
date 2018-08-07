@@ -9,9 +9,9 @@
         "chalk": "^2.4.1",
         "dep-linker": "^1.0.24",
         "jquery": "^3.3.1",
+        "less": "^3.8.0",
         "luna-logo": "^1.1.8",
-        "marked": "^0.4.0",
-        "less": "^3.8.0"
+        "marked": "^0.4.0"
     },
     "devDependencies": {
         "ejs": "^2.5.5",

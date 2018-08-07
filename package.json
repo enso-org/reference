@@ -11,8 +11,7 @@
         "jquery": "^3.3.1",
         "luna-logo": "^1.1.8",
         "marked": "^0.4.0",
-        "less": "^3.8.0",
-        "coffeescript": "^2.3.1"
+        "less": "^3.8.0"
     },
     "devDependencies": {
         "ejs": "^2.5.5",

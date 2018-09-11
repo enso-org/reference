@@ -1,10 +1,11 @@
 const xmlHttp = new XMLHttpRequest;
-const jsonFile = 'JSONData/stdLib_base_test.json';
+const jsonFile = 'data/doc.json'
+const marked = require('marked');
 
 // Parsing data from json for main panel
 const getMainData = function(data) {
     let output = '';
-    const { modules } = data;
+    const modules = data.units;
 
     //checking every module
     let currentModuleNumber = 0;
@@ -266,7 +267,7 @@ const getMainData = function(data) {
 // processing data for tree menu
 const getMenuData = function(data) {
     let menu = '<ul id="treeMID">';
-    const { modules } = data;
+    const modules = data.units;
 
     // looping through each module
     let currentModuleNumber = 0;

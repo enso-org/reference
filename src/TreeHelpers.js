@@ -1,3 +1,4 @@
+const $ = require('jquery');
 const minScreenWidth = 780;
 
 // Extension - create tree menu panel

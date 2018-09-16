@@ -9,3 +9,6 @@ style="margin: 0 auto;">
 functional programming language with a focus on productivity, collaboration
 and development ergonomics.</h3>
 Visit https://www.luna-lang.org to learn more!
+
+Work in progress -> moving all JS code to CoffeeScript, so stay tuned!
+Latest update: CoffeeScript browser compiler is working

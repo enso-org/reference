@@ -3,7 +3,7 @@ jobs:
   build:
     working-directory: ~/website
     docker:
-      - image: circleci/node:8.11.0
+      - image: circleci/node:8.15-stretch
     steps:
       - checkout
       - run:
@@ -28,15 +28,15 @@ jobs:
   deploy:
     working-directory: ~/website
     docker:
-      - image: circleci/node:8.11.0
+      - image: circleci/node:8.15-stretch
     steps:
       - run:
           name: install-awscli
           command: |
             sudo apt-get -y -qq update
-            sudo apt-get -y -qq install python3.4-dev
+            sudo apt-get -y -qq install python3.5-dev
             curl -O https://bootstrap.pypa.io/get-pip.py
-            sudo python3.4 get-pip.py
+            sudo python3.5 get-pip.py
             sudo pip install awscli --upgrade
       - attach-workspace:
           at: /tmp/workspace

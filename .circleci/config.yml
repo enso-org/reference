@@ -43,7 +43,7 @@ jobs:
       - run:
           name: s3-upload
           command: |
-            export S3_BUCKET=$( [ $CIRCLE_BRANCH == "production" ] && echo "s3://docs.luna-lang.org" || echo "s3://docs-staging.luna-lang.org" )
+            export S3_BUCKET=$( [ $CIRCLE_BRANCH == "production" ] && echo "s3://reference.luna-lang.org" || echo "s3://reference-staging.luna-lang.org" )
             aws s3 sync /tmp/workspace/dist $S3_BUCKET --delete --acl public-read
 
 workflows:

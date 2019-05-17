@@ -12,3 +12,6 @@ Visit https://www.luna-lang.org to learn more!
 
 Work in progress -> moving all JS code to CoffeeScript, so stay tuned!
 Latest update: CoffeeScript browser compiler is working
+
+
+Foo

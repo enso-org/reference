@@ -2,7 +2,7 @@
     "name": "luna-docs",
     "description": "Luna documentation",
     "dependencies": {
-        "jquery": "^3.3.1",
+        "jquery": "^3.5.0",
         "less": "^3.8.0",
         "luna-logo": "^1.1.9",
         "marked": "^0.4.0"

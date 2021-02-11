@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Request a new feature for Luna's docs.
+about: Request a new feature for Enso's docs.
 title: ''
 labels: 'Type: Enhancement'
 assignees: ''

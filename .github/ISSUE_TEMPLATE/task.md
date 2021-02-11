@@ -1,6 +1,6 @@
 ---
 name: Task
-about: Create a new development task for Luna's docs.
+about: Create a new development task for Enso's docs.
 title: ''
 labels: ''
 assignees: ''

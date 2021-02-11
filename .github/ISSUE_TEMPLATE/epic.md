@@ -1,6 +1,6 @@
 ---
 name: Epic
-about: Create a new epic for Luna's docs development.
+about: Create a new epic for Enso's docs development.
 title: ''
 labels: ''
 assignees: ''

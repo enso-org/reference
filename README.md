@@ -1,14 +1,28 @@
 
 <p align="center">
-<img src="https://github.com/luna/luna-studio/raw/master/resources/logo.ico"
-style="margin: 0 auto;">
+  <br/>
+  <a href="http://enso.org">
+      <img
+          src="https://user-images.githubusercontent.com/1623053/79905826-22bac080-8417-11ea-82b0-ee015904a485.png"
+          alt="Enso Visual Environmment"
+          width="136"
+      />
+  </a>
+  <br/>
+  <br/>
+  <a href="http://enso.org">
+      <img
+          src="https://user-images.githubusercontent.com/1623053/75661125-05664300-5c6d-11ea-9bd3-8a5355db9609.png"
+          alt="Enso Language"
+          width="240"
+      />
+  </a>
+  <br/>
+  <br/>
+  <br/>
 </p>
 
-<h1 align="center">Luna Docs</h1>
-<h3 align="center">The documentation viewer for Luna, the visual and textual
-functional programming language with a focus on productivity, collaboration
-and development ergonomics.</h3>
-Visit https://www.luna-lang.org to learn more!
+# Enso Standard Library Documentation Viewer
 
-Work in progress -> moving all JS code to CoffeeScript, so stay tuned!
-Latest update: CoffeeScript browser compiler is working
+This site hosts the documentation for Enso's standard library.
+Documentation is drawn from [here](https://github.com/enso-org/enso/tree/main/distribution/std-lib).

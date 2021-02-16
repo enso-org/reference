@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report a bug in Luna's docs.
+about: Report a bug in Enso's docs.
 title: ''
 labels: 'Type: Bug'
 assignees: ''

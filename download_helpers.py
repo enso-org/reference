@@ -62,8 +62,17 @@ def download_from_url(url, to):
     open(to, 'wb').write(r.content)
 
 
-def line_prepender(filename, line):
-    with open(filename, 'r+') as f:
-        content = f.read()
-        f.seek(0, 0)
-        f.write(line.rstrip('\r\n') + '\n' + content)
+def remove_exports():
+    import re
+
+    file1 = open('distribution/scala-parser.js', 'r')
+    file2 = open('distribution/parser.js', 'w')
+
+    for line in file1.readlines():
+        x = re.findall("^export", line)
+
+        if not x:
+            file2.write(line)
+    file1.close()
+    file2.close()
+    os.remove('distribution/scala-parser.js')

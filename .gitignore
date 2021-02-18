@@ -39,5 +39,7 @@ Thumbs.db
 # Untracked files #
 ###################
 .vscode/
-node_modules/
-dist/
+distribution/
+.idea
+venv
+__pycache__

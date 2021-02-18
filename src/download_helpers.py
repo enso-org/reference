@@ -15,7 +15,7 @@ def get_sha_for_tag(repository, tag):
     tags = repository.get_tags()
     matched_tags = [match for match in tags if match.name == tag]
     if not matched_tags:
-        raise ValueError('No Tag or Branch exists with that name')
+        raise ValueError("No Tag or Branch exists with that name")
     return matched_tags[0].commit.sha
 
 
@@ -28,7 +28,7 @@ def download_directory(repository, sha, server_path):
 
     for content in contents:
         print("Downloading: %s" % content.path)
-        if content.type == 'dir' and not content.path.endswith("THIRD-PARTY"):
+        if content.type == "dir" and not content.path.endswith("THIRD-PARTY"):
             os.makedirs(content.path)
             download_directory(repository, sha, content.path)
         else:
@@ -41,14 +41,10 @@ def download_directory(repository, sha, server_path):
                     file_out.write(file_data)
                     file_out.close()
             except (GithubException, IOError) as exc:
-                print('Error processing %s: %s', content.path, exc)
+                print("Error processing %s: %s", content.path, exc)
 
 
-def download_from_git(token: str,
-                      org: str,
-                      repo: str,
-                      branch: str,
-                      folder: str):
+def download_from_git(token: str, org: str, repo: str, branch: str, folder: str):
     github = Github(token)
     organization = github.get_organization(org)
     repository = organization.get_repo(repo)
@@ -59,4 +55,4 @@ def download_from_git(token: str,
 def download_from_url(url, to):
     r = requests.get(url, allow_redirects=True)
     print("Downloading: %s" % url)
-    open(to, 'wb').write(r.content)
+    open(to, "wb").write(r.content)

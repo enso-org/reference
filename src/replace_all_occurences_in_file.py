@@ -2,8 +2,8 @@ import os
 
 
 def replace_all_occurrences_in_file(path_old, path_new, pat, to):
-    file1 = open(path_old, 'r')
-    file2 = open(path_new, 'w')
+    file1 = open(path_old, "r")
+    file2 = open(path_new, "w")
 
     for line in file1.readlines():
         new_line = line.replace(pat, to)

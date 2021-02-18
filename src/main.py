@@ -41,11 +41,13 @@ def gen_all_files(parser):
             .replace(".enso", ".html")
         )
         print("Generating: " + out_file_name)
-        try:
-            gen_file(parser, filename, out_file_name)
-        except execjs.Error as err:
-            print("Could not generate: " + out_file_name)
-            print("Got an exception: " + err)
+        # TODO: Fix on engine site.
+        if out_file_name != "Base-src-Data-Text-Extensions.html":
+            try:
+                gen_file(parser, filename, out_file_name)
+            except execjs.Error as err:
+                print("Could not generate: " + out_file_name)
+                print("Got an exception: " + err)
 
 
 def gen_file(parser, path, out_name):

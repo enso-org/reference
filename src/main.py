@@ -41,7 +41,6 @@ def gen_all_files(parser):
             .replace(".enso", ".html")
         )
         print("Generating: " + out_file_name)
-        # TODO: Fix on engine site.
         if out_file_name != "Base-src-Data-Text-Extensions.html":
             try:
                 gen_file(parser, filename, out_file_name)

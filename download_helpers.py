@@ -60,19 +60,3 @@ def download_from_url(url, to):
     r = requests.get(url, allow_redirects=True)
     print("Downloading: %s" % url)
     open(to, 'wb').write(r.content)
-
-
-def remove_exports():
-    import re
-
-    file1 = open('distribution/scala-parser.js', 'r')
-    file2 = open('distribution/parser.js', 'w')
-
-    for line in file1.readlines():
-        x = re.findall("^export", line)
-
-        if not x:
-            file2.write(line)
-    file1.close()
-    file2.close()
-    os.remove('distribution/scala-parser.js')

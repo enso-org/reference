@@ -16,6 +16,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Install Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.nodeVersion }}
+    - name: Install Prettier
+      run: npm install
+    - name: Check with Prettier
+      run: npx prettier --check .
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:

@@ -61,10 +61,10 @@ def download_from_git(token: str, org: str, repo: str, branch: str, folder: str)
     __download_directory(repository, sha, folder)
 
 
-def download_from_url(url, to):
+def download_from_url(url, to_file):
     """
     Downloads file from given URL.
     """
-    r = requests.get(url, allow_redirects=True)
+    request = requests.get(url, allow_redirects=True)
     print("Downloading: %s" % url)
-    open(to, "wb").write(r.content)
+    open(to_file, "wb").write(request.content)

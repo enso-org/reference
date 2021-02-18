@@ -43,8 +43,9 @@ def gen_all_files(parser):
         print("Generating: " + out_file_name)
         try:
             gen_file(parser, filename, out_file_name)
-        except:
+        except execjs.Error as err:
             print("Could not generate: " + out_file_name)
+            print("Got an exception: " + err)
 
 
 def gen_file(parser, path, out_name):
@@ -114,7 +115,7 @@ def download_stdlib(argv):
     """
     token = ""
     try:
-        opts, args = getopt.getopt(argv, "t:", ["token="])
+        opts, _ = getopt.getopt(argv, "t:", ["token="])
     except getopt.GetoptError as err:
         print(str(err))
         sys.exit(2)

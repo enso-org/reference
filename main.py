@@ -17,27 +17,45 @@ def main(argv):
     download_parser()
     download_stylesheet()
     parser = init_parser()
-    test_parse(parser)
+    init_gen_dir()
+    gen_all_files(parser)
 
 
-def test_parse(parser):
+def gen_all_files(parser):
     """
-        Test if generating docs work.
-        To be removed when created method to recursively generate all docfiles.
+        Recursively generates all doc files and puts them into `gen` directory.
     """
-    example = open('distribution/std-lib/Base/src/Math.enso', 'r').read()
+    gen_file(parser, 'std-lib/Base/src/Math.enso', 'Math.html')
+    gen_file(parser, 'std-lib/Base/src/Meta.enso', 'Meta.html')
+    gen_file(parser, 'std-lib/Base/src/System/Process.enso',
+             'System-Process.html')
+    gen_file(parser, 'std-lib/Base/src/Data/Time/Time.enso',
+             'Data-Time-Time.html')
+
+
+def gen_file(parser, path, out_name):
+    """
+        Generates doc HTML and saves it.
+    """
+    in_dir = 'distribution'
+    out_dir = 'gen'
+
+    example = open(in_dir + '/' + path, 'r').read()
     parsed = parser.call("$e_doc_parser_generate_html_source", example)
-    out_dir = 'distribution/gen'
+    html_file = open(out_dir + '/' + out_name, 'w')
+    html_file.write('<link rel="stylesheet" href="style.css"/>' + parsed)
+    html_file.close()
+
+
+def init_gen_dir():
+    """
+        Creates `gen` directory with all necessary files.
+    """
+    in_dir = 'distribution'
+    out_dir = 'gen'
     safe_create_directory(out_dir)
-    html_file = open(out_dir + '/Math.html', 'w')
-    html_file.write('<link rel="stylesheet" href="../style.css"/>' + parsed)
-    html_file.close()
-
-    example = open('distribution/std-lib/Base/src/Meta.enso', 'r').read()
-    parsed = parser.call("$e_doc_parser_generate_html_source", example)
-    html_file = open(out_dir + '/Meta.html', 'w')
-    html_file.write('<link rel="stylesheet" href="../style.css"/>' + parsed)
-    html_file.close()
+    os.system('cp ' + in_dir + '/style.css ' + out_dir + '/style.css')
+    os.system('cp index.html ' + out_dir + '/index.html')
 
 
 def init_parser():

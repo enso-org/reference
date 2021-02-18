@@ -1,3 +1,6 @@
+"""
+Enso standard library documentation generator.
+"""
 import os
 import sys
 import getopt
@@ -15,6 +18,9 @@ PARSER_COMMIT = "5e309bddcbec33cfbd150fcb8a16b45192cf5189"
 
 
 def main(argv):
+    """
+    Program entry point.
+    """
     download_stdlib(argv)
     download_parser()
     download_stylesheet()

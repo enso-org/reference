@@ -25,8 +25,8 @@ jobs:
     - name: Install dependencies
       run: poetry install
     - name: Run typechecker
-      run: mypy src --ignore-missing-imports
+      run: poetry run mypy src --ignore-missing-imports
     - name: Run linter
-      run: pylint src
+      run: poetry run pylint src
     - name: Run app
       run: poetry run python src/main.py --token=${{ secrets.GITHUB_TOKEN }}

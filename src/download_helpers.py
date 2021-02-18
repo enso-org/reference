@@ -1,3 +1,6 @@
+"""
+Helper methods for downloading files and folders.
+"""
 import os
 import base64
 import requests

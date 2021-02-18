@@ -1,3 +1,6 @@
+"""
+Safely creates new directory from `path`.
+"""
 import os
 import shutil
 

@@ -1,12 +1,15 @@
 import os
 import base64
-import shutil
 import requests
 from github import Github
 from github import GithubException
+from safe_create_dir import *
 
 
-def get_sha_for_tag(repository, tag):
+def __get_sha_for_tag(repository, tag):
+    """
+    Gets necessary SHA value from selected repository's branch.
+    """
     branches = repository.get_branches()
     matched_branches = [match for match in branches if match.name == tag]
     if matched_branches:
@@ -19,18 +22,18 @@ def get_sha_for_tag(repository, tag):
     return matched_tags[0].commit.sha
 
 
-def download_directory(repository, sha, server_path):
-    if os.path.exists(server_path):
-        shutil.rmtree(server_path)
-
-    os.makedirs(server_path)
+def __download_directory(repository, sha, server_path):
+    """
+    Recursively downloads directory from GitHub repo.
+    """
+    safe_create_directory(server_path)
     contents = repository.get_dir_contents(server_path, ref=sha)
 
     for content in contents:
         print("Downloading: %s" % content.path)
         if content.type == "dir" and not content.path.endswith("THIRD-PARTY"):
             os.makedirs(content.path)
-            download_directory(repository, sha, content.path)
+            __download_directory(repository, sha, content.path)
         else:
             try:
                 path = content.path
@@ -45,14 +48,20 @@ def download_directory(repository, sha, server_path):
 
 
 def download_from_git(token: str, org: str, repo: str, branch: str, folder: str):
+    """
+    Downloads directory from GitHub repository.
+    """
     github = Github(token)
     organization = github.get_organization(org)
     repository = organization.get_repo(repo)
-    sha = get_sha_for_tag(repository, branch)
-    download_directory(repository, sha, folder)
+    sha = __get_sha_for_tag(repository, branch)
+    __download_directory(repository, sha, folder)
 
 
 def download_from_url(url, to):
+    """
+    Downloads file from given URL.
+    """
     r = requests.get(url, allow_redirects=True)
     print("Downloading: %s" % url)
     open(to, "wb").write(r.content)

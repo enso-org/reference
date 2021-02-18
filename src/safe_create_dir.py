@@ -1,10 +1,12 @@
 import os
-import errno
+import shutil
 
 
 def safe_create_directory(path):
-    try:
-        os.makedirs(path)
-    except OSError as exception:
-        if exception.errno != errno.EEXIST:
-            raise
+    """
+    Safely creates new directory from `path`.
+    """
+    if os.path.exists(path):
+        shutil.rmtree(path)
+
+    os.makedirs(path)

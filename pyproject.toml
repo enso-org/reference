@@ -7,9 +7,9 @@ authors = ["Enso Team <contact@enso.org>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 PyGithub = "^1.54.1"
-PyEvalJS = "^1.0.0"
 black = "^20.8b1"
 mypy = "^0.800"
+PyExecJS = "^1.5.1"
 
 [tool.poetry.dev-dependencies]
 

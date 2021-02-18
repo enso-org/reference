@@ -1,10 +1,11 @@
+import os
 import sys
 import getopt
-import execjs
 import glob
-from download_helpers import *
-from replace_all_occurences_in_file import *
-from safe_create_dir import *
+import execjs
+from download_helpers import download_from_url, download_from_git
+from replace_all_occurences_in_file import replace_all_occurrences_in_file
+from safe_create_directory import safe_create_directory
 
 ORGANIZATION = "enso-org"
 REPO = "enso"

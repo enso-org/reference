@@ -3,7 +3,7 @@ import base64
 import requests
 from github import Github
 from github import GithubException
-from safe_create_dir import *
+from safe_create_directory import safe_create_directory
 
 
 def __get_sha_for_tag(repository, tag):

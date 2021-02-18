@@ -22,7 +22,11 @@ jobs:
         python-version: 3.9
     - name: Set up Poetry
       uses: Gr1N/setup-poetry@v4
+    - name: Install dependencies
+      run: poetry install
+    - name: Run typechecker
+      run: mypy src --ignore-missing-imports
+    - name: Run linter
+      run: pylint src
     - name: Run app
-      run: |
-        poetry install
-        poetry run python src/main.py --token=${{ secrets.GITHUB_TOKEN }}
+      run: poetry run python src/main.py --token=${{ secrets.GITHUB_TOKEN }}

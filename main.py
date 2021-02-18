@@ -1,6 +1,7 @@
 import sys
 import getopt
 import execjs
+import glob
 from download_helpers import *
 from replace_all_occurences_in_file import *
 from safe_create_dir import *
@@ -25,23 +26,25 @@ def gen_all_files(parser):
     """
         Recursively generates all doc files and puts them into `gen` directory.
     """
-    gen_file(parser, 'std-lib/Base/src/Math.enso', 'Math.html')
-    gen_file(parser, 'std-lib/Base/src/Meta.enso', 'Meta.html')
-    gen_file(parser, 'std-lib/Base/src/System/Process.enso',
-             'System-Process.html')
-    gen_file(parser, 'std-lib/Base/src/Data/Time/Time.enso',
-             'Data-Time-Time.html')
+    for filename in glob.iglob('**/*.enso', recursive=True):
+        out_file_name = filename.replace('distribution/std-lib/', '')\
+                                .replace('/', '-')\
+                                .replace('.enso', '.html')
+        print('Generating: ' + out_file_name)
+        # FIXME: This file fails to generate.
+        if out_file_name != 'Base-src-Data-Text-Extensions.html':
+            gen_file(parser, filename, out_file_name)
 
 
 def gen_file(parser, path, out_name):
     """
         Generates doc HTML and saves it.
     """
-    in_dir = 'distribution'
     out_dir = 'gen'
 
-    example = open(in_dir + '/' + path, 'r').read()
-    parsed = parser.call("$e_doc_parser_generate_html_source", example)
+    example = open(path, 'r')
+    parsed = parser.call("$e_doc_parser_generate_html_source", example.read())
+    example.close()
     html_file = open(out_dir + '/' + out_name, 'w')
     html_file.write('<link rel="stylesheet" href="style.css"/>' + parsed)
     html_file.close()

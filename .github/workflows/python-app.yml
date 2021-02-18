@@ -5,36 +5,35 @@ name: Documentation Viewer
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Install Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ env.nodeVersion }}
-    - name: Install Prettier
-      run: npm install
-    - name: Check with Prettier
-      run: npx prettier --check .
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
-    - name: Set up Poetry
-      uses: Gr1N/setup-poetry@v4
-    - name: Install dependencies
-      run: poetry install
-    - name: Run typechecker
-      run: poetry run mypy src --ignore-missing-imports
-    - name: Run linter
-      run: poetry run pylint src
-    - name: Run app
-      run: poetry run python src/main.py --token=${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.nodeVersion }}
+      - name: Install Prettier
+        run: npm install
+      - name: Check with Prettier
+        run: npx prettier --check .
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Set up Poetry
+        uses: Gr1N/setup-poetry@v4
+      - name: Install dependencies
+        run: poetry install
+      - name: Run typechecker
+        run: poetry run mypy src --ignore-missing-imports
+      - name: Run linter
+        run: poetry run pylint src
+      - name: Run app
+        run: poetry run python src/main.py --token=${{ secrets.GITHUB_TOKEN }}

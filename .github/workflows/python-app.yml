@@ -15,6 +15,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Set up Poetry
+        uses: Gr1N/setup-poetry@v4
+      - name: Install dependencies
+        run: poetry install
+      - name: Run app
+        run: poetry run python src/main.py --token=${{ secrets.GITHUB_TOKEN }}
+
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
       - name: Install Node
         uses: actions/setup-node@v1
         with:
@@ -23,6 +39,12 @@ jobs:
         run: npm install
       - name: Check with Prettier
         run: npx prettier --check .
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
@@ -37,5 +59,3 @@ jobs:
         run: poetry run mypy src --ignore-missing-imports
       - name: Run linter
         run: poetry run pylint src
-      - name: Run app
-        run: poetry run python src/main.py --token=${{ secrets.GITHUB_TOKEN }}

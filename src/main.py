@@ -6,15 +6,10 @@ import sys
 import getopt
 import glob
 import execjs
+import constants
 from download_helpers import download_from_url, download_from_git
 from replace_all_occurences_in_file import replace_all_occurrences_in_file
 from safe_create_directory import safe_create_directory
-
-ORGANIZATION: str = "enso-org"
-REPO: str = "enso"
-BRANCH: str = "main"
-DIRECTORY: str = "distribution/std-lib"
-PARSER_COMMIT: str = "5e309bddcbec33cfbd150fcb8a16b45192cf5189"
 
 
 def main(argv):
@@ -101,8 +96,9 @@ def download_parser():
     """
     Downloads scala parser from Engine repository.
     """
+    # pylint: disable=no-member
     url: str = "https://packages.luna-lang.org/parser-js/nightly/"
-    url: str = url + PARSER_COMMIT + "/scala-parser.js"
+    url: str = url + constants.PARSER_COMMIT + "/scala-parser.js"
     download_to: str = "distribution/scala-parser.js"
     download_from_url(url, download_to)
     replace_all_occurrences_in_file(
@@ -127,8 +123,13 @@ def download_stdlib(argv):
             print("Expected GitHub token.")
             sys.exit(2)
 
+    # pylint: disable=no-member
     download_from_git(
-        token, org=ORGANIZATION, repo=REPO, branch=BRANCH, folder=DIRECTORY
+        token,
+        org=constants.ORGANIZATION,
+        repo=constants.REPO,
+        branch=constants.BRANCH,
+        folder=constants.DIRECTORY,
     )
 
 

@@ -31,6 +31,8 @@ jobs:
         uses: Gr1N/setup-poetry@v4
       - name: Install dependencies
         run: poetry install
+      - name: Run black
+        run: poetry run black src
       - name: Run typechecker
         run: poetry run mypy src --ignore-missing-imports
       - name: Run linter

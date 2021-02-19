@@ -10,11 +10,11 @@ from download_helpers import download_from_url, download_from_git
 from replace_all_occurences_in_file import replace_all_occurrences_in_file
 from safe_create_directory import safe_create_directory
 
-ORGANIZATION = "enso-org"
-REPO = "enso"
-BRANCH = "main"
-DIRECTORY = "distribution/std-lib"
-PARSER_COMMIT = "5e309bddcbec33cfbd150fcb8a16b45192cf5189"
+ORGANIZATION: str = "enso-org"
+REPO: str = "enso"
+BRANCH: str = "main"
+DIRECTORY: str = "distribution/std-lib"
+PARSER_COMMIT: str = "5e309bddcbec33cfbd150fcb8a16b45192cf5189"
 
 
 def main(argv):
@@ -24,7 +24,7 @@ def main(argv):
     download_stdlib(argv)
     download_parser()
     download_stylesheet()
-    parser = init_parser()
+    parser: execjs.ExternalRuntime = init_parser()
     init_gen_dir()
     gen_all_files(parser)
     print("All done.")
@@ -46,14 +46,14 @@ def gen_all_files(parser):
                 gen_file(parser, filename, out_file_name)
             except execjs.Error as err:
                 print("Could not generate: " + out_file_name)
-                print("Got an exception: " + err)
+                print("Got an exception: " + str(err))
 
 
-def gen_file(parser, path, out_name):
+def gen_file(parser, path: str, out_name: str):
     """
     Generates doc HTML and saves it.
     """
-    out_dir = "gen"
+    out_dir: str = "gen"
 
     enso_file = open(path, "r")
     parsed = parser.call("$e_doc_parser_generate_html_source", enso_file.read())
@@ -67,14 +67,14 @@ def init_gen_dir():
     """
     Creates `gen` directory with all necessary files.
     """
-    in_dir = "distribution"
-    out_dir = "gen"
+    in_dir: str = "distribution"
+    out_dir: str = "gen"
     safe_create_directory(out_dir)
     os.system("cp " + in_dir + "/style.css " + out_dir + "/style.css")
     os.system("cp src/index.html " + out_dir + "/index.html")
 
 
-def init_parser():
+def init_parser() -> execjs.ExternalRuntime:
     """
     Compiles JS parser to call from Python.
     """
@@ -87,10 +87,10 @@ def download_stylesheet():
     """
     Downloads stylesheet for docs from IDE repository.
     """
-    repo_url = "https://raw.githubusercontent.com/enso-org/ide/"
-    file_path = "develop/src/rust/ide/view/src/documentation/style.css"
-    url = repo_url + file_path
-    download_to = "distribution/temp-style.css"
+    repo_url: str = "https://raw.githubusercontent.com/enso-org/ide/"
+    file_path: str = "develop/src/rust/ide/view/src/documentation/style.css"
+    url: str = repo_url + file_path
+    download_to: str = "distribution/temp-style.css"
     download_from_url(url, download_to)
     replace_all_occurrences_in_file(
         download_to, "distribution/style.css", ".docVis", "body"
@@ -101,9 +101,9 @@ def download_parser():
     """
     Downloads scala parser from Engine repository.
     """
-    url = "https://packages.luna-lang.org/parser-js/nightly/"
-    url = url + PARSER_COMMIT + "/scala-parser.js"
-    download_to = "distribution/scala-parser.js"
+    url: str = "https://packages.luna-lang.org/parser-js/nightly/"
+    url: str = url + PARSER_COMMIT + "/scala-parser.js"
+    download_to: str = "distribution/scala-parser.js"
     download_from_url(url, download_to)
     replace_all_occurrences_in_file(
         download_to, "distribution/parser.js", "export ", "// export"

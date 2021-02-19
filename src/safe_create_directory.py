@@ -5,7 +5,7 @@ import os
 import shutil
 
 
-def safe_create_directory(path):
+def safe_create_directory(path: str):
     """
     Safely creates new directory from `path`.
     """

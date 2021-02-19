@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "docs"
+name = "enso-docs"
 version = "0.1.0"
-description = "Enso Standard Library documentation generator."
+description = "Enso Standard Library documentation site generator."
 authors = ["Enso Team <contact@enso.org>"]
 
 [tool.poetry.dependencies]

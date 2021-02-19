@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Run black
-        run: poetry run black src
+        run: poetry run black --check .
       - name: Run typechecker
         run: poetry run mypy src --ignore-missing-imports
       - name: Run linter

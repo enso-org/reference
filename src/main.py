@@ -14,13 +14,18 @@ def main():
     """
     Program entry point.
     """
-    arg_parser = argparse.ArgumentParser(description='Generates documentation sites for Enso Standard Library.')
-    arg_parser.add_argument('token', help='GitHub user Personal Access Token.')
+    arg_parser = argparse.ArgumentParser(
+        description="Generates documentation sites for Enso Standard Library."
+    )
+    arg_parser.add_argument("token", help="GitHub user Personal Access Token.")
     args = arg_parser.parse_args()
-    runGen(args.token)
+    run_gen(args.token)
 
 
-def runGen(token):
+def run_gen(token):
+    """
+    Runs the actual generation process.
+    """
     download_stdlib(token)
     download_parser()
     download_stylesheet()

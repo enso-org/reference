@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: poetry install
       - name: Run app
-        run: poetry run python src/main.py --token=${{ secrets.GITHUB_TOKEN }}
+        run: poetry run python src/main.py ${{ secrets.GITHUB_TOKEN }}
 
   prettier:
     runs-on: ubuntu-latest

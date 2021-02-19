@@ -1,8 +1,6 @@
 """
 Downloaders for docs stylesheet, parser and stdlib.
 """
-import sys
-import getopt
 import constants
 from download_helpers import download_from_url, download_from_git
 from replace_all_occurences_in_file import replace_all_occurrences_in_file
@@ -36,23 +34,10 @@ def download_parser():
     )
 
 
-def download_stdlib(argv):
+def download_stdlib(token):
     """
     Downloads Std-Lib from Engine repository.
     """
-    token = ""
-    try:
-        opts, _ = getopt.getopt(argv, "t:", ["token="])
-    except getopt.GetoptError as err:
-        print(str(err))
-        sys.exit(2)
-    for opt, arg in opts:
-        if opt in ("-t", "--token"):
-            token = arg
-        else:
-            print("Expected GitHub token.")
-            sys.exit(2)
-
     # pylint: disable=no-member
     download_from_git(
         token,

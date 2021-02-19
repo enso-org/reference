@@ -1,7 +1,7 @@
 """
 Enso standard library documentation generator.
 """
-import sys
+import argparse
 from downloaders import download_stdlib, download_parser, download_stylesheet
 
 # pylint: disable=no-name-in-module
@@ -10,11 +10,18 @@ from parse import init_parser, init_gen_dir, gen_all_files
 # pylint: enable=no-name-in-module
 
 
-def main(argv):
+def main():
     """
     Program entry point.
     """
-    download_stdlib(argv)
+    arg_parser = argparse.ArgumentParser(description='Generates documentation sites for Enso Standard Library.')
+    arg_parser.add_argument('token', help='GitHub user Personal Access Token.')
+    args = arg_parser.parse_args()
+    runGen(args.token)
+
+
+def runGen(token):
+    download_stdlib(token)
     download_parser()
     download_stylesheet()
     parser = init_parser()
@@ -24,4 +31,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()

@@ -7,7 +7,7 @@ import execjs
 from safe_create_directory import safe_create_directory
 
 
-def gen_all_files(parser):
+def gen_all_files(parser: execjs.ExternalRuntime) -> None:
     """
     Recursively generates all doc files and puts them into `gen` directory.
     """
@@ -26,7 +26,7 @@ def gen_all_files(parser):
                 print("Got an exception: " + str(err))
 
 
-def __gen_file(parser, path: str, out_name: str):
+def __gen_file(parser: execjs.ExternalRuntime, path: str, out_name: str) -> None:
     """
     Generates doc HTML and saves it.
     """
@@ -40,7 +40,7 @@ def __gen_file(parser, path: str, out_name: str):
     html_file.close()
 
 
-def init_gen_dir():
+def init_gen_dir() -> None:
     """
     Creates `gen` directory with all necessary files.
     """

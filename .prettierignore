@@ -3,3 +3,5 @@ gen/
 .github/PULL_REQUEST_TEMPLATE.md
 .github/ISSUE_TEMPLATE
 distribution/
+.mypy_cache/
+venv/

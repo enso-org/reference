@@ -6,7 +6,7 @@ import os
 
 def replace_all_occurrences_in_file(
     path_old: str, path_new: str, old_word: str, new_word: str
-):
+) -> None:
     """
     Replaces all occurrences of a word in a file.
     """

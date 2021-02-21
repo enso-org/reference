@@ -6,7 +6,7 @@ from download_helpers import download_from_url, download_from_git
 from replace_all_occurences_in_file import replace_all_occurrences_in_file
 
 
-def download_stylesheet():
+def download_stylesheet() -> None:
     """
     Downloads stylesheet for docs from IDE repository.
     """
@@ -20,13 +20,13 @@ def download_stylesheet():
     )
 
 
-def download_parser():
+def download_parser() -> None:
     """
     Downloads scala parser from Engine repository.
     """
     # pylint: disable=no-member
-    url: str = "https://packages.luna-lang.org/parser-js/nightly/"
-    url: str = url + constants.PARSER_COMMIT + "/scala-parser.js"
+    main_url: str = "https://packages.luna-lang.org/parser-js/nightly/"
+    url: str = main_url + constants.PARSER_COMMIT + "/scala-parser.js"
     download_to: str = "distribution/scala-parser.js"
     download_from_url(url, download_to)
     replace_all_occurrences_in_file(
@@ -34,7 +34,7 @@ def download_parser():
     )
 
 
-def download_stdlib(token):
+def download_stdlib(token: str) -> None:
     """
     Downloads Std-Lib from Engine repository.
     """

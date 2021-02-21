@@ -6,10 +6,11 @@ import base64
 import requests
 from github import Github
 from github import GithubException
+from github.Repository import Repository
 from safe_create_directory import safe_create_directory
 
 
-def __get_sha_for_tag(repository, tag):
+def __get_sha_for_tag(repository: Repository, tag: str) -> str:
     """
     Gets necessary SHA value from selected repository's branch.
     """
@@ -25,7 +26,7 @@ def __get_sha_for_tag(repository, tag):
     return matched_tags[0].commit.sha
 
 
-def __download_directory(repository, sha, server_path):
+def __download_directory(repository: Repository, sha: str, server_path: str) -> None:
     """
     Recursively downloads directory from GitHub repo.
     """
@@ -42,7 +43,7 @@ def __download_directory(repository, sha, server_path):
                 path = content.path
                 if path.endswith(".enso"):
                     file_content = repository.get_contents(path, ref=sha)
-                    file_data = base64.b64decode(file_content.content)
+                    file_data = base64.b64decode(file_content.content)  # type: ignore
                     file_out = open(content.path, "wb+")
                     file_out.write(file_data)
                     file_out.close()
@@ -50,7 +51,9 @@ def __download_directory(repository, sha, server_path):
                 print("Error processing %s: %s", content.path, exc)
 
 
-def download_from_git(token: str, org: str, repo: str, branch: str, folder: str):
+def download_from_git(
+    token: str, org: str, repo: str, branch: str, folder: str
+) -> None:
     """
     Downloads directory from GitHub repository.
     """
@@ -61,7 +64,7 @@ def download_from_git(token: str, org: str, repo: str, branch: str, folder: str)
     __download_directory(repository, sha, folder)
 
 
-def download_from_url(url, to_file):
+def download_from_url(url: str, to_file: str) -> None:
     """
     Downloads file from given URL.
     """

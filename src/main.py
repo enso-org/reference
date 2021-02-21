@@ -10,7 +10,7 @@ from parse import init_parser, init_gen_dir, gen_all_files
 # pylint: enable=no-name-in-module
 
 
-def main():
+def main() -> None:
     """
     Program entry point.
     """
@@ -22,7 +22,7 @@ def main():
     run_gen(args.token)
 
 
-def run_gen(token):
+def run_gen(token: str) -> None:
     """
     Runs the actual generation process.
     """

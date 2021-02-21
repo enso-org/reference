@@ -31,7 +31,6 @@ def __gen_file(parser: execjs.ExternalRuntime, path: str, out_name: str) -> None
     Generates doc HTML and saves it.
     """
     out_dir: str = "gen"
-
     enso_file = open(path, "r")
     parsed = parser.call("$e_doc_parser_generate_html_source", enso_file.read())
     enso_file.close()

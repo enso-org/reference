@@ -4,6 +4,7 @@ Creates `gen` directory with all necessary files.
 import os
 import glob
 import execjs
+import constants
 from safe_create_directory import safe_create_directory
 
 
@@ -11,11 +12,12 @@ def gen_all_files(parser: execjs.ExternalRuntime) -> None:
     """
     Recursively generates all doc files and puts them into `gen` directory.
     """
-    for filename in glob.iglob("**/*.enso", recursive=True):
+    # pylint: disable=no-member
+    for filename in glob.iglob("**/*" + constants.FILE_EXT, recursive=True):
         out_file_name = (
-            filename.replace("distribution/std-lib/", "")
+            filename.replace(constants.IN_DIR + "/std-lib/", "")
             .replace("/", "-")
-            .replace(".enso", ".html")
+            .replace(constants.FILE_EXT, ".html")
         )
         print("Generating: " + out_file_name)
         if out_file_name != "Base-src-Data-Text-Extensions.html":
@@ -30,11 +32,11 @@ def __gen_file(parser: execjs.ExternalRuntime, path: str, out_name: str) -> None
     """
     Generates doc HTML and saves it.
     """
-    out_dir: str = "gen"
+    # pylint: disable=no-member
     enso_file = open(path, "r")
     parsed = parser.call("$e_doc_parser_generate_html_source", enso_file.read())
     enso_file.close()
-    html_file = open(out_dir + "/" + out_name, "w")
+    html_file = open(constants.OUT_DIR + "/" + out_name, "w")
     html_file.write('<link rel="stylesheet" href="style.css"/>' + parsed)
     html_file.close()
 
@@ -43,17 +45,19 @@ def init_gen_dir() -> None:
     """
     Creates `gen` directory with all necessary files.
     """
-    in_dir: str = "distribution"
-    out_dir: str = "gen"
-    safe_create_directory(out_dir)
-    os.system("cp " + in_dir + "/style.css " + out_dir + "/style.css")
-    os.system("cp src/index.html " + out_dir + "/index.html")
+    # pylint: disable=no-member
+    safe_create_directory(constants.OUT_DIR)
+    os.system(
+        "cp " + constants.IN_DIR + "/style.css " + constants.OUT_DIR + "/style.css"
+    )
+    os.system("cp src/index.html " + constants.OUT_DIR + "/index.html")
 
 
 def init_parser() -> execjs.ExternalRuntime:
     """
     Compiles JS parser to call from Python.
     """
-    parser = open("distribution/parser.js", "r").read()
+    # pylint: disable=no-member
+    parser = open(constants.IN_DIR + "/parser.js", "r").read()
     parser = execjs.compile(parser)
     return parser

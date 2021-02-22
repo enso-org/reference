@@ -10,13 +10,13 @@ def download_stylesheet() -> None:
     """
     Downloads stylesheet for docs from IDE repository.
     """
-    repo_url: str = "https://raw.githubusercontent.com/enso-org/ide/"
+    # pylint: disable=no-member
     file_path: str = "develop/src/rust/ide/view/src/documentation/style.css"
-    url: str = repo_url + file_path
-    download_to: str = "distribution/temp-style.css"
+    url: str = constants.IDE_REPO_URL + file_path
+    download_to: str = constants.IN_DIR + "/temp-style.css"
     download_from_url(url, download_to)
     replace_all_occurrences_in_file(
-        download_to, "distribution/style.css", ".docVis", "body"
+        download_to, constants.IN_DIR + "/style.css", ".docVis", "body"
     )
 
 
@@ -25,12 +25,11 @@ def download_parser() -> None:
     Downloads scala parser from Engine repository.
     """
     # pylint: disable=no-member
-    main_url: str = "https://packages.luna-lang.org/parser-js/nightly/"
-    url: str = main_url + constants.PARSER_COMMIT + "/scala-parser.js"
-    download_to: str = "distribution/scala-parser.js"
+    url: str = constants.PARSER_URL + constants.PARSER_COMMIT + "/scala-parser.js"
+    download_to: str = constants.IN_DIR + "/scala-parser.js"
     download_from_url(url, download_to)
     replace_all_occurrences_in_file(
-        download_to, "distribution/parser.js", "export ", "// export"
+        download_to, constants.IN_DIR + "/parser.js", "export ", "// export"
     )
 
 

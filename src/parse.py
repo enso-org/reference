@@ -20,12 +20,11 @@ def gen_all_files(parser: execjs.ExternalRuntime) -> None:
             .replace(constants.FILE_EXT, ".html")
         )
         print("Generating: " + out_file_name)
-        if out_file_name != "Base-src-Data-Text-Extensions.html":
-            try:
-                __gen_file(parser, filename, out_file_name)
-            except execjs.Error as err:
-                print("Could not generate: " + out_file_name)
-                print("Got an exception: " + str(err))
+        try:
+            __gen_file(parser, filename, out_file_name)
+        except execjs.Error as err:
+            print("Could not generate: " + out_file_name)
+            print("Got an exception: " + str(err))
 
 
 def __gen_file(parser: execjs.ExternalRuntime, path: str, out_name: str) -> None:

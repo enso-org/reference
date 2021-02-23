@@ -10,7 +10,6 @@ def download_stylesheet() -> None:
     """
     Downloads the stylesheet from the IDE's repository.
     """
-    # pylint: disable=no-member
     file_path: str = "develop/src/rust/ide/view/src/documentation/style.css"
     url: str = constants.IDE_REPO_URL + file_path
     download_to: str = constants.IN_DIR + "/temp-style.css"
@@ -24,7 +23,6 @@ def download_parser() -> None:
     """
     Downloads the scala parser from the Engine's repository.
     """
-    # pylint: disable=no-member
     url: str = constants.PARSER_URL + constants.PARSER_COMMIT + "/scala-parser.js"
     download_to: str = constants.IN_DIR + "/scala-parser.js"
     download_from_url(url, download_to)
@@ -37,7 +35,6 @@ def download_stdlib(token: str) -> None:
     """
     Downloads the Standard Library from the Engine's repository.
     """
-    # pylint: disable=no-member
     download_from_git(
         token,
         org=constants.ORGANIZATION,

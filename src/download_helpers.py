@@ -42,7 +42,6 @@ def __download_directory(repository: Repository, sha: str, server_path: str) -> 
         else:
             try:
                 path = content.path
-                # pylint: disable=no-member
                 if path.endswith(constants.FILE_EXT):
                     file_content = repository.get_contents(path, ref=sha)
                     file_data = base64.b64decode(file_content.content)  # type: ignore

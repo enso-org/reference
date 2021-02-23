@@ -3,11 +3,7 @@ Enso standard library documentation generator.
 """
 import argparse
 from downloaders import download_stdlib, download_parser, download_stylesheet
-
-# pylint: disable=no-name-in-module
 from parse import init_parser, init_gen_dir, gen_all_files
-
-# pylint: enable=no-name-in-module
 
 
 def main(token: str) -> None:

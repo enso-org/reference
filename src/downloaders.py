@@ -8,7 +8,7 @@ from replace_all_occurences_in_file import replace_all_occurrences_in_file
 
 def download_stylesheet() -> None:
     """
-    Downloads stylesheet for docs from IDE repository.
+    Downloads the stylesheet from the IDE's repository.
     """
     # pylint: disable=no-member
     file_path: str = "develop/src/rust/ide/view/src/documentation/style.css"
@@ -22,7 +22,7 @@ def download_stylesheet() -> None:
 
 def download_parser() -> None:
     """
-    Downloads scala parser from Engine repository.
+    Downloads the scala parser from the Engine's repository.
     """
     # pylint: disable=no-member
     url: str = constants.PARSER_URL + constants.PARSER_COMMIT + "/scala-parser.js"
@@ -35,7 +35,7 @@ def download_parser() -> None:
 
 def download_stdlib(token: str) -> None:
     """
-    Downloads Std-Lib from Engine repository.
+    Downloads the Standard Library from the Engine's repository.
     """
     # pylint: disable=no-member
     download_from_git(

@@ -10,21 +10,9 @@ from parse import init_parser, init_gen_dir, gen_all_files
 # pylint: enable=no-name-in-module
 
 
-def main() -> None:
+def main(token: str) -> None:
     """
     Program entry point.
-    """
-    arg_parser = argparse.ArgumentParser(
-        description="Generates documentation sites for Enso Standard Library."
-    )
-    arg_parser.add_argument("token", help="GitHub user Personal Access Token.")
-    args = arg_parser.parse_args()
-    run_gen(args.token)
-
-
-def run_gen(token: str) -> None:
-    """
-    Runs the actual generation process.
     """
     download_stdlib(token)
     download_parser()
@@ -36,4 +24,9 @@ def run_gen(token: str) -> None:
 
 
 if __name__ == "__main__":
-    main()
+    arg_parser = argparse.ArgumentParser(
+        description="Generates documentation sites for Enso Standard Library."
+    )
+    arg_parser.add_argument("token", help="GitHub user Personal Access Token.")
+    args = arg_parser.parse_args()
+    main(args.token)

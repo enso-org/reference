@@ -2,6 +2,7 @@
 Creates `gen` directory with all necessary files.
 """
 import glob
+from typing import List
 import execjs
 import constants
 from copy_file import copy_file
@@ -10,10 +11,12 @@ from safe_create_directory import safe_create_directory
 
 def gen_all_files(
     parser: execjs.ExternalRuntime, std_dir: str, out_dir: str, style_file: str
-) -> None:
+) -> List[str]:
     """
     Recursively generates all doc files and puts them into the `gen` directory.
     """
+    all_file_names: List[str] = []
+
     for filename in glob.iglob("**/*" + constants.FILE_EXT, recursive=True):
         out_file_name = (
             filename.replace(std_dir + "/", "")
@@ -23,9 +26,12 @@ def gen_all_files(
         print("Generating: " + out_file_name)
         try:
             __gen_file(parser, filename, out_file_name, out_dir, style_file)
+            all_file_names.append(out_file_name.replace(".html", ""))
         except execjs.Error as err:
             print("Could not generate: " + out_file_name)
             print("Got an exception: " + str(err))
+
+    return all_file_names
 
 
 def __gen_file(
@@ -40,11 +46,16 @@ def __gen_file(
     it as `out_name`.
     """
     enso_file = open(path, "r")
-    js_method = "$e_doc_parser_generate_html_source"
+    parse_ast = "$e_doc_parser_generate_html_source"
+    parse_pure_doc = "$e_doc_parser_generate_html_from_doc"
     stylesheet_link = '<link rel="stylesheet" href="' + style_file + '"/>'
-    parsed = parser.call(js_method, enso_file.read())
+    parsed = parser.call(parse_ast, enso_file.read())
     enso_file.close()
     html_file = open(out_dir + "/" + out_name, "w")
+    if len(parsed) == 0:
+        parsed = parser.call(
+            parse_pure_doc, "No documentation available for chosen source file."
+        )
     html_file.write(stylesheet_link + parsed)
     html_file.close()
 

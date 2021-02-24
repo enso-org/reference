@@ -22,6 +22,8 @@ PARSER_URL: str = "https://packages.luna-lang.org/parser-js/nightly/"
 IDE_REPO_URL: str = "https://raw.githubusercontent.com/enso-org/ide/"
 #: The branch in the above repository from which stylesheet will be downloaded.
 IDE_BRANCH: str = "develop"
+#: The directory in the above repository from which stylesheet will be obtained.
+IDE_DIRECTORY: str = "/src/rust/ide/view/src/documentation/"
 
 #: The Enso source file extension.
 FILE_EXT: str = ".enso"

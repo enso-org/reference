@@ -10,11 +10,8 @@ def download_stylesheet() -> None:
     """
     Downloads the stylesheet from the IDE's repository.
     """
-    style_directory: str = (
-        constants.IDE_BRANCH + "/src/rust/ide/view/src/documentation/"
-    )
-    file_path: str = style_directory + constants.STYLE_FILE
-    url: str = constants.IDE_REPO_URL + file_path
+    file_path: str = constants.IDE_DIRECTORY + constants.STYLE_FILE
+    url: str = constants.IDE_REPO_URL + constants.IDE_BRANCH + file_path
     download_to: str = constants.IN_DIR + "/temp-" + constants.STYLE_FILE
     download_from_url(url, download_to)
     replace_all_occurrences_in_file(

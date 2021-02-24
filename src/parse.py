@@ -55,10 +55,7 @@ def init_gen_dir(name: str, style_file: str) -> None:
     """
     safe_create_directory(name)
     stylesheet_file: str = "/" + style_file
-    index_html_file: str = "/index.html"
-    source_directory: str = "src"
     copy_file(constants.IN_DIR + stylesheet_file, name + stylesheet_file)
-    copy_file(source_directory + index_html_file, name + index_html_file)
 
 
 def init_parser(parser_file: str) -> execjs.ExternalRuntime:

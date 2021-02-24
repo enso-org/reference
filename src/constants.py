@@ -40,3 +40,5 @@ OUT_DIR: str = "gen"
 PARSER_FILE: str = "scala-parser.js"
 #: The stylesheet file name.
 STYLE_FILE: str = "style.css"
+#: The generated HTML index page.
+INDEX_FILE: str = "index.html"

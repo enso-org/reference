@@ -5,6 +5,7 @@ import argparse
 import constants
 from downloaders import download_stdlib, download_parser, download_stylesheet
 from parse import init_parser, init_gen_dir, gen_all_files
+from create_static import create_index_page
 
 
 def main(arguments: argparse.Namespace) -> None:
@@ -19,6 +20,7 @@ def main(arguments: argparse.Namespace) -> None:
     parser = init_parser(arguments.parser)
     init_gen_dir(arguments.out, arguments.style)
     gen_all_files(parser, arguments.std, arguments.out, arguments.style)
+    create_index_page(arguments.out, arguments.index)
     print("All done.")
 
 
@@ -57,6 +59,9 @@ if __name__ == "__main__":
     )
     arg_parser.add_argument(
         "--parser_url", default=constants.PARSER_URL, help="URL to parser."
+    )
+    arg_parser.add_argument(
+        "--index", default=constants.INDEX_FILE, help="Index page name."
     )
     args = arg_parser.parse_args()
     main(args)

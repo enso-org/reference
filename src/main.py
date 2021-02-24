@@ -14,11 +14,11 @@ def main(arguments: argparse.Namespace) -> None:
     download_stdlib(
         arguments.token, arguments.org, arguments.repo, arguments.br, arguments.dir
     )
-    download_parser(arguments.commit)
-    download_stylesheet(arguments.ide_br)
-    parser = init_parser()
-    init_gen_dir(arguments.out)
-    gen_all_files(parser, arguments.out)
+    download_parser(arguments.parser_url, arguments.commit, arguments.parser)
+    download_stylesheet(arguments.ide_br, arguments.style)
+    parser = init_parser(arguments.parser)
+    init_gen_dir(arguments.out, arguments.style)
+    gen_all_files(parser, arguments.std, arguments.out, arguments.style)
     print("All done.")
 
 
@@ -45,6 +45,18 @@ if __name__ == "__main__":
     )
     arg_parser.add_argument(
         "--out", default=constants.OUT_DIR, help="Output directory."
+    )
+    arg_parser.add_argument(
+        "--std", default=constants.STD_LIB_DIR, help="Std-Lib directory."
+    )
+    arg_parser.add_argument(
+        "--style", default=constants.STYLE_FILE, help="Style file name."
+    )
+    arg_parser.add_argument(
+        "--parser", default=constants.PARSER_FILE, help="Parser file name."
+    )
+    arg_parser.add_argument(
+        "--parser_url", default=constants.PARSER_URL, help="URL to parser."
     )
     args = arg_parser.parse_args()
     main(args)

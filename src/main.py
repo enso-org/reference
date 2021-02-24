@@ -36,6 +36,9 @@ if __name__ == "__main__":
         "--dir", default=constants.DIRECTORY, help="Repository directory."
     )
     arg_parser.add_argument(
+        "--ide_br", default=constants.IDE_BRANCH, help="IDE branch."
+    )
+    arg_parser.add_argument(
         "--commit", default=constants.PARSER_COMMIT, help="Scala parser commit."
     )
     arg_parser.add_argument(
@@ -46,6 +49,7 @@ if __name__ == "__main__":
     constants.REPO = args.repo
     constants.BRANCH = args.br
     constants.DIRECTORY = args.dir
+    constants.IDE_BRANCH = args.ide_br
     constants.PARSER_COMMIT = args.commit
     constants.OUT_DIR = args.out
     main(args.token)

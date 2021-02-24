@@ -20,12 +20,16 @@ PARSER_COMMIT: str = "5c735b0ae7fc14bf72f5c0bf43b17c3fdf5d86b4"
 PARSER_URL: str = "https://packages.luna-lang.org/parser-js/nightly/"
 #: The URL leading to IDE repository.
 IDE_REPO_URL: str = "https://raw.githubusercontent.com/enso-org/ide/"
+#: The branch in the above repository from which stylesheet will be downloaded.
+IDE_BRANCH: str = "develop"
 
 #: The Enso source file extension.
 FILE_EXT: str = ".enso"
 
 #: The input directory, into which all downloads will go.
 IN_DIR: str = "distribution"
+#: The input directory, into which the Standard Library will go.
+STD_LIB_DIR: str = IN_DIR + "/std-lib"
 #: The output directory, into which all generated content will go.
 OUT_DIR: str = "gen"
 

@@ -10,7 +10,9 @@ def download_stylesheet() -> None:
     """
     Downloads the stylesheet from the IDE's repository.
     """
-    style_directory: str = "develop/src/rust/ide/view/src/documentation/"
+    style_directory: str = (
+        constants.IDE_BRANCH + "/src/rust/ide/view/src/documentation/"
+    )
     file_path: str = style_directory + constants.STYLE_FILE
     url: str = constants.IDE_REPO_URL + file_path
     download_to: str = constants.IN_DIR + "/temp-" + constants.STYLE_FILE

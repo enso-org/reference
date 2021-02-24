@@ -14,7 +14,7 @@ def gen_all_files(parser: execjs.ExternalRuntime) -> None:
     """
     for filename in glob.iglob("**/*" + constants.FILE_EXT, recursive=True):
         out_file_name = (
-            filename.replace(constants.IN_DIR + "/std-lib/", "")
+            filename.replace(constants.STD_LIB_DIR + "/", "")
             .replace("/", "-")
             .replace(constants.FILE_EXT, ".html")
         )

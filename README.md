@@ -24,7 +24,8 @@
 # Enso Standard Library Documentation
 
 This repository contains scripts that generates HTML docs from Enso Std-Lib.
-Documentation is drawn from [here](https://github.com/enso-org/enso/tree/main/distribution/std-lib).
+Documentation is drawn from
+[here](https://github.com/enso-org/enso/tree/main/distribution/std-lib).
 
 ### Running
 

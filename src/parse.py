@@ -8,7 +8,7 @@ from copy_file import copy_file
 from safe_create_directory import safe_create_directory
 
 
-def gen_all_files(parser: execjs.ExternalRuntime) -> None:
+def gen_all_files(parser: execjs.ExternalRuntime, out_dir: str) -> None:
     """
     Recursively generates all doc files and puts them into the `gen` directory.
     """
@@ -20,13 +20,15 @@ def gen_all_files(parser: execjs.ExternalRuntime) -> None:
         )
         print("Generating: " + out_file_name)
         try:
-            __gen_file(parser, filename, out_file_name)
+            __gen_file(parser, filename, out_file_name, out_dir)
         except execjs.Error as err:
             print("Could not generate: " + out_file_name)
             print("Got an exception: " + str(err))
 
 
-def __gen_file(parser: execjs.ExternalRuntime, path: str, out_name: str) -> None:
+def __gen_file(
+    parser: execjs.ExternalRuntime, path: str, out_name: str, out_dir: str
+) -> None:
     """
     Generates an HTML file from Enso source file provided with `path` and saves
     it as `out_name`.
@@ -36,21 +38,21 @@ def __gen_file(parser: execjs.ExternalRuntime, path: str, out_name: str) -> None
     stylesheet_link = '<link rel="stylesheet" href="' + constants.STYLE_FILE + '"/>'
     parsed = parser.call(js_method, enso_file.read())
     enso_file.close()
-    html_file = open(constants.OUT_DIR + "/" + out_name, "w")
+    html_file = open(out_dir + "/" + out_name, "w")
     html_file.write(stylesheet_link + parsed)
     html_file.close()
 
 
-def init_gen_dir() -> None:
+def init_gen_dir(name: str) -> None:
     """
     Creates the `gen` directory with all necessary files.
     """
-    safe_create_directory(constants.OUT_DIR)
+    safe_create_directory(name)
     stylesheet_file: str = "/" + constants.STYLE_FILE
     index_html_file: str = "/index.html"
     source_directory: str = "src"
-    copy_file(constants.IN_DIR + stylesheet_file, constants.OUT_DIR + stylesheet_file)
-    copy_file(source_directory + index_html_file, constants.OUT_DIR + index_html_file)
+    copy_file(constants.IN_DIR + stylesheet_file, name + stylesheet_file)
+    copy_file(source_directory + index_html_file, name + index_html_file)
 
 
 def init_parser() -> execjs.ExternalRuntime:

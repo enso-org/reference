@@ -7,16 +7,18 @@ from downloaders import download_stdlib, download_parser, download_stylesheet
 from parse import init_parser, init_gen_dir, gen_all_files
 
 
-def main(token: str) -> None:
+def main(arguments: argparse.Namespace) -> None:
     """
     Program entry point.
     """
-    download_stdlib(token)
-    download_parser()
-    download_stylesheet()
+    download_stdlib(
+        arguments.token, arguments.org, arguments.repo, arguments.br, arguments.dir
+    )
+    download_parser(arguments.commit)
+    download_stylesheet(arguments.ide_br)
     parser = init_parser()
-    init_gen_dir()
-    gen_all_files(parser)
+    init_gen_dir(arguments.out)
+    gen_all_files(parser, arguments.out)
     print("All done.")
 
 
@@ -45,11 +47,4 @@ if __name__ == "__main__":
         "--out", default=constants.OUT_DIR, help="Output directory."
     )
     args = arg_parser.parse_args()
-    constants.ORGANIZATION = args.org
-    constants.REPO = args.repo
-    constants.BRANCH = args.br
-    constants.DIRECTORY = args.dir
-    constants.IDE_BRANCH = args.ide_br
-    constants.PARSER_COMMIT = args.commit
-    constants.OUT_DIR = args.out
-    main(args.token)
+    main(args)

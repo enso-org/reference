@@ -149,6 +149,8 @@ branches:
         strict: true
         contexts:
           - "build"
+          - "check"
+          - "lint"
           - "license/cla"
       enforce_admins: null
       restrictions: null

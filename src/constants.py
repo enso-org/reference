@@ -28,3 +28,9 @@ FILE_EXT: str = ".enso"
 IN_DIR: str = "distribution"
 #: The output directory, into which all generated content will go.
 OUT_DIR: str = "gen"
+
+
+#: The scala parser file name.
+PARSER_FILE: str = "scala-parser.js"
+#: The stylesheet file name.
+STYLE_FILE: str = "style.css"

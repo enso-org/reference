@@ -33,7 +33,7 @@ def __gen_file(parser: execjs.ExternalRuntime, path: str, out_name: str) -> None
     """
     enso_file = open(path, "r")
     js_method = "$e_doc_parser_generate_html_source"
-    stylesheet_link = '<link rel="stylesheet" href="style.css"/>'
+    stylesheet_link = '<link rel="stylesheet" href="' + constants.STYLE_FILE + '"/>'
     parsed = parser.call(js_method, enso_file.read())
     enso_file.close()
     html_file = open(constants.OUT_DIR + "/" + out_name, "w")
@@ -46,7 +46,7 @@ def init_gen_dir() -> None:
     Creates the `gen` directory with all necessary files.
     """
     safe_create_directory(constants.OUT_DIR)
-    stylesheet_file: str = "/style.css"
+    stylesheet_file: str = "/" + constants.STYLE_FILE
     index_html_file: str = "/index.html"
     source_directory: str = "src"
     copy_file(constants.IN_DIR + stylesheet_file, constants.OUT_DIR + stylesheet_file)
@@ -57,6 +57,6 @@ def init_parser() -> execjs.ExternalRuntime:
     """
     Compiles the JS parser to call from within Python code.
     """
-    parser = open(constants.IN_DIR + "/parser.js", "r").read()
+    parser = open(constants.IN_DIR + "/" + constants.PARSER_FILE, "r").read()
     parser = execjs.compile(parser)
     return parser

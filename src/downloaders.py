@@ -10,12 +10,13 @@ def download_stylesheet() -> None:
     """
     Downloads the stylesheet from the IDE's repository.
     """
-    file_path: str = "develop/src/rust/ide/view/src/documentation/style.css"
+    style_directory: str = "develop/src/rust/ide/view/src/documentation/"
+    file_path: str = style_directory + constants.STYLE_FILE
     url: str = constants.IDE_REPO_URL + file_path
-    download_to: str = constants.IN_DIR + "/temp-style.css"
+    download_to: str = constants.IN_DIR + "/temp-" + constants.STYLE_FILE
     download_from_url(url, download_to)
     replace_all_occurrences_in_file(
-        download_to, constants.IN_DIR + "/style.css", ".docVis", "body"
+        download_to, constants.IN_DIR + "/" + constants.STYLE_FILE, ".docVis", "body"
     )
 
 
@@ -23,11 +24,16 @@ def download_parser() -> None:
     """
     Downloads the scala parser from the Engine's repository.
     """
-    url: str = constants.PARSER_URL + constants.PARSER_COMMIT + "/scala-parser.js"
-    download_to: str = constants.IN_DIR + "/scala-parser.js"
+    url: str = (
+        constants.PARSER_URL + constants.PARSER_COMMIT + "/" + constants.PARSER_FILE
+    )
+    download_to: str = constants.IN_DIR + "/temp-" + constants.PARSER_FILE
     download_from_url(url, download_to)
     replace_all_occurrences_in_file(
-        download_to, constants.IN_DIR + "/parser.js", "export ", "// export"
+        download_to,
+        constants.IN_DIR + "/" + constants.PARSER_FILE,
+        "export ",
+        "// export",
     )
 
 

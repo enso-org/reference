@@ -36,7 +36,7 @@ if __name__ == "__main__":
         "--dir", default=constants.DIRECTORY, help="Repository directory."
     )
     arg_parser.add_argument(
-        "--commit", default=constants.DIRECTORY, help="Scala parser commit."
+        "--commit", default=constants.PARSER_COMMIT, help="Scala parser commit."
     )
     arg_parser.add_argument(
         "--out", default=constants.OUT_DIR, help="Output directory."

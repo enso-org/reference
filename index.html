@@ -1,0 +1,241 @@
+<html>
+  <head>
+    <title>Enso Std-Lib Docs</title>
+    <link href="style.css" rel="stylesheet" />
+    <style>ul { padding-inline-start: 15px; }</style>
+    <style>body li {
+                                     padding-left: 0px !important; 
+                                     transition: all 0.3s ease; 
+                                     cursor: pointer;
+                                     list-style-type: circle;
+                                 }
+                                 
+                                 body li::marker {
+                                     color: cornflowerblue;
+                                 }</style>
+    <style>li:hover { color: #0070c9; }</style>
+    <script>function set_frame_content(file) {
+                                     document.getElementById("frame").src = file
+                                  }</script>
+  </head>
+  <body style="background-color: #333">
+    <h2 style="text-align: center;
+                         padding: 15px; 
+                         margin: 0; 
+                         color: #fafafa">Enso Docs</h2>
+    <div style="background-color: #fafafa; display: flex">
+      <div style="background-color: #efefef;
+                             border-radius: 14px; 
+                             width: 20%; 
+                             margin: 15px; 
+                             padding-left: 20px;
+                             overflow: scroll;
+                             height: 90%;">
+        <ul>
+          <li>Database</li>
+          <ul>
+            <li onclick="set_frame_content('Database-Main.html')">Main</li>
+            <ul>
+            </ul>
+            <li onclick="set_frame_content('Database-Connection.html')">Connection</li>
+            <ul>
+              <li onclick="set_frame_content('Database-Connection-Connection.html')">Connection</li>
+              <ul>
+              </ul>
+            </ul>
+            <li onclick="set_frame_content('Database-Data.html')">Data</li>
+            <ul>
+              <li onclick="set_frame_content('Database-Data-Sql.html')">Sql</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Database-Data-Column.html')">Column</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Database-Data-Table.html')">Table</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Database-Data-Dialect.html')">Dialect</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Database-Data-Internal.html')">Internal</li>
+              <ul>
+                <li onclick="set_frame_content('Database-Data-Internal-IR.html')">IR</li>
+                <li onclick="set_frame_content('Database-Data-Internal-Helpers.html')">Helpers</li>
+                <li onclick="set_frame_content('Database-Data-Internal-Base_Generator.html')">Base_Generator</li>
+                <li onclick="set_frame_content('Database-Data-Internal-Vector_Builder.html')">Vector_Builder</li>
+              </ul>
+            </ul>
+          </ul>
+          <li>Base</li>
+          <ul>
+            <li onclick="set_frame_content('Base-Main.html')">Main</li>
+            <ul>
+            </ul>
+            <li onclick="set_frame_content('Base-Meta.html')">Meta</li>
+            <ul>
+              <li onclick="set_frame_content('Base-Meta-Enso_Project.html')">Enso_Project</li>
+              <ul>
+              </ul>
+            </ul>
+            <li onclick="set_frame_content('Base-Math.html')">Math</li>
+            <ul>
+            </ul>
+            <li onclick="set_frame_content('Base-Polyglot.html')">Polyglot</li>
+            <ul>
+              <li onclick="set_frame_content('Base-Polyglot-Java.html')">Java</li>
+              <ul>
+              </ul>
+            </ul>
+            <li onclick="set_frame_content('Base-System.html')">System</li>
+            <ul>
+              <li onclick="set_frame_content('Base-System-Platform.html')">Platform</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Base-System-File.html')">File</li>
+              <ul>
+                <li onclick="set_frame_content('Base-System-File-Option.html')">Option</li>
+              </ul>
+              <li onclick="set_frame_content('Base-System-Process.html')">Process</li>
+              <ul>
+                <li onclick="set_frame_content('Base-System-Process-Exit_Code.html')">Exit_Code</li>
+              </ul>
+            </ul>
+            <li onclick="set_frame_content('Base-Network.html')">Network</li>
+            <ul>
+              <li onclick="set_frame_content('Base-Network-Uri.html')">Uri</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Base-Network-Http.html')">Http</li>
+              <ul>
+                <li onclick="set_frame_content('Base-Network-Http-Request.html')">Request</li>
+                <li onclick="set_frame_content('Base-Network-Http-Method.html')">Method</li>
+                <li onclick="set_frame_content('Base-Network-Http-Form.html')">Form</li>
+                <li onclick="set_frame_content('Base-Network-Http-Version.html')">Version</li>
+                <li onclick="set_frame_content('Base-Network-Http-Header.html')">Header</li>
+                <li onclick="set_frame_content('Base-Network-Http-Status_Code.html')">Status_Code</li>
+                <li onclick="set_frame_content('Base-Network-Http-Response.html')">Response</li>
+              </ul>
+              <li onclick="set_frame_content('Base-Network-Proxy.html')">Proxy</li>
+              <ul>
+              </ul>
+            </ul>
+            <li onclick="set_frame_content('Base-Error.html')">Error</li>
+            <ul>
+              <li onclick="set_frame_content('Base-Error-Extensions.html')">Extensions</li>
+              <ul>
+              </ul>
+            </ul>
+            <li onclick="set_frame_content('Base-Data.html')">Data</li>
+            <ul>
+              <li onclick="set_frame_content('Base-Data-Interval.html')">Interval</li>
+              <ul>
+                <li onclick="set_frame_content('Base-Data-Interval-Bound.html')">Bound</li>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Ordering.html')">Ordering</li>
+              <ul>
+                <li onclick="set_frame_content('Base-Data-Ordering-Sort_Order.html')">Sort_Order</li>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Range.html')">Range</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Maybe.html')">Maybe</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Locale.html')">Locale</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Vector.html')">Vector</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Map.html')">Map</li>
+              <ul>
+                <li onclick="set_frame_content('Base-Data-Map-Internal.html')">Internal</li>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Json.html')">Json</li>
+              <ul>
+                <li onclick="set_frame_content('Base-Data-Json-Internal.html')">Internal</li>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-List.html')">List</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Pair.html')">Pair</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Noise.html')">Noise</li>
+              <ul>
+                <li onclick="set_frame_content('Base-Data-Noise-Generator.html')">Generator</li>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Any.html')">Any</li>
+              <ul>
+                <li onclick="set_frame_content('Base-Data-Any-Extensions.html')">Extensions</li>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Text.html')">Text</li>
+              <ul>
+                <li onclick="set_frame_content('Base-Data-Text-Extensions.html')">Extensions</li>
+                <li onclick="set_frame_content('Base-Data-Text-Split_Kind.html')">Split_Kind</li>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Number.html')">Number</li>
+              <ul>
+                <li onclick="set_frame_content('Base-Data-Number-Extensions.html')">Extensions</li>
+              </ul>
+              <li onclick="set_frame_content('Base-Data-Time.html')">Time</li>
+              <ul>
+                <li onclick="set_frame_content('Base-Data-Time-Time_Of_Day.html')">Time_Of_Day</li>
+                <li onclick="set_frame_content('Base-Data-Time-Zone.html')">Zone</li>
+                <li onclick="set_frame_content('Base-Data-Time-Date.html')">Date</li>
+                <li onclick="set_frame_content('Base-Data-Time-Duration.html')">Duration</li>
+                <li onclick="set_frame_content('Base-Data-Time-Time.html')">Time</li>
+              </ul>
+            </ul>
+          </ul>
+          <li>Geo</li>
+          <ul>
+            <li onclick="set_frame_content('Geo-Main.html')">Main</li>
+            <ul>
+            </ul>
+          </ul>
+          <li>Table</li>
+          <ul>
+            <li onclick="set_frame_content('Table-Main.html')">Main</li>
+            <ul>
+            </ul>
+            <li onclick="set_frame_content('Table-Io.html')">Io</li>
+            <ul>
+              <li onclick="set_frame_content('Table-Io-Csv.html')">Csv</li>
+              <ul>
+              </ul>
+            </ul>
+            <li onclick="set_frame_content('Table-Data.html')">Data</li>
+            <ul>
+              <li onclick="set_frame_content('Table-Data-Storage.html')">Storage</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Table-Data-Column.html')">Column</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Table-Data-Table.html')">Table</li>
+              <ul>
+              </ul>
+              <li onclick="set_frame_content('Table-Data-Order_Rule.html')">Order_Rule</li>
+              <ul>
+              </ul>
+            </ul>
+          </ul>
+          <li>Test</li>
+          <ul>
+            <li onclick="set_frame_content('Test-Test.html')">Test</li>
+            <ul>
+            </ul>
+            <li onclick="set_frame_content('Test-Main.html')">Main</li>
+            <ul>
+            </ul>
+            <li onclick="set_frame_content('Test-Bench.html')">Bench</li>
+            <ul>
+            </ul>
+          </ul>
+        </ul>
+      </div>
+      <iframe frameborder="0" height="100%" id="frame" src="Base-Main.html" width="100%"></iframe>
+    </div>
+  </body>
+</html>

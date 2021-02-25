@@ -46,3 +46,9 @@ jobs:
         run: poetry install
       - name: Run app
         run: poetry run python src/main.py ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish generated content to GitHub Pages
+        uses: tsunematsu21/actions-publish-gh-pages@v1.0.1
+        with:
+          dir: dist
+          branch: gh-pages
+          token: ${{ secrets.ACCESS_TOKEN }}

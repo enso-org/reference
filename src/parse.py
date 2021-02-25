@@ -21,11 +21,12 @@ def gen_all_files(
         out_file_name = (
             filename.replace(std_dir + "/", "")
             .replace("/", "-")
+            .replace("-src-", "-")
             .replace(constants.FILE_EXT, ".html")
         )
         print("Generating: " + out_file_name)
         try:
-            __gen_file(parser, filename, out_file_name, out_dir, style_file)
+            # __gen_file(parser, filename, out_file_name, out_dir, style_file)
             all_file_names.append(out_file_name.replace(".html", ""))
         except execjs.Error as err:
             print("Could not generate: " + out_file_name)

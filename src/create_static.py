@@ -15,11 +15,18 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
         with template.head():
             template.title(_t="Enso Std-Lib Docs")
             template.link(href="style.css", rel="stylesheet")
-            template.style(_t="ul { padding-inline-start: 3px; }")
+            template.style(_t="ul { padding-inline-start: 15px; }")
             template.style(
-                _t="""li { padding-left: 0px; 
-                                      transition: all 0.3s ease; 
-                                      cursor: pointer;}"""
+                _t="""body li { 
+                          padding-left: 0px !important; 
+                          transition: all 0.3s ease; 
+                          cursor: pointer;
+                          list-style-type: circle;
+                      }
+                      
+                      body li::marker {
+                          color: cornflowerblue;
+                      }"""
             )
             template.style(_t="li:hover { color: #0070c9; }")
             template.script(
@@ -41,29 +48,56 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
                              border-radius: 14px; 
                              width: 20%; 
                              margin: 15px; 
-                             padding-left: 2em;
+                             padding-left: 20px;
                              overflow: scroll;
                              height: 90%;"""
                 ):
                     with template.ul():
                         grouped_file_names = group_by_prefix(gen_files)
+                        # TODO: Change this sorcery
                         for key, value in grouped_file_names.items():
                             template.li(_t=key)
                             with template.ul():
-                                for name in value:
+                                for key2, value2 in value.items():
                                     template.li(
-                                        _t=name,
+                                        _t=key2,
                                         onclick="set_frame_content('"
                                         + key
                                         + "-"
-                                        + name
+                                        + key2
                                         + ".html')",
                                     )
+                                    with template.ul():
+                                        for key3, value3 in value2.items():
+                                            template.li(
+                                                _t=key3,
+                                                onclick="set_frame_content('"
+                                                        + key
+                                                        + "-"
+                                                        + key2
+                                                        + "-"
+                                                        + key3
+                                                        + ".html')",
+                                            )
+                                            with template.ul():
+                                                for name in value3:
+                                                    template.li(
+                                                        _t=name,
+                                                        onclick="set_frame_content('"
+                                                                + key
+                                                                + "-"
+                                                                + key2
+                                                                + "-"
+                                                                + key3
+                                                                + "-"
+                                                                + name
+                                                                + ".html')",
+                                                    )
                 template.iframe(
                     frameborder="0",
                     height="100%",
                     id="frame",
-                    src="Base-src-Network-Http-Request-Body.html",
+                    src="Base-Main.html",
                     width="100%",
                 )
 
@@ -78,9 +112,12 @@ def group_by_prefix(strings: List[str]) -> dict:
     """
     strings_by_prefix: dict = {}
     for string in strings:
+        if len(string.split("-")) <= 1:
+            strings_by_prefix.setdefault(string, [])
+            continue
         prefix, suffix = map(str.strip, string.split("-", 1))
         group = strings_by_prefix.setdefault(prefix, [])
         group.append(suffix)
-    # for string_group in strings_by_prefix.values():
-    #     group_by_prefix(string_group)
+    for key, string_group in strings_by_prefix.items():
+        strings_by_prefix[key] = group_by_prefix(string_group)
     return strings_by_prefix

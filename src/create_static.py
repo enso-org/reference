@@ -17,16 +17,16 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
             template.link(href="style.css", rel="stylesheet")
             template.style(_t="ul { padding-inline-start: 15px; }")
             template.style(
-                _t="""body li { 
-                          padding-left: 0px !important; 
-                          transition: all 0.3s ease; 
-                          cursor: pointer;
-                          list-style-type: circle;
-                      }
-                      
-                      body li::marker {
-                          color: cornflowerblue;
-                      }"""
+                _t="""body li {
+                                     padding-left: 0px !important; 
+                                     transition: all 0.3s ease; 
+                                     cursor: pointer;
+                                     list-style-type: circle;
+                                 }
+                                 
+                                 body li::marker {
+                                     color: cornflowerblue;
+                                 }"""
             )
             template.style(_t="li:hover { color: #0070c9; }")
             template.script(
@@ -54,7 +54,6 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
                 ):
                     with template.ul():
                         grouped_file_names = group_by_prefix(gen_files)
-                        # TODO: Change this sorcery
                         for key, value in grouped_file_names.items():
                             template.li(_t=key)
                             with template.ul():
@@ -72,26 +71,26 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
                                             template.li(
                                                 _t=key3,
                                                 onclick="set_frame_content('"
-                                                        + key
-                                                        + "-"
-                                                        + key2
-                                                        + "-"
-                                                        + key3
-                                                        + ".html')",
+                                                + key
+                                                + "-"
+                                                + key2
+                                                + "-"
+                                                + key3
+                                                + ".html')",
                                             )
                                             with template.ul():
                                                 for name in value3:
                                                     template.li(
                                                         _t=name,
                                                         onclick="set_frame_content('"
-                                                                + key
-                                                                + "-"
-                                                                + key2
-                                                                + "-"
-                                                                + key3
-                                                                + "-"
-                                                                + name
-                                                                + ".html')",
+                                                        + key
+                                                        + "-"
+                                                        + key2
+                                                        + "-"
+                                                        + key3
+                                                        + "-"
+                                                        + name
+                                                        + ".html')",
                                                     )
                 template.iframe(
                     frameborder="0",

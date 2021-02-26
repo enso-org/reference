@@ -13,26 +13,26 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
     print("Generating: " + out_name)
     with template.html():
         with template.head():
-            template.title(_t="Enso Std-Lib Docs")
+            template.title(_t="Enso Reference")
             template.link(href="style.css", rel="stylesheet")
             template.style(_t="ul { padding-inline-start: 15px; }")
             template.style(
                 _t="""body li {
-                                     padding-left: 0px !important; 
-                                     transition: all 0.3s ease; 
-                                     cursor: pointer;
-                                     list-style-type: circle;
-                                 }
+                        padding-left: 0px !important; 
+                        transition: all 0.3s ease; 
+                        cursor: pointer;
+                        list-style-type: circle;
+                      }
                                  
-                                 body li::marker {
-                                     color: cornflowerblue;
-                                 }"""
+                      body li::marker {
+                        color: cornflowerblue;
+                      }"""
             )
             template.style(_t="li:hover { color: #0070c9; }")
             template.script(
                 _t="""function set_frame_content(file) {
-                                     document.getElementById("frame").src = file
-                                  }"""
+                          document.getElementById("frame").src = file
+                      }"""
             )
         with template.body(style="background-color: #333"):
             template.h2(
@@ -40,9 +40,11 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
                          padding: 15px; 
                          margin: 0; 
                          color: #fafafa""",
-                _t="Enso Docs",
+                _t="Enso Reference",
             )
-            with template.div(style="background-color: #fafafa; display: flex"):
+            with template.div(
+                style="background-color: #fafafa; display: flex; height: 100%"
+            ):
                 with template.div(
                     style="""background-color: #efefef;
                              border-radius: 14px; 

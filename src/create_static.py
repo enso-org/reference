@@ -54,46 +54,8 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
                              overflow: scroll;
                              height: 90%;"""
                 ):
-                    with template.ul():
-                        grouped_file_names = group_by_prefix(gen_files)
-                        for key, value in grouped_file_names.items():
-                            template.li(_t=key)
-                            with template.ul():
-                                for key2, value2 in value.items():
-                                    template.li(
-                                        _t=key2,
-                                        onclick="set_frame_content('"
-                                        + key
-                                        + "-"
-                                        + key2
-                                        + ".html')",
-                                    )
-                                    with template.ul():
-                                        for key3, value3 in value2.items():
-                                            template.li(
-                                                _t=key3,
-                                                onclick="set_frame_content('"
-                                                + key
-                                                + "-"
-                                                + key2
-                                                + "-"
-                                                + key3
-                                                + ".html')",
-                                            )
-                                            with template.ul():
-                                                for name in value3:
-                                                    template.li(
-                                                        _t=name,
-                                                        onclick="set_frame_content('"
-                                                        + key
-                                                        + "-"
-                                                        + key2
-                                                        + "-"
-                                                        + key3
-                                                        + "-"
-                                                        + name
-                                                        + ".html')",
-                                                    )
+                    grouped_file_names = group_by_prefix(gen_files)
+                    create_html_tree(template, "", grouped_file_names)
                 template.iframe(
                     frameborder="0",
                     height="100%",
@@ -105,6 +67,32 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
     html_file = open(out_dir + "/" + out_name, "w")
     html_file.write(str(template))
     html_file.close()
+
+
+def create_html_tree(template: Airium, curr_beg: str, ele) -> None:
+    """
+    Method used to create all of HTML tree chooser's branches and leaves.
+    """
+    if isinstance(ele, dict):
+        with template.ul():
+            for key, value in ele.items():
+                template.li(
+                    _t=key,
+                    onclick="set_frame_content('" + curr_beg + "-" + key + ".html')",
+                )
+                beg = curr_beg
+                if len(curr_beg) == 0:
+                    beg = key
+                else:
+                    beg = beg + "-" + key
+                create_html_tree(template, beg, value)
+    else:
+        with template.ul():
+            for name in ele.items():
+                template.li(
+                    _t=name,
+                    onclick="set_frame_content('" + curr_beg + "-" + name + ".html')",
+                )
 
 
 def group_by_prefix(strings: List[str]) -> dict:

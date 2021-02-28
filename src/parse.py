@@ -55,7 +55,8 @@ def __gen_file(
     html_file = open(out_dir + "/" + out_name, "w")
     if len(parsed) == 0:
         parsed = parser.call(
-            parse_pure_doc, "No documentation available for chosen source file."
+            parse_pure_doc,
+            "\n\n*Enso Reference Viewer.*\n\nNo documentation available for chosen source file.",
         )
     html_file.write(stylesheet_link + parsed)
     html_file.close()

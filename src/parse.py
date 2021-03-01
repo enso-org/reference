@@ -68,7 +68,9 @@ def init_gen_dir(name: str, style_file: str) -> None:
     """
     safe_create_directory(name)
     stylesheet_file: str = "/" + style_file
+    favicon_file: str = "favicon.ico"
     copy_file(constants.IN_DIR + stylesheet_file, name + stylesheet_file)
+    copy_file(favicon_file, name + "/" + favicon_file)
 
 
 def init_parser(parser_file: str) -> execjs.ExternalRuntime:

@@ -15,6 +15,7 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
         with template.head():
             template.title(_t="Enso Reference")
             template.link(href="style.css", rel="stylesheet")
+            template.link(href="favicon.ico", rel="icon")
             template.style(_t="ul { padding-inline-start: 15px; }")
             template.style(
                 _t="""body li {

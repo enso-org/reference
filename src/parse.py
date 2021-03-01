@@ -2,6 +2,7 @@
 Creates `gen` directory with all necessary files.
 """
 import glob
+import logging
 from typing import List
 import execjs
 import constants
@@ -24,13 +25,13 @@ def gen_all_files(
             .replace("-src-", "-")
             .replace(constants.FILE_EXT, ".html")
         )
-        print("Generating: " + out_file_name)
+        logging.info("Generating: %s", out_file_name)
         try:
             __gen_file(parser, filename, out_file_name, out_dir, style_file)
             all_file_names.append(out_file_name.replace(".html", ""))
         except execjs.Error as err:
-            print("Could not generate: " + out_file_name)
-            print("Got an exception: " + str(err))
+            logging.info("Could not generate: %s", out_file_name)
+            logging.info("Got an exception: %s", str(err))
 
     return all_file_names
 

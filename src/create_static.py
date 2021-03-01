@@ -2,6 +2,7 @@
 Methods for generating static HTML content.
 """
 from typing import List
+import logging
 from airium import Airium
 
 
@@ -10,7 +11,7 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
     Generates index page.
     """
     template = Airium()
-    print("Generating: " + out_name)
+    logging.info("Generating: %s", out_name)
     with template.html():
         with template.head():
             template.title(_t="Enso Reference")

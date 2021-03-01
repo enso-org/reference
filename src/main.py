@@ -2,6 +2,7 @@
 Enso standard library documentation generator.
 """
 import argparse
+import logging
 import constants
 from downloaders import download_stdlib, download_parser, download_stylesheet
 from parse import init_parser, init_gen_dir, gen_all_files
@@ -12,6 +13,7 @@ def main(arguments: argparse.Namespace) -> None:
     """
     Program entry point.
     """
+    logging.basicConfig(level=logging.INFO)
     download_stdlib(
         arguments.token, arguments.org, arguments.repo, arguments.br, arguments.dir
     )
@@ -21,7 +23,7 @@ def main(arguments: argparse.Namespace) -> None:
     init_gen_dir(arguments.out, arguments.style)
     gen_files = gen_all_files(parser, arguments.std, arguments.out, arguments.style)
     create_index_page(arguments.out, arguments.index, gen_files)
-    print("All done.")
+    logging.info("All done.")
 
 
 if __name__ == "__main__":

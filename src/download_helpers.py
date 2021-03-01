@@ -2,6 +2,7 @@
 Helper methods for downloading files and folders.
 """
 import os
+import logging
 import base64
 import requests
 from github import Github
@@ -35,7 +36,7 @@ def __download_directory(repository: Repository, sha: str, server_path: str) -> 
     contents = repository.get_dir_contents(server_path, ref=sha)
 
     for content in contents:
-        print("Downloading: %s" % content.path)
+        logging.info("Downloading: %s", content.path)
         if content.type == "dir" and not content.path.endswith("THIRD-PARTY"):
             os.makedirs(content.path)
             __download_directory(repository, sha, content.path)
@@ -49,7 +50,7 @@ def __download_directory(repository: Repository, sha: str, server_path: str) -> 
                     file_out.write(file_data)
                     file_out.close()
             except (GithubException, IOError) as exc:
-                print("Error processing %s: %s", content.path, exc)
+                logging.info("Error processing %s: %s", content.path, exc)
 
 
 def download_from_git(
@@ -70,5 +71,5 @@ def download_from_url(url: str, to_file: str) -> None:
     Downloads file from given URL.
     """
     request = requests.get(url, allow_redirects=True)
-    print("Downloading: %s" % url)
+    logging.info("Downloading: %s", url)
     open(to_file, "wb").write(request.content)

@@ -80,10 +80,10 @@ def create_html_tree(
         with template.ul():
             for key, value in ele.items():
                 file_name = curr_beg + "-" + key
-                onclick = ""
+                action = ""
                 if file_name in all_existing_files:
-                    onclick = "set_frame_content('" + file_name + ".html')"
-                template.li(onclick, _t=key)
+                    action = "set_frame_content('" + file_name + ".html')"
+                template.li(onclick=action, _t=key)
                 beg = curr_beg
                 if len(curr_beg) == 0:
                     beg = key
@@ -94,10 +94,10 @@ def create_html_tree(
         with template.ul():
             for name in ele.items():
                 file_name = curr_beg + "-" + name
-                onclick = ""
+                action = ""
                 if file_name in all_existing_files:
-                    onclick = "set_frame_content('" + file_name + ".html')"
-                template.li(onclick, _t=name)
+                    action = "set_frame_content('" + file_name + ".html')"
+                template.li(onclick=action, _t=name)
 
 
 def group_by_prefix(strings: List[str]) -> dict:

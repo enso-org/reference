@@ -64,6 +64,7 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
                     id="frame",
                     src="Base-Main.html",
                     width="100%",
+                    target="blank",
                 )
 
     html_file = open(out_dir + "/" + out_name, "w")

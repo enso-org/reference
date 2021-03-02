@@ -59,7 +59,7 @@ def __gen_file(
             parse_pure_doc,
             "\n\n*Enso Reference Viewer.*\n\nNo documentation available for chosen source file.",
         )
-    html_file.write(stylesheet_link + parsed)
+    html_file.write(stylesheet_link + parsed.replace("display: flex", "display: none"))
     html_file.close()
 
 

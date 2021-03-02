@@ -19,22 +19,48 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
             template.link(href="favicon.ico", rel="icon")
             template.style(_t="ul { padding-inline-start: 15px; }")
             template.style(
-                _t="""body li {
-                        padding-left: 0px !important; 
-                        transition: all 0.3s ease; 
-                        cursor: pointer;
-                        list-style-type: circle;
-                      }
-                      
-                      body li.treeParent {
-                        list-style-type: disc;
-                      }
-                                 
-                      body li::marker {
-                        color: cornflowerblue;
-                      }"""
+                _t="""ul, .section ul {
+                              list-style: none;
+                              padding: 0;
+                              margin: 0;
+                              word-wrap: initial;
+                            }
+                            
+                            ul li {
+                              padding: 5px 10px;
+                            }
+                            
+                            .section ul { display: none; }
+                            .section input:checked ~ ul { display: block; }
+                            .section input[type=checkbox] { display: none; }
+                            .section { 
+                              position: relative; 
+                              padding-left: 20px !important;
+                            }
+                            
+                            .section label:after {
+                              content: "+";
+                              position: absolute;
+                              top: 0; left: 0;
+                              padding: 0;
+                              text-align: center;
+                              font-size: 17px;
+                              color: cornflowerblue;
+                              transition: all 0.3s;
+                            }
+                            
+                            .section input:checked ~ label:after { 
+                              color: cadetblue;
+                              transform: rotate(45deg);
+                            }
+                            
+                            @media only screen and (max-width: 1100px) {
+                                #tree {
+                                    width: 30% !important;
+                                }
+                            }
+                            """
             )
-            template.style(_t="li:hover { color: #0070c9; }")
             template.script(
                 _t="""function set_frame_content(file) {
                           document.getElementById("frame").src = file
@@ -52,6 +78,7 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
                 style="background-color: #fafafa; display: flex; height: 100%"
             ):
                 with template.div(
+                    id="tree",
                     style="""background-color: #efefef;
                              border-radius: 14px; 
                              width: 20%; 
@@ -89,16 +116,19 @@ def create_html_tree(
                 action = ""
                 if file_name in all_existing_files:
                     action = "set_frame_content('" + file_name + ".html')"
-                klass = ""
                 if len(value) > 0:
-                    klass = "treeParent"
-                template.li(onclick=action, _t=key, klass=klass)
-                beg = curr_beg
-                if len(curr_beg) == 0:
-                    beg = key
+                    klass = "section"
+                    with template.li(klass=klass):
+                        template.input(type="checkbox", id=file_name)
+                        template.label(for_=file_name, _t=key, onclick=action)
+                        beg = curr_beg
+                        if len(curr_beg) == 0:
+                            beg = key
+                        else:
+                            beg = beg + "-" + key
+                        create_html_tree(template, beg, value, all_existing_files)
                 else:
-                    beg = beg + "-" + key
-                create_html_tree(template, beg, value, all_existing_files)
+                    template.li(onclick=action, _t=key)
 
 
 def group_by_prefix(strings: List[str]) -> dict:

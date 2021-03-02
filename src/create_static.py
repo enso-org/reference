@@ -25,6 +25,10 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
                         cursor: pointer;
                         list-style-type: circle;
                       }
+                      
+                      body li.treeParent {
+                        list-style-type: disc;
+                      }
                                  
                       body li::marker {
                         color: cornflowerblue;
@@ -78,28 +82,23 @@ def create_html_tree(
     """
     Method used to create all of HTML tree chooser's branches and leaves.
     """
-    if isinstance(ele, dict):
+    if len(ele) > 0:
         with template.ul():
             for key, value in ele.items():
                 file_name = curr_beg + "-" + key
                 action = ""
                 if file_name in all_existing_files:
                     action = "set_frame_content('" + file_name + ".html')"
-                template.li(onclick=action, _t=key)
+                klass = ""
+                if len(value) > 0:
+                    klass = "treeParent"
+                template.li(onclick=action, _t=key, klass=klass)
                 beg = curr_beg
                 if len(curr_beg) == 0:
                     beg = key
                 else:
                     beg = beg + "-" + key
                 create_html_tree(template, beg, value, all_existing_files)
-    else:
-        with template.ul():
-            for name in ele.items():
-                file_name = curr_beg + "-" + name
-                action = ""
-                if file_name in all_existing_files:
-                    action = "set_frame_content('" + file_name + ".html')"
-                template.li(onclick=action, _t=name)
 
 
 def group_by_prefix(strings: List[str]) -> dict:

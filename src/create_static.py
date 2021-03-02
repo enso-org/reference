@@ -85,7 +85,7 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
                              margin: 15px; 
                              padding-left: 20px;
                              overflow: scroll;
-                             height: 90%;"""
+                             height: 90%;""",
                 ):
                     grouped_file_names = group_by_prefix(gen_files)
                     create_html_tree(template, "", grouped_file_names, gen_files)

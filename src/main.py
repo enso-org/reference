@@ -13,7 +13,7 @@ def main(arguments: argparse.Namespace) -> None:
     """
     Program entry point.
     """
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=arguments.log_level)
     download_stdlib(
         arguments.token, arguments.org, arguments.repo, arguments.br, arguments.dir
     )
@@ -65,5 +65,6 @@ if __name__ == "__main__":
     arg_parser.add_argument(
         "--index", default=constants.INDEX_FILE, help="Index page name."
     )
+    arg_parser.add_argument("--log_level", default=logging.INFO, help="Logging level.")
     args = arg_parser.parse_args()
     main(args)

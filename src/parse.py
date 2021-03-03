@@ -48,15 +48,13 @@ def __gen_file(
     it as `out_name`.
     """
     enso_file = open(path, "r")
-    parse_ast = "$e_doc_parser_generate_html_source"
-    parse_pure_doc = "$e_doc_parser_generate_html_from_doc"
     stylesheet_link = '<link rel="stylesheet" href="' + style_file + '"/>'
-    parsed = parser.call(parse_ast, enso_file.read())
+    parsed = parser.call(constants.PARSE_AST_METHOD, enso_file.read())
     enso_file.close()
     html_file = open(out_dir + "/" + out_name, "w")
     if len(parsed) == 0:
         parsed = parser.call(
-            parse_pure_doc,
+            constants.PARSE_PURE_METHOD,
             "\n\n*Enso Reference Viewer.*\n\nNo documentation available for chosen source file.",
         )
     html_file.write(stylesheet_link + parsed.replace("display: flex", "display: none"))

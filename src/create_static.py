@@ -59,6 +59,12 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
                               width: 30% !important;
                           }
                       }
+                      
+                      @media only screen and (max-width: 850px) {
+                          #tree {
+                              width: 40% !important;
+                          }
+                      }
                       """
             )
             template.script(

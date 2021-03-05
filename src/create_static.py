@@ -129,7 +129,7 @@ def create_html_tree(
                             beg = beg + "-" + key
                         create_html_tree(template, beg, value, all_existing_files)
                 else:
-                    template.li(onclick=action, _t="   "+key)
+                    template.li(onclick=action, _t="   " + key)
 
 
 def group_by_prefix(strings: List[str]) -> dict:

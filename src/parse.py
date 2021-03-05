@@ -60,7 +60,7 @@ def __gen_file(
     html_file.write(
         stylesheet_link
         + parsed.replace("display: flex", "display: none").replace(
-            "<hr><br><hr><br>", "<hr><br>"
+            "<hr/><br/><hr/><br/>", "<hr/><br/>"
         )
     )
     html_file.close()

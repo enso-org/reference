@@ -48,6 +48,19 @@ body a {
     transition: all 0.3s ease;
 }
 
+body hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #fafafa, #ccc, #fafafa);
+}
+
+.dark-theme body hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    background-image: linear-gradient(to right, #333, #ddd, #333);
+}
+
 .dark-theme body a:hover {
     color: #8dc9fa !important;
 }
@@ -408,7 +421,8 @@ body li {
     padding-bottom: 10px;
 }
 
-.DefTitle {
+.DefTitle,
+.Infix{
     display: inline-flex;
     font-size: 20px;
     font-weight: 400;
@@ -453,12 +467,17 @@ body li {
     background-color: #212121;
 }
 
-.Documentation .ASTHead .DefTitle {
+.Documentation .ASTHead .DefTitle,
+.Documentation .ASTHead .Infix {
     font-size: 24px;
     margin: 0;
+    display: flex;
 }
-.Documentation .ASTData .ASTHead .DefTitle {
+.Documentation .ASTData .ASTHead .DefTitle{
     font-size: 20px;
+}
+.Documentation .ASTData .DefNoDoc {
+    display: none;
 }
 .Documentation .Documented {
     margin: 0;

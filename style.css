@@ -474,6 +474,7 @@ body li {
     margin: 0;
     display: flex;
 }
+.Documentation .ASTHead .DefNoBody .DefTitle,
 .Documentation .ASTHead .Infix {
     margin-left: 15px;
 }

@@ -11,7 +11,7 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
       - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
         run: poetry run pylint src
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     needs: lint
 
     steps:

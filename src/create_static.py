@@ -17,49 +17,49 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
             template.title(_t="Enso Reference")
             template.link(href="style.css", rel="stylesheet")
             template.link(href="favicon.ico", rel="icon")
-            template.style(_t="ul { padding-inline-start: 15px; }")
             template.style(
                 _t="""ul, .section ul {
-                              list-style: none;
-                              padding: 0;
-                              margin: 0;
-                              word-wrap: initial;
-                            }
-                            
-                            ul li {
-                              padding: 5px 10px;
-                            }
-                            
-                            .section ul { display: none; }
-                            .section input:checked ~ ul { display: block; }
-                            .section input[type=checkbox] { display: none; }
-                            .section { 
-                              position: relative; 
-                              padding-left: 20px !important;
-                            }
-                            
-                            .section label:after {
-                              content: "+";
-                              position: absolute;
-                              top: 0; left: 0;
-                              padding: 0;
-                              text-align: center;
-                              font-size: 17px;
-                              color: cornflowerblue;
-                              transition: all 0.3s;
-                            }
-                            
-                            .section input:checked ~ label:after { 
-                              color: cadetblue;
-                              transform: rotate(45deg);
-                            }
-                            
-                            @media only screen and (max-width: 1100px) {
-                                #tree {
-                                    width: 30% !important;
-                                }
-                            }
-                            """
+                        cursor: pointer;
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                        word-wrap: initial;
+                      }
+                      
+                      ul li {
+                        padding: 5px 10px;
+                      }
+                      
+                      .section ul { display: none; }
+                      .section input:checked ~ ul { display: block; }
+                      .section input[type=checkbox] { display: none; }
+                      .section { 
+                        position: relative; 
+                        padding-left: 20px !important;
+                      }
+                      
+                      .section label:after {
+                        content: "+";
+                        position: absolute;
+                        top: 0; left: 0;
+                        padding: 0;
+                        text-align: center;
+                        font-size: 17px;
+                        color: cornflowerblue;
+                        transition: all 0.3s;
+                      }
+                      
+                      .section input:checked ~ label:after { 
+                        color: cadetblue;
+                        transform: rotate(45deg);
+                      }
+                      
+                      @media only screen and (max-width: 1100px) {
+                          #tree {
+                              width: 30% !important;
+                          }
+                      }
+                      """
             )
             template.script(
                 _t="""function set_frame_content(file) {
@@ -84,6 +84,7 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
                              width: 20%; 
                              margin: 15px; 
                              padding-left: 20px;
+                             padding-top: 10px;
                              overflow: scroll;
                              height: 90%;""",
                 ):

@@ -400,6 +400,7 @@ body li {
     padding: 0;
     font-size: 12px;
     font-weight: 400;
+    margin: 0;
     font-style: normal;
     text-decoration: inherit;
 }
@@ -472,6 +473,9 @@ body li {
     font-size: 24px;
     margin: 0;
     display: flex;
+}
+.Documentation .ASTHead .Infix {
+    margin-left: 15px;
 }
 .Documentation .ASTData .ASTHead .DefTitle{
     font-size: 20px;

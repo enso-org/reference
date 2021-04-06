@@ -3,54 +3,48 @@
     <title>Enso Reference</title>
     <link href="style.css" rel="stylesheet" />
     <link href="favicon.ico" rel="icon" />
+    <style>ul { padding-inline-start: 15px; }</style>
     <style>ul, .section ul {
-                        cursor: pointer;
-                        list-style: none;
-                        padding: 0;
-                        margin: 0;
-                        word-wrap: initial;
-                      }
-                      
-                      ul li {
-                        padding: 5px 10px;
-                      }
-                      
-                      .section ul { display: none; }
-                      .section input:checked ~ ul { display: block; }
-                      .section input[type=checkbox] { display: none; }
-                      .section { 
-                        position: relative; 
-                        padding-left: 20px !important;
-                      }
-                      
-                      .section label:after {
-                        content: "+";
-                        position: absolute;
-                        top: 0; left: 0;
-                        padding: 0;
-                        text-align: center;
-                        font-size: 17px;
-                        color: cornflowerblue;
-                        transition: all 0.3s;
-                      }
-                      
-                      .section input:checked ~ label:after { 
-                        color: cadetblue;
-                        transform: rotate(45deg);
-                      }
-                      
-                      @media only screen and (max-width: 1100px) {
-                          #tree {
-                              width: 30% !important;
-                          }
-                      }
-                      
-                      @media only screen and (max-width: 850px) {
-                          #tree {
-                              width: 40% !important;
-                          }
-                      }
-                      </style>
+                              list-style: none;
+                              padding: 0;
+                              margin: 0;
+                              word-wrap: initial;
+                            }
+                            
+                            ul li {
+                              padding: 5px 10px;
+                            }
+                            
+                            .section ul { display: none; }
+                            .section input:checked ~ ul { display: block; }
+                            .section input[type=checkbox] { display: none; }
+                            .section { 
+                              position: relative; 
+                              padding-left: 20px !important;
+                            }
+                            
+                            .section label:after {
+                              content: "+";
+                              position: absolute;
+                              top: 0; left: 0;
+                              padding: 0;
+                              text-align: center;
+                              font-size: 17px;
+                              color: cornflowerblue;
+                              transition: all 0.3s;
+                            }
+                            
+                            .section input:checked ~ label:after { 
+                              color: cadetblue;
+                              transform: rotate(45deg);
+                            }
+                            
+                            @media only screen and (max-width: 1100px) {
+                                #tree {
+                                    width: 30% !important;
+                                }
+                            }
+                            </style>
     <script>function set_frame_content(file) {
                           document.getElementById("frame").src = file
                       }</script>
@@ -66,245 +60,328 @@
                              width: 20%; 
                              margin: 15px; 
                              padding-left: 20px;
-                             padding-top: 10px;
                              overflow: scroll;
                              height: 90%;">
         <ul>
           <li class="section">
-            <input type="checkbox" id="-Database" />
-            <label for="-Database" onclick="">Database</label>
+            <input type="checkbox" id="-Standard" />
+            <label for="-Standard" onclick="">Standard</label>
             <ul>
-              <li onclick="set_frame_content('Database-Main.html')" style="padding-left: 19px;">Main</li>
               <li class="section">
-                <input type="checkbox" id="Database-Connection" />
-                <label for="Database-Connection" onclick="">Connection</label>
+                <input type="checkbox" id="Standard-Image" />
+                <label for="Standard-Image" onclick="set_frame_content('Standard-Image.html')">Image</label>
                 <ul>
-                  <li onclick="set_frame_content('Database-Connection-Connection.html')" style="padding-left: 19px;">Connection</li>
-                </ul>
-              </li>
-              <li class="section">
-                <input type="checkbox" id="Database-Data" />
-                <label for="Database-Data" onclick="">Data</label>
-                <ul>
-                  <li onclick="set_frame_content('Database-Data-Sql.html')" style="padding-left: 19px;">Sql</li>
-                  <li onclick="set_frame_content('Database-Data-Column.html')" style="padding-left: 19px;">Column</li>
-                  <li onclick="set_frame_content('Database-Data-Table.html')" style="padding-left: 19px;">Table</li>
-                  <li onclick="set_frame_content('Database-Data-Dialect.html')" style="padding-left: 19px;">Dialect</li>
                   <li class="section">
-                    <input type="checkbox" id="Database-Data-Internal" />
-                    <label for="Database-Data-Internal" onclick="">Internal</label>
+                    <input type="checkbox" id="Standard-Image-Codecs" />
+                    <label for="Standard-Image-Codecs" onclick="set_frame_content('Standard-Image-Codecs.html')">Codecs</label>
                     <ul>
-                      <li onclick="set_frame_content('Database-Data-Internal-IR.html')" style="padding-left: 19px;">IR</li>
-                      <li onclick="set_frame_content('Database-Data-Internal-Helpers.html')" style="padding-left: 19px;">Helpers</li>
-                      <li onclick="set_frame_content('Database-Data-Internal-Base_Generator.html')" style="padding-left: 19px;">Base_Generator</li>
-                      <li onclick="set_frame_content('Database-Data-Internal-Vector_Builder.html')" style="padding-left: 19px;">Vector_Builder</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="section">
-            <input type="checkbox" id="-Base" />
-            <label for="-Base" onclick="">Base</label>
-            <ul>
-              <li onclick="set_frame_content('Base-Main.html')" style="padding-left: 19px;">Main</li>
-              <li class="section">
-                <input type="checkbox" id="Base-Meta" />
-                <label for="Base-Meta" onclick="set_frame_content('Base-Meta.html')">Meta</label>
-                <ul>
-                  <li onclick="set_frame_content('Base-Meta-Enso_Project.html')" style="padding-left: 19px;">Enso_Project</li>
-                </ul>
-              </li>
-              <li onclick="set_frame_content('Base-Math.html')" style="padding-left: 19px;">Math</li>
-              <li class="section">
-                <input type="checkbox" id="Base-Polyglot" />
-                <label for="Base-Polyglot" onclick="">Polyglot</label>
-                <ul>
-                  <li onclick="set_frame_content('Base-Polyglot-Java.html')" style="padding-left: 19px;">Java</li>
-                </ul>
-              </li>
-              <li class="section">
-                <input type="checkbox" id="Base-System" />
-                <label for="Base-System" onclick="">System</label>
-                <ul>
-                  <li onclick="set_frame_content('Base-System-Platform.html')" style="padding-left: 19px;">Platform</li>
-                  <li class="section">
-                    <input type="checkbox" id="Base-System-File" />
-                    <label for="Base-System-File" onclick="set_frame_content('Base-System-File.html')">File</label>
-                    <ul>
-                      <li onclick="set_frame_content('Base-System-File-Option.html')" style="padding-left: 19px;">Option</li>
+                      <li onclick="set_frame_content('Standard-Image-Codecs-Internal.html')">Internal</li>
                     </ul>
                   </li>
                   <li class="section">
-                    <input type="checkbox" id="Base-System-Process" />
-                    <label for="Base-System-Process" onclick="set_frame_content('Base-System-Process.html')">Process</label>
-                    <ul>
-                      <li onclick="set_frame_content('Base-System-Process-Exit_Code.html')" style="padding-left: 19px;">Exit_Code</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li class="section">
-                <input type="checkbox" id="Base-Network" />
-                <label for="Base-Network" onclick="">Network</label>
-                <ul>
-                  <li onclick="set_frame_content('Base-Network-Uri.html')" style="padding-left: 19px;">Uri</li>
-                  <li class="section">
-                    <input type="checkbox" id="Base-Network-Http" />
-                    <label for="Base-Network-Http" onclick="set_frame_content('Base-Network-Http.html')">Http</label>
+                    <input type="checkbox" id="Standard-Image-Data" />
+                    <label for="Standard-Image-Data" onclick="">Data</label>
                     <ul>
                       <li class="section">
-                        <input type="checkbox" id="Base-Network-Http-Request" />
-                        <label for="Base-Network-Http-Request" onclick="set_frame_content('Base-Network-Http-Request.html')">Request</label>
+                        <input type="checkbox" id="Standard-Image-Data-Image" />
+                        <label for="Standard-Image-Data-Image" onclick="set_frame_content('Standard-Image-Data-Image.html')">Image</label>
                         <ul>
-                          <li onclick="set_frame_content('Base-Network-Http-Request-Body.html')" style="padding-left: 19px;">Body</li>
+                          <li onclick="set_frame_content('Standard-Image-Data-Image-Internal.html')">Internal</li>
                         </ul>
                       </li>
-                      <li onclick="set_frame_content('Base-Network-Http-Method.html')" style="padding-left: 19px;">Method</li>
-                      <li onclick="set_frame_content('Base-Network-Http-Form.html')" style="padding-left: 19px;">Form</li>
-                      <li onclick="set_frame_content('Base-Network-Http-Version.html')" style="padding-left: 19px;">Version</li>
-                      <li onclick="set_frame_content('Base-Network-Http-Header.html')" style="padding-left: 19px;">Header</li>
-                      <li onclick="set_frame_content('Base-Network-Http-Status_Code.html')" style="padding-left: 19px;">Status_Code</li>
                       <li class="section">
-                        <input type="checkbox" id="Base-Network-Http-Response" />
-                        <label for="Base-Network-Http-Response" onclick="set_frame_content('Base-Network-Http-Response.html')">Response</label>
+                        <input type="checkbox" id="Standard-Image-Data-Matrix" />
+                        <label for="Standard-Image-Data-Matrix" onclick="set_frame_content('Standard-Image-Data-Matrix.html')">Matrix</label>
                         <ul>
-                          <li onclick="set_frame_content('Base-Network-Http-Response-Body.html')" style="padding-left: 19px;">Body</li>
+                          <li onclick="set_frame_content('Standard-Image-Data-Matrix-Internal.html')">Internal</li>
+                        </ul>
+                      </li>
+                      <li onclick="set_frame_content('Standard-Image-Data-Histogram.html')">Histogram</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="section">
+                <input type="checkbox" id="Standard-Base" />
+                <label for="Standard-Base" onclick="set_frame_content('Standard-Base.html')">Base</label>
+                <ul>
+                  <li class="section">
+                    <input type="checkbox" id="Standard-Base-Meta" />
+                    <label for="Standard-Base-Meta" onclick="set_frame_content('Standard-Base-Meta.html')">Meta</label>
+                    <ul>
+                      <li onclick="set_frame_content('Standard-Base-Meta-Enso_Project.html')">Enso_Project</li>
+                    </ul>
+                  </li>
+                  <li onclick="set_frame_content('Standard-Base-Math.html')">Math</li>
+                  <li class="section">
+                    <input type="checkbox" id="Standard-Base-Network" />
+                    <label for="Standard-Base-Network" onclick="">Network</label>
+                    <ul>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-Network-Uri" />
+                        <label for="Standard-Base-Network-Uri" onclick="set_frame_content('Standard-Base-Network-Uri.html')">Uri</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-Network-Uri-Internal.html')">Internal</li>
+                        </ul>
+                      </li>
+                      <li onclick="set_frame_content('Standard-Base-Network-Internal.html')">Internal</li>
+                      <li onclick="set_frame_content('Standard-Base-Network-Proxy.html')">Proxy</li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-Network-Http" />
+                        <label for="Standard-Base-Network-Http" onclick="set_frame_content('Standard-Base-Network-Http.html')">Http</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-Network-Http-Status_Code.html')">Status_Code</li>
+                          <li class="section">
+                            <input type="checkbox" id="Standard-Base-Network-Http-Request" />
+                            <label for="Standard-Base-Network-Http-Request" onclick="set_frame_content('Standard-Base-Network-Http-Request.html')">Request</label>
+                            <ul>
+                              <li onclick="set_frame_content('Standard-Base-Network-Http-Request-Body.html')">Body</li>
+                            </ul>
+                          </li>
+                          <li onclick="set_frame_content('Standard-Base-Network-Http-Method.html')">Method</li>
+                          <li onclick="set_frame_content('Standard-Base-Network-Http-Version.html')">Version</li>
+                          <li onclick="set_frame_content('Standard-Base-Network-Http-Header.html')">Header</li>
+                          <li class="section">
+                            <input type="checkbox" id="Standard-Base-Network-Http-Response" />
+                            <label for="Standard-Base-Network-Http-Response" onclick="set_frame_content('Standard-Base-Network-Http-Response.html')">Response</label>
+                            <ul>
+                              <li onclick="set_frame_content('Standard-Base-Network-Http-Response-Body.html')">Body</li>
+                            </ul>
+                          </li>
+                          <li onclick="set_frame_content('Standard-Base-Network-Http-Form.html')">Form</li>
                         </ul>
                       </li>
                     </ul>
                   </li>
-                  <li onclick="set_frame_content('Base-Network-Proxy.html')" style="padding-left: 19px;">Proxy</li>
+                  <li class="section">
+                    <input type="checkbox" id="Standard-Base-Error" />
+                    <label for="Standard-Base-Error" onclick="">Error</label>
+                    <ul>
+                      <li onclick="set_frame_content('Standard-Base-Error-Extensions.html')">Extensions</li>
+                      <li onclick="set_frame_content('Standard-Base-Error-Common.html')">Common</li>
+                    </ul>
+                  </li>
+                  <li class="section">
+                    <input type="checkbox" id="Standard-Base-Polyglot" />
+                    <label for="Standard-Base-Polyglot" onclick="">Polyglot</label>
+                    <ul>
+                      <li onclick="set_frame_content('Standard-Base-Polyglot-Java.html')">Java</li>
+                    </ul>
+                  </li>
+                  <li class="section">
+                    <input type="checkbox" id="Standard-Base-Data" />
+                    <label for="Standard-Base-Data" onclick="">Data</label>
+                    <ul>
+                      <li onclick="set_frame_content('Standard-Base-Data-Pair.html')">Pair</li>
+                      <li onclick="set_frame_content('Standard-Base-Data-Range.html')">Range</li>
+                      <li onclick="set_frame_content('Standard-Base-Data-Locale.html')">Locale</li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-Data-Map" />
+                        <label for="Standard-Base-Data-Map" onclick="set_frame_content('Standard-Base-Data-Map.html')">Map</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-Data-Map-Internal.html')">Internal</li>
+                        </ul>
+                      </li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-Data-Noise" />
+                        <label for="Standard-Base-Data-Noise" onclick="set_frame_content('Standard-Base-Data-Noise.html')">Noise</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-Data-Noise-Generator.html')">Generator</li>
+                        </ul>
+                      </li>
+                      <li onclick="set_frame_content('Standard-Base-Data-List.html')">List</li>
+                      <li onclick="set_frame_content('Standard-Base-Data-Vector.html')">Vector</li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-Data-Ordering" />
+                        <label for="Standard-Base-Data-Ordering" onclick="set_frame_content('Standard-Base-Data-Ordering.html')">Ordering</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-Data-Ordering-Sort_Order.html')">Sort_Order</li>
+                        </ul>
+                      </li>
+                      <li onclick="set_frame_content('Standard-Base-Data-Maybe.html')">Maybe</li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-Data-Interval" />
+                        <label for="Standard-Base-Data-Interval" onclick="set_frame_content('Standard-Base-Data-Interval.html')">Interval</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-Data-Interval-Bound.html')">Bound</li>
+                        </ul>
+                      </li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-Data-Json" />
+                        <label for="Standard-Base-Data-Json" onclick="set_frame_content('Standard-Base-Data-Json.html')">Json</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-Data-Json-Internal.html')">Internal</li>
+                        </ul>
+                      </li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-Data-Number" />
+                        <label for="Standard-Base-Data-Number" onclick="">Number</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-Data-Number-Extensions.html')">Extensions</li>
+                        </ul>
+                      </li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-Data-Any" />
+                        <label for="Standard-Base-Data-Any" onclick="">Any</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-Data-Any-Extensions.html')">Extensions</li>
+                        </ul>
+                      </li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-Data-Array" />
+                        <label for="Standard-Base-Data-Array" onclick="">Array</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-Data-Array-Extensions.html')">Extensions</li>
+                        </ul>
+                      </li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-Data-Time" />
+                        <label for="Standard-Base-Data-Time" onclick="">Time</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-Data-Time-Time_Of_Day.html')">Time_Of_Day</li>
+                          <li onclick="set_frame_content('Standard-Base-Data-Time-Time.html')">Time</li>
+                          <li onclick="set_frame_content('Standard-Base-Data-Time-Duration.html')">Duration</li>
+                          <li onclick="set_frame_content('Standard-Base-Data-Time-Date.html')">Date</li>
+                          <li onclick="set_frame_content('Standard-Base-Data-Time-Zone.html')">Zone</li>
+                        </ul>
+                      </li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-Data-Text" />
+                        <label for="Standard-Base-Data-Text" onclick="">Text</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-Data-Text-Split_Kind.html')">Split_Kind</li>
+                          <li onclick="set_frame_content('Standard-Base-Data-Text-Extensions.html')">Extensions</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="section">
+                    <input type="checkbox" id="Standard-Base-System" />
+                    <label for="Standard-Base-System" onclick="">System</label>
+                    <ul>
+                      <li onclick="set_frame_content('Standard-Base-System-Environment.html')">Environment</li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-System-Process" />
+                        <label for="Standard-Base-System-Process" onclick="set_frame_content('Standard-Base-System-Process.html')">Process</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-System-Process-Exit_Code.html')">Exit_Code</li>
+                        </ul>
+                      </li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Base-System-File" />
+                        <label for="Standard-Base-System-File" onclick="set_frame_content('Standard-Base-System-File.html')">File</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Base-System-File-Option.html')">Option</li>
+                        </ul>
+                      </li>
+                      <li onclick="set_frame_content('Standard-Base-System-Platform.html')">Platform</li>
+                    </ul>
+                  </li>
                 </ul>
               </li>
               <li class="section">
-                <input type="checkbox" id="Base-Error" />
-                <label for="Base-Error" onclick="">Error</label>
+                <input type="checkbox" id="Standard-Geo" />
+                <label for="Standard-Geo" onclick="set_frame_content('Standard-Geo.html')">Geo</label>
                 <ul>
-                  <li onclick="set_frame_content('Base-Error-Extensions.html')" style="padding-left: 19px;">Extensions</li>
+                  <li onclick="set_frame_content('Standard-Geo-Geo_Json.html')">Geo_Json</li>
                 </ul>
               </li>
               <li class="section">
-                <input type="checkbox" id="Base-Data" />
-                <label for="Base-Data" onclick="">Data</label>
+                <input type="checkbox" id="Standard-Table" />
+                <label for="Standard-Table" onclick="set_frame_content('Standard-Table.html')">Table</label>
                 <ul>
                   <li class="section">
-                    <input type="checkbox" id="Base-Data-Interval" />
-                    <label for="Base-Data-Interval" onclick="set_frame_content('Base-Data-Interval.html')">Interval</label>
+                    <input type="checkbox" id="Standard-Table-Data" />
+                    <label for="Standard-Table-Data" onclick="">Data</label>
                     <ul>
-                      <li onclick="set_frame_content('Base-Data-Interval-Bound.html')" style="padding-left: 19px;">Bound</li>
+                      <li onclick="set_frame_content('Standard-Table-Data-Order_Rule.html')">Order_Rule</li>
+                      <li onclick="set_frame_content('Standard-Table-Data-Column.html')">Column</li>
+                      <li onclick="set_frame_content('Standard-Table-Data-Storage.html')">Storage</li>
+                      <li onclick="set_frame_content('Standard-Table-Data-Table.html')">Table</li>
                     </ul>
                   </li>
                   <li class="section">
-                    <input type="checkbox" id="Base-Data-Ordering" />
-                    <label for="Base-Data-Ordering" onclick="set_frame_content('Base-Data-Ordering.html')">Ordering</label>
+                    <input type="checkbox" id="Standard-Table-Internal" />
+                    <label for="Standard-Table-Internal" onclick="">Internal</label>
                     <ul>
-                      <li onclick="set_frame_content('Base-Data-Ordering-Sort_Order.html')" style="padding-left: 19px;">Sort_Order</li>
-                    </ul>
-                  </li>
-                  <li onclick="set_frame_content('Base-Data-Range.html')" style="padding-left: 19px;">Range</li>
-                  <li onclick="set_frame_content('Base-Data-Maybe.html')" style="padding-left: 19px;">Maybe</li>
-                  <li onclick="set_frame_content('Base-Data-Locale.html')" style="padding-left: 19px;">Locale</li>
-                  <li onclick="set_frame_content('Base-Data-Vector.html')" style="padding-left: 19px;">Vector</li>
-                  <li class="section">
-                    <input type="checkbox" id="Base-Data-Map" />
-                    <label for="Base-Data-Map" onclick="set_frame_content('Base-Data-Map.html')">Map</label>
-                    <ul>
-                      <li onclick="set_frame_content('Base-Data-Map-Internal.html')" style="padding-left: 19px;">Internal</li>
+                      <li onclick="set_frame_content('Standard-Table-Internal-Java_Exports.html')">Java_Exports</li>
                     </ul>
                   </li>
                   <li class="section">
-                    <input type="checkbox" id="Base-Data-Json" />
-                    <label for="Base-Data-Json" onclick="set_frame_content('Base-Data-Json.html')">Json</label>
+                    <input type="checkbox" id="Standard-Table-Io" />
+                    <label for="Standard-Table-Io" onclick="">Io</label>
                     <ul>
-                      <li onclick="set_frame_content('Base-Data-Json-Internal.html')" style="padding-left: 19px;">Internal</li>
+                      <li onclick="set_frame_content('Standard-Table-Io-Csv.html')">Csv</li>
                     </ul>
                   </li>
-                  <li onclick="set_frame_content('Base-Data-List.html')" style="padding-left: 19px;">List</li>
-                  <li onclick="set_frame_content('Base-Data-Pair.html')" style="padding-left: 19px;">Pair</li>
-                  <li class="section">
-                    <input type="checkbox" id="Base-Data-Noise" />
-                    <label for="Base-Data-Noise" onclick="set_frame_content('Base-Data-Noise.html')">Noise</label>
-                    <ul>
-                      <li onclick="set_frame_content('Base-Data-Noise-Generator.html')" style="padding-left: 19px;">Generator</li>
-                    </ul>
-                  </li>
-                  <li class="section">
-                    <input type="checkbox" id="Base-Data-Any" />
-                    <label for="Base-Data-Any" onclick="">Any</label>
-                    <ul>
-                      <li onclick="set_frame_content('Base-Data-Any-Extensions.html')" style="padding-left: 19px;">Extensions</li>
-                    </ul>
-                  </li>
-                  <li class="section">
-                    <input type="checkbox" id="Base-Data-Text" />
-                    <label for="Base-Data-Text" onclick="">Text</label>
-                    <ul>
-                      <li onclick="set_frame_content('Base-Data-Text-Extensions.html')" style="padding-left: 19px;">Extensions</li>
-                      <li onclick="set_frame_content('Base-Data-Text-Split_Kind.html')" style="padding-left: 19px;">Split_Kind</li>
-                    </ul>
-                  </li>
-                  <li class="section">
-                    <input type="checkbox" id="Base-Data-Number" />
-                    <label for="Base-Data-Number" onclick="">Number</label>
-                    <ul>
-                      <li onclick="set_frame_content('Base-Data-Number-Extensions.html')" style="padding-left: 19px;">Extensions</li>
-                    </ul>
-                  </li>
-                  <li class="section">
-                    <input type="checkbox" id="Base-Data-Time" />
-                    <label for="Base-Data-Time" onclick="">Time</label>
-                    <ul>
-                      <li onclick="set_frame_content('Base-Data-Time-Time_Of_Day.html')" style="padding-left: 19px;">Time_Of_Day</li>
-                      <li onclick="set_frame_content('Base-Data-Time-Zone.html')" style="padding-left: 19px;">Zone</li>
-                      <li onclick="set_frame_content('Base-Data-Time-Date.html')" style="padding-left: 19px;">Date</li>
-                      <li onclick="set_frame_content('Base-Data-Time-Duration.html')" style="padding-left: 19px;">Duration</li>
-                      <li onclick="set_frame_content('Base-Data-Time-Time.html')" style="padding-left: 19px;">Time</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="section">
-            <input type="checkbox" id="-Geo" />
-            <label for="-Geo" onclick="">Geo</label>
-            <ul>
-              <li onclick="set_frame_content('Geo-Main.html')" style="padding-left: 19px;">Main</li>
-            </ul>
-          </li>
-          <li class="section">
-            <input type="checkbox" id="-Table" />
-            <label for="-Table" onclick="">Table</label>
-            <ul>
-              <li onclick="set_frame_content('Table-Main.html')" style="padding-left: 19px;">Main</li>
-              <li class="section">
-                <input type="checkbox" id="Table-Io" />
-                <label for="Table-Io" onclick="">Io</label>
-                <ul>
-                  <li onclick="set_frame_content('Table-Io-Csv.html')" style="padding-left: 19px;">Csv</li>
                 </ul>
               </li>
               <li class="section">
-                <input type="checkbox" id="Table-Data" />
-                <label for="Table-Data" onclick="">Data</label>
+                <input type="checkbox" id="Standard-Test" />
+                <label for="Standard-Test" onclick="set_frame_content('Standard-Test.html')">Test</label>
                 <ul>
-                  <li onclick="set_frame_content('Table-Data-Storage.html')" style="padding-left: 19px;">Storage</li>
-                  <li onclick="set_frame_content('Table-Data-Column.html')" style="padding-left: 19px;">Column</li>
-                  <li onclick="set_frame_content('Table-Data-Table.html')" style="padding-left: 19px;">Table</li>
-                  <li onclick="set_frame_content('Table-Data-Order_Rule.html')" style="padding-left: 19px;">Order_Rule</li>
+                  <li onclick="set_frame_content('Standard-Test-Bench.html')">Bench</li>
                 </ul>
               </li>
-            </ul>
-          </li>
-          <li class="section">
-            <input type="checkbox" id="-Test" />
-            <label for="-Test" onclick="">Test</label>
-            <ul>
-              <li onclick="set_frame_content('Test-Test.html')" style="padding-left: 19px;">Test</li>
-              <li onclick="set_frame_content('Test-Main.html')" style="padding-left: 19px;">Main</li>
-              <li onclick="set_frame_content('Test-Bench.html')" style="padding-left: 19px;">Bench</li>
+              <li class="section">
+                <input type="checkbox" id="Standard-Database" />
+                <label for="Standard-Database" onclick="set_frame_content('Standard-Database.html')">Database</label>
+                <ul>
+                  <li class="section">
+                    <input type="checkbox" id="Standard-Database-Connection" />
+                    <label for="Standard-Database-Connection" onclick="">Connection</label>
+                    <ul>
+                      <li onclick="set_frame_content('Standard-Database-Connection-Connection.html')">Connection</li>
+                      <li onclick="set_frame_content('Standard-Database-Connection-Database.html')">Database</li>
+                    </ul>
+                  </li>
+                  <li class="section">
+                    <input type="checkbox" id="Standard-Database-Data" />
+                    <label for="Standard-Database-Data" onclick="">Data</label>
+                    <ul>
+                      <li onclick="set_frame_content('Standard-Database-Data-Sql.html')">Sql</li>
+                      <li onclick="set_frame_content('Standard-Database-Data-Column.html')">Column</li>
+                      <li onclick="set_frame_content('Standard-Database-Data-Table.html')">Table</li>
+                      <li onclick="set_frame_content('Standard-Database-Data-Dialect.html')">Dialect</li>
+                      <li class="section">
+                        <input type="checkbox" id="Standard-Database-Data-Internal" />
+                        <label for="Standard-Database-Data-Internal" onclick="">Internal</label>
+                        <ul>
+                          <li onclick="set_frame_content('Standard-Database-Data-Internal-Helpers.html')">Helpers</li>
+                          <li onclick="set_frame_content('Standard-Database-Data-Internal-IR.html')">IR</li>
+                          <li onclick="set_frame_content('Standard-Database-Data-Internal-Base_Generator.html')">Base_Generator</li>
+                          <li onclick="set_frame_content('Standard-Database-Data-Internal-Vector_Builder.html')">Vector_Builder</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li onclick="set_frame_content('Standard-Main.html')">Main</li>
+              <li class="section">
+                <input type="checkbox" id="Standard-Visualization" />
+                <label for="Standard-Visualization" onclick="">Visualization</label>
+                <ul>
+                  <li onclick="set_frame_content('Standard-Visualization-Scatter_Plot.html')">Scatter_Plot</li>
+                  <li onclick="set_frame_content('Standard-Visualization-Helpers.html')">Helpers</li>
+                  <li onclick="set_frame_content('Standard-Visualization-Geo_Map.html')">Geo_Map</li>
+                  <li onclick="set_frame_content('Standard-Visualization-Histogram.html')">Histogram</li>
+                  <li class="section">
+                    <input type="checkbox" id="Standard-Visualization-Sql" />
+                    <label for="Standard-Visualization-Sql" onclick="">Sql</label>
+                    <ul>
+                      <li onclick="set_frame_content('Standard-Visualization-Sql-Visualization.html')">Visualization</li>
+                    </ul>
+                  </li>
+                  <li class="section">
+                    <input type="checkbox" id="Standard-Visualization-Table" />
+                    <label for="Standard-Visualization-Table" onclick="">Table</label>
+                    <ul>
+                      <li onclick="set_frame_content('Standard-Visualization-Table-Visualization.html')">Visualization</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </li>
         </ul>

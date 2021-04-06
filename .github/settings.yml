@@ -133,6 +133,8 @@ teams:
     permission: push
   - name: moderators
     permission: maintain
+  - name: ci-user
+    permission: maintain
 
 # Branch protection
 branches:

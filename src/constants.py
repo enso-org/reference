@@ -15,7 +15,7 @@ BRANCH: str = "main"
 DIRECTORY: str = "distribution/std-lib"
 
 #: The commit from which scala parser will be obtained.
-PARSER_COMMIT: str = "45ec56e5b9ef21d6f962ae4001e9c8dd00b9818b"
+PARSER_COMMIT: str = "be923396ab231a5293a5c06f93ab5cd71173fa5a"
 #: The URL used to download scala parser package.
 PARSER_URL: str = "https://packages.luna-lang.org/parser-js/nightly/"
 #: The method in scala parser used to generate documentation from AST.

@@ -72,6 +72,14 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
                           document.getElementById("frame").src = file
                       }"""
             )
+            template.script(
+                _t="""function set_selected(element) {
+                        var selected = document.getElementsByClassName("selected");
+                        while (selected.length)
+                            lights[0].classList.remove("selected");
+                        element.classList.add("selected");
+                     }"""
+            )
         with template.body(style="background-color: #333"):
             template.h2(
                 style="""text-align: center;

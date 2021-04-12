@@ -14,14 +14,14 @@ def main(arguments: argparse.Namespace) -> None:
     Program entry point.
     """
     logging.basicConfig(level=arguments.log_level)
-    download_stdlib(
-        arguments.token, arguments.org, arguments.repo, arguments.br, arguments.dir
-    )
-    download_parser(arguments.parser_url, arguments.commit, arguments.parser)
-    download_stylesheet(arguments.ide_br, arguments.style)
+    # download_stdlib(
+    #     arguments.token, arguments.org, arguments.repo, arguments.br, arguments.dir
+    # )
+    # download_parser(arguments.parser_url, arguments.commit, arguments.parser)
+    # download_stylesheet(arguments.ide_br, arguments.style)
     parser = init_parser(arguments.parser)
     init_gen_dir(arguments.out, arguments.style)
-    gen_files = gen_all_files(parser, arguments.std, arguments.out, arguments.style)
+    gen_files = gen_all_files(parser, arguments.std, arguments.out)
     create_index_page(arguments.out, arguments.index, gen_files)
     logging.info("All done.")
 

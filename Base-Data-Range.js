@@ -1,0 +1,645 @@
+import { StaticNavigation } from "components/navigation";
+import {
+  Container,
+  ContainerOrScreenIfSmall,
+  RootContainer,
+} from "components/container";
+import { Header } from "components/header";
+import { Chapter } from "components/chapter";
+import { SectionCommunity } from "components/section-community";
+import { SectionFooter } from "components/section-footer";
+import { StickyButtons } from "components/sticky-buttons";
+
+import AtomsIcon from "../../../public/img/icon/atoms.svg";
+import MethodsIcon from "../../../public/img/icon/methods.svg";
+import SubmodulesIcon from "../../../public/img/icon/submodules.svg";
+
+function Docs() {
+  return (
+    <div>
+      {/*<div className="breadcrumb-panel">*/}
+      {/*  <Container>/!*BREADCRUMBS2*!/</Container>*/}
+      {/*</div>*/}
+      <Container>
+        <div className="root">
+          <div className="toc"><div>
+    <style jsx>{`
+        .section ul {
+          cursor: pointer;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          word-wrap: initial;
+        }
+ 
+        .section span {
+          cursor: pointer;
+        }
+ 
+        ul li {
+          padding: 5px 10px;
+        }
+ 
+        .section ul {
+          display: none;
+        }
+        .section input:checked ~ ul {
+          display: block;
+        }
+        .section input[type='checkbox'] {
+          display: none;
+        }
+        .section {
+          position: relative;
+          padding-left: 20px !important;
+          list-style-type: none;
+        }
+ 
+        .section label:after {
+          content: '▶';
+          position: absolute;
+          top: 7px;
+          left: 0;
+          padding: 0;
+          text-align: center;
+          font-size: 14px;
+          color: rgba(75, 88, 100, var(--tw-text-opacity));
+          transition: all 0.3s;
+        }
+ 
+        .section input:checked ~ label:after {
+          transform: rotate(90deg);
+        }
+      `}</style>
+      <ul>
+  <li className="section">
+    <input type="checkbox" id="Test" />
+    <label for="Test">
+      <a href="Test">Test</a>
+    </label>
+    <ul>
+      <li>
+        <a href="Test-Bench">Bench</a>
+      </li>
+    </ul>
+  </li>
+  <li className="section">
+    <input type="checkbox" id="Database" />
+    <label for="Database">
+      <a href="Database">Database</a>
+    </label>
+    <ul>
+      <li className="section">
+        <input type="checkbox" id="Database-Data" />
+        <label for="Database-Data">
+          <a href="">Data</a>
+        </label>
+        <ul>
+          <li>
+            <a href="Database-Data-Dialect">Dialect</a>
+          </li>
+          <li>
+            <a href="Database-Data-Column">Column</a>
+          </li>
+          <li>
+            <a href="Database-Data-Sql">Sql</a>
+          </li>
+          <li>
+            <a href="Database-Data-Table">Table</a>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Database-Data-Internal" />
+            <label for="Database-Data-Internal">
+              <a href="">Internal</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Database-Data-Internal-Base_Generator">Base_Generator</a>
+              </li>
+              <li>
+                <a href="Database-Data-Internal-IR">IR</a>
+              </li>
+              <li>
+                <a href="Database-Data-Internal-Helpers">Helpers</a>
+              </li>
+              <li>
+                <a href="Database-Data-Internal-Vector_Builder">Vector_Builder</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li className="section">
+        <input type="checkbox" id="Database-Connection" />
+        <label for="Database-Connection">
+          <a href="">Connection</a>
+        </label>
+        <ul>
+          <li>
+            <a href="Database-Connection-Database">Database</a>
+          </li>
+          <li>
+            <a href="Database-Connection-Connection">Connection</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li className="section">
+    <input type="checkbox" id="Geo" />
+    <label for="Geo">
+      <a href="Geo">Geo</a>
+    </label>
+    <ul>
+      <li>
+        <a href="Geo-Geo_Json">Geo_Json</a>
+      </li>
+    </ul>
+  </li>
+  <li className="section">
+    <input type="checkbox" id="Table" />
+    <label for="Table">
+      <a href="Table">Table</a>
+    </label>
+    <ul>
+      <li className="section">
+        <input type="checkbox" id="Table-Data" />
+        <label for="Table-Data">
+          <a href="">Data</a>
+        </label>
+        <ul>
+          <li>
+            <a href="Table-Data-Column">Column</a>
+          </li>
+          <li>
+            <a href="Table-Data-Order_Rule">Order_Rule</a>
+          </li>
+          <li>
+            <a href="Table-Data-Table">Table</a>
+          </li>
+          <li>
+            <a href="Table-Data-Storage">Storage</a>
+          </li>
+        </ul>
+      </li>
+      <li className="section">
+        <input type="checkbox" id="Table-Io" />
+        <label for="Table-Io">
+          <a href="">Io</a>
+        </label>
+        <ul>
+          <li>
+            <a href="Table-Io-Csv">Csv</a>
+          </li>
+        </ul>
+      </li>
+      <li className="section">
+        <input type="checkbox" id="Table-Internal" />
+        <label for="Table-Internal">
+          <a href="">Internal</a>
+        </label>
+        <ul>
+          <li>
+            <a href="Table-Internal-Java_Exports">Java_Exports</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li className="section">
+    <input type="checkbox" id="Image" />
+    <label for="Image">
+      <a href="Image">Image</a>
+    </label>
+    <ul>
+      <li className="section">
+        <input type="checkbox" id="Image-Codecs" />
+        <label for="Image-Codecs">
+          <a href="Image-Codecs">Codecs</a>
+        </label>
+        <ul>
+          <li>
+            <a href="Image-Codecs-Internal">Internal</a>
+          </li>
+        </ul>
+      </li>
+      <li className="section">
+        <input type="checkbox" id="Image-Data" />
+        <label for="Image-Data">
+          <a href="">Data</a>
+        </label>
+        <ul>
+          <li className="section">
+            <input type="checkbox" id="Image-Data-Matrix" />
+            <label for="Image-Data-Matrix">
+              <a href="Image-Data-Matrix">Matrix</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Image-Data-Matrix-Internal">Internal</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="Image-Data-Histogram">Histogram</a>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Image-Data-Image" />
+            <label for="Image-Data-Image">
+              <a href="Image-Data-Image">Image</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Image-Data-Image-Internal">Internal</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li className="section">
+    <input type="checkbox" id="Base" checked="True" />
+    <label for="Base">
+      <a href="Base">Base</a>
+    </label>
+    <ul>
+      <li>
+        <a href="Base-Math">Math</a>
+      </li>
+      <li className="section">
+        <input type="checkbox" id="Base-Meta" />
+        <label for="Base-Meta">
+          <a href="Base-Meta">Meta</a>
+        </label>
+        <ul>
+          <li>
+            <a href="Base-Meta-Enso_Project">Enso_Project</a>
+          </li>
+        </ul>
+      </li>
+      <li className="section">
+        <input type="checkbox" id="Base-Data" checked="True" />
+        <label for="Base-Data">
+          <a href="">Data</a>
+        </label>
+        <ul>
+          <li className="section">
+            <input type="checkbox" id="Base-Data-Noise" />
+            <label for="Base-Data-Noise">
+              <a href="Base-Data-Noise">Noise</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-Data-Noise-Generator">Generator</a>
+              </li>
+            </ul>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Base-Data-Interval" />
+            <label for="Base-Data-Interval">
+              <a href="Base-Data-Interval">Interval</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-Data-Interval-Bound">Bound</a>
+              </li>
+            </ul>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Base-Data-Json" />
+            <label for="Base-Data-Json">
+              <a href="Base-Data-Json">Json</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-Data-Json-Internal">Internal</a>
+              </li>
+            </ul>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Base-Data-Map" />
+            <label for="Base-Data-Map">
+              <a href="Base-Data-Map">Map</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-Data-Map-Internal">Internal</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="Base-Data-Locale">Locale</a>
+          </li>
+          <li>
+            <a href="Base-Data-Pair">Pair</a>
+          </li>
+          <li>
+            <a href="Base-Data-Vector">Vector</a>
+          </li>
+          <li>
+            <a href="Base-Data-Maybe">Maybe</a>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Base-Data-Ordering" />
+            <label for="Base-Data-Ordering">
+              <a href="Base-Data-Ordering">Ordering</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-Data-Ordering-Sort_Order">Sort_Order</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="Base-Data-List">List</a>
+          </li>
+          <li>
+            <a href="Base-Data-Range" className="font-bold">Range</a>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Base-Data-Array" />
+            <label for="Base-Data-Array">
+              <a href="">Array</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-Data-Array-Extensions">Extensions</a>
+              </li>
+            </ul>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Base-Data-Number" />
+            <label for="Base-Data-Number">
+              <a href="">Number</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-Data-Number-Extensions">Extensions</a>
+              </li>
+            </ul>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Base-Data-Time" />
+            <label for="Base-Data-Time">
+              <a href="">Time</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-Data-Time-Time_Of_Day">Time_Of_Day</a>
+              </li>
+              <li>
+                <a href="Base-Data-Time-Time">Time</a>
+              </li>
+              <li>
+                <a href="Base-Data-Time-Date">Date</a>
+              </li>
+              <li>
+                <a href="Base-Data-Time-Duration">Duration</a>
+              </li>
+              <li>
+                <a href="Base-Data-Time-Zone">Zone</a>
+              </li>
+            </ul>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Base-Data-Any" />
+            <label for="Base-Data-Any">
+              <a href="">Any</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-Data-Any-Extensions">Extensions</a>
+              </li>
+            </ul>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Base-Data-Text" />
+            <label for="Base-Data-Text">
+              <a href="">Text</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-Data-Text-Extensions">Extensions</a>
+              </li>
+              <li>
+                <a href="Base-Data-Text-Split_Kind">Split_Kind</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li className="section">
+        <input type="checkbox" id="Base-System" />
+        <label for="Base-System">
+          <a href="">System</a>
+        </label>
+        <ul>
+          <li className="section">
+            <input type="checkbox" id="Base-System-Process" />
+            <label for="Base-System-Process">
+              <a href="Base-System-Process">Process</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-System-Process-Exit_Code">Exit_Code</a>
+              </li>
+            </ul>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Base-System-File" />
+            <label for="Base-System-File">
+              <a href="Base-System-File">File</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-System-File-Option">Option</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="Base-System-Platform">Platform</a>
+          </li>
+          <li>
+            <a href="Base-System-Environment">Environment</a>
+          </li>
+        </ul>
+      </li>
+      <li className="section">
+        <input type="checkbox" id="Base-Polyglot" />
+        <label for="Base-Polyglot">
+          <a href="">Polyglot</a>
+        </label>
+        <ul>
+          <li>
+            <a href="Base-Polyglot-Java">Java</a>
+          </li>
+        </ul>
+      </li>
+      <li className="section">
+        <input type="checkbox" id="Base-Error" />
+        <label for="Base-Error">
+          <a href="">Error</a>
+        </label>
+        <ul>
+          <li>
+            <a href="Base-Error-Extensions">Extensions</a>
+          </li>
+          <li>
+            <a href="Base-Error-Common">Common</a>
+          </li>
+        </ul>
+      </li>
+      <li className="section">
+        <input type="checkbox" id="Base-Network" />
+        <label for="Base-Network">
+          <a href="">Network</a>
+        </label>
+        <ul>
+          <li className="section">
+            <input type="checkbox" id="Base-Network-Uri" />
+            <label for="Base-Network-Uri">
+              <a href="Base-Network-Uri">Uri</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-Network-Uri-Internal">Internal</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="Base-Network-Proxy">Proxy</a>
+          </li>
+          <li className="section">
+            <input type="checkbox" id="Base-Network-Http" />
+            <label for="Base-Network-Http">
+              <a href="Base-Network-Http">Http</a>
+            </label>
+            <ul>
+              <li>
+                <a href="Base-Network-Http-Form">Form</a>
+              </li>
+              <li>
+                <a href="Base-Network-Http-Method">Method</a>
+              </li>
+              <li>
+                <a href="Base-Network-Http-Version">Version</a>
+              </li>
+              <li>
+                <a href="Base-Network-Http-Status_Code">Status_Code</a>
+              </li>
+              <li className="section">
+                <input type="checkbox" id="Base-Network-Http-Request" />
+                <label for="Base-Network-Http-Request">
+                  <a href="Base-Network-Http-Request">Request</a>
+                </label>
+                <ul>
+                  <li>
+                    <a href="Base-Network-Http-Request-Body">Body</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="Base-Network-Http-Header">Header</a>
+              </li>
+              <li className="section">
+                <input type="checkbox" id="Base-Network-Http-Response" />
+                <label for="Base-Network-Http-Response">
+                  <a href="Base-Network-Http-Response">Response</a>
+                </label>
+                <ul>
+                  <li>
+                    <a href="Base-Network-Http-Response-Body">Body</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="Base-Network-Internal">Internal</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li className="section">
+    <input type="checkbox" id="Visualization" />
+    <label for="Visualization">
+      <a href="">Visualization</a>
+    </label>
+    <ul>
+      <li>
+        <a href="Visualization-Geo_Map">Geo_Map</a>
+      </li>
+      <li>
+        <a href="Visualization-Histogram">Histogram</a>
+      </li>
+      <li>
+        <a href="Visualization-Helpers">Helpers</a>
+      </li>
+      <li>
+        <a href="Visualization-Scatter_Plot">Scatter_Plot</a>
+      </li>
+      <li className="section">
+        <input type="checkbox" id="Visualization-Sql" />
+        <label for="Visualization-Sql">
+          <a href="">Sql</a>
+        </label>
+        <ul>
+          <li>
+            <a href="Visualization-Sql-Visualization">Visualization</a>
+          </li>
+        </ul>
+      </li>
+      <li className="section">
+        <input type="checkbox" id="Visualization-Table" />
+        <label for="Visualization-Table">
+          <a href="">Table</a>
+        </label>
+        <ul>
+          <li>
+            <a href="Visualization-Table-Visualization">Visualization</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul></div></div>
+          <div><div class="mb-20"><div class="main ml-20"><div><h1><p><span class="name">Range</span> <span class="parameter"></span></p></h1></div><div><div class="summary"><p>Represents a right-exclusive range of integer values.</p></div></div><div><div class="atoms"><h2><div class="flex"><AtomsIcon className="-ml-16 -mb-3 mr-4 self-center h-12 p-2 text-content-title-on-dark bg-accent-important fill-current rounded-xl" /><p>Atoms</p></div></h2><div><div><div><div class="atom flex"><p><span class="name">Range</span> <span class="parameter">start end </span></p><div class="tags"><p class="tag"><span class="unstable">UNSTABLE</span></p></div></div></div><div><div class=""><p>A representation of a right-exclusive range of integer values. </p></div><div><p>Arguments: <ul><li> start: The left boundary of the range. Its value is included.</li><li> end: The right boundary of the range. Its value is excluded.</li></ul></p></div></div></div></div></div><div class="methods"><h2><div class="flex"><MethodsIcon className="-ml-16 -mb-3 mr-4 self-center h-12 p-2 text-content-title-on-dark bg-accent-important fill-current rounded-xl" /><p>Methods</p></div></h2><div><div><div><div class="method flex"><p><span class="name">length</span> <span class="argument"></span></p></div></div><div><div class=""><p>Get the number of elements in the range. </p></div><div><div class="example"><div class="summary">Example</div> The following range has 100 elements. <div><div class="doc-code-container" id="ltzW6ZUu"><pre><code>0.up_to 100</code><br /></pre></div><button id="BYpMXxDb" class="doc-copy-btn flex">Copy</button></div></div></div></div></div></div><div><div class="method flex"><p><span class="name">length</span> <span class="argument"></span></p></div></div><div><div><div><div class="method flex"><p><span class="name">is_empty</span> <span class="argument"></span></p></div></div><div><div class=""><p>Checks if this range is empty. </p></div><div><div class="example"><div class="summary">Example</div> <div><div class="doc-code-container" id="QHlkKrt0"><pre><code>0.up_to 0 . is_empty == True</code><br /><code>0.up_to 100 . is_empty == False</code><br /></pre></div><button id="R9jjsy9o" class="doc-copy-btn flex">Copy</button></div></div></div></div></div></div><div><div class="method flex"><p><span class="name">is_empty</span> <span class="argument"></span></p></div></div><div><div><div><div class="method flex"><p><span class="name">not_empty</span> <span class="argument"></span></p></div></div><div><div class=""><p>Checks if this range is not empty. </p></div><div><div class="example"><div class="summary">Example</div> <div><div class="doc-code-container" id="iL2nYINL"><pre><code>0.up_to 0 . not_empty == False</code><br /><code>0.up_to 100 . not_empty == True</code><br /></pre></div><button id="YsIA6B18" class="doc-copy-btn flex">Copy</button></div></div></div></div></div></div><div><div class="method flex"><p><span class="name">not_empty</span> <span class="argument"></span></p></div></div><div><div><div><div class="method flex"><p><span class="name">each</span> <span class="argument"></span></p></div></div><div><div class=""><p>Applies a function for each element in the range. </p></div><div><p>Arguments: <ul><li> function: The function to apply to each integer in the range.</li></ul> </p><div class="example"><div class="summary">Example</div> To print all the numbers from 1 to 100 use: 1.up<div class="Unclosed"><i>to 101 . each IO.println</i></div></div></div></div></div></div><div><div class="method flex"><p><span class="name">each</span> <span class="argument">function</span></p></div></div><div><div><div><div class="method flex"><p><span class="name">fold</span> <span class="argument"></span></p></div></div><div><div class=""><p>Combines all the elements of the range, by iteratively applying the <div><div class="doc-code-container" id="3P5Qatx4"><pre><code>passed function with next elements of the range.</code><br /></pre></div><button id="56oQVds6" class="doc-copy-btn flex">Copy</button></div> </p></div><div><p>Arguments:      - init: The initial integral value for the fold.      - function: A binary function taking an item and a number, and returning <div><div class="doc-code-container" id="9uwucSJz"><pre><code>an item.</code><br /></pre></div><button id="xgqCwvOm" class="doc-copy-btn flex">Copy</button></div> </p><p>In general, the result of <div><div class="doc-code-container" id="65xHJ6AM"><pre><code>Range start end . fold init f</code><br /></pre></div><button id="zuGxX896" class="doc-copy-btn flex">Copy</button></div> is the same as <div><div class="doc-code-container" id="6w0ArG9x"><pre><code>f (...(f (f init start) start+1)...) end-1</code><br /></pre></div><button id="jtHt70yq" class="doc-copy-btn flex">Copy</button></div> </p><div class="example"><div class="summary">Example</div> In the following example, we'll compute the sum of all elements of a range: <div><div class="doc-code-container" id="u9UNMKl9"><pre><code>Range 0 100 . fold 0 (+)</code><br /></pre></div><button id="l3ZXfClL" class="doc-copy-btn flex">Copy</button></div></div></div></div></div></div><div><div class="method flex"><p><span class="name">fold</span> <span class="argument">init function</span></p></div></div><div><div><div><div class="method flex"><p><span class="name">all</span> <span class="argument"></span></p></div></div><div><div class=""><p>Checks whether <code>predicate</code> is satisfied for all numbers in this range. </p></div><div><p>Arguments: <ul><li> predicate: A function that takes a list element and returns a boolean
+       value that says whether that value satisfies the conditions of the
+       function.</li></ul> </p><div class="example"><div class="summary">Example</div> Checking that all numbers in the range are greater than 5. <div><div class="doc-code-container" id="gTQirKm1"><pre><code>10.up_to 100 . all (&gt; 5)</code><br /></pre></div><button id="9yB9Xq2O" class="doc-copy-btn flex">Copy</button></div></div></div></div></div></div><div><div class="method flex"><p><span class="name">all</span> <span class="argument">predicate</span></p></div></div><div><div><div><div class="method flex"><p><span class="name">exists</span> <span class="argument"></span></p></div></div><div><div class=""><p>Checks whether <code>predicate</code> is satisfied for any number in this range. </p></div><div><p>Arguments: <ul><li> predicate: A function that takes a list element and returns a boolean
+       value that says whether that value satisfies the conditions of the
+       function.</li></ul> </p><div class="example"><div class="summary">Example</div> Checking that at least one number in the range is greater than 10. <div><div class="doc-code-container" id="J8CIQsl5"><pre><code>1.up_to 100 . exists (&gt; 10)</code><br /></pre></div><button id="H1SBnqWo" class="doc-copy-btn flex">Copy</button></div></div></div></div></div></div><div><div class="method flex"><p><span class="name">exists</span> <span class="argument">predicate</span></p></div></div><div><div><div><div class="method flex"><p><span class="name">any</span> <span class="argument"></span></p></div></div><div><div class=""><p>Checks whether <code>predicate</code> is satisfied for any number in this range. </p></div><div><p>Arguments: <ul><li> predicate: A function that takes a list element and returns a boolean
+       value that says whether that value satisfies the conditions of the
+       function.</li></ul> </p><div class="example"><div class="summary">Example</div> Checking that at least one number in the range is greater than 10. <div><div class="doc-code-container" id="1Uwpgvdv"><pre><code>1.up_to 100 . any (&gt; 10)</code><br /></pre></div><button id="3ee6t6zv" class="doc-copy-btn flex">Copy</button></div></div></div></div></div></div><div><div class="method flex"><p><span class="name">any</span> <span class="argument">predicate</span></p></div></div><div><div><div><div class="method flex"><p><span class="name">to_vector</span> <span class="argument"></span></p></div></div><div><div class=""><p>Converts the range to a vector containing the numbers in the range. </p></div><div><div class="example"><div class="summary">Example</div> Getting a vector of the numbers 1 to 5. <div><div class="doc-code-container" id="hiQte1oq"><pre><code>1.up_to 6 . to_vector == [1, 2, 3, 4, 5]</code><br /></pre></div><button id="eEHcmbGt" class="doc-copy-btn flex">Copy</button></div></div></div></div></div></div><div><div class="method flex"><p><span class="name">to_vector</span> <span class="argument"></span></p></div></div></div></div></div></div><div></div></div>
+        </div>
+      </Container>
+    </div>
+  );
+}
+
+export default function Main(props) {
+  return (
+    <RootContainer className="theme-light">
+      <Header />
+
+      <Chapter id="home" noSpacing="true">
+        <div className="bg-lang-bg">
+          <StaticNavigation dark="true" />
+        </div>
+      </Chapter>
+      <div className="doc">
+        <Docs />
+      </div>
+      <Chapter id="community">
+        <SectionCommunity />
+      </Chapter>
+
+      <StickyButtons />
+
+      <Chapter id="footer">
+        <SectionFooter />
+      </Chapter>
+    </RootContainer>
+  );
+}

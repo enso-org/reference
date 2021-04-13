@@ -52,14 +52,14 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: gen
-      - name: Copy to website
-        uses: andstor/copycat-action@v3
-        with:
-          personal_token: ${{ secrets.CI_PAT }}
-          src_path: /.
-          src_branch: gh-pages
-          dst_path: /docs/reference/.
-          dst_branch: gh-pages
-          dst_owner: enso-org
-          dst_repo_name: website
-          clean: true
+#      - name: Copy to website
+#        uses: andstor/copycat-action@v3
+#        with:
+#          personal_token: ${{ secrets.CI_PAT }}
+#          src_path: /.
+#          src_branch: gh-pages
+#          dst_path: /docs/reference/.
+#          dst_branch: gh-pages
+#          dst_owner: enso-org
+#          dst_repo_name: website
+#          clean: true

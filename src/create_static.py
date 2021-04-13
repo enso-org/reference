@@ -55,7 +55,7 @@ def add_breadcrumbs_to_pages(out_dir: str, temp_dir: str, gen_files: List[str]) 
         .section label:after {
           content: '▶';
           position: absolute;
-          top: 7;
+          top: 7px;
           left: 0;
           padding: 0;
           text-align: center;
@@ -81,7 +81,7 @@ def add_breadcrumbs_to_pages(out_dir: str, temp_dir: str, gen_files: List[str]) 
 
     std_main_file = open(temp_dir + "/" + "Main.js", "r")
     index_file = open(out_dir + "/" + "index.js", "w")
-    index_file.write(std_main_file.read())
+    index_file.write(std_main_file.read().replace("{/*BREADCRUMBS*/}", breadcrumbs))
     std_main_file.close()
     index_file.close()
 
@@ -98,14 +98,15 @@ def create_html_tree(
                 file_name = curr_beg + "-" + key if len(curr_beg) > 0 else key
                 action = ""
                 if file_name in all_existing_files:
-                    action = "document.location = '" + file_name + ".html'"
-                elif file_name + "Main" in all_existing_files:
-                    action = "document.location = '" + file_name + "Main.html'"
+                    action = file_name
+                elif file_name + "-Main" in all_existing_files:
+                    action = file_name + "-Main"
                 if len(value) > 0:
                     klass = "section"
                     with template.li(klass=klass):
                         template.input(type="checkbox", id=file_name)
-                        template.label(for_=file_name, _t=key, onclick=action)
+                        with template.label(for_=file_name):
+                            template.a(href=action, _t=key)
                         beg = curr_beg
                         if len(curr_beg) == 0:
                             beg = key
@@ -113,7 +114,8 @@ def create_html_tree(
                             beg = beg + "-" + key
                         create_html_tree(template, beg, value, all_existing_files)
                 else:
-                    template.li(onclick=action, _t=key)
+                    with template.li():
+                        template.a(href=action, _t=key)
 
 
 def group_by_prefix(strings: List[str]) -> dict:

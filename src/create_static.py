@@ -50,18 +50,17 @@ def add_breadcrumbs_to_pages(out_dir: str, temp_dir: str, gen_files: List[str]) 
           position: relative;
           padding-left: 20px !important;
           list-style-type: none;
-          padding-top: 0 !important;
         }
  
         .section label:after {
-          content: 'ᐅ';
+          content: '▶';
           position: absolute;
-          top: 0;
+          top: 7;
           left: 0;
           padding: 0;
           text-align: center;
-          font-size: 17px;
-          color: cornflowerblue;
+          font-size: 14px;
+          color: rgba(75, 88, 100, var(--tw-text-opacity));
           transition: all 0.3s;
         }
  
@@ -80,7 +79,7 @@ def add_breadcrumbs_to_pages(out_dir: str, temp_dir: str, gen_files: List[str]) 
         temp_file.close()
         out_file.close()
 
-    std_main_file = open(out_dir + "/" + "Main.js", "r")
+    std_main_file = open(temp_dir + "/" + "Main.js", "r")
     index_file = open(out_dir + "/" + "index.js", "w")
     index_file.write(std_main_file.read())
     std_main_file.close()

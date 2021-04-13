@@ -12,6 +12,7 @@ def add_breadcrumbs_to_pages(out_dir: str, temp_dir: str, gen_files: List[str]) 
     """
     template = Airium()
     logging.info("Generating breadcrumbs")
+    gen_files.remove("Main")
     grouped_file_names = group_by_prefix(gen_files)
     create_html_tree(template, "", grouped_file_names, gen_files)
     breadcrumbs = (

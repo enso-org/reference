@@ -17,11 +17,14 @@ import SubmodulesIcon from "../../../public/img/icon/submodules.svg";
 function Docs() {
   return (
     <div>
-      <div className="breadcrumb-panel">
-        <Container>{/*BREADCRUMBS*/}</Container>
-      </div>
+      {/*<div className="breadcrumb-panel">*/}
+      {/*  <Container>/!*BREADCRUMBS2*!/</Container>*/}
+      {/*</div>*/}
       <Container>
-        <div className="root">{/*PAGE*/}</div>
+        <div className="root">
+          <div className="toc">{/*BREADCRUMBS*/}</div>
+          {/*PAGE*/}
+        </div>
       </Container>
     </div>
   );

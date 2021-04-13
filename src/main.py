@@ -15,10 +15,11 @@ def main(arguments: argparse.Namespace) -> None:
     Program entry point.
     """
     logging.basicConfig(level=arguments.log_level)
-    download_stdlib(
-        arguments.token, arguments.org, arguments.repo, arguments.br, arguments.dir
-    )
-    download_parser(arguments.parser_url, arguments.commit, arguments.parser)
+    if not arguments.dont_download:
+        download_stdlib(
+            arguments.token, arguments.org, arguments.repo, arguments.br, arguments.dir
+        )
+        download_parser(arguments.parser_url, arguments.commit, arguments.parser)
     parser = init_parser(arguments.parser)
     safe_create_directory("temp")
     safe_create_directory(arguments.out)
@@ -67,5 +68,8 @@ if __name__ == "__main__":
         "--index", default=constants.INDEX_FILE, help="Index page name."
     )
     arg_parser.add_argument("--log_level", default=logging.INFO, help="Logging level.")
+    arg_parser.add_argument(
+        "--dont_download", default=False, help="Have local stdlib and parser."
+    )
     args = arg_parser.parse_args()
     main(args)

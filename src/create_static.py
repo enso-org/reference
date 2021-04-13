@@ -75,7 +75,15 @@ def add_breadcrumbs_to_pages(out_dir: str, temp_dir: str, gen_files: List[str]) 
     for out_name in gen_files:
         temp_file = open(temp_dir + "/" + out_name + ".js", "r")
         out_file = open(out_dir + "/" + out_name + ".js", "w")
-        out_file.write(temp_file.read().replace("{/*BREADCRUMBS*/}", breadcrumbs))
+        br = breadcrumbs
+        elems = out_name.split("-")
+        valid_ids = ['-'.join(elems[:i]) for i in range(len(elems))]
+        for elem in valid_ids:
+            beg = "<input type=\"checkbox\" id=\"" + elem + "\" "
+            br = br.replace(beg + "/>", beg + "checked=\"True\" />")
+        beg_link = "<a href=\"" + valid_ids[-1] + "\""
+        br.replace(beg_link, beg_link + " className=\"opacity-70\"")
+        out_file.write(temp_file.read().replace("{/*BREADCRUMBS*/}", br))
         temp_file.close()
         out_file.close()
 

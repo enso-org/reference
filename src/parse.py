@@ -21,6 +21,7 @@ def gen_all_files(
             filename.replace(std_dir + "/", "")
             .replace("/", "-")
             .replace("-src-", "-")
+            .replace("Standard-", "")
             .replace(constants.FILE_EXT, ".js")
         )
         logging.info("Generating: %s", out_file_name)

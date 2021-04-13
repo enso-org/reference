@@ -1,30 +1,30 @@
-import { StaticNavigation } from 'components/navigation'
-import { Container, ContainerOrScreenIfSmall, RootContainer } from 'components/container'
-import { Header } from 'components/header'
-import { Chapter } from 'components/chapter'
-import { SectionCommunity } from 'components/section-community'
-import { SectionFooter } from 'components/section-footer'
-import { StickyButtons } from 'components/sticky-buttons'
+import { StaticNavigation } from "components/navigation";
+import {
+  Container,
+  ContainerOrScreenIfSmall,
+  RootContainer,
+} from "components/container";
+import { Header } from "components/header";
+import { Chapter } from "components/chapter";
+import { SectionCommunity } from "components/section-community";
+import { SectionFooter } from "components/section-footer";
+import { StickyButtons } from "components/sticky-buttons";
 
-import AtomsIcon from '../../../public/img/icon/atoms.svg'
-import MethodsIcon from '../../../public/img/icon/methods.svg'
-import SubmodulesIcon from '../../../public/img/icon/submodules.svg'
+import AtomsIcon from "../../../public/img/icon/atoms.svg";
+import MethodsIcon from "../../../public/img/icon/methods.svg";
+import SubmodulesIcon from "../../../public/img/icon/submodules.svg";
 
 function Docs() {
   return (
     <div>
       <div className="breadcrumb-panel">
-        <Container>
-            {/*BREADCRUMBS*/}
-        </Container>
+        <Container>{/*BREADCRUMBS*/}</Container>
       </div>
       <Container>
-        <div className="root">
-            {/*PAGE*/}
-          </div>
+        <div className="root">{/*PAGE*/}</div>
       </Container>
     </div>
-  )
+  );
 }
 
 export default function Main(props) {
@@ -50,5 +50,5 @@ export default function Main(props) {
         <SectionFooter />
       </Chapter>
     </RootContainer>
-  )
+  );
 }

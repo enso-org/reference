@@ -47,7 +47,6 @@ jobs:
       - name: Run app
         run: poetry run python src/main.py ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy to GH pages
-        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -59,7 +58,7 @@ jobs:
           src_path: /.
           src_branch: gh-pages
           dst_path: /docs/reference/.
-          dst_branch: gh-pages
+          dst_branch: main
           dst_owner: enso-org
           dst_repo_name: website
           clean: true

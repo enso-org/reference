@@ -41,6 +41,7 @@ Thumbs.db
 .vscode/
 distribution/
 gen/
+temp/
 .idea
 venv
 __pycache__

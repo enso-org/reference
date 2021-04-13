@@ -15,7 +15,7 @@ BRANCH: str = "main"
 DIRECTORY: str = "distribution/std-lib"
 
 #: The commit from which scala parser will be obtained.
-PARSER_COMMIT: str = "43c6fde4ef5873c645aa1ff196d7b36864831468"
+PARSER_COMMIT: str = "9ea38e66db60953f9955ca9ee60c9c4478ff251f"
 #: The URL used to download scala parser package.
 PARSER_URL: str = "https://packages.luna-lang.org/parser-js/nightly/"
 #: The method in scala parser used to generate documentation from AST.
@@ -25,7 +25,7 @@ PARSE_PURE_METHOD: str = "$e_doc_parser_generate_html_from_doc"
 #: The URL leading to IDE repository.
 IDE_REPO_URL: str = "https://raw.githubusercontent.com/enso-org/ide/"
 #: The branch in the above repository from which stylesheet will be downloaded.
-IDE_BRANCH: str = "develop"
+IDE_BRANCH: str = "wip/mm/doc-stylesheet"
 #: The directory in the above repository from which stylesheet will be obtained.
 IDE_DIRECTORY: str = "/src/rust/ide/view/src/documentation/"
 

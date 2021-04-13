@@ -4,9 +4,10 @@ Enso standard library documentation generator.
 import argparse
 import logging
 import constants
-from downloaders import download_stdlib, download_parser, download_stylesheet
-from parse import init_parser, init_gen_dir, gen_all_files
-from create_static import create_index_page
+from downloaders import download_stdlib, download_parser
+from safe_create_directory import safe_create_directory
+from parse import init_parser, gen_all_files
+from create_static import add_breadcrumbs_to_pages
 
 
 def main(arguments: argparse.Namespace) -> None:
@@ -14,15 +15,16 @@ def main(arguments: argparse.Namespace) -> None:
     Program entry point.
     """
     logging.basicConfig(level=arguments.log_level)
-    download_stdlib(
-        arguments.token, arguments.org, arguments.repo, arguments.br, arguments.dir
-    )
-    download_parser(arguments.parser_url, arguments.commit, arguments.parser)
-    download_stylesheet(arguments.ide_br, arguments.style)
+    if not arguments.dont_download:
+        download_stdlib(
+            arguments.token, arguments.org, arguments.repo, arguments.br, arguments.dir
+        )
+        download_parser(arguments.parser_url, arguments.commit, arguments.parser)
     parser = init_parser(arguments.parser)
-    init_gen_dir(arguments.out, arguments.style)
-    gen_files = gen_all_files(parser, arguments.std, arguments.out, arguments.style)
-    create_index_page(arguments.out, arguments.index, gen_files)
+    safe_create_directory("temp")
+    safe_create_directory(arguments.out)
+    gen_files = gen_all_files(parser, arguments.std, "temp")
+    add_breadcrumbs_to_pages(arguments.out, "temp", gen_files)
     logging.info("All done.")
 
 
@@ -66,5 +68,8 @@ if __name__ == "__main__":
         "--index", default=constants.INDEX_FILE, help="Index page name."
     )
     arg_parser.add_argument("--log_level", default=logging.INFO, help="Logging level.")
+    arg_parser.add_argument(
+        "--dont_download", default=False, help="Have local stdlib and parser."
+    )
     args = arg_parser.parse_args()
     main(args)

@@ -15,9 +15,7 @@ def add_breadcrumbs_to_pages(out_dir: str, temp_dir: str, gen_files: List[str]) 
     gen_files.remove("Main")
     grouped_file_names = group_by_prefix(gen_files)
     create_html_tree(template, "", grouped_file_names, gen_files)
-    breadcrumbs = (
-        str(template).replace('class="', 'className="').replace("onclick", "onClick")
-    )
+    breadcrumbs = str(template).replace('class="', 'className="')
 
     stl = """
     <style jsx>{`
@@ -75,21 +73,25 @@ def add_breadcrumbs_to_pages(out_dir: str, temp_dir: str, gen_files: List[str]) 
     for out_name in gen_files:
         temp_file = open(temp_dir + "/" + out_name + ".js", "r")
         out_file = open(out_dir + "/" + out_name + ".js", "w")
-        br = breadcrumbs
-        elems = out_name.split("-")
-        valid_ids = ['-'.join(elems[:i]) for i in range(len(elems))]
+        temp_br = breadcrumbs
+        partials = out_name.split("-")
+        valid_ids = ["-".join(partials[:i]) for i in range(len(partials))]
         for elem in valid_ids:
-            beg = "<input type=\"checkbox\" id=\"" + elem + "\" "
-            br = br.replace(beg + "/>", beg + "checked=\"True\" />")
-        beg_link = "<a href=\"" + valid_ids[-1] + "\""
-        br.replace(beg_link, beg_link + " className=\"opacity-70\"")
-        out_file.write(temp_file.read().replace("{/*BREADCRUMBS*/}", br))
+            beg = '<input type="checkbox" id="' + elem + '" '
+            temp_br = temp_br.replace(beg + "/>", beg + 'checked="True" />')
+        beg_link = 'href="' + out_name + '"'
+        temp_br = temp_br.replace(beg_link, beg_link + ' className="font-bold"')
+        out_file.write(temp_file.read().replace("{/*BREADCRUMBS*/}", temp_br))
         temp_file.close()
         out_file.close()
 
     std_main_file = open(temp_dir + "/" + "Main.js", "r")
     index_file = open(out_dir + "/" + "index.js", "w")
-    index_file.write(std_main_file.read().replace("{/*BREADCRUMBS*/}", breadcrumbs))
+    index_file.write(
+        std_main_file.read().replace(
+            "{/*BREADCRUMBS*/}", breadcrumbs.replace('a href="', 'a href="reference/')
+        )
+    )
     std_main_file.close()
     index_file.close()
 

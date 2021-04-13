@@ -54,9 +54,10 @@ def __gen_file(
     html_file.write(
         read_template("template.js").replace(
             "{/*PAGE*/}",
-            parsed.replace("display: flex", "display: none").replace(
-                "<hr/><br/><hr/><br/>", "<hr/><br/>"
-            ),
+            parsed.replace("display: flex", "display: none")
+            .replace("<hr/><br/><hr/><br/>", "<hr/><br/>")
+            .replace("{", "&#123;")
+            .replace("}", "&#125;"),
         )
     )
     html_file.close()

@@ -85,7 +85,7 @@ def add_breadcrumbs_to_pages(out_dir: str, temp_dir: str, gen_files: List[str]) 
         temp_file.close()
         out_file.close()
 
-    std_main_file = open(temp_dir + "/" + "Main.js", "r")
+    std_main_file = open(temp_dir + "/" + "Base-Data-Maybe.js", "r")
     index_file = open(out_dir + "/" + "index.js", "w")
     index_file.write(
         std_main_file.read().replace(

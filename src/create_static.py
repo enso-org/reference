@@ -118,6 +118,24 @@ def create_index_page(out_dir: str, out_name: str, gen_files: List[str]) -> None
     html_file.close()
 
 
+def add_breadcrumbs_to_pages(out_dir: str, temp_dir: str, gen_files: List[str]) -> None:
+    """
+    Method used to create breadcrumbs and add them to generated content.
+    """
+    template = Airium()
+    logging.info("Generating breadcrumbs")
+    grouped_file_names = group_by_prefix(gen_files)
+    create_html_tree(template, "", grouped_file_names, gen_files)
+    breadcrumbs = str(template)
+
+    for out_name in gen_files:
+        temp_file = open(temp_dir + "/" + out_name + ".js", "r")
+        out_file = open(out_dir + "/" + out_name + ".js", "w")
+        out_file.write(temp_file.read().replace("{/*BREADCRUMBS*/}", breadcrumbs))
+        temp_file.close()
+        out_file.close()
+
+
 def create_html_tree(
     template: Airium, curr_beg: str, ele, all_existing_files: List[str]
 ) -> None:
@@ -130,7 +148,7 @@ def create_html_tree(
                 file_name = curr_beg + "-" + key
                 action = ""
                 if file_name in all_existing_files:
-                    action = "set_frame_content('" + file_name + ".html')"
+                    action = "document.location = '" + file_name + ".html'"
                 if len(value) > 0:
                     klass = "section"
                     with template.li(klass=klass):

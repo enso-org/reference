@@ -6,8 +6,6 @@ import logging
 from typing import List
 import execjs
 import constants
-from copy_file import copy_file
-from safe_create_directory import safe_create_directory
 
 
 def gen_all_files(
@@ -61,17 +59,6 @@ def __gen_file(
         )
     )
     html_file.close()
-
-
-def init_gen_dir(name: str, style_file: str) -> None:
-    """
-    Creates the `gen` directory with all necessary files.
-    """
-    safe_create_directory(name)
-    stylesheet_file: str = "/" + style_file
-    favicon_file: str = "favicon.ico"
-    copy_file(constants.IN_DIR + stylesheet_file, name + stylesheet_file)
-    copy_file(favicon_file, name + "/" + favicon_file)
 
 
 def init_parser(parser_file: str) -> execjs.ExternalRuntime:

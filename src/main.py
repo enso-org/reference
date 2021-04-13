@@ -5,8 +5,9 @@ import argparse
 import logging
 import constants
 from downloaders import download_stdlib, download_parser
-from parse import init_parser, init_gen_dir, gen_all_files
-from create_static import create_index_page
+from safe_create_directory import safe_create_directory
+from parse import init_parser, gen_all_files
+from create_static import add_breadcrumbs_to_pages
 
 
 def main(arguments: argparse.Namespace) -> None:
@@ -19,9 +20,10 @@ def main(arguments: argparse.Namespace) -> None:
     )
     download_parser(arguments.parser_url, arguments.commit, arguments.parser)
     parser = init_parser(arguments.parser)
-    init_gen_dir(arguments.out, arguments.style)
-    gen_files = gen_all_files(parser, arguments.std, arguments.out)
-    create_index_page(arguments.out, arguments.index, gen_files)
+    safe_create_directory("temp")
+    safe_create_directory(arguments.out)
+    gen_files = gen_all_files(parser, arguments.std, "temp")
+    add_breadcrumbs_to_pages(arguments.out, "temp", gen_files)
     logging.info("All done.")
 
 

@@ -46,7 +46,7 @@ def __gen_file(
     parsed = parser.call(constants.PARSE_AST_METHOD, enso_file.read())
     enso_file.close()
     html_file = open(out_dir + "/" + out_name, "w")
-    if len(parsed) == 0:
+    if len(parsed.replace("<div>", "").replace("</div>", "")) == 0:
         parsed = parser.call(
             constants.PARSE_PURE_METHOD,
             "\n\n*Enso Reference Viewer.*\n\nNo documentation available for chosen source file.",

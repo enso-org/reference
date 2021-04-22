@@ -47,19 +47,23 @@ def __gen_file(
     enso_file.close()
     html_file = open(out_dir + "/" + out_name, "w")
     if len(parsed.replace("<div>", "").replace("</div>", "")) == 0:
-        parsed = parser.call(
-            constants.PARSE_PURE_METHOD,
-            "\n\n*Enso Reference Viewer.*\n\nNo documentation available for chosen source file.",
-        ).replace("<html>", "").replace("</html>", "").replace("<body>", "").replace("</body>", "")
-    parsed = parsed.replace("display: flex", "display: none").replace("{", "&#123;").replace("}", "&#125;")
+        tmp = "\n\n*Enso Reference Viewer.*\n\nNo documentation available for chosen source file."
+        parsed = (
+            parser.call(constants.PARSE_PURE_METHOD, tmp)
+            .replace("<html>", "")
+            .replace("</html>", "")
+            .replace("<body>", "")
+            .replace("</body>", "")
+            .replace('style="font-size: 13px;"', "")
+        )
+    parsed = (
+        parsed.replace("display: flex", "display: none")
+        .replace("{", "&#123;")
+        .replace("}", "&#125;")
+    )
     for _ in range(30):
         parsed = parsed.replace("<div></div>", "")
-    html_file.write(
-        read_template("template.js").replace(
-            "{/*PAGE*/}",
-            parsed
-        )
-    )
+    html_file.write(read_template("template.js").replace("{/*PAGE*/}", parsed))
     html_file.close()
 
 

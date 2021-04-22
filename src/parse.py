@@ -51,14 +51,13 @@ def __gen_file(
             constants.PARSE_PURE_METHOD,
             "\n\n*Enso Reference Viewer.*\n\nNo documentation available for chosen source file.",
         )
+    parsed = parsed.replace("display: flex", "display: none").replace("{", "&#123;").replace("}", "&#125;")
+    for _ in range(30):
+        parsed = parsed.replace("<div></div>", "")
     html_file.write(
         read_template("template.js").replace(
             "{/*PAGE*/}",
-            parsed.replace("display: flex", "display: none")
-            .replace("<hr/><br/><hr/><br/>", "<hr/><br/>")
-            .replace("<div></div>", "")
-            .replace("{", "&#123;")
-            .replace("}", "&#125;"),
+            parsed
         )
     )
     html_file.close()

@@ -56,6 +56,7 @@ def __gen_file(
             "{/*PAGE*/}",
             parsed.replace("display: flex", "display: none")
             .replace("<hr/><br/><hr/><br/>", "<hr/><br/>")
+            .replace("<div></div>", "")
             .replace("{", "&#123;")
             .replace("}", "&#125;"),
         )

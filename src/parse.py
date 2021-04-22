@@ -50,7 +50,7 @@ def __gen_file(
         parsed = parser.call(
             constants.PARSE_PURE_METHOD,
             "\n\n*Enso Reference Viewer.*\n\nNo documentation available for chosen source file.",
-        )
+        ).replace("<html>", "").replace("</html>", "").replace("<body>", "").replace("</body>", "")
     parsed = parsed.replace("display: flex", "display: none").replace("{", "&#123;").replace("}", "&#125;")
     for _ in range(30):
         parsed = parsed.replace("<div></div>", "")

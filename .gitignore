@@ -87,7 +87,7 @@ bench-report.xml
 /enso.exp
 /enso.lib
 *.pdb
-*.jar
+#*.jar
 /built-distribution/
 
 

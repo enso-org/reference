@@ -7,34 +7,32 @@ import java.util.Scanner;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.charset.StandardCharsets;
 
 class Traverser {
     public static void main(String... args) throws Exception {
         Parser ps = new Parser();
         Path dir = Paths.get("std-lib");
         Path gen = Paths.get("generated");
-        Files.walk(dir).forEach(path -> showFile(path.toFile(), ps));
+        Files.walk(dir).forEach(path -> showFile(path, ps));
     }
 
-    public static void showFile(File file, Parser parser) {
-        if (file.isDirectory()) {
+    public static void showFile(Path path, Parser parser) {
+        if (path.toFile().isDirectory()) {
 //            System.out.println("Directory: " + file.getPath());
         } else {
-            if (file.getPath().endsWith(".enso")) {
-                System.out.println("File: " + file.getPath());
-                try {
-                    Scanner sc = new Scanner(file);
-                    sc.useDelimiter("\\Z");
+            System.out.println("File: " + path);
+            try {
+                String content = Files.readString(path, StandardCharsets.UTF_8);
 
-                    AST.ASTOf<Shape.Module> module = parser.run(sc.next());
-                    AST.ASTOf<Shape.Module> dropMeta = parser.dropMacroMeta(module);
-//                    AST.ASTOf<Shape> doc  = DocParserRunner.createDocs(dropMeta);
-//                    String code = DocParserHTMLGenerator.generateHTMLForEveryDocumented(doc);
-//
-//                    System.out.println(code);
-                } catch (FileNotFoundException ex) {
-                    System.out.println("Couldn't read file.");
-                }
+                AST.ASTOf<Shape.Module> module = parser.run(content);
+                AST.ASTOf<Shape.Module> dropMeta = parser.dropMacroMeta(module);
+                // Y java.lang.Error: The impossible happened.?
+//                AST.ASTOf<Shape> doc  = DocParserRunner.createDocs(dropMeta);
+//                String code = DocParserHTMLGenerator.generateHTMLForEveryDocumented(doc);
+//                System.out.println(code);
+            } catch (IOException ex) {
+                System.out.println("Couldn't read file.");
             }
         }
     }
